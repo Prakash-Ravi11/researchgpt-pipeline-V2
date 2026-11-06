@@ -45,18 +45,23 @@ def parse_object(text: str) -> dict:
 
 class OllamaClient:
     def __init__(self, model: str = "qwen2.5:7b", base_url: str = "http://localhost:11434",
-                 num_ctx: int = 8192, output_tokens: int = 768, timeout: float = 120):
+                 num_ctx: int = 8192, output_tokens: int = 768, timeout: float = 120, observer=None):
         self.model, self.base_url, self.num_ctx = model, base_url.rstrip("/"), num_ctx
         self.output_tokens, self.timeout = output_tokens, timeout
+        self.observer = observer
 
     def complete(self, system: str, user: str) -> LLMResponse:
         started = time.perf_counter()
-        r = requests.post(self.base_url + "/api/chat", json={"model": self.model, "stream": False,
+        payload = {"model": self.model, "stream": False,
             "format": extraction_schema(user), "messages": [{"role": "system", "content": system}, {"role": "user", "content": user}],
-            "options": {"temperature": 0, "seed": 42, "num_ctx": self.num_ctx, "num_predict": self.output_tokens}},
-            timeout=self.timeout)
+            "options": {"temperature": 0, "seed": 42, "num_ctx": self.num_ctx, "num_predict": self.output_tokens}}
+        if self.observer:
+            self.observer("request", payload)
+        r = requests.post(self.base_url + "/api/chat", json=payload, timeout=self.timeout)
         r.raise_for_status()
         data = r.json()
+        if self.observer:
+            self.observer("response", data)
         if not data.get("done") or data.get("done_reason") == "length":
             raise ValueError("incomplete model output")
         return LLMResponse(content=parse_object(data["message"]["content"]), provider="ollama", model=self.model,

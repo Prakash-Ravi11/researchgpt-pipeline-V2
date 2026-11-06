@@ -28,6 +28,14 @@ class EvidencePipeline:
         trace = {"retrieval": self.retrieval, "context_mode": self.context_mode, "stage_ms": {}}
         started = time.perf_counter()
         stage = "acquisition"
+        encoder_released = False
+        def release_encoder():
+            nonlocal encoder_released
+            if not encoder_released:
+                release = getattr(self.index, "release_encoder", None)
+                if release:
+                    trace["embedding_release"] = release()
+                encoder_released = True
         try:
             t = time.perf_counter()
             requested_id = paper.paper_id
@@ -60,6 +68,9 @@ class EvidencePipeline:
             context = self.context_builder(retrieved)
             trace["context"] = context.trace
             trace["stage_ms"][stage] = (time.perf_counter() - t) * 1000
+            # Indexing and all query embeddings are complete. Do not retain BGE
+            # GPU weights while Ollama separately loads its extraction model.
+            release_encoder()
             if not context.chunks:
                 return ExtractedPaper(paper_id=paper.paper_id, acquisition_status=paper.acquisition_status, status="ABSTAINED",
                     fields={f: [FieldValue(field=f, abstain_reason="no_evidence_within_context_budget")] for f in FIELDS}, trace=trace)
@@ -92,3 +103,8 @@ class EvidencePipeline:
                 status=statuses.get(stage, "EXTRACTION_FAILED"), trace=trace,
                 fields={f: [FieldValue(field=f, status="FAILED", abstain_reason="stage_failed")] for f in FIELDS},
                 errors=[{"stage": stage, "code": type(exc).__name__}])
+        finally:
+            try:
+                release_encoder()
+            except Exception as exc:
+                trace["embedding_release_error"] = type(exc).__name__

@@ -7,6 +7,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import gc
 from pathlib import Path
 
 from shared.schemas import Chunk
@@ -34,6 +35,24 @@ class BGEEncoder:
     def encode(self, texts: list[str]):
         return self.model.encode(texts, batch_size=16, normalize_embeddings=True,
                                  show_progress_bar=False, convert_to_numpy=True).tolist()
+
+    def release(self):
+        """Drop the owned model before a separate LLM process needs VRAM.
+
+        Allocator statistics are local to PyTorch, not Ollama or total GPU use.
+        Callers must measure external GPU memory separately.
+        """
+        if self._model is None:
+            return {"model_loaded": False}
+        self._model = None
+        gc.collect()
+        if self.device.startswith("cuda"):
+            import torch
+            torch.cuda.synchronize()
+            torch.cuda.empty_cache()
+            return {"model_loaded": False, "torch_allocated_bytes": torch.cuda.memory_allocated(),
+                    "torch_reserved_bytes": torch.cuda.memory_reserved()}
+        return {"model_loaded": False}
 
 
 class ChromaIndex:
@@ -78,3 +97,7 @@ class ChromaIndex:
         result = self.collection.query(query_embeddings=self.encoder.encode([query]),
             where={"paper_id": paper_id}, n_results=min(n, count), include=["metadatas"])
         return [Chunk.model_validate_json(m["chunk_json"]) for m in result["metadatas"][0]]
+
+    def release_encoder(self):
+        release = getattr(self.encoder, "release", None)
+        return release() if release else None

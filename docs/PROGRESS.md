@@ -57,3 +57,17 @@ Final documentation/artifacts: README, tested dependency snapshot, TESTING.md, c
 Final closeout checks: 57 Python files parse with AST; ASGI app imports; git diff --check passes. Both read-only source repositories remain clean on their original branches/SHAs. `scripts.smoke_live` rerun without model uses the hash-verified acquired PDF and confirms 432 stable chunks; evidence saved in docs/evidence/real_acquisition_parsing.json. Acquisition/parsing evidence is now saved before native model initialization so a process-level failure cannot erase completed-stage results. Latest previously completed local checkpoint: `c933c69c14f599112cf8b9a4d5586a0adb423d12`. Final documentation/evaluation artifact commit follows.
 
 Recommended next action: create a clean compatible PyTorch/native-library environment and rerun the existing one-paper smoke before expanding evaluation. Independently reviewed tuple annotations and teammate client adaptation follow that check.
+
+## Phase 2 recovery — 2026-11-06
+
+User authorized isolated environment recovery and one actual-paper validation, including GPU memory measurements, sequential model use and fresh Chroma. Starting branch/HEAD verified clean at `12d11040a4b30841440610f0eb388c1d3c6da5bb`. Existing .venv and source repositories remain untouched.
+
+- Task 1 diagnosis: reproduced documented smoke with only its database/project redirected to a fresh output directory; both smoke and isolated torch import exit **3** with OpenMP Error #15. NumPy alone exits 0. Raw logs/commands/DLL hashes in outputs/recovery/legacy-diagnosis-01. No Python traceback exists for the native termination; stderr and exit code captured. This is an import failure before CUDA allocation, not demonstrated OOM.
+- New `.venv-gpu` created at the exact requested path with standard CPython 3.13.6, include-system-site-packages=false. `.venv-gpu/` ignored; old .venv preserved. Official torch 2.8.0+cu126 wheel installation in progress. Target dependencies preserve the existing project versions where compatible; final validated freeze pending.
+- Initial VRAM: RTX 3050 6GB, driver 581.86, 5,424 MiB free. Separate GPU and Ollama snapshots will precede each model load; BGE references/cache must be released and measured before Qwen inference.
+
+Next action: complete isolated dependency installation, validate native/CUDA imports, then execute real BGE/index/retrieval on a unique fresh one-paper database. No baseline/scoring changes or full 60-paper run.
+
+Recovery implementation checkpoint: two lifecycle tests failed before correction (model owned at extraction and after index failure); both pass after explicit encoder release before Qwen and in failure cleanup. Added a raw-local-response observer; its regression failed before the hook and passed afterwards. Rejection policy/output budget remain unchanged. Existing interpreter `.venv/Scripts/python.exe -B -m pytest -p no:cacheprovider tests -q --junitxml=outputs/recovery/legacy-regression-after-lifecycle.xml`: **73 passed in 4.90s**. This is not recovered-environment validation; the full suite must also run in .venv-gpu. Actual VRAM release verification remains pending real model execution.
+
+The single-stream official CUDA wheel transfer stalled and was interrupted; a range downloader now obtains the same official wheel and will check its SHA-256 against the official index. Non-torch pinned project dependencies install separately in .venv-gpu. No replacement of scientific models or global packages.
