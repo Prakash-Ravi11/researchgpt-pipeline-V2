@@ -3,11 +3,34 @@ from __future__ import annotations
 
 import json
 import os
+import re
 import time
 
 import requests
 
 from shared.schemas import LLMResponse
+from pipeline.extraction.prompt import FIELDS
+
+
+def extraction_schema(user: str) -> dict:
+    """Constrain complete source IDs; never repair shorthand IDs after generation.
+
+    Ollama accepts a JSON Schema in format (official structured-outputs docs).
+    Evidence wording still needs host verification; schema compliance is not truth.
+    """
+    ids = sorted(set(re.findall(r"^\[([^\]\n]+)\]\s*$", user, re.M)))
+    if not ids:
+        raise ValueError("extraction context has no source IDs")
+    tuple_schema = {"type": "object", "properties": {
+        k: {"type": "string"} for k in ("subject", "dataset", "metric", "value")}}
+    tuple_schema["properties"]["setting"] = {"type": ["string", "null"]}
+    tuple_schema.update(required=["subject", "dataset", "metric", "value", "setting"], additionalProperties=False)
+    candidate = {"type": "object", "properties": {"value": {"type": "string"},
+        "evidence_span": {"type": "string", "description": "Verbatim source text, never an ID or citation"},
+        "chunk_id": {"type": "string", "enum": ids}, "scientific_tuple": tuple_schema},
+        "required": ["value", "evidence_span", "chunk_id"], "additionalProperties": False}
+    return {"type": "object", "properties": {f: {"type": "array", "items": candidate} for f in FIELDS},
+            "required": list(FIELDS), "additionalProperties": False}
 
 
 def parse_object(text: str) -> dict:
@@ -29,7 +52,7 @@ class OllamaClient:
     def complete(self, system: str, user: str) -> LLMResponse:
         started = time.perf_counter()
         r = requests.post(self.base_url + "/api/chat", json={"model": self.model, "stream": False,
-            "format": "json", "messages": [{"role": "system", "content": system}, {"role": "user", "content": user}],
+            "format": extraction_schema(user), "messages": [{"role": "system", "content": system}, {"role": "user", "content": user}],
             "options": {"temperature": 0, "seed": 42, "num_ctx": self.num_ctx, "num_predict": self.output_tokens}},
             timeout=self.timeout)
         r.raise_for_status()

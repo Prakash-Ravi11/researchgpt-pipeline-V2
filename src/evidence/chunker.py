@@ -5,6 +5,7 @@ boundary, so every chunk keeps exact section + page/node + char-span provenance.
 """
 from __future__ import annotations
 
+import re
 from typing import Any
 
 CHUNK_WORDS = 220
@@ -14,7 +15,10 @@ CHUNK_OVERLAP = 40
 def chunk_document(doc: dict[str, Any]) -> list[dict[str, Any]]:
     chunks: list[dict[str, Any]] = []
     for block in doc["blocks"]:
-        words = block["text"].split()
+        # Joined words do not share offsets with PDF/JATS tabs and newlines.
+        source_text = block["text"]
+        matches = list(re.finditer(r"\S+", source_text))
+        words = [m.group() for m in matches]
         if not words:
             continue
         if len(words) <= CHUNK_WORDS:
@@ -28,9 +32,9 @@ def chunk_document(doc: dict[str, Any]) -> list[dict[str, Any]]:
                     break
                 start = end - CHUNK_OVERLAP
         for i, (s, e) in enumerate(spans):
-            sub = " ".join(words[s:e])
+            sub = source_text[matches[s].start():matches[e - 1].end()]
             # char offset of this sub-chunk within the source block
-            prefix_chars = len(" ".join(words[:s])) + (1 if s else 0)
+            prefix_chars = matches[s].start()
             rec = {
                 "chunk_id": f"{block['block_id']}#{i}",
                 "paper_id": block["paper_id"],

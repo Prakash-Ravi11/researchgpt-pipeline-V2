@@ -29,10 +29,16 @@ def verify_candidate(field: str, candidate, paper: Paper, delivered: list[Chunk]
     quote = candidate.get("evidence_span")
     if not isinstance(quote, str) or not quote.strip() or quote not in hit.text:
         return reject("quote_not_in_delivered_chunk")
+    original = next((c for c in corpus if c.chunk_id == hit.chunk_id), None)
+    if original is None or quote not in original.text:
+        return reject("quote_not_in_original_source_chunk")
     # An unrelated real quote cannot support an invented paraphrase.
     if value not in quote:
         return reject("value_not_in_source_quote")
-    refs = [hit.reference()]
+    ref = original.reference()
+    offset = original.text.index(quote)
+    refs = [ref.model_copy(update={"char_start": ref.char_start + offset,
+                                  "char_end": ref.char_start + offset + len(quote)})]
     quantitative = field in ("results", "metrics", "key_findings") and bool(re.search(r"\d", value))
     if field in ("datasets", "metrics", "results") or quantitative:
         check_field = "results" if quantitative else field
@@ -47,6 +53,12 @@ def verify_candidate(field: str, candidate, paper: Paper, delivered: list[Chunk]
             return reject("incomplete_scientific_tuple")
         if not _contains_number(value, tup["value"]):
             return reject("tuple_value_not_in_claim")
+        from src.evidence.anchors import anchor_values
+        # A single tuple cannot license extra measurements in the same claim.
+        anchors = anchor_values(value)
+        labels = " ".join(tup[k] for k in ("subject", "dataset", "metric"))
+        if anchors - anchor_values(labels) - anchor_values(tup["value"]):
+            return reject("additional_measurements_require_separate_tuples")
         # Each relationship must come from ONE cell and its own caption, not a
         # model in one experiment and a number in another experiment/table.
         matches = []
@@ -56,7 +68,11 @@ def verify_candidate(field: str, candidate, paper: Paper, delivered: list[Chunk]
                         and tup["metric"].casefold() == cell.get("column_header", "").casefold()
                         and _contains_number(str(cell.get("value", "")), tup["value"]))
                 scope = cell.get("caption", "")
-                if same and tup["dataset"].casefold() in scope.casefold():
+                legacy_cell = evidence.get("structural_binding", {}).get("cell", {})
+                agrees = (legacy_cell.get("row") == cell.get("row_label")
+                          and legacy_cell.get("col") == cell.get("column_header")
+                          and legacy_cell.get("caption") == cell.get("caption"))
+                if same and agrees and tup["dataset"].casefold() in scope.casefold():
                     if tup.get("setting") and tup["setting"].casefold() not in scope.casefold():
                         continue
                     matches.append(c)

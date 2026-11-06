@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "annotation_status": "synthetic authored ground truth, not independent real-paper labels",
+  "fixture": "scientific.xml with one 300-word background paragraph prepended",
+  "paper_id": "SYN",
+  "facts": [
+    {
+      "quote": "Our method achieves a Dice score of 91.4% on the ExampleSet test set.",
+      "scientific_tuple": {"subject": "Ours", "dataset": "ExampleSet", "metric": "Dice (%)", "value": "91.4", "setting": "test set"}
+    }
+  ],
+  "configuration": {"per_query_dense": 50, "hybrid_top_k": 50, "max_words": 250, "revised_budget_utf8_bytes": 6000},
+  "rules": {
+    "evidence_delivery": "exact annotated quote is in the actual assembled context",
+    "tuple_delivery": "context contains every explicit row/column/value rendering and the annotated dataset/condition caption",
+    "tuple_match": "casefolded exact subject/dataset/metric/value/setting; absent values are not guessed",
+    "unsupported": "returned tuple not in frozen synthetic gold",
+    "no_predictions": "precision and unsupported rate are null, recall is zero when gold is nonempty",
+    "resources": "perf_counter latency and tracemalloc Python allocation peak; excludes native/GPU/server memory"
+  }
+}

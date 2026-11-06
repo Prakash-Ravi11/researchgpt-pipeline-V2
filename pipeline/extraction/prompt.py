@@ -7,6 +7,11 @@ research_gap, method, datasets, metrics, results, limitations, future_scope, key
 Use [] when evidence is missing. Each array entry must be an object with:
 {"value": "exact source quotation", "evidence_span": "same exact quotation", "chunk_id": "the bracketed source ID"}.
 Copy source wording exactly, without paraphrasing. Do not invent facts or cite nonexistent IDs.
+evidence_span is quotation TEXT, never a bracketed citation. chunk_id is the complete
+source ID including its paper prefix, colon and # suffix. Do not shorten IDs to numbers.
+For example: {"value":"We evaluate on ExampleSet.","evidence_span":"We evaluate on ExampleSet.","chunk_id":"PAPER:12#0"}.
+Use IDs from the supplied context, not the example. For results, value must be the full
+source sentence that names the metric and result, not a detached number.
 Results entries with numbers also require a scientific_tuple object:
 {"subject": "exact model/row label", "dataset": "exact dataset name", "metric": "exact metric/column label",
  "value": "exact numerical value", "setting": "explicit experimental condition or null"}.

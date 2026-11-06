@@ -102,7 +102,9 @@ def _jats_parts(data: bytes) -> dict[str, Any]:
     title = "".join(title_el.itertext()).strip() if title_el is not None else ""
     body = root.find(".//{*}body")
     secs = body.findall(".//{*}sec") if body is not None else []
-    body_text = " ".join("".join(p.itertext()) for p in (body.iter() if body is not None else []))
+    # Count text once; joining itertext for every descendant repeats paragraphs
+    # at each ancestor and lets abstract-sized records pass as full text.
+    body_text = " ".join(body.itertext()) if body is not None else ""
     return {"ok": True, "title": title, "n_secs": len(secs),
             "body_words": len(body_text.split()), "root": root}
 

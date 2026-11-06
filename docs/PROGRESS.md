@@ -15,8 +15,8 @@ Started 2026-11-06 (Asia/Calcutta). Sole implementation agent. No push or merge 
 | 1 Contracts | COMPLETE | Four executed CONTRACT tests pass |
 | 2 Evidence pipeline | COMPLETE | 48 CONTRACT/UNIT/INTEGRATION checks pass; live acquisition/model pending |
 | 3 Backend | COMPLETE | Real server health + explicit failure response, 50 regression checks pass |
-| 4 Diagnostics | PARTIAL | Trace/fix deterministic evidence loss; actual embedding blocked |
-| 5 Evaluation | BLOCKED | Depends on working configurations |
+| 4 Diagnostics | COMPLETE | Three source defects reproduced/fixed; loss instrumentation and context alternative tested; independent accuracy limited |
+| 5 Evaluation | PARTIAL | Freeze scoring/annotations then execute four fixture/replay arms |
 
 ## Activity / test record
 
@@ -42,4 +42,8 @@ Real Uvicorn startup and HTTP GET /health and /openapi.json => 200. Initial inva
 
 Phase 3 complete: real Uvicorn on 127.0.0.1:8000 started; GET /health 200; OpenAPI 200; invalid-content POST 200 with ACQUISITION_FAILED and document_not_validated; missing job 404. Final phase regression `.venv/Scripts/python.exe -B -m pytest -p no:cacheprovider tests -q`: **50 passed**. Fixture HTTP flow is real connected modules with injected model/encoder, not real model E2E. Real paper acquisition/parsing established separately; default embedding blocked as above. Modified API/service/index error paths, tests and smoke script. Previous completed commit `b89e4c4`.
 
-Next action: exact-offset/table/context diagnostics with frozen synthetic facts, isolated fixes and evaluation harness.
+Phase 4 complete within available annotations: acquisition body-length inflation, colspan metric shift and whitespace offset defects reproduced before isolated changes and passing afterwards. Added unknown-aware eight-stage tracing, whole-chunk relationship-preserving revised context, identity-preserving BM25/reranking regression and scoped verification. Actual local model fixture returned malformed provenance IDs; gate rejected all 11 candidates. Added constrained full-ID schema decoding and clearer quotation instructions; follow-up real model is bounded and separate from evaluation. No claims of independently measured real-paper accuracy improvements. Tests `.venv/Scripts/python.exe -B -m pytest -p no:cacheprovider tests -q --tb=short` => **65 passed in 3.76s** outside sandbox. One sandbox rerun could not read the elevated-installed optional package; unsandboxed suite succeeds. Modified migrated acquire/chunker/represent (only V2), context/verifier/client, diagnostic code/tests and docs. Previous completed commit `da5e973`.
+
+Phase 5 setup: authored synthetic annotations and scoring rules in tests/fixtures/annotations.json, explicit test-only dense encoder and no-model candidate replay; real BM25/Chroma. Scoring and annotations will be committed before first four-arm execution. Other unavailable configurations/resources must be marked explicitly. No 60-paper run.
+
+Next action: freeze checkpoint and run four-arm fixture evaluation; finish documentation with actual outputs and blockers.

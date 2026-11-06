@@ -32,9 +32,9 @@ class EvidencePipeline:
             t = time.perf_counter()
             requested_id = paper.paper_id
             document = document or self.source.acquire(paper)
-            paper = document.paper
-            if paper.paper_id != requested_id:
+            if document.paper.paper_id != requested_id:
                 raise ValueError("source changed paper identity")
+            paper = document.paper
             trace["stage_ms"][stage] = (time.perf_counter() - t) * 1000
             trace["acquisition"] = {"status": paper.acquisition_status, "representation": paper.representation_type,
                 "document_sha256": getattr(paper, "document_sha256", None),

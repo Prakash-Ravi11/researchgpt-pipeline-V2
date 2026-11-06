@@ -479,6 +479,14 @@ def _jats_table_cells(node, paper_id: str, source: str, section: str, cpath: str
                 seq.append(("", 0, 1))
         return seq
 
+    # Preserve raw text but abstain from structural binding for unsupported
+    # multirow headers/rowspans rather than attaching misleading row/column pairs.
+    thead = grid.find("./{*}thead")
+    if ((thead is not None and len(thead.findall("./{*}tr")) > 1)
+            or any(int(c.get("rowspan", "1") or "1") > 1 for tr in rows for c in tr)):
+        return structured_table(table_id=tid, paper_id=paper_id, source=source,
+            representation="jats_xml", section=section, caption=caption, cells=[],
+            parse_status="fallback_pdf", fallback="complex_header_or_rowspan_not_supported")
     header = [t for (t, _s, _r) in expand(rows[0])]
     span_trouble = 0
     cells: list[dict[str, Any]] = []
@@ -498,7 +506,9 @@ def _jats_table_cells(node, paper_id: str, source: str, section: str, cpath: str
                 cells.append(table_cell(value=val, column_header=head, row_label=row_label,
                                         caption=caption, section=section, row=r_i, col=col,
                                         spans={k: v for k, v in (("colspan", s), ("rowspan", r)) if v > 1}))
-            col += s
+            # expand() already inserted placeholders for colspan. Advancing by
+            # the span here and again at each placeholder shifts later metrics.
+            col += 1
     status = "parsed" if cells else "fallback_pdf"
     return structured_table(table_id=tid, paper_id=paper_id, source=source,
                             representation="jats_xml", section=section, caption=caption,

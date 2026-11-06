@@ -14,6 +14,7 @@ from pydantic import BaseModel, ConfigDict, Field
 
 from pipeline.acquisition.source import LiteratureSource, from_bytes
 from pipeline.extraction.clients import HostedClient, OllamaClient
+from pipeline.extraction.context import revised_context
 from pipeline.retrieval.index import BGEEncoder, ChromaIndex
 from pipeline.service import EvidencePipeline
 from shared.schemas import ExtractedPaper, Job, Paper
@@ -43,8 +44,6 @@ def shared_encoder():
 
 
 def default_pipeline(req: ProcessRequest):
-    if req.context_mode != "current":
-        raise ValueError("revised context unavailable")
     provider = os.getenv("RGPT_LLM_PROVIDER", "ollama")
     if provider == "ollama":
         llm = OllamaClient(model=os.getenv("RGPT_LLM_MODEL", "qwen2.5:7b"),
@@ -54,7 +53,8 @@ def default_pipeline(req: ProcessRequest):
     else:
         raise ValueError("unknown LLM provider")
     return EvidencePipeline(LiteratureSource(), ChromaIndex(req.project_id, encoder=shared_encoder()), llm,
-                            retrieval=req.retrieval, context_mode=req.context_mode)
+                            retrieval=req.retrieval, context_mode=req.context_mode,
+                            context_builder=revised_context if req.context_mode == "revised" else None)
 
 
 def create_app(pipeline_factory=default_pipeline) -> FastAPI:
