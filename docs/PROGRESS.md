@@ -12,8 +12,8 @@ Started 2026-11-06 (Asia/Calcutta). Sole implementation agent. No push or merge 
 | Phase | Status | Next acceptance check |
 |---|---|---|
 | 0 Source audit | COMPLETE | Source assessment and branch selection recorded |
-| 1 Contracts | PARTIAL | Implement and execute round-trip/identity tests |
-| 2 Evidence pipeline | BLOCKED | Depends on contracts |
+| 1 Contracts | COMPLETE | Four executed CONTRACT tests pass |
+| 2 Evidence pipeline | PARTIAL | Migrate required source modules and test adapters |
 | 3 Backend | BLOCKED | Depends on migrated modules |
 | 4 Diagnostics | BLOCKED | Depends on connected pipeline |
 | 5 Evaluation | BLOCKED | Depends on working configurations |
@@ -28,4 +28,6 @@ Phase 0 complete: inspected original/teammate implementations, source tests, rep
 
 Runtime probe: Python 3.10.18; Pydantic 2.12.5, FastAPI 0.116.1, httpx 0.28.1, Chroma 1.1.1, sentence-transformers 5.1.1, PyMuPDF 1.28.2, torch 2.5.1, pytest 8.4.2 installed. rank_bm25 absent. BGE-M3/cross-encoder caches listed (usability not yet tested). Ollama `/api/tags` HTTP 200, qwen2.5:7b present, digest `845dbda0ea48ed749caafd9e6037047aa19acfcfd82e704d7ca97d631a0b697e`.
 
-Next action: shared contracts and deterministic CONTRACT tests, then migrate minimal modules.
+Phase 1 complete: added `shared/{schemas,interfaces}.py`, contract tests, pyproject.toml, .gitignore and .gitattributes; updated CONTRACTS.md. Executed `python -B -m pytest -p no:cacheprovider tests/test_contracts.py -q`: **4 passed**, no mocks. Previous completed commit `55c4021`. No blockers for phase 2.
+
+Next action: migrate minimal parsing/acquisition/evidence dependencies and implement shared retrieval/extraction boundaries.
