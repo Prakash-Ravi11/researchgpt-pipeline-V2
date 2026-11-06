@@ -1,0 +1,94 @@
+"""One connected acquisition-to-verified-record service, independent of HTTP."""
+from __future__ import annotations
+
+import time
+
+from shared.interfaces import AcquiredDocument
+from shared.schemas import ExtractedPaper, FieldValue, Paper
+from pipeline.evidence.verification import verify_candidate
+from pipeline.extraction.context import current_context
+from pipeline.extraction.prompt import FIELDS, SYSTEM
+from pipeline.parsing.documents import process
+from pipeline.retrieval.retrievers import FiveQueryRetriever, HybridRetriever
+
+
+class EvidencePipeline:
+    def __init__(self, source, index, llm, *, retrieval: str = "five_query", context_mode: str = "current",
+                 max_words: int = 2500, context_builder=None):
+        if retrieval not in ("five_query", "hybrid"):
+            raise ValueError("unknown retrieval mode")
+        if context_mode != "current" and context_builder is None:
+            raise ValueError("context configuration unavailable")
+        self.source, self.index, self.llm = source, index, llm
+        self.retriever = FiveQueryRetriever(index) if retrieval == "five_query" else HybridRetriever(index)
+        self.context_builder = context_builder or (lambda cs: current_context(cs, max_words))
+        self.context_mode, self.retrieval = context_mode, retrieval
+
+    def run(self, paper: Paper, document: AcquiredDocument | None = None) -> ExtractedPaper:
+        trace = {"retrieval": self.retrieval, "context_mode": self.context_mode, "stage_ms": {}}
+        started = time.perf_counter()
+        stage = "acquisition"
+        try:
+            t = time.perf_counter()
+            requested_id = paper.paper_id
+            document = document or self.source.acquire(paper)
+            paper = document.paper
+            if paper.paper_id != requested_id:
+                raise ValueError("source changed paper identity")
+            trace["stage_ms"][stage] = (time.perf_counter() - t) * 1000
+            trace["acquisition"] = {"status": paper.acquisition_status, "representation": paper.representation_type,
+                "document_sha256": getattr(paper, "document_sha256", None),
+                "identity_validation": paper.identity_validation, "content_validation": paper.content_validation}
+            if paper.acquisition_status in ("FAILED", "BLOCKED"):
+                return ExtractedPaper(paper_id=paper.paper_id, acquisition_status=paper.acquisition_status,
+                    status="ACQUISITION_FAILED", trace=trace, errors=[{"stage": stage, "code": "document_not_validated"}])
+            stage, t = "parsing", time.perf_counter()
+            doc, chunks = process(document)
+            trace["stage_ms"][stage] = (time.perf_counter() - t) * 1000
+            trace["document"] = {k: v for k, v in doc.items() if k != "blocks"}
+            trace["chunk_ids"] = [c.chunk_id for c in chunks]
+            if not chunks:
+                return ExtractedPaper(paper_id=paper.paper_id, acquisition_status=paper.acquisition_status,
+                    status="ABSTAINED", fields={f: [FieldValue(field=f, abstain_reason="no_accessible_text")] for f in FIELDS}, trace=trace)
+            stage, t = "indexing", time.perf_counter()
+            self.index.replace_paper(paper.paper_id, chunks)
+            trace["stage_ms"][stage] = (time.perf_counter() - t) * 1000
+            stage, t = "retrieval", time.perf_counter()
+            retrieved = self.retriever.retrieve(paper.paper_id, chunks)
+            trace["stage_ms"][stage] = (time.perf_counter() - t) * 1000
+            stage, t = "context", time.perf_counter()
+            context = self.context_builder(retrieved)
+            trace["context"] = context.trace
+            trace["stage_ms"][stage] = (time.perf_counter() - t) * 1000
+            if not context.chunks:
+                return ExtractedPaper(paper_id=paper.paper_id, acquisition_status=paper.acquisition_status, status="ABSTAINED",
+                    fields={f: [FieldValue(field=f, abstain_reason="no_evidence_within_context_budget")] for f in FIELDS}, trace=trace)
+            stage, t = "extraction", time.perf_counter()
+            response = self.llm.complete(SYSTEM, f"Paper: {paper.title}\nAcquisition: {paper.acquisition_status}\n\n{context.text}")
+            trace["model"] = response.model_dump(exclude={"content"})
+            trace["stage_ms"][stage] = (time.perf_counter() - t) * 1000
+            parsed = response.content
+            if not any(key in parsed for key in FIELDS) or any(not isinstance(parsed.get(k, []), list) for k in FIELDS):
+                raise ValueError("extraction response does not follow field-array schema")
+            stage, t = "verification", time.perf_counter()
+            fields = {}
+            for name in FIELDS:
+                candidates = parsed.get(name, [])
+                fields[name] = ([verify_candidate(name, c, paper, context.chunks, chunks) for c in candidates]
+                                or [FieldValue(field=name, abstain_reason="missing_evidence")])
+            trace["stage_ms"][stage] = (time.perf_counter() - t) * 1000
+            trace["total_ms"] = (time.perf_counter() - started) * 1000
+            values = [v for vs in fields.values() for v in vs]
+            status = "COMPLETE" if all(v.final == "RETURNED" for v in values) else (
+                "PARTIAL" if any(v.final == "RETURNED" for v in values) else "ABSTAINED")
+            return ExtractedPaper(paper_id=paper.paper_id, acquisition_status=paper.acquisition_status,
+                                  status=status, fields=fields, trace=trace)
+        except Exception as exc:
+            trace["total_ms"] = (time.perf_counter() - started) * 1000
+            statuses = {"acquisition": "ACQUISITION_FAILED", "parsing": "PARSING_FAILED",
+                        "indexing": "INDEXING_FAILED", "retrieval": "INDEXING_FAILED"}
+            # Never reflect raw HTTP errors/credentials or arbitrary provider text.
+            return ExtractedPaper(paper_id=paper.paper_id, acquisition_status=paper.acquisition_status,
+                status=statuses.get(stage, "EXTRACTION_FAILED"), trace=trace,
+                fields={f: [FieldValue(field=f, status="FAILED", abstain_reason="stage_failed")] for f in FIELDS},
+                errors=[{"stage": stage, "code": type(exc).__name__}])

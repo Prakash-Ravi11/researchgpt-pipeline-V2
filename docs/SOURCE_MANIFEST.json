@@ -1,0 +1,146 @@
+[
+  {
+    "repository": "https://github.com/Prakash-Ravi11/researchgpt-pipeline",
+    "branch": "claude-code-verification",
+    "commit": "2d61f3ca6dbdce959381fb891850ad94b52553af",
+    "source_path": "src/config.py",
+    "destination_path": "src/config.py",
+    "source_sha256": "784282cbae7cd2b18ba64dc9bba5fa23fe80cffca24a82a1404436c926ec7f46",
+    "initial_copy": "verbatim; subsequent V2 changes tracked by git"
+  },
+  {
+    "repository": "https://github.com/Prakash-Ravi11/researchgpt-pipeline",
+    "branch": "claude-code-verification",
+    "commit": "2d61f3ca6dbdce959381fb891850ad94b52553af",
+    "source_path": "src/collection/semantic_scholar.py",
+    "destination_path": "src/collection/semantic_scholar.py",
+    "source_sha256": "04c61c1930c70984fd766c14c018550f80e97b96d3f3de6ea785d7f443de9ca3",
+    "initial_copy": "verbatim; subsequent V2 changes tracked by git"
+  },
+  {
+    "repository": "https://github.com/Prakash-Ravi11/researchgpt-pipeline",
+    "branch": "claude-code-verification",
+    "commit": "2d61f3ca6dbdce959381fb891850ad94b52553af",
+    "source_path": "src/evidence/schema.py",
+    "destination_path": "src/evidence/schema.py",
+    "source_sha256": "ab14c7893d4e51f3805374085c51fd9f8e05c2ef35f32d79502a4b994acd58bc",
+    "initial_copy": "verbatim; subsequent V2 changes tracked by git"
+  },
+  {
+    "repository": "https://github.com/Prakash-Ravi11/researchgpt-pipeline",
+    "branch": "claude-code-verification",
+    "commit": "2d61f3ca6dbdce959381fb891850ad94b52553af",
+    "source_path": "src/evidence/acquire.py",
+    "destination_path": "src/evidence/acquire.py",
+    "source_sha256": "58db1404b96ac93fbaf45fec032096770880b2b0fd01f304e23c9a05d55601d0",
+    "initial_copy": "verbatim; subsequent V2 changes tracked by git"
+  },
+  {
+    "repository": "https://github.com/Prakash-Ravi11/researchgpt-pipeline",
+    "branch": "claude-code-verification",
+    "commit": "2d61f3ca6dbdce959381fb891850ad94b52553af",
+    "source_path": "src/evidence/represent.py",
+    "destination_path": "src/evidence/represent.py",
+    "source_sha256": "51c20a9a9680208dc55de89288454004825e20b1c4cf23ddd74cfbee22cc94b4",
+    "initial_copy": "verbatim; subsequent V2 changes tracked by git"
+  },
+  {
+    "repository": "https://github.com/Prakash-Ravi11/researchgpt-pipeline",
+    "branch": "claude-code-verification",
+    "commit": "2d61f3ca6dbdce959381fb891850ad94b52553af",
+    "source_path": "src/evidence/chunker.py",
+    "destination_path": "src/evidence/chunker.py",
+    "source_sha256": "f32365cb0e50b2ed514405281aaa7d6bf94455cb89220ed838d84d8694b03d3c",
+    "initial_copy": "verbatim; subsequent V2 changes tracked by git"
+  },
+  {
+    "repository": "https://github.com/Prakash-Ravi11/researchgpt-pipeline",
+    "branch": "claude-code-verification",
+    "commit": "2d61f3ca6dbdce959381fb891850ad94b52553af",
+    "source_path": "src/evidence/gate.py",
+    "destination_path": "src/evidence/gate.py",
+    "source_sha256": "39a32c28a2332806c141f0bed5aa1a0e88f8677c8e7c93b6aaf5520b806dee65",
+    "initial_copy": "verbatim; subsequent V2 changes tracked by git"
+  },
+  {
+    "repository": "https://github.com/Prakash-Ravi11/researchgpt-pipeline",
+    "branch": "claude-code-verification",
+    "commit": "2d61f3ca6dbdce959381fb891850ad94b52553af",
+    "source_path": "src/evidence/attribute.py",
+    "destination_path": "src/evidence/attribute.py",
+    "source_sha256": "b0af46f7249911bfd7e540adf8cc0bec7b2ff848f5e44d79fc39a1dae58136c8",
+    "initial_copy": "verbatim; subsequent V2 changes tracked by git"
+  },
+  {
+    "repository": "https://github.com/Prakash-Ravi11/researchgpt-pipeline",
+    "branch": "claude-code-verification",
+    "commit": "2d61f3ca6dbdce959381fb891850ad94b52553af",
+    "source_path": "src/evidence/anchors.py",
+    "destination_path": "src/evidence/anchors.py",
+    "source_sha256": "f1b5a6de5fb845433015bd3c96002eda14f6da65d8d4a02ae964aafd41040b87",
+    "initial_copy": "verbatim; subsequent V2 changes tracked by git"
+  },
+  {
+    "repository": "https://github.com/Prakash-Ravi11/researchgpt-pipeline",
+    "branch": "claude-code-verification",
+    "commit": "2d61f3ca6dbdce959381fb891850ad94b52553af",
+    "source_path": "src/evidence/latex_tables.py",
+    "destination_path": "src/evidence/latex_tables.py",
+    "source_sha256": "4d2176d978f8973d71014ce3a826216cffec9a7191269fc4b09dc10e311c5938",
+    "initial_copy": "verbatim; subsequent V2 changes tracked by git"
+  },
+  {
+    "repository": "https://github.com/Prakash-Ravi11/researchgpt-pipeline",
+    "branch": "claude-code-verification",
+    "commit": "2d61f3ca6dbdce959381fb891850ad94b52553af",
+    "source_path": "src/evidence/latex_source.py",
+    "destination_path": "src/evidence/latex_source.py",
+    "source_sha256": "136dc3cbd0f63871b75f8d89c77d54d6b17e9133867c40835fe216a338024a62",
+    "initial_copy": "verbatim; subsequent V2 changes tracked by git"
+  },
+  {
+    "repository": "https://github.com/Prakash-Ravi11/researchgpt-pipeline",
+    "branch": "claude-code-verification",
+    "commit": "2d61f3ca6dbdce959381fb891850ad94b52553af",
+    "source_path": "src/evidence/latex_parity.py",
+    "destination_path": "src/evidence/latex_parity.py",
+    "source_sha256": "5df6e838587a8315bc75672126324a1b2d349db0f3372fea21a9ac227db4b80a",
+    "initial_copy": "verbatim; subsequent V2 changes tracked by git"
+  },
+  {
+    "repository": "https://github.com/Prakash-Ravi11/researchgpt-pipeline",
+    "branch": "claude-code-verification",
+    "commit": "2d61f3ca6dbdce959381fb891850ad94b52553af",
+    "source_path": "src/evidence/borderless.py",
+    "destination_path": "src/evidence/borderless.py",
+    "source_sha256": "85dd205958d3bdfbe524c6d012cccce42d9f3c16acfdc6b7ed50a633a72cbe4b",
+    "initial_copy": "verbatim; subsequent V2 changes tracked by git"
+  },
+  {
+    "repository": "https://github.com/Prakash-Ravi11/researchgpt-pipeline",
+    "branch": "claude-code-verification",
+    "commit": "2d61f3ca6dbdce959381fb891850ad94b52553af",
+    "source_path": "tests/test_anchors.py",
+    "destination_path": "tests/test_anchors.py",
+    "source_sha256": "9c6418bb4bb9a9a44363a2511a2bfe14de9886baa47db513b95135b81b46d21d",
+    "initial_copy": "verbatim; subsequent V2 changes tracked by git"
+  },
+  {
+    "repository": "https://github.com/Prakash-Ravi11/researchgpt-pipeline",
+    "branch": "claude-code-verification",
+    "commit": "2d61f3ca6dbdce959381fb891850ad94b52553af",
+    "source_path": "tests/test_pdf_table_cells.py",
+    "destination_path": "tests/test_pdf_table_cells.py",
+    "source_sha256": "b4e1938f846da6fda8fd6f60e9ee86137aee499ba50d2506799e9898523e0362",
+    "initial_copy": "verbatim; subsequent V2 changes tracked by git"
+  },
+  {
+    "repository": "https://github.com/Prakash-Ravi11/researchgpt-pipeline",
+    "branch": "claude-code-verification",
+    "commit": "2d61f3ca6dbdce959381fb891850ad94b52553af",
+    "source_path": "src/processing/pdf_parser.py",
+    "destination_path": "src/processing/pdf_parser.py",
+    "source_sha256": "ec0ca5cf49e1100e3532666a64ed5aca46f95d65c706403b765f65e2cc8dfdb7",
+    "initial_copy": "process_paper_grounded function only"
+  }
+]

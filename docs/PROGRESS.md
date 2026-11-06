@@ -13,8 +13,8 @@ Started 2026-11-06 (Asia/Calcutta). Sole implementation agent. No push or merge 
 |---|---|---|
 | 0 Source audit | COMPLETE | Source assessment and branch selection recorded |
 | 1 Contracts | COMPLETE | Four executed CONTRACT tests pass |
-| 2 Evidence pipeline | PARTIAL | Migrate required source modules and test adapters |
-| 3 Backend | BLOCKED | Depends on migrated modules |
+| 2 Evidence pipeline | COMPLETE | 48 CONTRACT/UNIT/INTEGRATION checks pass; live acquisition/model pending |
+| 3 Backend | PARTIAL | Add API and execute health/fixture polling tests |
 | 4 Diagnostics | BLOCKED | Depends on connected pipeline |
 | 5 Evaluation | BLOCKED | Depends on working configurations |
 
@@ -30,4 +30,8 @@ Runtime probe: Python 3.10.18; Pydantic 2.12.5, FastAPI 0.116.1, httpx 0.28.1, C
 
 Phase 1 complete: added `shared/{schemas,interfaces}.py`, contract tests, pyproject.toml, .gitignore and .gitattributes; updated CONTRACTS.md. Executed `python -B -m pytest -p no:cacheprovider tests/test_contracts.py -q`: **4 passed**, no mocks. Previous completed commit `55c4021`. No blockers for phase 2.
 
-Next action: migrate minimal parsing/acquisition/evidence dependencies and implement shared retrieval/extraction boundaries.
+Phase 2 complete: migrated 16 minimal modules/tests (SOURCE_MANIFEST.json), acquisition/parsing adapters, shared M3/Chroma index, five-query/hybrid retrievers, local/hosted clients, context/prompt, scoped evidence verification and connected service. Added synthetic JATS fixture and connected tests. Current source IDs and provider provenance round-trip through real Chroma. New source-quote/tuple checks reject wrong values, wrong datasets and temporary IDs.
+
+Executed `python -B -m pytest -p no:cacheprovider tests/test_contracts.py tests/test_anchors.py tests/test_pdf_table_cells.py tests/test_pipeline_integration.py -q` outside sandbox => **48 passed in 5.16s**. Synthetic PDF/JATS, real PyMuPDF/Chroma, deterministic encoder/model doubles; no extraction-accuracy claim. Initial sandbox attempts: 41 passed + 2 temp-directory setup errors; a missing basetemp parent then Windows mode-0700 directory denial prevented completion. Unsandboxed test execution resolved environment issue; tests unchanged. Optional rank-bm25==0.2.2 installed successfully into local .venv after sandbox package-index failure. Venv bootstrap ensurepip failed in sandbox; environment reuse is being completed. Previous completed commit `7a75092`.
+
+Next action: API routes, real server startup, real document acquisition/parsing and bounded actual-model smoke.

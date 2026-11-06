@@ -19,4 +19,5 @@ include = ["shared*", "pipeline*", "src*", "api*"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+addopts = "--basetemp=.pytest-tmp"
 markers = ["contract: schema and interface checks", "unit: isolated deterministic functions", "integration: connected real modules", "e2e: actual document with configured model and index", "live: optional external or local model resources"]
