@@ -13,10 +13,10 @@ Started 2026-11-06 (Asia/Calcutta). Sole implementation agent. No push or merge 
 |---|---|---|
 | 0 Source audit | COMPLETE | Source assessment and branch selection recorded |
 | 1 Contracts | COMPLETE | Four executed CONTRACT tests pass |
-| 2 Evidence pipeline | COMPLETE | 48 CONTRACT/UNIT/INTEGRATION checks pass; live acquisition/model pending |
+| 2 Evidence pipeline | PARTIAL | Implementation/fixtures pass; real BGE-M3 blocked by installed native runtime |
 | 3 Backend | COMPLETE | Real server health + explicit failure response, 50 regression checks pass |
 | 4 Diagnostics | COMPLETE | Three source defects reproduced/fixed; loss instrumentation and context alternative tested; independent accuracy limited |
-| 5 Evaluation | PARTIAL | Freeze scoring/annotations then execute four fixture/replay arms |
+| 5 Evaluation | COMPLETE | Four fixture/replay arms executed; real-model accuracy explicitly unmeasured |
 
 ## Activity / test record
 
@@ -46,4 +46,12 @@ Phase 4 complete within available annotations: acquisition body-length inflation
 
 Phase 5 setup: authored synthetic annotations and scoring rules in tests/fixtures/annotations.json, explicit test-only dense encoder and no-model candidate replay; real BM25/Chroma. Scoring and annotations will be committed before first four-arm execution. Other unavailable configurations/resources must be marked explicitly. No 60-paper run.
 
-Next action: freeze checkpoint and run four-arm fixture evaluation; finish documentation with actual outputs and blockers.
+Phase 5 complete: scoring/annotations frozen in `4e07561` before first run. All A/B/C/D executed with identical synthetic corpus, actual Chroma/BM25, explicit test-only dense encoder and no-model candidate replay. A/B quote delivery 0/1 and earliest loss=context; C/D delivery 1/1, supported tuples 1/1, unsupported control abstained and source references preserved. No hybrid-vs-baseline accuracy gain, general performance gain, real M3/Qwen accuracy or independent real annotation result is claimed. Initial report retained; final report refreshed after section hierarchy metadata changed, with the same annotation hash and rules.
+
+Actual constrained local Qwen follow-up: complete IDs, 498 prompt / 631 generated tokens, 35,247.67 ms, 9 candidates; 5 grounded field excerpts returned and 4 withheld; **zero verified numerical results**. Baseline/follow-up raw outputs and host verdicts are in docs/evidence. No model retry after this diagnostic follow-up.
+
+Final regression command `.venv/Scripts/python.exe -B -m pytest -p no:cacheprovider tests -q --junitxml=outputs/pytest.xml`: **70 passed in 7.47s**, 0 failed/skipped. `.venv/Scripts/python.exe -B -m scripts.record_tests outputs/pytest.xml` generated per-test categories/mocks/outcomes and exact environment metadata. `scripts.evaluate --output outputs/fixture_evaluation.json` completed all four arms. See EVALUATION.md and TESTING.md. Previous completed commit `4e07561`.
+
+Final documentation/artifacts: README, tested dependency snapshot, TESTING.md, complete source attribution, initial/final fixture reports, both actual model outputs, test results, file inventory and implementation summary. Reclassified phase 2 from its implementation checkpoint COMPLETE to final PARTIAL because actual default embedding remains blocked. All independent work is complete. No source writes, branch changes, global upgrades, push, merge, PR or full 60-paper rerun.
+
+Recommended next action: create a clean compatible PyTorch/native-library environment and rerun the existing one-paper smoke before expanding evaluation. Independently reviewed tuple annotations and teammate client adaptation follow that check.

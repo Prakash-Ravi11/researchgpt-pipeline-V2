@@ -54,3 +54,31 @@ def test_context_trace_exposes_retrieved_but_undelivered_result():
     assert target.chunk_id in context.trace["retrieved_chunk_ids"]
     assert target.chunk_id in context.trace["dropped_chunk_ids"]
     assert "91.4" not in context.text
+
+
+def test_ambiguous_merged_measurement_is_preserved_but_not_bound():
+    xml = b'''<article><body><table-wrap><caption>Results on ExampleSet</caption><table>
+    <tr><th>Model</th><th>Dice</th><th>Accuracy</th></tr>
+    <tr><td>Ours</td><td colspan="2">91.4</td></tr></table></table-wrap></body></article>'''
+    block = blocks_from_jats(xml, "S", "test")[0]
+    assert "91.4" in block["text"] and not block["table_cells"]
+
+
+def test_overlapping_long_chunks_keep_exact_source_offsets():
+    text = "\n\t".join(f"word{i}" for i in range(500))
+    block = {"paper_id": "S", "block_id": "S:0", "source": "test", "representation": "pdf",
+        "section": "results", "page_or_node": "p1", "block_type": "paragraph", "char_start": 37,
+        "char_end": 37 + len(text), "text": text}
+    chunks = chunk_document({"blocks": [block]})
+    assert len(chunks) == 3
+    for c in chunks:
+        assert text[c["char_start"] - 37:c["char_end"] - 37] == c["text"]
+
+
+def test_jats_nested_section_hierarchy_survives_chunking():
+    xml = b'<article><body><sec><title>Methods</title><sec><title>Training protocol</title><p>We train the model on ExampleSet.</p></sec></sec></body></article>'
+    blocks = blocks_from_jats(xml, "S", "test")
+    c = chunk_document({"blocks": blocks})[0]
+    assert c["section"] == "method"
+    assert c["section_path"] == ["Methods", "Training protocol"]
+    assert c["subsection"] == "Training protocol"

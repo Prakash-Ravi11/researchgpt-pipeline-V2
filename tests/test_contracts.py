@@ -49,3 +49,9 @@ def test_cross_paper_reference_rejected():
     with pytest.raises(ValidationError):
         ExtractedPaper(paper_id="different", acquisition_status="ABSTRACT_ONLY", status="PARTIAL",
                        fields={"results": [fv]})
+
+
+def test_latex_cannot_establish_its_own_identity():
+    with pytest.raises(ValidationError, match="independently"):
+        Paper(paper_id="tex", has_full_text=True, acquisition_status="FULL_TEXT", representation_type="latex",
+              identity_validation={"passed": True}, content_validation={"passed": True})

@@ -62,6 +62,8 @@ class Paper(Contract):
                 raise ValueError("FULL_TEXT requires a full-text representation")
             if not self.identity_validation.get("passed") or not self.content_validation.get("passed"):
                 raise ValueError("FULL_TEXT requires identity and content validation")
+            if self.representation_type == "latex" and self.identity_validation.get("signals", {}).get("identity_source") not in ("arxiv_pdf", "semantic_scholar"):
+                raise ValueError("LaTeX content requires independently established PDF/S2 identity")
         elif self.has_full_text:
             raise ValueError("has_full_text requires FULL_TEXT status")
         return self

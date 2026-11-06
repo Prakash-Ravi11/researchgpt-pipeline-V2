@@ -41,6 +41,8 @@ def chunk_document(doc: dict[str, Any]) -> list[dict[str, Any]]:
                 "source": block["source"],
                 "representation": block["representation"],
                 "section": block["section"],
+                "section_path": block.get("section_path", []),
+                "subsection": block.get("subsection"),
                 "page_or_node": block["page_or_node"],
                 "block_id": block["block_id"],
                 "block_type": block["block_type"],

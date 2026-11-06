@@ -53,6 +53,9 @@ def main():
         n_blocks=doc["n_blocks"], n_chunks=len(chunks), n_structured_tables=doc["n_tables_structured"],
         stable_chunk_ids=chunks == process(document)[1])
     print(json.dumps(summary, indent=2), flush=True)
+    # Preserve completed acquisition/parsing evidence even if native model
+    # initialization terminates the process before Python can catch an error.
+    (root / "smoke_summary.json").write_text(json.dumps(summary, indent=2) + "\n")
     if args.model and chunks:
         started = time.perf_counter()
         pipeline = EvidencePipeline(None, ChromaIndex("live-smoke-attention", root / "chroma", BGEEncoder()),

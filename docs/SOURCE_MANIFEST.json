@@ -142,5 +142,23 @@
     "destination_path": "src/processing/pdf_parser.py",
     "source_sha256": "ec0ca5cf49e1100e3532666a64ed5aca46f95d65c706403b765f65e2cc8dfdb7",
     "initial_copy": "process_paper_grounded function only"
+  },
+  {
+    "repository": "https://github.com/Prakash-Ravi11/researchgpt-pipeline",
+    "branch": "claude-code-verification",
+    "commit": "2d61f3ca6dbdce959381fb891850ad94b52553af",
+    "source_path": "src/embedding/build_index.py",
+    "destination_path": "pipeline/retrieval/index.py",
+    "source_sha256": "81f2d52bd8fc3a3da6cebcfdb6d7e2b5bdabdf93ac87a9fd26367a41e01bc832",
+    "initial_copy": "narrow adapter informed by audited source; not verbatim module migration"
+  },
+  {
+    "repository": "https://github.com/Prakash-Ravi11/researchgpt-pipeline",
+    "branch": "claude-code-verification",
+    "commit": "2d61f3ca6dbdce959381fb891850ad94b52553af",
+    "source_path": "src/summarization/retrieval_aware.py",
+    "destination_path": "pipeline/retrieval/retrievers.py",
+    "source_sha256": "02ebaf1cca35ca01e64202105b33871601538281c35f85665765c9c397e19bca",
+    "initial_copy": "narrow adapter informed by audited source; not verbatim module migration"
   }
 ]

@@ -69,3 +69,12 @@ def test_project_collection_and_paper_replacement_are_isolated(tmp_path):
     one.replace_paper("SYN", chunks[-1:])
     assert one.all_chunks("SYN") == chunks[-1:]
     assert two.all_chunks("SYN") == chunks[:1]
+
+
+def test_source_identity_change_is_a_failure_on_the_requested_paper():
+    class WrongSource:
+        def acquire(self, paper):
+            return fixture_document()
+    requested = Paper(paper_id="requested")
+    result = EvidencePipeline(WrongSource(), None, None).run(requested)
+    assert result.paper_id == "requested" and result.status == "ACQUISITION_FAILED"

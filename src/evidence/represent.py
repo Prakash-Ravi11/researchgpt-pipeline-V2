@@ -104,7 +104,7 @@ def blocks_from_jats(data: bytes, paper_id: str, source: str) -> list[dict[str, 
     if body is None:
         return out
 
-    def walk(el, sec_label: str, path: str):
+    def walk(el, sec_label: str, path: str, section_path: tuple = ()):
         for i, child in enumerate(list(el)):
             t = strip(child.tag)
             cpath = f"{path}/{t}[{i}]"
@@ -114,16 +114,18 @@ def blocks_from_jats(data: bytes, paper_id: str, source: str) -> list[dict[str, 
                 # keep the parent's canonical label when this child's title is not
                 # a recognized standard section name (custom method subsections etc.)
                 child_label = _canon_section(title, default=sec_label) if title else sec_label
-                walk(child, child_label, cpath)
+                walk(child, child_label, cpath, section_path + (title,))
             elif t == "p":
                 txt = "".join(child.itertext()).strip()
                 if len(txt) > 1:
                     b = _mk(paper_id, source, REPR_JATS, sec_label, cpath, "paragraph", txt, cursor)
+                    b.update(section_path=list(section_path), subsection=section_path[-1] if len(section_path) > 1 else None)
                     out.append(b); cursor["blocks"].append(b); cursor["pos"] = b["char_end"]
             elif t in ("table-wrap", "table"):
                 txt = " ".join(x.strip() for x in child.itertext() if x.strip())
                 if txt:
                     b = _mk(paper_id, source, REPR_JATS, sec_label, cpath, "table", txt, cursor)
+                    b.update(section_path=list(section_path), subsection=section_path[-1] if len(section_path) > 1 else None)
                     # SAME structured cell model as the LaTeX path (one shape
                     # downstream — Phase 5's gate must not need two code paths).
                     st = _jats_table_cells(child, paper_id, source, sec_label, cpath, strip)
@@ -137,9 +139,10 @@ def blocks_from_jats(data: bytes, paper_id: str, source: str) -> list[dict[str, 
                 txt = "".join(cap.itertext()).strip() if cap is not None else ""
                 if txt:
                     b = _mk(paper_id, source, REPR_JATS, sec_label, cpath, "figure_caption", txt, cursor)
+                    b.update(section_path=list(section_path), subsection=section_path[-1] if len(section_path) > 1 else None)
                     out.append(b); cursor["blocks"].append(b); cursor["pos"] = b["char_end"]
             else:
-                walk(child, sec_label, cpath)
+                walk(child, sec_label, cpath, section_path)
 
     walk(body, "body", "body")
     return out
@@ -502,7 +505,9 @@ def _jats_table_cells(node, paper_id: str, source: str, section: str, cpath: str
                 col += 1
                 continue
             head = header[col] if col < len(header) else ""
-            if val and head and val != row_label:
+            # A measurement spanning several metric columns is ambiguous.
+            # Keep it in raw block text, but do not manufacture one binding.
+            if val and head and val != row_label and s == 1:
                 cells.append(table_cell(value=val, column_header=head, row_label=row_label,
                                         caption=caption, section=section, row=r_i, col=col,
                                         spans={k: v for k, v in (("colspan", s), ("rowspan", r)) if v > 1}))
@@ -709,6 +714,7 @@ def build_document(acq_record: dict[str, Any], data: bytes | None,
     elif data is not None and rep == REPR_PDF:
         blocks = blocks_from_pdf(data, pid, source)
     elif fallback_abstract:
+        fallback_abstract = fallback_abstract.strip()
         blocks = [{
             "block_id": f"{pid}:0", "paper_id": pid, "source": "semantic_scholar",
             "representation": "abstract", "section": "abstract", "subsection": None,
