@@ -11,4 +11,6 @@
 - `pipeline/evidence`: legacy gate and strict complete scientific relationship/quotation validation. Withheld values are explicit candidates with ABSTAINED final state. Only RETURNED values are findings.
 - Failures return stage-specific status and sanitized error type. Missing full text is acquisition state, not extraction failure. Missing evidence causes abstention, not invented numbers.
 
-One ASGI application will run on port 8000. Model loading is lazy so health/API startup does not require inference availability. Work is serialized within the process to avoid shared GPU/index races; jobs are process-local polling records, not a durable queue. Frontend/auth/export/deployment remain outside scope.
+One ASGI application runs on port 8000. Model loading is lazy so health/API startup does not require inference availability. Work is serialized within the process to avoid shared GPU/index races; jobs are process-local polling records, not a durable queue. Frontend/auth/export/deployment remain outside scope.
+
+`current` context keeps the audited prefix policy with source headers and explicit delivery/drop IDs. `revised` separately orders evidence-bearing whole chunks, renders structured table relationships and records budget rejections. Default proxy units are UTF-8 bytes, explicitly not actual Qwen tokens; a counter may be injected. Actual model token counters are recorded in LLMResponse. Local generation constrains full chunk IDs via JSON Schema, then source quotation and scientific binding are checked independently.

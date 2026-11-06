@@ -1,0 +1,103 @@
+{
+  "class": "INTEGRATION",
+  "document": "synthetic JATS fixture",
+  "mock_model": false,
+  "retrieval": "not exercised",
+  "independent_accuracy_annotations": false,
+  "status": "RESPONSE_RECEIVED",
+  "model": {
+    "content": {
+      "problem_statement": [],
+      "objective": [
+        {
+          "value": "We investigate segmentation on the ExampleSet dataset.",
+          "evidence_span": "We investigate segmentation on the ExampleSet dataset.",
+          "chunk_id": "SYN:0#0"
+        }
+      ],
+      "research_gap": [],
+      "method": [],
+      "datasets": [
+        {
+          "value": "the ExampleSet dataset",
+          "evidence_span": "the ExampleSet dataset",
+          "chunk_id": "SYN:1#0"
+        }
+      ],
+      "metrics": [
+        {
+          "value": "Dice score",
+          "evidence_span": "Dice score of 91.4%",
+          "chunk_id": "SYN:2#0"
+        },
+        {
+          "value": "HD95 (mm)",
+          "evidence_span": "HD95 (mm)",
+          "chunk_id": "SYN:3#0"
+        }
+      ],
+      "results": [
+        {
+          "value": "Our method achieves a Dice score of 91.4% on the ExampleSet test set.",
+          "evidence_span": "Our method achieves a Dice score of 91.4% on the ExampleSet test set.",
+          "chunk_id": "SYN:2#0"
+        },
+        {
+          "value": "Model Dice (%) HD95 (mm) Baseline 85.1 7.2 Ours 91.4 4.3",
+          "evidence_span": "Table 1: Comparison of segmentation results on the ExampleSet test set. Model Dice (%) HD95 (mm) Baseline 85.1 7.2 Ours 91.4 4.3",
+          "chunk_id": "SYN:3#0",
+          "scientific_tuple": {
+            "subject": "Ours",
+            "dataset": "ExampleSet test set",
+            "metric": "Dice (%)",
+            "value": "91.4",
+            "setting": "null"
+          }
+        }
+      ],
+      "limitations": [
+        {
+          "value": "Our evaluation is limited to the ExampleSet test set.",
+          "evidence_span": "Our evaluation is limited to the ExampleSet test set.",
+          "chunk_id": "SYN:4#0"
+        }
+      ],
+      "future_scope": [
+        {
+          "value": "Future work will evaluate external datasets.",
+          "evidence_span": "Future work will evaluate external datasets.",
+          "chunk_id": "SYN:4#0"
+        }
+      ],
+      "key_findings": [
+        {
+          "value": "Our method achieves a Dice score of 91.4% on the ExampleSet test set.",
+          "evidence_span": "Our method achieves a Dice score of 91.4% on the ExampleSet test set.",
+          "chunk_id": "SYN:2#0"
+        }
+      ]
+    },
+    "provider": "ollama",
+    "model": "qwen2.5:7b",
+    "prompt_tokens": 498,
+    "completion_tokens": 631,
+    "latency_ms": 35247.67290003365,
+    "finish_reason": "stop"
+  },
+  "host_verification": {
+    "candidate_count": 9,
+    "returned": 5,
+    "abstention_reasons": {
+      "incomplete_scientific_tuple": 3,
+      "binding_wrong_cell": 1
+    },
+    "verified_fields": [
+      "objective",
+      "datasets",
+      "metrics",
+      "limitations",
+      "future_scope"
+    ],
+    "verified_numeric_results": 0
+  }
+}

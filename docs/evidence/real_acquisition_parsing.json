@@ -1,0 +1,35 @@
+{
+  "test_class": "INTEGRATION",
+  "mocks": false,
+  "independent_accuracy_annotations": false,
+  "paper": "Attention Is All You Need",
+  "acquisition_run": "validated local reuse from prior acquisition",
+  "paper_id": "arxiv:1706.03762",
+  "acquisition_status": "FULL_TEXT",
+  "representation": "pdf",
+  "document_sha256": "bdfaa68d8984f0dc02beaca527b76f207d99b666d31d1da728ee0728182df697",
+  "identity_validation": {
+    "checked": true,
+    "passed": true,
+    "signals": {
+      "title_similarity": 1.0,
+      "doi_in_doc": false,
+      "author_surname_frac": 0.0
+    },
+    "reason": "ok"
+  },
+  "content_validation": {
+    "checked": true,
+    "passed": true,
+    "reason": "ok",
+    "metrics": {
+      "pdf_chars": 39498,
+      "pdf_pages": 15,
+      "nonempty_pages": 15
+    }
+  },
+  "n_blocks": 432,
+  "n_chunks": 432,
+  "n_structured_tables": 1,
+  "stable_chunk_ids": true
+}
