@@ -14,8 +14,8 @@ Started 2026-11-06 (Asia/Calcutta). Sole implementation agent. No push or merge 
 | 0 Source audit | COMPLETE | Source assessment and branch selection recorded |
 | 1 Contracts | COMPLETE | Four executed CONTRACT tests pass |
 | 2 Evidence pipeline | COMPLETE | 48 CONTRACT/UNIT/INTEGRATION checks pass; live acquisition/model pending |
-| 3 Backend | PARTIAL | Add API and execute health/fixture polling tests |
-| 4 Diagnostics | BLOCKED | Depends on connected pipeline |
+| 3 Backend | COMPLETE | Real server health + explicit failure response, 50 regression checks pass |
+| 4 Diagnostics | PARTIAL | Trace/fix deterministic evidence loss; actual embedding blocked |
 | 5 Evaluation | BLOCKED | Depends on working configurations |
 
 ## Activity / test record
@@ -34,4 +34,12 @@ Phase 2 complete: migrated 16 minimal modules/tests (SOURCE_MANIFEST.json), acqu
 
 Executed `python -B -m pytest -p no:cacheprovider tests/test_contracts.py tests/test_anchors.py tests/test_pdf_table_cells.py tests/test_pipeline_integration.py -q` outside sandbox => **48 passed in 5.16s**. Synthetic PDF/JATS, real PyMuPDF/Chroma, deterministic encoder/model doubles; no extraction-accuracy claim. Initial sandbox attempts: 41 passed + 2 temp-directory setup errors; a missing basetemp parent then Windows mode-0700 directory denial prevented completion. Unsandboxed test execution resolved environment issue; tests unchanged. Optional rank-bm25==0.2.2 installed successfully into local .venv after sandbox package-index failure. Venv bootstrap ensurepip failed in sandbox; environment reuse is being completed. Previous completed commit `7a75092`.
 
-Next action: API routes, real server startup, real document acquisition/parsing and bounded actual-model smoke.
+Phase 3 implementation: one FastAPI app with discover/process/job/health routes, explicit configuration/validation/failure states and bounded process-local jobs. `.venv/Scripts/python.exe -B -m pytest -p no:cacheprovider tests -q` => **50 passed in 3.90s**, fixture API uses encoder/model doubles but real Chroma. Runtime reuse completed; local rank_bm25 installed. Previous completed commit `b89e4c4`.
+
+Live smoke `.venv/Scripts/python.exe -B -m scripts.smoke_live --model`: S2 metadata 429; arXiv acquired Attention Is All You Need. Identity title similarity 1.0; content validation 39,498 characters / 15 nonempty pages; SHA-256 `bdfaa68d8984f0dc02beaca527b76f207d99b666d31d1da728ee0728182df697`; 432 blocks/chunks, one structured table, repeated parsing yields identical IDs. Torch import then terminated process with duplicate OpenMP runtime (no extraction result). Scoped native-runtime fixes failed twice; stop repair loop, document blocker. Actual Qwen service/model exists but full default-model E2E is unverified.
+
+Real Uvicorn startup and HTTP GET /health and /openapi.json => 200. Initial invalid-document POST exposed Chroma configuration exception; narrow directory/error-path fix implemented. No frontend migrated or browser-rendering claim. Verification story: API request -> acquisition -> parsing -> index/retrieval -> model -> verified schema; first failed real boundary is embedding native import. Continue independent diagnostics/evaluation, not model-accuracy claims.
+
+Phase 3 complete: real Uvicorn on 127.0.0.1:8000 started; GET /health 200; OpenAPI 200; invalid-content POST 200 with ACQUISITION_FAILED and document_not_validated; missing job 404. Final phase regression `.venv/Scripts/python.exe -B -m pytest -p no:cacheprovider tests -q`: **50 passed**. Fixture HTTP flow is real connected modules with injected model/encoder, not real model E2E. Real paper acquisition/parsing established separately; default embedding blocked as above. Modified API/service/index error paths, tests and smoke script. Previous completed commit `b89e4c4`.
+
+Next action: exact-offset/table/context diagnostics with frozen synthetic facts, isolated fixes and evaluation harness.

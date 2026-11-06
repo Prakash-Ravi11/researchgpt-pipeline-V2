@@ -40,6 +40,7 @@ class ChromaIndex:
     def __init__(self, project_id: str, path: str | Path = "data/chroma", encoder=None, client=None):
         import chromadb
         self.encoder = encoder or BGEEncoder()
+        Path(path).mkdir(parents=True, exist_ok=True)
         self.client = client or chromadb.PersistentClient(path=str(path))
         name = "rgpt_v2_" + hashlib.sha256(project_id.encode()).hexdigest()[:24]
         signature = getattr(self.encoder, "signature", f"{MODEL}@{MODEL_REVISION}:1024:normalized")
