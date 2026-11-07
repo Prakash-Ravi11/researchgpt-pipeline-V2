@@ -1,5 +1,16 @@
 # Phase 2 recovery environment
 
+Accuracy-v1 uses the same local `.venv-gpu` and unchanged validated lock.
+No new Windows framework/global installation. Local consolidated tests110 pass;
+post-fix targeted20 pass separately. Actual new API run fails at the bounded
+Qwen deadline; do not describe it as successful extraction. See ACCURACY_REPORT.md.
+
+Remote isolated parser/extractor setup, exact candidate requirements/model
+commits, private input mounts and local replay are in `kaggle/README.md`.
+Prepared artifacts: `outputs/accuracy/matched-reviewed-scope-package` (code.zip,
+packet.json, input-manifest.json, artifact-sha256.json). This is local export,
+not Kaggle execution; source text in the packet requires private handling.
+
 ## Sprint profiles (2026-11-07)
 
 No additional dependencies, global changes or model downloads are required.

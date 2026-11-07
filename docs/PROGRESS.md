@@ -1,5 +1,29 @@
 # Progress
 
+### Accuracy-first closeout
+
+Current evidence and remaining milestones are in ACCURACY_REPORT.md. Updated
+architecture/contracts, frontend integration, research/parser/model ledger,
+Kaggle setup and required blocker/decision/trace/evaluation docs. Remote jobs
+remain UNEXECUTED; no independent numerical accuracy or product/novelty claim.
+The original timed-out API response remains unchanged; current failure
+preservation and dataset-scope checks are covered by20 targeted tests.
+
+Final matched export outputs/accuracy/matched-reviewed-scope-package contains
+69 allowed code/config files, no PDF/weights/index/environment. Exact messages
+equality to the actual request passes, packet SHA recorded in the report.
+All12 annotations remain unreviewed. Frozen A/B/C/D metric dictionaries and
+annotation/document/chunk/rule hashes equal historical results.83 Python files
+parse and ASGI app imports; pip check passed. Both source repositories remain
+clean; no old/global environment, dependency lock, legacy gate, frozen fixture
+or historical-report changes. No push/merge/PR/full-corpus/paid/public-upload
+action. Latest code checkpoint4919678; final documentation/evidence commit follows.
+
+Exactly one next engineering action: implement reviewed benchmark-versus-column
+condition mapping and validate one human-reviewed numerical tuple through the
+current bundle gate. Independent review and legitimate private remote compute
+are explicit required user inputs, not assumed completed work.
+
 ### Dataset semantics check
 
 Final source review distinguished printed column scope from dataset identity:

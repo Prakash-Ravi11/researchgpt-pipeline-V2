@@ -7,7 +7,7 @@ was uploaded. Windows `.venv-gpu`, the old `.venv` and global Python are intact.
 Generate inputs locally with the exact repository interpreter:
 
 ```powershell
-& '.\.venv-gpu\Scripts\python.exe' -X utf8 -B -m scripts.prepare_accuracy_job --retrieval-run outputs/accuracy/gpu-api-selection-v1/execution.json --output outputs/accuracy/matched-api-package
+& '.\.venv-gpu\Scripts\python.exe' -X utf8 -B -m scripts.prepare_accuracy_job --retrieval-run outputs/accuracy/gpu-api-selection-v1/execution.json --output outputs/accuracy/matched-reviewed-scope-package
 ```
 
 The exporter makes code.zip, packet.json, input-manifest.json and SHA256s.
@@ -69,11 +69,15 @@ model artifacts before reuse. Reapply the host gate locally using the trusted
 **local** packet and its locally recorded SHA, not a packet modified remotely:
 
 ```powershell
-& '.\.venv-gpu\Scripts\python.exe' -X utf8 -B -m scripts.replay_accuracy_packet outputs/accuracy/final-package/packet.json downloaded-candidates.json --expected-packet-sha256 TRUSTED_LOCAL_PACKET_SHA256 --output outputs/accuracy/replayed-result.json
+& '.\.venv-gpu\Scripts\python.exe' -X utf8 -B -m scripts.replay_accuracy_packet outputs/accuracy/matched-reviewed-scope-package/packet.json downloaded-candidates.json --expected-packet-sha256 TRUSTED_LOCAL_PACKET_SHA256 --output outputs/accuracy/replayed-result.json
 ```
 
 The same bundle/span/source/version verifier runs on replay. Raw generation,
 schema compliance, source alignment and independent tuple accuracy are separate
 outcomes. The12 existing annotations need independent review (reviewer, date,
 verdict, source/scope confirmation); they remain outside scoring until then.
+In the current packet EN-DE/EN-FR are unresolved dataset/condition labels.
+No larger model can promote those IDs to a verified complete tuple without a
+source-supported, reviewed benchmark/condition mapping; do not use an LLM
+selection success as a substitute for that engineering and review step.
 No larger evaluation or public artifact publication is triggered by these jobs.

@@ -34,6 +34,12 @@ Sparse/missing text explicitly requests an OCR-capable route; unresolved table
 relationships request specialized structure recognition. Uncertainty is not a
 license to fabricate a cell or trust a VLM number.
 
+Source-aligned header geometry is also not dataset semantics. In this PDF the
+leaf EN-DE/EN-FR codes describe column conditions; resolving the caption's
+benchmark as a separate linked attribute requires reviewed mapping. Current
+bundles explicitly mark this unresolved and cannot become verified complete
+tuples solely because a stronger model selects their IDs.
+
 ## Extraction candidates
 
 [Qwen3-8B](https://huggingface.co/Qwen/Qwen3-8B) and

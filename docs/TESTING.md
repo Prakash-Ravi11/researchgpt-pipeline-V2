@@ -1,5 +1,14 @@
 # Executed validation and limits
 
+Accuracy-v1: one110-test consolidation passed (8.85s), then20 overlapping
+targeted post-fix checks passed (5.21s), with a separate3-test timeout/lifecycle
+check (4.67s). All use the exact .venv-gpu interpreter; no second full suite.
+Evidence: accuracy_tests.json, accuracy_targeted_tests.json and
+accuracy_timeout_tests.json under docs/evidence. New physical PDFs and selector
+fixtures are synthetic; they do not supply independent scientific gold.
+Actual GPU/API source processing reaches a Qwen ReadTimeout, not a completed
+prediction set. See ACCURACY_REPORT.md; earlier test reports below are retained.
+
 Current sprint: `.venv-gpu/Scripts/python.exe -X utf8 -B -m pytest -p
 no:cacheprovider tests -q --tb=short --junitxml=outputs/sprint/final-pytest.xml`
 executed once after engineering consolidation: **94 passed**,0 failed/skipped,

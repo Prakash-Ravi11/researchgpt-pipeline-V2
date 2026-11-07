@@ -1,5 +1,35 @@
 # Blockers and limitations
 
+## Accuracy-v1 current blockers
+
+- Real new API selection run ended at the180s Qwen client deadline:
+  EXTRACTION_FAILED/ReadTimeout, no completed model output or measured tokens.
+  BGE/index/parser/context succeeded. Only3057MiB free before Qwen, with a
+  separate measured4.27GB Ollama GPU footprint and severe host RAM pressure.
+  No CUDA OOM/OpenMP error was observed; timeout cause is not proven.
+- Fixed completed-bundle loss on the failure path, with an injected-timeout
+  regression. Original failed response is preserved; no real-model retry or
+  successful new selection inference is claimed.
+- Table2 geometry aligns15 BLEU cell/header/row bundles, but EN-DE/EN-FR are
+  column conditions, not complete benchmark names. Dataset identity is marked
+  unresolved; reviewed caption-to-benchmark/condition mapping is needed before
+  these can become complete scientific tuples. Training-cost products and
+  unsupported merged/continuation layouts remain unresolved too.
+- All12 annotation proposals remain unreviewed. Required research action:
+  independently verify source/version/tuple scope, record reviewer/date/verdict
+  and explicit dataset aliases/conditions. No real accuracy score until then.
+- No Kaggle connector/CLI/credentials configured here. Required compute action:
+  open a private GPU notebook, verify source redistribution rights, mount the
+  exact private PDF/packet and execute the prepared isolated jobs. Do not send
+  credentials or upload protected content publicly. Remote parsers/models
+  remain unexecuted candidates, not accuracy improvements.
+- Teammate must connect frontend search/process/job polling/citation/status
+  navigation and deployment. Backend contracts and synthetic API examples are
+  ready; full application integration and scientific novelty remain unproved.
+
+See ACCURACY_REPORT.md for outcomes and kaggle/README.md for executable setup.
+Earlier sprint limits below are historical and retained.
+
 ## Current sprint limits — 2026-11-07
 
 - Quote formatting and linked Table2 delivery are operational; actual saved

@@ -1,5 +1,42 @@
 # Evaluation
 
+## Accuracy-v1 controlled development checks
+
+Protocol frozen in configs/accuracy_eval_v1.json before the final run, core
+checkpoint4c8dfca.110 consolidated tests pass (0 failed/skipped),8.85s, one
+Starlette/AnyIO dependency warning. Per-test evidence/environment/doubles are
+in docs/evidence/accuracy_tests.json; raw JUnit outputs/accuracy/final-pytest.xml.
+The16 new cases include physical multi-header geometry, complete five-span
+tuples,9 invalid-link mutations, source-unavailable routing, status distinction,
+API serialization and immutable remote-packet/path/hash checks. These are
+development fixtures, not independently annotated scientific extraction cases.
+
+Preserved A/B/C/D fixture replay ran once in a new temporary Chroma database:
+A/B0 of1 supported tuple/delivery, C/D1 of1 with unsupported control withheld.
+Historical annotations, corpus hashes, rules and metric dictionaries remain
+unchanged. The dense encoder and candidate replay remain explicit doubles;
+Chroma/BM25 are actual modules. New profiles are not relabeled frozen C/D.
+
+Previously inspected real paper is development-only. Native geometry produces
+15 source-aligned BLEU bundles; cost products/shared columns remain unresolved.
+Balanced selection restores prose124/125 alongside complete table bundles.
+These are source/development probes, not reviewed structure precision/recall.
+All12 existing review proposals remain needs_human_review; no independent
+tuple precision/recall, unsupported-claim rate or gold accuracy is computed.
+
+Docling and Qwen3 remote candidates have reproducible scripts/configs but are
+UNEXECUTED. Both remote extraction candidates use an identical matched packet
+and host verifier. Quantization/decoder/model changes must remain explicit.
+The local real-model API run and exact verdicts are in ACCURACY_REPORT.md.
+
+Final actual outcome: EXTRACTION_FAILED/ReadTimeout, no completed predictions
+or token counts. Do not compute accuracy or count it as all-withheld output.
+Two subsequent independent corrections preserve parsed bundles on failure and
+keep dataset identity unresolved beyond geometric column alignment.20 targeted
+post-fix checks pass in5.21s; they overlap the110 consolidation, not130 unique
+tests or a second full suite. Source-aligned Table2 bundles are not verified
+complete tuples: a reviewed benchmark/condition mapping is still required.
+
 ## Engineering sprint consolidation — 2026-11-07
 
 Executed the full suite once after the connected engineering checkpoint:

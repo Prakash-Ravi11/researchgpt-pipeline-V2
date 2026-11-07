@@ -1,5 +1,34 @@
 # Decisions
 
+## Accuracy-first decisions
+
+- Preserve the existing parser, BGE-M3, quotation verifier and API defaults.
+  Add accuracy_v1/relationship_v1/selection_v1 as opt-in paths. New geometry
+  handles demonstrated repeated-leaf headers only and retains exact source.
+- Treat source alignment, scientific binding, model output and independent
+  human validation as distinct. Column codes do not silently become datasets;
+  unresolved scope stays UNAVAILABLE. No model-generated quote or external
+  parser Markdown becomes canonical evidence.
+- Extend numerical verification with host-attested multi-span row/header/cell
+  relationships, immutable document identity, original offsets, metric range,
+  table type and legacy ownership checks. Do not combine arbitrary spans.
+- Reserve context for result prose before compact bundles. Actual model
+  tokenizer counting is injectable; local fallback is an explicit byte-BPE
+  content upper bound with output/wrapper reserves, not a claimed token count.
+- Select Docling/TableFormer ACCURATE as the first remote comparison candidate,
+  not a proven winner. Keep PaddleOCR/MinerU as investigated alternatives.
+  Heavy frameworks stay out of Windows/global environments. Conditional OCR
+  needs missing/sparse source text; no unverified VLM-number acceptance.
+- Prepare two pinned Qwen3 configurations on separate single-device jobs.
+  Matched packet equality is checked against the actual local request. No
+  pooling two T4s, public document upload, paid API or assumed Kaggle access.
+- Preserve the actual failed API run. Fix independent failure-data loss, test
+  it locally and stop rather than increasing deadlines or tuning to output.
+  One full110-test suite and fixture replay; post-fix targeted checks separate.
+- Novelty is a bounded hypothesis informed by close AxCell/SciREX/TELIN/table
+  verification work; requires reviewed matched-budget ablations. No priority
+  or general accuracy claim follows from this implementation.
+
 ## Sprint decisions — 2026-11-07
 
 17. Match formatting deterministically inside the declared original chunk and

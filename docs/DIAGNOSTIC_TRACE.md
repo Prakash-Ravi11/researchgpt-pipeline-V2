@@ -1,5 +1,17 @@
 # Diagnostic trace
 
+Accuracy-v1 update: see ACCURACY_REPORT.md and docs/evidence/accuracy_real_summary.json.
+One real PDF ->432 genuine GPU BGE vectors ->fresh isolated Chroma ->15 parsed
+source-aligned bundles ->15 prose anchors plus5 compact bundles ->real Qwen
+request through the API's in-process HTTP/ASGI route. Prose124/125 reaches the
+catalog; source/row/header/version checks remain separate from generation.
+Qwen client reaches180s ReadTimeout, with no completed candidate/token packet.
+This is EXTRACTION_FAILED, not an all-withheld prediction set or a scored miss.
+Original response lost top-level bundles but retained15 in trace; a subsequent
+controlled-timeout test proves the failure-preservation correction. No second
+real-model run. Latest gate also explicitly withholds Table2 dataset identity
+until benchmark and language condition are mapped under reviewed provenance.
+
 ## Sprint connected trace — 2026-11-07
 
 Detailed evidence: SPRINT_REPORT.md and docs/evidence/sprint_real_summary.json;

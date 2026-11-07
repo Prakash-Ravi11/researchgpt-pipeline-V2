@@ -1,5 +1,49 @@
 # Teammate retrieval and backend contract
 
+## Accuracy-v1 request and evidence navigation
+
+Existing discover/process/jobs endpoints and port8000 remain unchanged. For
+the new local path, add these fields to the existing paper/project/upload:
+
+```json
+{
+  "representation_profile": "accuracy_v1",
+  "retrieval": "table_aware_v1",
+  "context_mode": "relationship_v1",
+  "generation_profile": "bounded",
+  "extraction_mode": "selection_v1"
+}
+```
+
+selection_v1 and relationship_v1 must be selected together (otherwise422).
+Native structured sources and readable PDF fallback remain supported. Retrieval
+is configurable; hybrid keeps canonical IDs/RRF scores and optional injected
+reranker. Read-only teammate inspection confirms its config-bound cross-encoder,
+prefix merge and synthetic IDs still need this adapter, not a whole-app import.
+
+Process response includes evidence_bundles. Each bundle has source-alignment
+and human-review states, parser/version/document hash and linked spans. Navigate
+each span using reference.paper_id/chunk_id/block_id/page_or_node and original
+character range; use bbox for PDF highlighting. Do not reinterpret block boxes
+as exact character boxes. Bundle row/column positions are parser positions;
+source refs and native boxes identify the actual row/header/cell.
+
+Only final RETURNED/status VERIFIED findings are displayed as machine-verified.
+Show review_status=needs_human_review separately; it is not human approval.
+verification_state distinguishes WITHHELD, AMBIGUOUS, UNAVAILABLE and FAILED;
+acquisition_status independently distinguishes missing full text. Withheld
+proposals and SOURCE_ALIGNED bundles are review material, not accepted findings.
+scientific_tuple may have null unit/setting: do not infer absent conditions or
+expand EN-DE/EN-FR aliases silently. All supporting refs must remain navigable.
+
+For progress, POST /api/jobs and poll /api/jobs/{id}; QUEUED/RUNNING are coarse
+process states, not invented per-stage completion percentages. Terminal results
+contain stage timings/status/errors. Jobs remain in-memory; authentication,
+durability, deployment and actual frontend migration are teammate work.
+The executed fixture tests demonstrate verified multi-span results, wrong
+source/version rejection and compatible API serialization. Real API results
+are separately recorded in ACCURACY_REPORT.md; no frontend integration claimed.
+
 The implementation is operational through the existing FastAPI process/job
 routes and the fixture HTTP flow. No teammate frontend migration is included.
 Use the isolated `.venv-gpu` interpreter; dependencies and BGE-M3 are unchanged.

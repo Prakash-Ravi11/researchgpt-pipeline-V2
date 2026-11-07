@@ -1,5 +1,21 @@
 # Architecture
 
+Accuracy-v1 is an optional overlay: validated acquisition -> baseline IR/native
+text -> replaceable StructuralParser -> typed source-aligned bundles -> unchanged
+BGE retrieval plus optional table links -> balanced authorized span/bundle
+catalog -> selection-only LLM -> source/geometry/range/attribution gate -> the
+same ExtractedPaper/API. It preserves IDs, original offsets and baseline paths.
+The local parser supports a demonstrated multi-header subset. Sparse text and
+unresolved relationships emit explicit escalation requests. A lazy Docling
+adapter exports external proposals; it does not silently promote them to
+trusted cells. Native JATS/LaTeX structures stay supported.
+
+High-capacity execution is separated into private, versioned parser/extractor
+jobs under kaggle/. Both remote model candidates consume a hashed matched
+packet; local replay applies the same host verifier. No credentials, public
+dataset transfer, distributed pooling or framework installation is implied by
+that interface. Remote execution remains unvalidated until actually run.
+
 The opt-in sprint path adds `table_context_v1` to PDF dispatch, scored retriever
 records, `table_aware_v1` link expansion/atomic context and the named local
 `bounded` client profile. It uses the same pipeline, gate and API. Defaults and

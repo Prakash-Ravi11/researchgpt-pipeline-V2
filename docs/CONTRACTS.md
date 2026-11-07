@@ -1,5 +1,26 @@
 # Contracts
 
+## Accuracy-v1 additive contract
+
+`EvidenceSpan` identifies exact text plus an original SourceReference and optional
+native bbox. `EvidenceBundle` links caption/subject/dataset/metric/value spans,
+document SHA256, table ID, parser/version, parser row/column positions,
+structural state and independent review state. Source-aligned structure is
+different from human review. Unresolved model cells never become source text.
+
+`ExtractedPaper.evidence_bundles` exposes the typed structures. FieldValue adds
+verification_state (VERIFIED/WITHHELD/FAILED/AMBIGUOUS/UNAVAILABLE) while keeping
+the existing final/status vocabulary. Returned bundle fields additionally carry
+scientific_tuple, evidence_bundle_id, verification_route and review_status.
+The numeric value quote remains literal; the full relationship is supported
+by all linked refs rather than a fabricated combined quotation.
+
+`selection_v1` proposals contain only an authorized evidence_id. The host
+materializes source anchors and verifies original offsets, hashes, structure,
+range, attribution and delivery. Wrong IDs/versions/headers/rows/datasets/units
+remain rejected. The original single-span route remains supported.
+See RETRIEVAL_INTEGRATION.md and kaggle/README.md for request and replay use.
+
 ## Sprint additive contracts
 
 `RetrievalHit` carries the complete shared Chunk, rank, nullable score,
