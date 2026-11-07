@@ -5,10 +5,11 @@ import re
 
 from shared.schemas import Chunk, FieldValue, Paper
 from src.evidence.gate import _gate_value
+from pipeline.evidence.quotes import resolve_quote
 
 
 def _contains_number(text: str, number: str) -> bool:
-    return bool(re.search(r"(?<![\w.])" + re.escape(number) + r"(?![\w.])", text))
+    return bool(re.search(r"(?<![\w.])" + re.escape(number) + r"(?!\w|\.\d)", text))
 
 
 def verify_candidate(field: str, candidate, paper: Paper, delivered: list[Chunk], corpus: list[Chunk]) -> FieldValue:
@@ -27,16 +28,37 @@ def verify_candidate(field: str, candidate, paper: Paper, delivered: list[Chunk]
     if hit is None or hit.paper_id != paper.paper_id:
         return reject("source_chunk_not_delivered")
     quote = candidate.get("evidence_span")
-    if not isinstance(quote, str) or not quote.strip() or quote not in hit.text:
+    if not isinstance(quote, str) or not quote.strip():
         return reject("quote_not_in_delivered_chunk")
+    delivered_match, error = resolve_quote(hit.text, quote)
+    if error:
+        if error == "ambiguous":
+            item.status = "AMBIGUOUS"
+        return reject("ambiguous_quote" if error == "ambiguous" else "quote_not_in_delivered_chunk")
     original = next((c for c in corpus if c.chunk_id == hit.chunk_id), None)
-    if original is None or quote not in original.text:
+    if original is None or original.paper_id != paper.paper_id:
         return reject("quote_not_in_original_source_chunk")
+    source_match, error = resolve_quote(original.text, quote)
+    if error:
+        if error == "ambiguous":
+            item.status = "AMBIGUOUS"
+        return reject("ambiguous_quote" if error == "ambiguous" else "quote_not_in_original_source_chunk")
+    if original.char_start + source_match.start != hit.char_start + delivered_match.start:
+        return reject("source_offset_disagrees")
     # An unrelated real quote cannot support an invented paraphrase.
-    if value not in quote:
+    value_match, error = resolve_quote(source_match.text, value)
+    if error:
+        if error == "ambiguous":
+            item.status = "AMBIGUOUS"
+        return reject("ambiguous_value" if error == "ambiguous" else "value_not_in_source_quote")
+    item.proposed_value = value
+    item.proposed_evidence_span = quote
+    value, quote = value_match.text, source_match.text
+    item.value = value
+    if not quote:
         return reject("value_not_in_source_quote")
     ref = original.reference()
-    offset = original.text.index(quote)
+    offset = source_match.start
     refs = [ref.model_copy(update={"char_start": ref.char_start + offset,
                                   "char_end": ref.char_start + offset + len(quote)})]
     quantitative = field in ("results", "metrics", "key_findings") and bool(re.search(r"\d", value))

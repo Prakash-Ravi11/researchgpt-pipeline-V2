@@ -21,6 +21,8 @@ def pytest_collection_modifyitems(items):
             "test_real_bm25_fusion_preserves_identity_and_duplicate_prefixes",
             "test_embedding_owner_releases_before_llm_extraction", "test_failed_indexing_releases_owned_model",
             "test_raw_incomplete_model_response_is_observable",
+            "test_optional_profiles_complete_fixture_api_flow",
+            "test_linked_table_keeps_native_text_offsets_and_grid_status",
         }
         mocked = module == "test_api" or (module == "test_clients_and_dispatch" and "dispatch" not in item.name)
         mocked = mocked or item.originalname in names_with_doubles

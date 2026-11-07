@@ -59,6 +59,7 @@ class ChromaIndex:
     def __init__(self, project_id: str, path: str | Path = "data/chroma", encoder=None, client=None):
         import chromadb
         self.encoder = encoder or BGEEncoder()
+        self.query_trace = []
         Path(path).mkdir(parents=True, exist_ok=True)
         self.client = client or chromadb.PersistentClient(path=str(path))
         name = "rgpt_v2_" + hashlib.sha256(project_id.encode()).hexdigest()[:24]
@@ -95,8 +96,14 @@ class ChromaIndex:
         if not count:
             return []
         result = self.collection.query(query_embeddings=self.encoder.encode([query]),
-            where={"paper_id": paper_id}, n_results=min(n, count), include=["metadatas"])
-        return [Chunk.model_validate_json(m["chunk_json"]) for m in result["metadatas"][0]]
+            where={"paper_id": paper_id}, n_results=min(n, count), include=["metadatas", "distances"])
+        chunks = [Chunk.model_validate_json(m["chunk_json"]) for m in result["metadatas"][0]]
+        self.query_trace.append({"query": query, "strategy": "dense_cosine", "requested_hits": n,
+            "hits": [{"chunk_id": c.chunk_id, "rank": rank, "score": 1-float(distance),
+                      "distance": float(distance), "score_kind": "cosine_similarity",
+                      "source_ref": c.reference().model_dump()} for rank, (c, distance)
+                     in enumerate(zip(chunks, result["distances"][0]), 1)]})
+        return chunks
 
     def release_encoder(self):
         release = getattr(self.encoder, "release", None)

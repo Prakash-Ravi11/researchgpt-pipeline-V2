@@ -1,0 +1,163 @@
+{
+  "scope": "replay of saved actual Qwen predictions; no new model calls or independent gold",
+  "source_run": "outputs\\recovery\\gpu-current-03-bounded",
+  "source_sha256": "bdfaa68d8984f0dc02beaca527b76f207d99b666d31d1da728ee0728182df697",
+  "candidates": 9,
+  "before_returned": 1,
+  "after_returned": 4,
+  "recovered": 3,
+  "verified_numeric": 0,
+  "rows": [
+    {
+      "candidate_id": "problem_statement:0",
+      "chunk_id": "arxiv:1706.03762:21#0",
+      "before": "ABSTAINED",
+      "before_reason": "quote_not_in_delivered_chunk",
+      "after": "RETURNED",
+      "after_reason": null,
+      "status": "VERIFIED",
+      "refs": [
+        {
+          "paper_id": "arxiv:1706.03762",
+          "chunk_id": "arxiv:1706.03762:21#0",
+          "block_id": "arxiv:1706.03762:21",
+          "source": "arxiv",
+          "representation": "pdf",
+          "section": "abstract",
+          "page_or_node": "p2",
+          "char_start": 2852,
+          "char_end": 3268,
+          "offset_basis": "normalized_document"
+        }
+      ],
+      "typed_tuple": false
+    },
+    {
+      "candidate_id": "objective:0",
+      "chunk_id": "arxiv:1706.03762:15#0",
+      "before": "ABSTAINED",
+      "before_reason": "quote_not_in_delivered_chunk",
+      "after": "ABSTAINED",
+      "after_reason": "quote_not_in_delivered_chunk",
+      "status": "ABSTAINED",
+      "refs": [],
+      "typed_tuple": false
+    },
+    {
+      "candidate_id": "research_gap:0",
+      "chunk_id": "arxiv:1706.03762:22#0",
+      "before": "ABSTAINED",
+      "before_reason": "quote_not_in_delivered_chunk",
+      "after": "RETURNED",
+      "after_reason": null,
+      "status": "VERIFIED",
+      "refs": [
+        {
+          "paper_id": "arxiv:1706.03762",
+          "chunk_id": "arxiv:1706.03762:22#0",
+          "block_id": "arxiv:1706.03762:22",
+          "source": "arxiv",
+          "representation": "pdf",
+          "section": "abstract",
+          "page_or_node": "p2",
+          "char_start": 3952,
+          "char_end": 4023,
+          "offset_basis": "normalized_document"
+        }
+      ],
+      "typed_tuple": false
+    },
+    {
+      "candidate_id": "method:0",
+      "chunk_id": "arxiv:1706.03762:15#0",
+      "before": "ABSTAINED",
+      "before_reason": "quote_not_in_delivered_chunk",
+      "after": "ABSTAINED",
+      "after_reason": "quote_not_in_delivered_chunk",
+      "status": "ABSTAINED",
+      "refs": [],
+      "typed_tuple": false
+    },
+    {
+      "candidate_id": "datasets:0",
+      "chunk_id": "arxiv:1706.03762:98#0",
+      "before": "ABSTAINED",
+      "before_reason": "quote_not_in_delivered_chunk",
+      "after": "RETURNED",
+      "after_reason": null,
+      "status": "VERIFIED",
+      "refs": [
+        {
+          "paper_id": "arxiv:1706.03762",
+          "chunk_id": "arxiv:1706.03762:98#0",
+          "block_id": "arxiv:1706.03762:98",
+          "source": "arxiv",
+          "representation": "pdf",
+          "section": "abstract",
+          "page_or_node": "p7",
+          "char_start": 19771,
+          "char_end": 20169,
+          "offset_basis": "normalized_document"
+        }
+      ],
+      "typed_tuple": false
+    },
+    {
+      "candidate_id": "metrics:0",
+      "chunk_id": "arxiv:1706.03762:124#0",
+      "before": "ABSTAINED",
+      "before_reason": "quote_not_in_delivered_chunk",
+      "after": "ABSTAINED",
+      "after_reason": "incomplete_scientific_tuple",
+      "status": "ABSTAINED",
+      "refs": [],
+      "typed_tuple": false
+    },
+    {
+      "candidate_id": "results:0",
+      "chunk_id": "arxiv:1706.03762:124#0",
+      "before": "ABSTAINED",
+      "before_reason": "quote_not_in_delivered_chunk",
+      "after": "ABSTAINED",
+      "after_reason": "additional_measurements_require_separate_tuples",
+      "status": "ABSTAINED",
+      "refs": [],
+      "typed_tuple": true
+    },
+    {
+      "candidate_id": "future_scope:0",
+      "chunk_id": "arxiv:1706.03762:156#0",
+      "before": "RETURNED",
+      "before_reason": null,
+      "after": "RETURNED",
+      "after_reason": null,
+      "status": "VERIFIED",
+      "refs": [
+        {
+          "paper_id": "arxiv:1706.03762",
+          "chunk_id": "arxiv:1706.03762:156#0",
+          "block_id": "arxiv:1706.03762:156",
+          "source": "arxiv",
+          "representation": "pdf",
+          "section": "abstract",
+          "page_or_node": "p10",
+          "char_start": 29313,
+          "char_end": 29409,
+          "offset_basis": "normalized_document"
+        }
+      ],
+      "typed_tuple": false
+    },
+    {
+      "candidate_id": "key_findings:0",
+      "chunk_id": "arxiv:1706.03762:124#0",
+      "before": "ABSTAINED",
+      "before_reason": "quote_not_in_delivered_chunk",
+      "after": "ABSTAINED",
+      "after_reason": "incomplete_scientific_tuple",
+      "status": "ABSTAINED",
+      "refs": [],
+      "typed_tuple": false
+    }
+  ]
+}

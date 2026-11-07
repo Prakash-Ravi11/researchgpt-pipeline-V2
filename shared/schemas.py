@@ -99,7 +99,21 @@ class Chunk(SourceReference):
     table_caption: str = ""
 
     def reference(self) -> SourceReference:
-        return SourceReference.model_validate({k: getattr(self, k) for k in SourceReference.model_fields})
+        record = {k: getattr(self, k) for k in SourceReference.model_fields}
+        for key in ("source_bbox", "source_words", "table_id", "table_representation", "table_context"):
+            if key in (self.model_extra or {}):
+                record[key] = self.model_extra[key]
+        return SourceReference.model_validate(record)
+
+
+class RetrievalHit(Contract):
+    """Teammate adapter boundary: intact canonical source plus explicit score type."""
+    chunk: Chunk
+    rank: int = Field(ge=1)
+    score: float | None = None
+    score_kind: str
+    strategy: str
+    query: str | None = None
 
 
 class FieldValue(Contract):
@@ -107,7 +121,7 @@ class FieldValue(Contract):
     value: str | None = None
     final: Literal["RETURNED", "ABSTAINED"] = "ABSTAINED"
     evidence_status: Literal["EXPLICIT", "MISSING", "INFERRED", "UNSUPPORTED"] = "MISSING"
-    status: Literal["VERIFIED", "ABSTAINED", "FAILED", "MISSING"] = "MISSING"
+    status: Literal["VERIFIED", "ABSTAINED", "AMBIGUOUS", "FAILED", "MISSING"] = "MISSING"
     abstain_reason: str | None = None
     evidence_span: str | None = None
     source_refs: list[SourceReference] = Field(default_factory=list)

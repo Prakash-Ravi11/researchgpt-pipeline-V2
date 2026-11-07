@@ -9,23 +9,27 @@ from pipeline.evidence.verification import verify_candidate
 from pipeline.extraction.context import current_context
 from pipeline.extraction.prompt import FIELDS, SYSTEM
 from pipeline.parsing.documents import process
-from pipeline.retrieval.retrievers import FiveQueryRetriever, HybridRetriever
+from pipeline.retrieval.retrievers import FiveQueryRetriever, HybridRetriever, TableAwareRetriever, scored_records
 
 
 class EvidencePipeline:
     def __init__(self, source, index, llm, *, retrieval: str = "five_query", context_mode: str = "current",
-                 max_words: int = 2500, context_builder=None):
-        if retrieval not in ("five_query", "hybrid"):
+                 max_words: int = 2500, context_builder=None, representation_profile: str = "baseline"):
+        if retrieval not in ("five_query", "hybrid", "table_aware_v1"):
             raise ValueError("unknown retrieval mode")
         if context_mode != "current" and context_builder is None:
             raise ValueError("context configuration unavailable")
         self.source, self.index, self.llm = source, index, llm
-        self.retriever = FiveQueryRetriever(index) if retrieval == "five_query" else HybridRetriever(index)
+        self.retriever = {"five_query": FiveQueryRetriever, "hybrid": HybridRetriever,
+                          "table_aware_v1": TableAwareRetriever}[retrieval](index)
         self.context_builder = context_builder or (lambda cs: current_context(cs, max_words))
         self.context_mode, self.retrieval = context_mode, retrieval
+        self.representation_profile = representation_profile
 
     def run(self, paper: Paper, document: AcquiredDocument | None = None) -> ExtractedPaper:
-        trace = {"retrieval": self.retrieval, "context_mode": self.context_mode, "stage_ms": {}}
+        trace = {"retrieval": self.retrieval, "context_mode": self.context_mode, "stage_ms": {},
+                 "representation_profile": self.representation_profile,
+                 "generation_profile": getattr(self.llm, "generation_profile", "custom_or_default")}
         started = time.perf_counter()
         stage = "acquisition"
         encoder_released = False
@@ -51,7 +55,7 @@ class EvidencePipeline:
                 return ExtractedPaper(paper_id=paper.paper_id, acquisition_status=paper.acquisition_status,
                     status="ACQUISITION_FAILED", trace=trace, errors=[{"stage": stage, "code": "document_not_validated"}])
             stage, t = "parsing", time.perf_counter()
-            doc, chunks = process(document)
+            doc, chunks = process(document, self.representation_profile)
             trace["stage_ms"][stage] = (time.perf_counter() - t) * 1000
             trace["document"] = {k: v for k, v in doc.items() if k != "blocks"}
             trace["chunk_ids"] = [c.chunk_id for c in chunks]
@@ -63,6 +67,11 @@ class EvidencePipeline:
             trace["stage_ms"][stage] = (time.perf_counter() - t) * 1000
             stage, t = "retrieval", time.perf_counter()
             retrieved = self.retriever.retrieve(paper.paper_id, chunks)
+            trace["retrieval_queries"] = list(getattr(self.index, "query_trace", []))[-5:]
+            trace["retrieval_expansion"] = getattr(self.retriever, "expansion_trace", [])
+            records = scored_records(retrieved, self.retrieval, trace["retrieval_queries"], trace["retrieval_expansion"])
+            trace["retrieval_records"] = [{**r.model_dump(exclude={"chunk"}), "chunk_id": r.chunk.chunk_id,
+                                          "source_ref": r.chunk.reference().model_dump()} for r in records]
             trace["stage_ms"][stage] = (time.perf_counter() - t) * 1000
             stage, t = "context", time.perf_counter()
             context = self.context_builder(retrieved)

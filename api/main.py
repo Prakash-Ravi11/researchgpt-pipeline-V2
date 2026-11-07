@@ -14,7 +14,8 @@ from pydantic import BaseModel, ConfigDict, Field
 
 from pipeline.acquisition.source import LiteratureSource, from_bytes
 from pipeline.extraction.clients import HostedClient, OllamaClient
-from pipeline.extraction.context import revised_context
+from pipeline.extraction.context import revised_context, table_aware_context
+from pipeline.extraction.profiles import local_client
 from pipeline.retrieval.index import BGEEncoder, ChromaIndex
 from pipeline.service import EvidencePipeline
 from shared.schemas import ExtractedPaper, Job, Paper
@@ -24,8 +25,10 @@ class ProcessRequest(BaseModel):
     model_config = ConfigDict(extra="forbid")
     project_id: str = Field(min_length=1, max_length=200)
     paper: Paper
-    retrieval: Literal["five_query", "hybrid"] = "five_query"
-    context_mode: Literal["current", "revised"] = "current"
+    retrieval: Literal["five_query", "hybrid", "table_aware_v1"] = "five_query"
+    context_mode: Literal["current", "revised", "table_aware_v1"] = "current"
+    representation_profile: Literal["baseline", "table_context_v1"] = "baseline"
+    generation_profile: Literal["default", "bounded"] = "default"
     representation: Literal["pdf", "jats_xml"] | None = None
     document_base64: str | None = Field(default=None, max_length=53_333_336)
 
@@ -46,15 +49,18 @@ def shared_encoder():
 def default_pipeline(req: ProcessRequest):
     provider = os.getenv("RGPT_LLM_PROVIDER", "ollama")
     if provider == "ollama":
-        llm = OllamaClient(model=os.getenv("RGPT_LLM_MODEL", "qwen2.5:7b"),
+        llm = local_client(req.generation_profile, model=os.getenv("RGPT_LLM_MODEL", "qwen2.5:7b"),
                           base_url=os.getenv("RGPT_OLLAMA_URL", "http://localhost:11434"))
     elif provider == "hosted":
+        if req.generation_profile != "default":
+            raise ValueError("bounded profile requires local Ollama")
         llm = HostedClient(model=os.environ["RGPT_LLM_MODEL"], base_url=os.environ["RGPT_LLM_BASE_URL"])
     else:
         raise ValueError("unknown LLM provider")
     return EvidencePipeline(LiteratureSource(), ChromaIndex(req.project_id, encoder=shared_encoder()), llm,
                             retrieval=req.retrieval, context_mode=req.context_mode,
-                            context_builder=revised_context if req.context_mode == "revised" else None)
+                            representation_profile=req.representation_profile,
+                            context_builder={"revised": revised_context, "table_aware_v1": table_aware_context}.get(req.context_mode))
 
 
 def create_app(pipeline_factory=default_pipeline) -> FastAPI:

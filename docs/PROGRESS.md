@@ -1,5 +1,36 @@
 # Progress
 
+## Engineering sprint checkpoint — 2026-11-07
+
+Started clean at `18d42f7` on the required branch; local and remote histories
+inspected, 10 existing unpushed commits preserved. Earlier runtime/environment
+recovery is complete and was not repeated. Sole implementation agent.
+
+Implemented deterministic quote/offset mapping (including ambiguity status),
+optional readable-PDF `table_context_v1`, `table_aware_v1` linked retrieval and
+atomic context delivery, scored source-preserving adapter records, named local
+`bounded` generation and opt-in API request fields. Defaults, five queries,
+embedding inputs and legacy scientific gate remain unchanged. A sentence-final
+period no longer hides a valid numeric token; extra measurements still require
+separate complete tuples. No fuzzy or wrong-ID repair.
+
+Engineering checkpoint: `.venv-gpu/Scripts/python.exe -X utf8 -B -m pytest -p
+no:cacheprovider` on quote/table/profile/context/API/pipeline/contract/lifecycle
+test files: **38 passed**, one dependency deprecation warning, 6.32s. Initial
+quote test had a missing required fixture field; corrected, not a product bug.
+Saved actual Qwen predictions replay: returned 1 -> 4 of 9, three recovered,
+zero numerical tuples; wrong-ID and incomplete/extra-measurement candidates
+remain withheld. Saved-ID table expansion delivers all 12 Table2 source blocks.
+These replays are not new model runs or independent accuracy measurements.
+
+Prepared 12 source-backed review proposals with all reviewer/verdict fields
+empty. Consolidated `.venv-gpu` suite: **94 passed**, 0 failed/skipped, one
+dependency deprecation warning, 7.11s; JUnit `outputs/sprint/final-pytest.xml`.
+Frozen A/B/C/D fixture replay executes unchanged: A/B 0 of 1, C/D 1 of 1;
+unsupported control withheld. Next: one fresh sequential BGE/Qwen run with
+named bounded + table profiles. Last completed
+commit before this checkpoint: `18d42f7`.
+
 Started 2026-11-06 (Asia/Calcutta). Sole implementation agent. No push or merge authorized.
 
 ## Verified starting state

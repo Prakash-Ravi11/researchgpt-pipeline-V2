@@ -56,5 +56,8 @@ def chunk_document(doc: dict[str, Any]) -> list[dict[str, Any]]:
             if block.get("table_cells"):
                 rec["table_cells"] = block["table_cells"]
                 rec["table_caption"] = block.get("table_caption") or ""
+            for key in ("source_bbox", "source_words", "table_id", "table_representation", "table_context"):
+                if key in block:
+                    rec[key] = block[key]
             chunks.append(rec)
     return chunks

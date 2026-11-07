@@ -28,7 +28,8 @@ import torch
 from shared.schemas import Paper, ExtractedPaper
 from pipeline.acquisition.source import from_bytes
 from pipeline.extraction.clients import OllamaClient
-from pipeline.extraction.context import current_context, revised_context
+from pipeline.extraction.context import current_context, revised_context, table_aware_context
+from pipeline.extraction.profiles import local_client
 from pipeline.parsing.documents import process
 from pipeline.retrieval.index import BGEEncoder, ChromaIndex, MODEL, MODEL_REVISION
 from pipeline.service import EvidencePipeline
@@ -81,7 +82,11 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--device", choices=["cuda", "cpu"], default="cuda")
-    parser.add_argument("--context", choices=["current", "revised"], default="current")
+    parser.add_argument("--context", choices=["current", "revised", "table_aware_v1"], default="current")
+    parser.add_argument("--generation-profile", choices=["default", "bounded"], default="default")
+    parser.add_argument("--representation-profile", choices=["baseline", "table_context_v1"], default="baseline")
+    parser.add_argument("--retrieval", choices=["five_query", "hybrid", "table_aware_v1"], default="five_query")
+    parser.add_argument("--full-rank-trace", action="store_true", help="score every document for the same five query embeddings")
     parser.add_argument("--output-tokens", type=int, default=768)
     parser.add_argument("--cpu-check", action="store_true", help="two genuine CPU embeddings while Qwen remains resident")
     parser.add_argument("--max-candidates", type=int, default=None)
@@ -116,12 +121,14 @@ def main():
     acq_started = time.perf_counter()
     document = from_bytes(paper, data, "pdf", getattr(paper, "pdf_source", "arxiv"))
     report["acquisition_ms"] = (time.perf_counter() - acq_started) * 1000
-    parsed, chunks = process(document)
+    parsed, chunks = process(document, args.representation_profile)
     save(args.output / "paper.json", document.paper.model_dump(mode="json"))
     save(args.output / "parsed_document.json", parsed)
     save(args.output / "chunks.json", [c.model_dump(mode="json") for c in chunks])
     report.update(paper_id=paper.paper_id, document_sha256=paper.document_sha256, chunk_count=len(chunks),
-                  stable_chunk_ids=chunks == process(document)[1], acquisition_status=document.paper.acquisition_status)
+                  stable_chunk_ids=chunks == process(document, args.representation_profile)[1], acquisition_status=document.paper.acquisition_status,
+                  representation_profile=args.representation_profile, generation_profile=args.generation_profile,
+                  retrieval=args.retrieval, context_mode=args.context)
 
     class Encoder(BGEEncoder):
         model_ref = None
@@ -174,16 +181,24 @@ def main():
             report["index"]["separate_collection_empty"] = True
             report["index"]["isolation_control_collection"] = neighbor.collection.name
         def search(self, query, pid, n=50):
-            found = super().search(query, pid, n)
+            all_found = super().search(query, pid, self.collection.count() if args.full_rank_trace else n)
+            found = all_found[:n]
             report["queries"].append({"query": query, "paper_id": pid, "requested_hits": n,
-                "ids": [c.chunk_id for c in found], "actual_embedding_model": MODEL})
+                "ids": [c.chunk_id for c in found], "actual_embedding_model": MODEL,
+                "ranked_hits": self.query_trace[-1]["hits"]})
             return found
 
     encoder = Encoder(args.device)
     index = Index("recovery-" + args.output.name, args.output / "fresh-chroma", encoder)
     captured = {}
     def context_builder(cs):
-        context = current_context(cs) if args.context == "current" else revised_context(cs)
+        context = {"current": current_context, "revised": revised_context,
+                   "table_aware_v1": table_aware_context}[args.context](cs)
+        base_ids = {cid for q in report["queries"] for cid in q["ids"]}
+        baseline = current_context([c for c in chunks if c.chunk_id in base_ids])
+        save(args.output / "baseline_context_comparison.json", {"trace": baseline.trace,
+            "new_trace": context.trace, "source_chunk_texts_and_embedding_inputs_unchanged":
+                [(c.chunk_id, c.text) for c in chunks] == [(c.chunk_id, c.text) for c in process(document)[1]]})
         captured.update(retrieved=cs, context=context)
         save(args.output / "context.json", {"text": context.text, "trace": context.trace,
             "delivered_chunks": [c.model_dump(mode="json") for c in context.chunks]})
@@ -195,11 +210,13 @@ def main():
             report["snapshots"].append(snapshot("immediately_before_qwen_request"))
         else:
             report["snapshots"].append(snapshot("after_qwen_response"))
-    llm = OllamaClient(output_tokens=args.output_tokens, timeout=180, observer=observe,
-                       max_candidates_per_field=args.max_candidates)
+    llm = (local_client("bounded", timeout=180, observer=observe) if args.generation_profile == "bounded" else
+           OllamaClient(output_tokens=args.output_tokens, timeout=180, observer=observe,
+                        max_candidates_per_field=args.max_candidates))
     monitor = Monitor(args.output); monitor.thread.start()
     try:
-        result = EvidencePipeline(None, index, llm, context_mode=args.context, context_builder=context_builder).run(document.paper, document)
+        result = EvidencePipeline(None, index, llm, retrieval=args.retrieval, context_mode=args.context,
+            context_builder=context_builder, representation_profile=args.representation_profile).run(document.paper, document)
         save(args.output / "structured_output.json", result.model_dump(mode="json"))
         assert ExtractedPaper.model_validate_json(result.model_dump_json()) == result
         report["status"] = result.status

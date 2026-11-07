@@ -89,3 +89,34 @@ def revised_context(chunks: list[Chunk], max_words: int = 2500, budget: int = 60
         "delivered_chunk_ids": [c.chunk_id for c in delivered], "partial_chunk_ids": [],
         "dropped_chunk_ids": [s["chunk_id"] for s in skipped], "drop_reasons": skipped,
         "structured_tables_delivered": len(table_blocks), "content_words": len(text.split())})
+
+
+def table_aware_context(chunks: list[Chunk], max_words: int = 2500, budget: int = 6000) -> Context:
+    """Deliver linked source blocks atomically; keep uncertain tables unstructured.
+
+    The conservative UTF-8-byte budget is not a model token measurement. Every
+    linked header/caption/row retains its own original ID and quoting boundary.
+    """
+    groups = {}
+    for c in chunks:
+        key = getattr(c, "table_id", None) or c.chunk_id
+        groups.setdefault(key, []).append(c)
+    def priority(group):
+        return (0 if getattr(group[0], "table_id", None) else
+                1 if group[0].section == "results" else 2, group[0].chunk_index)
+    delivered, parts, skipped = [], [], []
+    for group in sorted(groups.values(), key=priority):
+        part = "\n\n".join(f"[{c.chunk_id}]\n{render_chunk(c)}" for c in group)
+        text = "\n\n".join(parts + [part])
+        if len(text.encode("utf-8")) > budget or len(text.split()) > max_words:
+            skipped.extend({"chunk_id": c.chunk_id, "reason": "whole_evidence_group_exceeds_budget"} for c in group)
+            continue
+        delivered.extend(group)
+        parts.append(part)
+    text = "\n\n".join(parts)
+    return Context(text, delivered, {"mode": "table_aware_v1", "budget": budget, "max_words": max_words,
+        "budget_method": "utf8_bytes_proxy", "budget_units_used": len(text.encode("utf-8")),
+        "token_count": None, "token_count_method": "unmeasured", "content_words": len(text.split()),
+        "retrieved_chunk_ids": [c.chunk_id for c in chunks], "delivered_chunk_ids": [c.chunk_id for c in delivered],
+        "partial_chunk_ids": [], "dropped_chunk_ids": [s["chunk_id"] for s in skipped], "drop_reasons": skipped,
+        "delivered_table_ids": sorted({c.table_id for c in delivered if getattr(c, "table_id", None)})})

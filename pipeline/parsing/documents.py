@@ -6,7 +6,9 @@ from src.evidence.latex_parity import check_parity
 from src.evidence.represent import build_document
 
 
-def process(document: AcquiredDocument) -> tuple[dict, list[Chunk]]:
+def process(document: AcquiredDocument, representation_profile: str = "baseline") -> tuple[dict, list[Chunk]]:
+    if representation_profile not in ("baseline", "table_context_v1"):
+        raise ValueError("unknown representation profile")
     paper = document.paper
     acq = {"paper_id": paper.paper_id, "source": getattr(paper, "pdf_source", None) or "semantic_scholar",
            "representation_type": paper.representation_type}
@@ -19,5 +21,8 @@ def process(document: AcquiredDocument) -> tuple[dict, list[Chunk]]:
         if not parity["passed"]:
             doc = pdf_doc
             doc["latex_parity_fallback"] = parity
+    if representation_profile == "table_context_v1" and doc["representation"] == "pdf":
+        from pipeline.parsing.table_context import enrich_pdf
+        enrich_pdf(doc, document.data)
     chunks = [Chunk.model_validate({**c, "chunk_index": i}) for i, c in enumerate(chunk_document(doc))]
     return doc, chunks
