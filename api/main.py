@@ -10,7 +10,7 @@ from functools import lru_cache
 from typing import Literal
 
 from fastapi import BackgroundTasks, FastAPI, HTTPException
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field, model_validator
 
 from pipeline.acquisition.source import LiteratureSource, from_bytes
 from pipeline.extraction.clients import HostedClient, OllamaClient
@@ -32,6 +32,12 @@ class ProcessRequest(BaseModel):
     extraction_mode: Literal["quotation", "selection_v1"] = "quotation"
     representation: Literal["pdf", "jats_xml"] | None = None
     document_base64: str | None = Field(default=None, max_length=53_333_336)
+
+    @model_validator(mode="after")
+    def coherent_selection_context(self):
+        if (self.extraction_mode=="selection_v1") != (self.context_mode=="relationship_v1"):
+            raise ValueError("selection_v1 and relationship_v1 must be selected together")
+        return self
 
 
 class DiscoverRequest(BaseModel):

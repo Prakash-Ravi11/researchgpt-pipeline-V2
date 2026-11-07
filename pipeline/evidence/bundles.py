@@ -16,6 +16,7 @@ def verify_bundle(field, candidate, paper, delivered, corpus, bundles):
     item=FieldValue(field=field,status="ABSTAINED",evidence_status="UNSUPPORTED",verification_state="WITHHELD")
     def reject(reason,state="WITHHELD"):
         item.abstain_reason=reason
+        if state=="UNAVAILABLE": item.status="MISSING"
         item.verification_state=state
         if state=="AMBIGUOUS": item.status="AMBIGUOUS"
         return item

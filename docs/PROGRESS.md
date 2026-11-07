@@ -1,5 +1,28 @@
 # Progress
 
+### Remote/replay checkpoint
+
+Local immutable packet exporter, isolated Docling/Qwen3 job entry points and
+source-verifier replay are implemented. Private-input path/hash guards and
+same-packet verifier tests pass; targeted17 passed in4.70s, then16 passed
+in3.91s after sparse-text/status checks. Code-package allowlist validated67
+source/config files with no PDF/weight/database/environment; nothing uploaded.
+Source packet includes text and must remain private. Candidate dependency
+environments and GPU jobs remain unexecuted, not validated installations.
+
+Public status adds VERIFIED/WITHHELD/FAILED/AMBIGUOUS/UNAVAILABLE while retaining
+legacy final/status values. Backend returns typed bundle/span references;
+selection IDs are authorized by the host, and remote output cannot introduce
+a new quote or number. New quoted/free-form and selection routes are separate.
+First core checkpoint4c8dfca. Next: consolidated110-test suite, unchanged
+four-arm fixture replay and one actual GPU ASGI API run. Research novelty
+remains a hypothesis with AxCell/SciREX/TELIN and verification baselines.
+
+Consolidated suite executed once:110 passed,0 failed/skipped, one dependency
+deprecation warning,8.85s. New JUnit outputs/accuracy/final-pytest.xml and
+docs/evidence/accuracy_tests.json. Frozen A/B/C/D replay executes unchanged;
+pip check passes. Next single real GPU API run; no tuning after its output.
+
 ## Accuracy-first milestone — 2026-11-07
 
 Started clean at8755bb1 on the required branch; preserved94-test historical

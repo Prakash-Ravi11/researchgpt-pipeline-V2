@@ -146,7 +146,9 @@ class NativeHeaderParser:
 
 def reconstruct(document, doc, chunks, parser: StructuralParser | None=None):
     if doc["representation"]!="pdf":
-        doc["accuracy_route"]={"parser":"native_structured_source", "status":"baseline_structure_preserved"}
+        missing_pdf=document.paper.representation_type=="pdf"
+        doc["accuracy_route"]={"parser":"native_structured_source", "status":"UNAVAILABLE" if missing_pdf else "baseline_structure_preserved",
+            "escalations":[{"reason":"source_text_missing","candidate_backend":"docling_with_ocr"}] if missing_pdf else []}
         return []
     parser=parser or NativeHeaderParser()
     bundles=parser.reconstruct(document,doc,chunks)
@@ -154,4 +156,8 @@ def reconstruct(document, doc, chunks, parser: StructuralParser | None=None):
         "escalations":[{"table_id":t["table_id"],"reason":"unresolved_header_or_cell_relationships",
                         "candidate_backend":"docling_tableformer_accurate"}
                        for t in doc.get("linked_tables",[]) if not t.get("cell_binding_verified")]}
+    import pymupdf
+    with pymupdf.open(stream=document.data,filetype="pdf") as pdf:
+        doc["accuracy_route"]["escalations"].extend({"page":i,"reason":"source_text_missing_or_sparse",
+            "candidate_backend":"docling_with_ocr"} for i,p in enumerate(pdf,1) if len(p.get_text().strip())<20)
     return bundles

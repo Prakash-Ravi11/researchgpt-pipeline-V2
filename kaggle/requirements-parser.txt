@@ -1,0 +1,6 @@
+# Remote-only candidate environment; not installed/validated on this Windows host.
+docling==2.148.0
+PyMuPDF==1.28.2
+pydantic==2.12.5
+requests==2.32.5
+PyYAML==6.0.2

@@ -85,6 +85,23 @@ def test_balanced_catalog_preserves_prose_and_structure_with_budget():
     assert schema(ctx.text)["properties"]["results"]["items"]["properties"]["evidence_id"]["enum"]
 
 
+def test_missing_pdf_text_requests_ocr_without_inventing_source():
+    a=document();pdf=pymupdf.open();pdf.new_page();data=pdf.tobytes();pdf.close()
+    a=AcquiredDocument(a.paper.model_copy(update={"document_sha256":hashlib.sha256(data).hexdigest()}),data)
+    doc,chunks=process(a,'accuracy_v1')
+    assert not chunks and not doc['evidence_bundles']
+    assert doc['accuracy_route']['status']=='UNAVAILABLE'
+    assert doc['accuracy_route']['escalations'][0]['candidate_backend']=='docling_with_ocr'
+
+
+def test_public_verification_states_remain_distinct():
+    from shared.schemas import FieldValue
+    assert FieldValue(field='x').verification_state=='UNAVAILABLE'
+    assert FieldValue(field='x',status='FAILED').verification_state=='FAILED'
+    assert FieldValue(field='x',status='AMBIGUOUS').verification_state=='AMBIGUOUS'
+    assert FieldValue(field='x',status='ABSTAINED').verification_state=='WITHHELD'
+
+
 @pytest.mark.integration
 def test_accuracy_backend_exposes_bundle_and_verified_source_refs(tmp_path):
     a=document()
@@ -107,3 +124,5 @@ def test_accuracy_backend_exposes_bundle_and_verified_source_refs(tmp_path):
         assert out['fields']['results'][0]['final']=='RETURNED'
         assert out['fields']['results'][0]['verification_state']=='VERIFIED'
         assert len(out['fields']['results'][0]['source_refs'])==5
+        assert client.post('/api/papers/process',json={"project_id":"bad","paper":{"paper_id":"SYN"},
+                           "extraction_mode":"selection_v1"}).status_code==422

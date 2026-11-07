@@ -1,0 +1,4 @@
+{
+  "qwen3-8b": {"model": "Qwen/Qwen3-8B", "revision": "b968826d9c46dd6066d109eabc6255188de91218", "license": "Apache-2.0", "minimum_free_bytes": 9000000000},
+  "qwen3-14b": {"model": "Qwen/Qwen3-14B", "revision": "40c069824f4251a91eefaf281ebe4c544efd3e18", "license": "Apache-2.0", "minimum_free_bytes": 12000000000}
+}
