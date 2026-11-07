@@ -24,3 +24,7 @@ Other executed checks:
 - Real arXiv acquisition/parsing via `scripts.smoke_live --model`; metadata 429 fallback successful; full-model boundary failed on torch native import. Treat as INTEGRATION acquisition/parsing success plus failed END-TO-END attempt, never successful E2E.
 - `scripts.smoke_llm` and constrained follow-up: actual local Qwen on synthetic source text, no retrieval, actual token counters; full outputs and host verification saved in docs/evidence. No independently annotated extraction-accuracy claims.
 - `scripts.evaluate`: four implemented fixture/replay configurations; scoring frozen in commit 4e07561 before execution. Large corpus/model experiment not run.
+
+## Recovered environment checkpoint
+
+The exact .venv-gpu CPython 3.13.6 interpreter passed 75 tests, 0 failures/skips, one Starlette/AnyIO deprecation warning, in 4.16s. Recovery metadata is separate in docs/evidence/recovery_tests.json; the original 70-test report is preserved. New lifecycle, raw-response, optional-candidate-budget and UTF-8-source regressions failed before their changes and pass afterwards. Actual GPU BGE/Chroma/Qwen execution is outside pytest and recorded separately, with no mock/replay classification. No warning-only dependency upgrade was made.

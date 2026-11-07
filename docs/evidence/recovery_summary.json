@@ -1,0 +1,1058 @@
+{
+  "scope": "actual cached scientific PDF, real GPU BGE-M3, real Chroma, actual local Qwen; no mocks or replay",
+  "phase2_status": "PARTIAL: runtime and bounded E2E recovered; default generation and independently validated numerical correctness remain unresolved",
+  "interpreter": "C:\\Users\\Praka\\Downloads\\research IQ  V2\\researchgpt-pipeline-V2\\.venv-gpu\\Scripts\\python.exe",
+  "python": "3.13.6 (tags/v3.13.6:4e66535, Aug  6 2025, 14:36:00) [MSC v.1944 64 bit (AMD64)]",
+  "versions": {
+    "torch": "2.8.0+cu126",
+    "numpy": "2.2.6",
+    "mkl": null,
+    "mkl-service": null,
+    "intel-openmp": null,
+    "sentence-transformers": "5.1.1",
+    "transformers": "4.55.2",
+    "tokenizers": "0.21.4",
+    "FlagEmbedding": null,
+    "onnxruntime": "1.31.1",
+    "onnxruntime-gpu": null,
+    "chromadb": "1.1.1"
+  },
+  "cuda_operation": {
+    "device": "cuda:0",
+    "gpu": "NVIDIA GeForce RTX 3050 6GB Laptop GPU",
+    "capability": [
+      8,
+      6
+    ],
+    "matrix_product_verified": true,
+    "free_bytes_before": 5404360704,
+    "total_bytes": 6441926656,
+    "allocated_after_release": 8519680
+  },
+  "loaded_openmp_dlls": [
+    "C:\\Users\\Praka\\Downloads\\research IQ  V2\\researchgpt-pipeline-V2\\.venv-gpu\\Lib\\site-packages\\torch\\lib\\libiomp5md.dll",
+    "C:\\Users\\Praka\\Downloads\\research IQ  V2\\researchgpt-pipeline-V2\\.venv-gpu\\Lib\\site-packages\\torch\\lib\\libiompstubs5md.dll"
+  ],
+  "legacy_native_exit_codes": {
+    "numpy": 0,
+    "torch": 3,
+    "documented_smoke_isolated_index": 3
+  },
+  "legacy_dll_hashes": [
+    {
+      "path": "C:\\Users\\Praka\\miniconda3\\Library\\bin\\libiomp5md.dll",
+      "bytes": 2047000,
+      "sha256": "0ad71f466d115d353dce94ba32b63e288f48198e89f551d46dcce461fedbd195"
+    },
+    {
+      "path": "C:\\Users\\Praka\\miniconda3\\Lib\\site-packages\\torch\\lib\\libiomp5md.dll",
+      "bytes": 1613680,
+      "sha256": "d9d66ed25f1a0ea725fa3a41b22cfd5d182c19dbe4771d9c90ca02ad7466f6a1"
+    }
+  ],
+  "paper_id": "arxiv:1706.03762",
+  "document_sha256": "bdfaa68d8984f0dc02beaca527b76f207d99b666d31d1da728ee0728182df697",
+  "acquisition_status": "FULL_TEXT",
+  "chunk_count": 432,
+  "stable_chunk_ids": true,
+  "embedding": {
+    "model": "BAAI/bge-m3",
+    "revision": "5617a9f61b028005a4858fdac845db406aefb181",
+    "pooling": "CLS from cached snapshot config",
+    "device": "cuda",
+    "max_seq_length": 1024,
+    "calls": [
+      {
+        "count": 432,
+        "shape": [
+          432,
+          1024
+        ],
+        "finite": true,
+        "norm_min": 0.9997560977935791,
+        "norm_max": 1.0004632472991943,
+        "sha256_float32": "7b388785ffc11ca419c542c6ab3cc537822a242c6c693f87ae4fd163562cc409",
+        "milliseconds": 14467.194000026211
+      },
+      {
+        "count": 1,
+        "shape": [
+          1,
+          1024
+        ],
+        "finite": true,
+        "norm_min": 1.0001236200332642,
+        "norm_max": 1.0001236200332642,
+        "sha256_float32": "4402efcda635c0ee5d319d6311a00c1c1cb19adbf027d6f291d3732d5bf80504",
+        "milliseconds": 24.79330007918179
+      },
+      {
+        "count": 1,
+        "shape": [
+          1,
+          1024
+        ],
+        "finite": true,
+        "norm_min": 1.000163197517395,
+        "norm_max": 1.000163197517395,
+        "sha256_float32": "8573135da7f6c9613fae4014f6f106967a5c6ed7a8ece7a421831590fb931fc4",
+        "milliseconds": 19.41359997726977
+      },
+      {
+        "count": 1,
+        "shape": [
+          1,
+          1024
+        ],
+        "finite": true,
+        "norm_min": 1.0002787113189697,
+        "norm_max": 1.0002787113189697,
+        "sha256_float32": "6dc7e4559bbfb06606d5f6ab563d2efd0f23b3f6b2625c010d328ef0fae9cd6e",
+        "milliseconds": 18.783100065775216
+      },
+      {
+        "count": 1,
+        "shape": [
+          1,
+          1024
+        ],
+        "finite": true,
+        "norm_min": 0.9999739527702332,
+        "norm_max": 0.9999739527702332,
+        "sha256_float32": "f0af94b6281b9a0a40297da6f1ed9cc4aa346f5d0bb4df2eda65d4fb2dbb51cb",
+        "milliseconds": 19.637600053101778
+      },
+      {
+        "count": 1,
+        "shape": [
+          1,
+          1024
+        ],
+        "finite": true,
+        "norm_min": 1.0002756118774414,
+        "norm_max": 1.0002756118774414,
+        "sha256_float32": "380e75065ed722fe9afd27558cd95aea4c6eff53b34b241830d7da652a2d26eb",
+        "milliseconds": 17.58369989693165
+      }
+    ],
+    "token_lengths": {
+      "tokenizer": "BAAI/bge-m3",
+      "min": 3,
+      "max": 256,
+      "p50": 7.0,
+      "p95": 101.44999999999999,
+      "over_max_seq_length": 0,
+      "mean": 25.300925925925927
+    }
+  },
+  "attempts": [
+    {
+      "artifacts": "outputs/recovery/gpu-current-01",
+      "status": "EXTRACTION_FAILED",
+      "runtime_recovered": true,
+      "integration_completed": false,
+      "output_cap": 768,
+      "candidate_cap": null,
+      "finish_reason": "length",
+      "prompt_tokens": 5451,
+      "generated_tokens": 768,
+      "wrapper_seconds": 110.93812449998222,
+      "ollama_server_seconds": 69.1196063,
+      "index": {
+        "collection": "rgpt_v2_ca0fed38ca118dd985685839",
+        "database": "C:\\Users\\Praka\\Downloads\\research IQ  V2\\researchgpt-pipeline-V2\\outputs\\recovery\\gpu-current-01\\fresh-chroma",
+        "initial_count": 0,
+        "count": 432,
+        "ids_verified": true,
+        "metadata_roundtrip_verified": true,
+        "stored_vector_shape": [
+          432,
+          1024
+        ],
+        "configuration": {
+          "embedding_signature": "BAAI/bge-m3@5617a9f61b028005a4858fdac845db406aefb181:1024:normalized",
+          "hnsw:space": "cosine"
+        },
+        "separate_collection_empty": true,
+        "isolation_control_collection": "rgpt_v2_ee6fce4d72eb53e329896f42"
+      },
+      "release": {
+        "model_loaded": false,
+        "torch_allocated_bytes": 8519680,
+        "torch_reserved_bytes": 16777216,
+        "model_weakref_gone": true
+      },
+      "device": "cuda"
+    },
+    {
+      "artifacts": "outputs/recovery/gpu-current-02-output2048",
+      "status": "EXTRACTION_FAILED",
+      "runtime_recovered": true,
+      "integration_completed": false,
+      "output_cap": 2048,
+      "candidate_cap": null,
+      "finish_reason": "length",
+      "prompt_tokens": 5451,
+      "generated_tokens": 2048,
+      "wrapper_seconds": 186.1855032000458,
+      "ollama_server_seconds": 146.374787,
+      "index": {
+        "collection": "rgpt_v2_9b4954df8e0ce12bcb90d41a",
+        "database": "C:\\Users\\Praka\\Downloads\\research IQ  V2\\researchgpt-pipeline-V2\\outputs\\recovery\\gpu-current-02-output2048\\fresh-chroma",
+        "initial_count": 0,
+        "count": 432,
+        "ids_verified": true,
+        "metadata_roundtrip_verified": true,
+        "stored_vector_shape": [
+          432,
+          1024
+        ],
+        "configuration": {
+          "hnsw:space": "cosine",
+          "embedding_signature": "BAAI/bge-m3@5617a9f61b028005a4858fdac845db406aefb181:1024:normalized"
+        },
+        "separate_collection_empty": true,
+        "isolation_control_collection": "rgpt_v2_9bb0c3ea0ce9ea4dd150da2d"
+      },
+      "release": {
+        "model_loaded": false,
+        "torch_allocated_bytes": 8519680,
+        "torch_reserved_bytes": 16777216,
+        "model_weakref_gone": true
+      },
+      "device": "cuda"
+    },
+    {
+      "artifacts": "outputs/recovery/gpu-current-03-bounded",
+      "status": "PARTIAL",
+      "runtime_recovered": true,
+      "integration_completed": true,
+      "output_cap": 2048,
+      "candidate_cap": 1,
+      "finish_reason": "stop",
+      "prompt_tokens": 5471,
+      "generated_tokens": 1849,
+      "wrapper_seconds": 166.94085730006918,
+      "ollama_server_seconds": 129.3232937,
+      "index": {
+        "collection": "rgpt_v2_13d597623a469d64fce2e90d",
+        "database": "C:\\Users\\Praka\\Downloads\\research IQ  V2\\researchgpt-pipeline-V2\\outputs\\recovery\\gpu-current-03-bounded\\fresh-chroma",
+        "initial_count": 0,
+        "count": 432,
+        "ids_verified": true,
+        "metadata_roundtrip_verified": true,
+        "stored_vector_shape": [
+          432,
+          1024
+        ],
+        "configuration": {
+          "hnsw:space": "cosine",
+          "embedding_signature": "BAAI/bge-m3@5617a9f61b028005a4858fdac845db406aefb181:1024:normalized"
+        },
+        "separate_collection_empty": true,
+        "isolation_control_collection": "rgpt_v2_66445bbbf163aaa69191a1d4"
+      },
+      "release": {
+        "model_loaded": false,
+        "torch_allocated_bytes": 8519680,
+        "torch_reserved_bytes": 16777216,
+        "model_weakref_gone": true
+      },
+      "device": "cuda"
+    }
+  ],
+  "successful_run_artifacts": "outputs/recovery/gpu-current-03-bounded",
+  "stage_ms": {
+    "acquisition": 0.002600019797682762,
+    "parsing": 447.07620004191995,
+    "indexing": 14954.142699949443,
+    "retrieval": 206.20470005087554,
+    "context": 2.962500089779496,
+    "extraction": 135623.78389993683,
+    "verification": 4.437000025063753
+  },
+  "context": {
+    "mode": "current",
+    "max_words": 2500,
+    "retrieved_chunk_ids": [
+      "arxiv:1706.03762:1#0",
+      "arxiv:1706.03762:6#0",
+      "arxiv:1706.03762:11#0",
+      "arxiv:1706.03762:15#0",
+      "arxiv:1706.03762:16#0",
+      "arxiv:1706.03762:17#0",
+      "arxiv:1706.03762:18#0",
+      "arxiv:1706.03762:20#0",
+      "arxiv:1706.03762:21#0",
+      "arxiv:1706.03762:22#0",
+      "arxiv:1706.03762:23#0",
+      "arxiv:1706.03762:25#0",
+      "arxiv:1706.03762:26#0",
+      "arxiv:1706.03762:27#0",
+      "arxiv:1706.03762:28#0",
+      "arxiv:1706.03762:30#0",
+      "arxiv:1706.03762:32#0",
+      "arxiv:1706.03762:37#0",
+      "arxiv:1706.03762:38#0",
+      "arxiv:1706.03762:39#0",
+      "arxiv:1706.03762:42#0",
+      "arxiv:1706.03762:43#0",
+      "arxiv:1706.03762:44#0",
+      "arxiv:1706.03762:48#0",
+      "arxiv:1706.03762:49#0",
+      "arxiv:1706.03762:50#0",
+      "arxiv:1706.03762:51#0",
+      "arxiv:1706.03762:54#0",
+      "arxiv:1706.03762:65#0",
+      "arxiv:1706.03762:66#0",
+      "arxiv:1706.03762:76#0",
+      "arxiv:1706.03762:81#0",
+      "arxiv:1706.03762:85#0",
+      "arxiv:1706.03762:86#0",
+      "arxiv:1706.03762:88#0",
+      "arxiv:1706.03762:89#0",
+      "arxiv:1706.03762:90#0",
+      "arxiv:1706.03762:92#0",
+      "arxiv:1706.03762:94#0",
+      "arxiv:1706.03762:96#0",
+      "arxiv:1706.03762:97#0",
+      "arxiv:1706.03762:98#0",
+      "arxiv:1706.03762:99#0",
+      "arxiv:1706.03762:101#0",
+      "arxiv:1706.03762:102#0",
+      "arxiv:1706.03762:107#0",
+      "arxiv:1706.03762:110#0",
+      "arxiv:1706.03762:115#0",
+      "arxiv:1706.03762:121#0",
+      "arxiv:1706.03762:122#0",
+      "arxiv:1706.03762:123#0",
+      "arxiv:1706.03762:124#0",
+      "arxiv:1706.03762:125#0",
+      "arxiv:1706.03762:126#0",
+      "arxiv:1706.03762:127#0",
+      "arxiv:1706.03762:128#0",
+      "arxiv:1706.03762:129#0",
+      "arxiv:1706.03762:131#0",
+      "arxiv:1706.03762:132#0",
+      "arxiv:1706.03762:141#0",
+      "arxiv:1706.03762:143#0",
+      "arxiv:1706.03762:145#0",
+      "arxiv:1706.03762:147#0",
+      "arxiv:1706.03762:149#0",
+      "arxiv:1706.03762:151#0",
+      "arxiv:1706.03762:153#0",
+      "arxiv:1706.03762:156#0",
+      "arxiv:1706.03762:157#0",
+      "arxiv:1706.03762:158#0",
+      "arxiv:1706.03762:159#0",
+      "arxiv:1706.03762:164#0",
+      "arxiv:1706.03762:165#0",
+      "arxiv:1706.03762:171#0",
+      "arxiv:1706.03762:173#0",
+      "arxiv:1706.03762:174#0",
+      "arxiv:1706.03762:182#0",
+      "arxiv:1706.03762:183#0",
+      "arxiv:1706.03762:187#0",
+      "arxiv:1706.03762:189#0",
+      "arxiv:1706.03762:191#0",
+      "arxiv:1706.03762:193#0",
+      "arxiv:1706.03762:201#0",
+      "arxiv:1706.03762:205#0",
+      "arxiv:1706.03762:212#0",
+      "arxiv:1706.03762:214#0",
+      "arxiv:1706.03762:215#0",
+      "arxiv:1706.03762:217#0",
+      "arxiv:1706.03762:219#0",
+      "arxiv:1706.03762:220#0",
+      "arxiv:1706.03762:231#0",
+      "arxiv:1706.03762:233#0",
+      "arxiv:1706.03762:239#0",
+      "arxiv:1706.03762:240#0",
+      "arxiv:1706.03762:244#0",
+      "arxiv:1706.03762:245#0",
+      "arxiv:1706.03762:247#0",
+      "arxiv:1706.03762:257#0",
+      "arxiv:1706.03762:263#0",
+      "arxiv:1706.03762:270#0",
+      "arxiv:1706.03762:279#0",
+      "arxiv:1706.03762:282#0",
+      "arxiv:1706.03762:283#0",
+      "arxiv:1706.03762:293#0",
+      "arxiv:1706.03762:294#0",
+      "arxiv:1706.03762:295#0",
+      "arxiv:1706.03762:297#0",
+      "arxiv:1706.03762:308#0",
+      "arxiv:1706.03762:318#0",
+      "arxiv:1706.03762:321#0",
+      "arxiv:1706.03762:324#0",
+      "arxiv:1706.03762:325#0",
+      "arxiv:1706.03762:328#0",
+      "arxiv:1706.03762:329#0",
+      "arxiv:1706.03762:330#0",
+      "arxiv:1706.03762:340#0",
+      "arxiv:1706.03762:352#0",
+      "arxiv:1706.03762:355#0",
+      "arxiv:1706.03762:358#0",
+      "arxiv:1706.03762:359#0",
+      "arxiv:1706.03762:363#0",
+      "arxiv:1706.03762:364#0",
+      "arxiv:1706.03762:368#0",
+      "arxiv:1706.03762:377#0",
+      "arxiv:1706.03762:387#0",
+      "arxiv:1706.03762:390#0",
+      "arxiv:1706.03762:393#0",
+      "arxiv:1706.03762:394#0",
+      "arxiv:1706.03762:397#0",
+      "arxiv:1706.03762:398#0",
+      "arxiv:1706.03762:399#0",
+      "arxiv:1706.03762:411#0",
+      "arxiv:1706.03762:421#0",
+      "arxiv:1706.03762:427#0",
+      "arxiv:1706.03762:428#0"
+    ],
+    "delivered_chunk_ids": [
+      "arxiv:1706.03762:1#0",
+      "arxiv:1706.03762:6#0",
+      "arxiv:1706.03762:11#0",
+      "arxiv:1706.03762:15#0",
+      "arxiv:1706.03762:16#0",
+      "arxiv:1706.03762:17#0",
+      "arxiv:1706.03762:18#0",
+      "arxiv:1706.03762:20#0",
+      "arxiv:1706.03762:21#0",
+      "arxiv:1706.03762:22#0",
+      "arxiv:1706.03762:23#0",
+      "arxiv:1706.03762:25#0",
+      "arxiv:1706.03762:26#0",
+      "arxiv:1706.03762:27#0",
+      "arxiv:1706.03762:28#0",
+      "arxiv:1706.03762:30#0",
+      "arxiv:1706.03762:32#0",
+      "arxiv:1706.03762:37#0",
+      "arxiv:1706.03762:38#0",
+      "arxiv:1706.03762:39#0",
+      "arxiv:1706.03762:42#0",
+      "arxiv:1706.03762:43#0",
+      "arxiv:1706.03762:44#0",
+      "arxiv:1706.03762:48#0",
+      "arxiv:1706.03762:49#0",
+      "arxiv:1706.03762:50#0",
+      "arxiv:1706.03762:51#0",
+      "arxiv:1706.03762:54#0",
+      "arxiv:1706.03762:65#0",
+      "arxiv:1706.03762:66#0",
+      "arxiv:1706.03762:76#0",
+      "arxiv:1706.03762:81#0",
+      "arxiv:1706.03762:85#0",
+      "arxiv:1706.03762:86#0",
+      "arxiv:1706.03762:88#0",
+      "arxiv:1706.03762:89#0",
+      "arxiv:1706.03762:90#0",
+      "arxiv:1706.03762:92#0",
+      "arxiv:1706.03762:94#0",
+      "arxiv:1706.03762:96#0",
+      "arxiv:1706.03762:97#0",
+      "arxiv:1706.03762:98#0",
+      "arxiv:1706.03762:99#0",
+      "arxiv:1706.03762:101#0",
+      "arxiv:1706.03762:102#0",
+      "arxiv:1706.03762:107#0",
+      "arxiv:1706.03762:110#0",
+      "arxiv:1706.03762:115#0",
+      "arxiv:1706.03762:121#0",
+      "arxiv:1706.03762:122#0",
+      "arxiv:1706.03762:123#0",
+      "arxiv:1706.03762:124#0",
+      "arxiv:1706.03762:125#0",
+      "arxiv:1706.03762:126#0",
+      "arxiv:1706.03762:127#0",
+      "arxiv:1706.03762:128#0",
+      "arxiv:1706.03762:129#0",
+      "arxiv:1706.03762:131#0",
+      "arxiv:1706.03762:132#0",
+      "arxiv:1706.03762:141#0",
+      "arxiv:1706.03762:143#0",
+      "arxiv:1706.03762:145#0",
+      "arxiv:1706.03762:147#0",
+      "arxiv:1706.03762:149#0",
+      "arxiv:1706.03762:151#0",
+      "arxiv:1706.03762:153#0",
+      "arxiv:1706.03762:156#0"
+    ],
+    "partial_chunk_ids": [
+      "arxiv:1706.03762:156#0"
+    ],
+    "dropped_chunk_ids": [
+      "arxiv:1706.03762:157#0",
+      "arxiv:1706.03762:158#0",
+      "arxiv:1706.03762:159#0",
+      "arxiv:1706.03762:164#0",
+      "arxiv:1706.03762:165#0",
+      "arxiv:1706.03762:171#0",
+      "arxiv:1706.03762:173#0",
+      "arxiv:1706.03762:174#0",
+      "arxiv:1706.03762:182#0",
+      "arxiv:1706.03762:183#0",
+      "arxiv:1706.03762:187#0",
+      "arxiv:1706.03762:189#0",
+      "arxiv:1706.03762:191#0",
+      "arxiv:1706.03762:193#0",
+      "arxiv:1706.03762:201#0",
+      "arxiv:1706.03762:205#0",
+      "arxiv:1706.03762:212#0",
+      "arxiv:1706.03762:214#0",
+      "arxiv:1706.03762:215#0",
+      "arxiv:1706.03762:217#0",
+      "arxiv:1706.03762:219#0",
+      "arxiv:1706.03762:220#0",
+      "arxiv:1706.03762:231#0",
+      "arxiv:1706.03762:233#0",
+      "arxiv:1706.03762:239#0",
+      "arxiv:1706.03762:240#0",
+      "arxiv:1706.03762:244#0",
+      "arxiv:1706.03762:245#0",
+      "arxiv:1706.03762:247#0",
+      "arxiv:1706.03762:257#0",
+      "arxiv:1706.03762:263#0",
+      "arxiv:1706.03762:270#0",
+      "arxiv:1706.03762:279#0",
+      "arxiv:1706.03762:282#0",
+      "arxiv:1706.03762:283#0",
+      "arxiv:1706.03762:293#0",
+      "arxiv:1706.03762:294#0",
+      "arxiv:1706.03762:295#0",
+      "arxiv:1706.03762:297#0",
+      "arxiv:1706.03762:308#0",
+      "arxiv:1706.03762:318#0",
+      "arxiv:1706.03762:321#0",
+      "arxiv:1706.03762:324#0",
+      "arxiv:1706.03762:325#0",
+      "arxiv:1706.03762:328#0",
+      "arxiv:1706.03762:329#0",
+      "arxiv:1706.03762:330#0",
+      "arxiv:1706.03762:340#0",
+      "arxiv:1706.03762:352#0",
+      "arxiv:1706.03762:355#0",
+      "arxiv:1706.03762:358#0",
+      "arxiv:1706.03762:359#0",
+      "arxiv:1706.03762:363#0",
+      "arxiv:1706.03762:364#0",
+      "arxiv:1706.03762:368#0",
+      "arxiv:1706.03762:377#0",
+      "arxiv:1706.03762:387#0",
+      "arxiv:1706.03762:390#0",
+      "arxiv:1706.03762:393#0",
+      "arxiv:1706.03762:394#0",
+      "arxiv:1706.03762:397#0",
+      "arxiv:1706.03762:398#0",
+      "arxiv:1706.03762:399#0",
+      "arxiv:1706.03762:411#0",
+      "arxiv:1706.03762:421#0",
+      "arxiv:1706.03762:427#0",
+      "arxiv:1706.03762:428#0"
+    ],
+    "content_words": 2500,
+    "token_count": null,
+    "token_count_method": "unmeasured"
+  },
+  "gpu_and_process_snapshots": [
+    {
+      "label": "before_any_model_load",
+      "utc": "2026-11-06T16:03:06.753871+00:00",
+      "gpu": {
+        "name": "NVIDIA GeForce RTX 3050 6GB Laptop GPU",
+        "driver": "581.86",
+        "total_mib": 6144,
+        "used_mib": 642,
+        "free_mib": 5361
+      },
+      "process_rss_bytes": 476774400,
+      "process_peak_wset_bytes": 476774400,
+      "host_available_bytes": 4341714944,
+      "host_total_bytes": 16873545728,
+      "ollama_models": [],
+      "torch_allocated_bytes": 0,
+      "torch_reserved_bytes": 0
+    },
+    {
+      "label": "before_bge_load_after_qwen_unload",
+      "utc": "2026-11-06T16:03:08.896590+00:00",
+      "gpu": {
+        "name": "NVIDIA GeForce RTX 3050 6GB Laptop GPU",
+        "driver": "581.86",
+        "total_mib": 6144,
+        "used_mib": 642,
+        "free_mib": 5361
+      },
+      "process_rss_bytes": 478400512,
+      "process_peak_wset_bytes": 478400512,
+      "host_available_bytes": 4347482112,
+      "host_total_bytes": 16873545728,
+      "ollama_models": [],
+      "torch_allocated_bytes": 0,
+      "torch_reserved_bytes": 0
+    },
+    {
+      "label": "immediately_before_bge_loading",
+      "utc": "2026-11-06T16:03:13.922914+00:00",
+      "gpu": {
+        "name": "NVIDIA GeForce RTX 3050 6GB Laptop GPU",
+        "driver": "581.86",
+        "total_mib": 6144,
+        "used_mib": 642,
+        "free_mib": 5361
+      },
+      "process_rss_bytes": 573116416,
+      "process_peak_wset_bytes": 573161472,
+      "host_available_bytes": 4221984768,
+      "host_total_bytes": 16873545728,
+      "ollama_models": [],
+      "torch_allocated_bytes": 0,
+      "torch_reserved_bytes": 0
+    },
+    {
+      "label": "after_bge_release",
+      "utc": "2026-11-06T16:03:29.378248+00:00",
+      "gpu": {
+        "name": "NVIDIA GeForce RTX 3050 6GB Laptop GPU",
+        "driver": "581.86",
+        "total_mib": 6144,
+        "used_mib": 767,
+        "free_mib": 5236
+      },
+      "process_rss_bytes": 2489769984,
+      "process_peak_wset_bytes": 4414631936,
+      "host_available_bytes": 2796163072,
+      "host_total_bytes": 16873545728,
+      "ollama_models": [],
+      "torch_allocated_bytes": 8519680,
+      "torch_reserved_bytes": 16777216
+    },
+    {
+      "label": "immediately_before_qwen_request",
+      "utc": "2026-11-06T16:03:31.513350+00:00",
+      "gpu": {
+        "name": "NVIDIA GeForce RTX 3050 6GB Laptop GPU",
+        "driver": "581.86",
+        "total_mib": 6144,
+        "used_mib": 767,
+        "free_mib": 5236
+      },
+      "process_rss_bytes": 2490740736,
+      "process_peak_wset_bytes": 4414631936,
+      "host_available_bytes": 2778533888,
+      "host_total_bytes": 16873545728,
+      "ollama_models": [],
+      "torch_allocated_bytes": 8519680,
+      "torch_reserved_bytes": 16777216
+    },
+    {
+      "label": "after_qwen_response",
+      "utc": "2026-11-06T16:05:45.006806+00:00",
+      "gpu": {
+        "name": "NVIDIA GeForce RTX 3050 6GB Laptop GPU",
+        "driver": "581.86",
+        "total_mib": 6144,
+        "used_mib": 4949,
+        "free_mib": 1054
+      },
+      "process_rss_bytes": 2491875328,
+      "process_peak_wset_bytes": 4414631936,
+      "host_available_bytes": 1219309568,
+      "host_total_bytes": 16873545728,
+      "ollama_models": [
+        {
+          "name": "qwen2.5:7b",
+          "model": "qwen2.5:7b",
+          "size": 5409058322,
+          "digest": "845dbda0ea48ed749caafd9e6037047aa19acfcfd82e704d7ca97d631a0b697e",
+          "details": {
+            "parent_model": "",
+            "format": "gguf",
+            "family": "qwen2",
+            "families": [
+              "qwen2"
+            ],
+            "parameter_size": "7.6B",
+            "quantization_level": "Q4_K_M"
+          },
+          "expires_at": "2026-11-06T21:40:42.9621967+05:30",
+          "size_vram": 4270619360,
+          "context_length": 8192,
+          "runner": "llamacpp"
+        }
+      ],
+      "torch_allocated_bytes": 8519680,
+      "torch_reserved_bytes": 16777216
+    },
+    {
+      "label": "before_cpu_bge_with_qwen_resident",
+      "utc": "2026-11-06T16:05:47.155860+00:00",
+      "gpu": {
+        "name": "NVIDIA GeForce RTX 3050 6GB Laptop GPU",
+        "driver": "581.86",
+        "total_mib": 6144,
+        "used_mib": 4949,
+        "free_mib": 1054
+      },
+      "process_rss_bytes": 2492018688,
+      "process_peak_wset_bytes": 4414631936,
+      "host_available_bytes": 1215463424,
+      "host_total_bytes": 16873545728,
+      "ollama_models": [
+        {
+          "name": "qwen2.5:7b",
+          "model": "qwen2.5:7b",
+          "size": 5409058322,
+          "digest": "845dbda0ea48ed749caafd9e6037047aa19acfcfd82e704d7ca97d631a0b697e",
+          "details": {
+            "parent_model": "",
+            "format": "gguf",
+            "family": "qwen2",
+            "families": [
+              "qwen2"
+            ],
+            "parameter_size": "7.6B",
+            "quantization_level": "Q4_K_M"
+          },
+          "expires_at": "2026-11-06T21:40:42.9621967+05:30",
+          "size_vram": 4270619360,
+          "context_length": 8192,
+          "runner": "llamacpp"
+        }
+      ],
+      "torch_allocated_bytes": 8519680,
+      "torch_reserved_bytes": 16777216
+    },
+    {
+      "label": "after_qwen_unload",
+      "utc": "2026-11-06T16:05:51.312660+00:00",
+      "gpu": {
+        "name": "NVIDIA GeForce RTX 3050 6GB Laptop GPU",
+        "driver": "581.86",
+        "total_mib": 6144,
+        "used_mib": 767,
+        "free_mib": 5236
+      },
+      "process_rss_bytes": 2492047360,
+      "process_peak_wset_bytes": 4414631936,
+      "host_available_bytes": 2752147456,
+      "host_total_bytes": 16873545728,
+      "ollama_models": [],
+      "torch_allocated_bytes": 8519680,
+      "torch_reserved_bytes": 16777216
+    }
+  ],
+  "peak_measurements": {
+    "torch_peak_allocated_bytes": 2783155200,
+    "torch_peak_reserved_bytes": 2814377984,
+    "sampled_global_gpu_peak_used_mib": 4949,
+    "sampled_ollama_peak_size_vram_bytes": 4270619360
+  },
+  "cpu_check": {
+    "status": "UNAVAILABLE",
+    "reason": "less_than_4GB_available_host_memory"
+  },
+  "candidate_analysis": {
+    "scope": "actual completed local model output; no simulated candidates",
+    "candidate_count": 9,
+    "returned": 1,
+    "withheld_generated": 8,
+    "numerical_mention_count": 5,
+    "typed_numerical_tuple_count": 1,
+    "verified_numerical_tuples": 0,
+    "independent_scientific_accuracy": "NOT ESTABLISHED",
+    "candidates": [
+      {
+        "candidate_id": "problem_statement:0",
+        "field": "problem_statement",
+        "chunk_id": "arxiv:1706.03762:21#0",
+        "page_or_node": "p2",
+        "block_id": "arxiv:1706.03762:21",
+        "char_start": 2852,
+        "char_end": 3268,
+        "contains_digits": true,
+        "numerical_tokens": [
+          "13",
+          "7",
+          "35",
+          "2",
+          "5",
+          "38",
+          "24",
+          "15"
+        ],
+        "scientific_tuple": null,
+        "literal_quote_delivered": false,
+        "normalized_quote_delivered": true,
+        "normalized_source_matches": [
+          "arxiv:1706.03762:21#0"
+        ],
+        "earliest_supported_candidate_failure": "extraction/source_attribution",
+        "classification": "model_changed_quote_whitespace",
+        "final": "ABSTAINED",
+        "abstain_reason": "quote_not_in_delivered_chunk",
+        "source_reference_count": 0
+      },
+      {
+        "candidate_id": "objective:0",
+        "field": "objective",
+        "chunk_id": "arxiv:1706.03762:15#0",
+        "page_or_node": "p1",
+        "block_id": "arxiv:1706.03762:15",
+        "char_start": 615,
+        "char_end": 623,
+        "contains_digits": false,
+        "numerical_tokens": [],
+        "scientific_tuple": null,
+        "literal_quote_delivered": false,
+        "normalized_quote_delivered": false,
+        "normalized_source_matches": [
+          "arxiv:1706.03762:16#0"
+        ],
+        "earliest_supported_candidate_failure": "extraction/source_attribution",
+        "classification": "model_attributed_quote_to_wrong_chunk",
+        "final": "ABSTAINED",
+        "abstain_reason": "quote_not_in_delivered_chunk",
+        "source_reference_count": 0
+      },
+      {
+        "candidate_id": "research_gap:0",
+        "field": "research_gap",
+        "chunk_id": "arxiv:1706.03762:22#0",
+        "page_or_node": "p2",
+        "block_id": "arxiv:1706.03762:22",
+        "char_start": 3268,
+        "char_end": 4023,
+        "contains_digits": false,
+        "numerical_tokens": [],
+        "scientific_tuple": null,
+        "literal_quote_delivered": false,
+        "normalized_quote_delivered": true,
+        "normalized_source_matches": [
+          "arxiv:1706.03762:22#0"
+        ],
+        "earliest_supported_candidate_failure": "extraction/source_attribution",
+        "classification": "model_changed_quote_whitespace",
+        "final": "ABSTAINED",
+        "abstain_reason": "quote_not_in_delivered_chunk",
+        "source_reference_count": 0
+      },
+      {
+        "candidate_id": "method:0",
+        "field": "method",
+        "chunk_id": "arxiv:1706.03762:15#0",
+        "page_or_node": "p1",
+        "block_id": "arxiv:1706.03762:15",
+        "char_start": 615,
+        "char_end": 623,
+        "contains_digits": false,
+        "numerical_tokens": [],
+        "scientific_tuple": null,
+        "literal_quote_delivered": false,
+        "normalized_quote_delivered": false,
+        "normalized_source_matches": [
+          "arxiv:1706.03762:16#0"
+        ],
+        "earliest_supported_candidate_failure": "extraction/source_attribution",
+        "classification": "model_attributed_quote_to_wrong_chunk",
+        "final": "ABSTAINED",
+        "abstain_reason": "quote_not_in_delivered_chunk",
+        "source_reference_count": 0
+      },
+      {
+        "candidate_id": "datasets:0",
+        "field": "datasets",
+        "chunk_id": "arxiv:1706.03762:98#0",
+        "page_or_node": "p7",
+        "block_id": "arxiv:1706.03762:98",
+        "char_start": 19771,
+        "char_end": 20362,
+        "contains_digits": true,
+        "numerical_tokens": [
+          "2014",
+          "4.5",
+          "3",
+          "37000",
+          "2014",
+          "36",
+          "32000",
+          "38"
+        ],
+        "scientific_tuple": null,
+        "literal_quote_delivered": false,
+        "normalized_quote_delivered": false,
+        "normalized_source_matches": [],
+        "earliest_supported_candidate_failure": "extraction/source_attribution",
+        "classification": "model_quote_not_literal_in_source_or_delivered_span",
+        "final": "ABSTAINED",
+        "abstain_reason": "quote_not_in_delivered_chunk",
+        "source_reference_count": 0
+      },
+      {
+        "candidate_id": "metrics:0",
+        "field": "metrics",
+        "chunk_id": "arxiv:1706.03762:124#0",
+        "page_or_node": "p8",
+        "block_id": "arxiv:1706.03762:124",
+        "char_start": 22520,
+        "char_end": 23035,
+        "contains_digits": true,
+        "numerical_tokens": [
+          "2014",
+          "2",
+          "2.0",
+          "28.4",
+          "3",
+          "3.5",
+          "8",
+          "100"
+        ],
+        "scientific_tuple": null,
+        "literal_quote_delivered": false,
+        "normalized_quote_delivered": true,
+        "normalized_source_matches": [
+          "arxiv:1706.03762:124#0"
+        ],
+        "earliest_supported_candidate_failure": "extraction/source_attribution",
+        "classification": "model_changed_quote_whitespace",
+        "final": "ABSTAINED",
+        "abstain_reason": "quote_not_in_delivered_chunk",
+        "source_reference_count": 0
+      },
+      {
+        "candidate_id": "results:0",
+        "field": "results",
+        "chunk_id": "arxiv:1706.03762:124#0",
+        "page_or_node": "p8",
+        "block_id": "arxiv:1706.03762:124",
+        "char_start": 22520,
+        "char_end": 23035,
+        "contains_digits": true,
+        "numerical_tokens": [
+          "2014",
+          "2",
+          "2.0",
+          "28.4",
+          "3",
+          "3.5",
+          "8",
+          "100"
+        ],
+        "scientific_tuple": {
+          "subject": "big transformer model",
+          "dataset": "WMT 2014 English-to-German translation task",
+          "metric": "BLEU",
+          "value": "28.4",
+          "setting": "3.5 days on 8 P100 GPUs"
+        },
+        "literal_quote_delivered": false,
+        "normalized_quote_delivered": true,
+        "normalized_source_matches": [
+          "arxiv:1706.03762:124#0"
+        ],
+        "earliest_supported_candidate_failure": "extraction/source_attribution",
+        "classification": "model_changed_quote_whitespace",
+        "final": "ABSTAINED",
+        "abstain_reason": "quote_not_in_delivered_chunk",
+        "source_reference_count": 0
+      },
+      {
+        "candidate_id": "future_scope:0",
+        "field": "future_scope",
+        "chunk_id": "arxiv:1706.03762:156#0",
+        "page_or_node": "p10",
+        "block_id": "arxiv:1706.03762:156",
+        "char_start": 29313,
+        "char_end": 29716,
+        "contains_digits": false,
+        "numerical_tokens": [],
+        "scientific_tuple": null,
+        "literal_quote_delivered": true,
+        "normalized_quote_delivered": true,
+        "normalized_source_matches": [
+          "arxiv:1706.03762:156#0"
+        ],
+        "earliest_supported_candidate_failure": null,
+        "classification": "source_quote_verified_under_current_contract",
+        "final": "RETURNED",
+        "abstain_reason": null,
+        "source_reference_count": 1
+      },
+      {
+        "candidate_id": "key_findings:0",
+        "field": "key_findings",
+        "chunk_id": "arxiv:1706.03762:124#0",
+        "page_or_node": "p8",
+        "block_id": "arxiv:1706.03762:124",
+        "char_start": 22520,
+        "char_end": 23035,
+        "contains_digits": true,
+        "numerical_tokens": [
+          "2014",
+          "2",
+          "2.0",
+          "28.4",
+          "3",
+          "3.5",
+          "8",
+          "100"
+        ],
+        "scientific_tuple": null,
+        "literal_quote_delivered": false,
+        "normalized_quote_delivered": true,
+        "normalized_source_matches": [
+          "arxiv:1706.03762:124#0"
+        ],
+        "earliest_supported_candidate_failure": "extraction/source_attribution",
+        "classification": "model_changed_quote_whitespace",
+        "final": "ABSTAINED",
+        "abstain_reason": "quote_not_in_delivered_chunk",
+        "source_reference_count": 0
+      }
+    ]
+  },
+  "source_fact_probes": [
+    {
+      "value": "28.4",
+      "task": "WMT 2014 English-to-German",
+      "annotation_status": "source-checked agent probe; not independently human validated",
+      "chunk_ids": [
+        "arxiv:1706.03762:16#0",
+        "arxiv:1706.03762:119#0"
+      ],
+      "retrieved_ids": [
+        "arxiv:1706.03762:16#0"
+      ],
+      "context_ids": [
+        "arxiv:1706.03762:16#0"
+      ],
+      "matching_structured_cells": 0
+    },
+    {
+      "value": "41.8",
+      "task": "WMT 2014 English-to-French",
+      "annotation_status": "source-checked agent probe; not independently human validated",
+      "chunk_ids": [
+        "arxiv:1706.03762:16#0",
+        "arxiv:1706.03762:119#0"
+      ],
+      "retrieved_ids": [
+        "arxiv:1706.03762:16#0"
+      ],
+      "context_ids": [
+        "arxiv:1706.03762:16#0"
+      ],
+      "matching_structured_cells": 0
+    }
+  ],
+  "notes": [
+    "Numerical mention count includes citation IDs and data counts; it is not a count of five independent experimental predictions.",
+    "Only the complete stop response is classified; length-truncated packets were rejected whole and retained raw.",
+    "Whitespace normalization in analysis is diagnostic only; the verifier still requires exact quotes.",
+    "GPU global samples include other processes; Ollama size_vram and PyTorch allocator counters are separate.",
+    "CPU BGE with GPU Qwen was not executed because available host RAM was below the recorded guard; not mislabeled as CPU success.",
+    "Scientific numerical accuracy is not independently established."
+  ],
+  "qwen_model_digest": "845dbda0ea48ed749caafd9e6037047aa19acfcfd82e704d7ca97d631a0b697e"
+}

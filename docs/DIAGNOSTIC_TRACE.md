@@ -1,5 +1,7 @@
 # Diagnostic trace
 
+Recovery update: native GPU runtime and a bounded real-paper run now work. Earlier blocked statements below describe the initial checkpoint; current complete evidence is in RECOVERY_REPORT.md and docs/evidence/recovery_summary.json.
+
 ## Scope
 
 New V2 diagnostics use authored synthetic JATS/PDF/LaTeX fixtures, an actual acquired public PDF, and one actual local-model fixture response. Source historical corpus measurements remain separate; human-independent real-paper fact annotations are unavailable. `pipeline/diagnostics.py` records the earliest observed failing stage and unknown prior stages; unknown is never treated as passing. `scripts/evaluate.py` traces each frozen synthetic fact across all eight stages.
@@ -30,3 +32,14 @@ Final suite: **70 passed in 7.47s**, no skips, with per-test category and mock u
 ## Unresolved limits
 
 No complete independent real-paper annotations; complex PDF layouts/borderless tables and complex JATS headers/rowspans can remain unbindable. Partial scientific conditions/uncertainty types are not inferred. Revised context uses explicit UTF-8 byte proxy budgeting by default, NOT exact Qwen tokenization; an exact model tokenizer counter may be injected. Actual model counters are reported when available. The controlled fixture harness will report text delivery separately from complete tuple delivery and supported output.
+
+## Real-paper recovery: distinct losses
+
+- Native import: old inherited conda/.venv exits 3 before CUDA work. Standard-Python .venv-gpu removes the mixed DLL search path; actual CUDA math and real BGE GPU vectors pass.
+- Parsing: page8 Table2 values 28.4/41.8 survive in block119 but no complete matching structured cells exist. Visual source inspection confirms the BLEU subheaders/row associations. No general parser replacement was added.
+- Retrieval/context: five real queries return union 134; 67 reach current 2500-word context, one partially. Row119 is missed by retrieval; abstract16 containing both probe values is retrieved AND delivered. Body result124 is also delivered. Numeric survival is not complete table evidence.
+- Generation: uncapped 768/2048 packets truncate. No complete-packet candidates are invented from them. One-per-field cap with 2048 output completes at 5471 prompt / 1849 generated tokens.
+- Completed response: 9 actual candidates; 1 future_scope quote returned, 8 withheld. Five changed whitespace, two point to the wrong valid source chunk, one has another nonliteral dataset quote. All five entries containing digits (including citation IDs/counts) fail literal quote checks; only results carries a typed numerical tuple. Its 28.4 BLEU quote has whitespace-normalized support in page8 block124 but is not verbatim. This is contract rejection, not proof of factual falsity or a verifier bug.
+- Source detail: Table2/abstract EN-FR 41.8 differs from nearby prose 41.0. No value is rewritten to match frozen probes; independent review is needed.
+
+Full actual candidate IDs, block/character locations, literal/normalized diagnostics and verdicts are in outputs/recovery/gpu-current-03-bounded/candidate_classification.json. Normalization is diagnostic ONLY; the verifier remains exact. A Windows locale/UTF-8 reporter defect was caught by a failing scientific-Unicode regression and fixed; it was distinct from native/CUDA/model failures.

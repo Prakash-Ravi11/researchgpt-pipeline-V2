@@ -1,4 +1,6 @@
-# Implementation result
+# Initial implementation checkpoint
+
+This records the initial 12d1104 checkpoint. Later native recovery and actual-paper validation are documented in RECOVERY_REPORT.md; historical measurements here are preserved.
 
 Only V2 was modified, on feature/evidence-pipeline-integration. All source working trees were clean on initial inspection. No push/merge/PR/full-corpus rerun authorized or performed.
 

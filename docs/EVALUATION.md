@@ -30,3 +30,19 @@ Precision/unsupported rate/provenance are null when no claims are returned, not 
 Two local synthetic-text Qwen calls were executed. Initial: 392 prompt / 754 generated tokens, 114,056.58 ms, 11 candidates, all rejected for shortened IDs. Constrained follow-up: 498 / 631 tokens, 35,247.67 ms, 9 candidates, 5 source-grounded qualitative/field excerpts returned; **0 verified numerical results**. The remaining candidates abstain on incomplete tuple or wrong binding. Different prompts/decoding and warm state mean these times are not a controlled speed comparison.
 
 These are actual model responses, but not independent scientific-accuracy validation. Full outputs, counters and host verdicts are preserved under docs/evidence/llm_smoke*.json. No hosted/paid run, full 60-paper run, changed original evaluation history or relabeled machine-assisted gold.
+
+## Phase2 recovery validation
+
+The recovered .venv-gpu interpreter executed all A/B/C/D fixture/replay arms in another fresh test database after runtime recovery. Exact annotation hash and all metric dictionaries match the preserved baseline: A/B quote delivery 0/1 and correct tuples 0/1; C/D 1/1 and 1/1. Raw final report: outputs/recovery/fixture-evaluation-final.json; compact copy: docs/evidence/recovery_fixture_evaluation.json. No fixture criteria, original results or 60-paper history changed. This remains test-only dense encoding/candidate replay, not real-model accuracy.
+
+Separately, three REAL paper runs used actual GPU BGE and Qwen, fresh Chroma each time:
+
+| Run | Output cap / candidate cap | Actual prompt/generated | Finish / integration |
+|---|---|---|---|
+| gpu-current-01 | 768 / uncapped | 5451 / 768 | length; explicit extraction failure |
+| gpu-current-02-output2048 | 2048 / uncapped | 5451 / 2048 | length; explicit extraction failure |
+| gpu-current-03-bounded | 2048 / 1 per field | 5471 / 1849 | stop; PARTIAL structured output, no runtime errors |
+
+Final run returned 1 qualitative excerpt, withheld 8 generated candidates, verified 0 numerical tuples. Five digit-containing entries include citations/data counts; only one typed numerical result was generated. Its quote fails the exact-span contract. Do not score these as five independent experimental predictions or infer a numerical precision/recall estimate without independent annotations. No post-hoc candidate repair or verifier relaxation.
+
+Full recovered suite: 75 passed, 0 failed, 0 skipped, one dependency deprecation warning, 4.16s. Exact interpreter, command, per-test mocks/categories and environment are in docs/evidence/recovery_tests.json. Three small real-paper attempts are explained by newly measured failures; no full-corpus rerun. All resource/timing measurements and scope limits are in RECOVERY_REPORT.md.

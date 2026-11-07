@@ -2,7 +2,7 @@
 
 A single FastAPI backend integrating the audited research acquisition, structural parsing, provenance chunking and abstaining evidence gate with shared contracts, isolated Chroma collections and optional hybrid retrieval.
 
-**Current validation:** fixture pipeline/API and scoring harness pass; a real arXiv paper was acquired and parsed. Full BGE-M3 -> local-model execution is blocked in the existing conda environment by duplicate OpenMP libraries during torch import. Actual local Qwen fixture calls work independently, but have returned **zero verified numerical results**. This is an integration checkpoint, not established real-paper extraction accuracy.
+**Current validation:** recovered `.venv-gpu` passes 75 tests and runs an actual paper through GPU BGE-M3, fresh Chroma, local Qwen and verification. The bounded diagnostic completes with one qualitative excerpt and zero verified numerical tuples. Phase2 remains PARTIAL: default uncapped/768 generation truncates on this paper, and independent numerical correctness is unestablished. See [recovery report](docs/RECOVERY_REPORT.md) and [exact environment setup](docs/ENVIRONMENT.md). Existing `.venv`/global Python remain unchanged.
 
 Read [progress](docs/PROGRESS.md), [audit](docs/INTEGRATION_AUDIT.md), [blockers](docs/BLOCKERS.md), [diagnostics](docs/DIAGNOSTIC_TRACE.md) and [evaluation](docs/EVALUATION.md). Source attribution and exact hashes are in [SOURCE_MANIFEST.json](docs/SOURCE_MANIFEST.json).
 
