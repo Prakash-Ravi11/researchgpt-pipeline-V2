@@ -32,6 +32,8 @@ def verify_bundle(field, candidate, paper, delivered, corpus, bundles):
         return reject("document_identity_or_version_mismatch")
     if bundle.linkage!="native_header_geometry_v1" or bundle.structural_status!="SOURCE_ALIGNED":
         return reject("unresolved_structural_linkage","UNAVAILABLE")
+    if "dataset_identity_requires_review" in bundle.unresolved:
+        return reject("dataset_identity_unresolved","UNAVAILABLE")
     roles={s.role:s for s in bundle.spans}
     if any(sum(s.role==role for s in bundle.spans)!=1 for role in ("caption","subject","dataset","metric","value")):
         return reject("incomplete_or_ambiguous_bundle","AMBIGUOUS")
@@ -51,6 +53,10 @@ def verify_bundle(field, candidate, paper, delivered, corpus, bundles):
         if ds<0 or de>len(d.text) or d.text[ds:de]!=s.text:
             return reject("bundle_span_not_delivered")
     tup={k:roles[r].text for k,r in (("subject","subject"),("dataset","dataset"),("metric","metric"),("value","value"))}
+    # A geometrically aligned column label may be a language pair, model size,
+    # or condition rather than a dataset. No silent aliases or semantic upgrade.
+    if not re.search(r"(?<!\w)"+re.escape(tup['dataset'])+r"(?!\w)",roles['caption'].text):
+        return reject("dataset_identity_unresolved","UNAVAILABLE")
     # Optional explicit model proposal must agree with all canonical anchors.
     proposed=candidate.get("scientific_tuple")
     if proposed is not None and (any(proposed.get(k)!=v for k,v in tup.items()) or proposed.get("setting") or proposed.get("unit")):

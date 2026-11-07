@@ -18,7 +18,7 @@ from tests.helpers import TinyEncoder
 
 def document():
     pdf=pymupdf.open();p=pdf.new_page()
-    p.insert_text((72,80),"Table 1: Performance on held-out test sets.",fontsize=10)
+    p.insert_text((72,80),"Table 1: Performance on SetA and SetB held-out test sets.",fontsize=10)
     for y in (95,135,180):p.draw_line((72,y),(520,y))
     for x,y,t in [(80,120,"Model"),(300,108,"BLEU"),(425,108,"Cost"),
                   (275,125,"SetA"),(335,125,"SetB"),(395,125,"SetA"),(455,125,"SetB"),
@@ -100,6 +100,14 @@ def test_public_verification_states_remain_distinct():
     assert FieldValue(field='x',status='FAILED').verification_state=='FAILED'
     assert FieldValue(field='x',status='AMBIGUOUS').verification_state=='AMBIGUOUS'
     assert FieldValue(field='x',status='ABSTAINED').verification_state=='WITHHELD'
+
+
+def test_column_alignment_is_not_automatic_dataset_identity():
+    a,d,c,bs=parsed();b=next(x for x in bs if any(s.text=='Ours' for s in x.spans))
+    b.unresolved=['dataset_identity_requires_review']
+    out=verify_bundle('results',{'evidence_id':b.bundle_id},a.paper,c,c,bs)
+    assert out.final=='ABSTAINED' and out.verification_state=='UNAVAILABLE'
+    assert out.abstain_reason=='dataset_identity_unresolved'
 
 
 @pytest.mark.integration

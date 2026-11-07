@@ -1,0 +1,192 @@
+{
+  "command": "\"C:\\Users\\Praka\\Downloads\\research IQ  V2\\researchgpt-pipeline-V2\\.venv-gpu\\Scripts\\python.exe\" -B -m pytest -p no:cacheprovider tests -q --junitxml=outputs/accuracy/final-targeted-pytest.xml",
+  "environment": {
+    "interpreter": "C:\\Users\\Praka\\Downloads\\research IQ  V2\\researchgpt-pipeline-V2\\.venv-gpu\\Scripts\\python.exe",
+    "python": "3.13.6",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "packages": {
+      "pydantic": "2.12.5",
+      "fastapi": "0.116.1",
+      "uvicorn": "0.35.0",
+      "requests": "2.32.5",
+      "PyMuPDF": "1.28.2",
+      "PyYAML": "6.0.2",
+      "tqdm": "4.67.1",
+      "chromadb": "1.1.1",
+      "sentence-transformers": "5.1.1",
+      "torch": "2.8.0+cu126",
+      "numpy": "2.2.6",
+      "rank-bm25": "0.2.2",
+      "pytest": "8.4.2",
+      "httpx": "0.28.1"
+    }
+  },
+  "scope": "contract/unit/connected synthetic fixtures; no real-model end-to-end pytest",
+  "counts": {
+    "PASSED": 20,
+    "FAILED": 0,
+    "SKIPPED": 0
+  },
+  "tests": [
+    {
+      "module": "tests.test_accuracy_evidence",
+      "name": "test_native_hierarchy_preserves_multispans_and_does_not_split_cost",
+      "status": "PASSED",
+      "seconds": 0.055,
+      "classification": "UNIT",
+      "mocks_or_doubles": "False"
+    },
+    {
+      "module": "tests.test_accuracy_evidence",
+      "name": "test_invalid_bundle_links_are_withheld[dataset]",
+      "status": "PASSED",
+      "seconds": 0.027,
+      "classification": "UNIT",
+      "mocks_or_doubles": "False"
+    },
+    {
+      "module": "tests.test_accuracy_evidence",
+      "name": "test_invalid_bundle_links_are_withheld[subject]",
+      "status": "PASSED",
+      "seconds": 0.027,
+      "classification": "UNIT",
+      "mocks_or_doubles": "False"
+    },
+    {
+      "module": "tests.test_accuracy_evidence",
+      "name": "test_invalid_bundle_links_are_withheld[metric]",
+      "status": "PASSED",
+      "seconds": 0.026,
+      "classification": "UNIT",
+      "mocks_or_doubles": "False"
+    },
+    {
+      "module": "tests.test_accuracy_evidence",
+      "name": "test_invalid_bundle_links_are_withheld[value]",
+      "status": "PASSED",
+      "seconds": 0.03,
+      "classification": "UNIT",
+      "mocks_or_doubles": "False"
+    },
+    {
+      "module": "tests.test_accuracy_evidence",
+      "name": "test_invalid_bundle_links_are_withheld[version]",
+      "status": "PASSED",
+      "seconds": 0.028,
+      "classification": "UNIT",
+      "mocks_or_doubles": "False"
+    },
+    {
+      "module": "tests.test_accuracy_evidence",
+      "name": "test_invalid_bundle_links_are_withheld[region]",
+      "status": "PASSED",
+      "seconds": 0.027,
+      "classification": "UNIT",
+      "mocks_or_doubles": "False"
+    },
+    {
+      "module": "tests.test_accuracy_evidence",
+      "name": "test_invalid_bundle_links_are_withheld[undelivered]",
+      "status": "PASSED",
+      "seconds": 0.029,
+      "classification": "UNIT",
+      "mocks_or_doubles": "False"
+    },
+    {
+      "module": "tests.test_accuracy_evidence",
+      "name": "test_invalid_bundle_links_are_withheld[attestation]",
+      "status": "PASSED",
+      "seconds": 0.025,
+      "classification": "UNIT",
+      "mocks_or_doubles": "False"
+    },
+    {
+      "module": "tests.test_accuracy_evidence",
+      "name": "test_invalid_bundle_links_are_withheld[unit]",
+      "status": "PASSED",
+      "seconds": 0.025,
+      "classification": "UNIT",
+      "mocks_or_doubles": "False"
+    },
+    {
+      "module": "tests.test_accuracy_evidence",
+      "name": "test_balanced_catalog_preserves_prose_and_structure_with_budget",
+      "status": "PASSED",
+      "seconds": 0.027,
+      "classification": "UNIT",
+      "mocks_or_doubles": "False"
+    },
+    {
+      "module": "tests.test_accuracy_evidence",
+      "name": "test_missing_pdf_text_requests_ocr_without_inventing_source",
+      "status": "PASSED",
+      "seconds": 0.015,
+      "classification": "UNIT",
+      "mocks_or_doubles": "False"
+    },
+    {
+      "module": "tests.test_accuracy_evidence",
+      "name": "test_public_verification_states_remain_distinct",
+      "status": "PASSED",
+      "seconds": 0.0,
+      "classification": "UNIT",
+      "mocks_or_doubles": "False"
+    },
+    {
+      "module": "tests.test_accuracy_evidence",
+      "name": "test_column_alignment_is_not_automatic_dataset_identity",
+      "status": "PASSED",
+      "seconds": 0.027,
+      "classification": "UNIT",
+      "mocks_or_doubles": "False"
+    },
+    {
+      "module": "tests.test_accuracy_evidence",
+      "name": "test_accuracy_backend_exposes_bundle_and_verified_source_refs",
+      "status": "PASSED",
+      "seconds": 2.966,
+      "classification": "INTEGRATION",
+      "mocks_or_doubles": "True"
+    },
+    {
+      "module": "tests.test_accuracy_evidence",
+      "name": "test_completed_structure_survives_model_timeout",
+      "status": "PASSED",
+      "seconds": 0.58,
+      "classification": "INTEGRATION",
+      "mocks_or_doubles": "True"
+    },
+    {
+      "module": "tests.test_accuracy_packet",
+      "name": "test_same_packet_schema_and_host_verifier_support_remote_replay",
+      "status": "PASSED",
+      "seconds": 0.063,
+      "classification": "UNIT",
+      "mocks_or_doubles": "False"
+    },
+    {
+      "module": "tests.test_accuracy_packet",
+      "name": "test_private_input_manifest_path_and_hash_guards",
+      "status": "PASSED",
+      "seconds": 0.021,
+      "classification": "UNIT",
+      "mocks_or_doubles": "False"
+    },
+    {
+      "module": "tests.test_model_lifecycle",
+      "name": "test_embedding_owner_releases_before_llm_extraction",
+      "status": "PASSED",
+      "seconds": 0.005,
+      "classification": "INTEGRATION",
+      "mocks_or_doubles": "True"
+    },
+    {
+      "module": "tests.test_model_lifecycle",
+      "name": "test_failed_indexing_releases_owned_model",
+      "status": "PASSED",
+      "seconds": 0.003,
+      "classification": "INTEGRATION",
+      "mocks_or_doubles": "True"
+    }
+  ]
+}

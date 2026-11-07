@@ -1,5 +1,19 @@
 # Progress
 
+### Dataset semantics check
+
+Final source review distinguished printed column scope from dataset identity:
+EN-DE/EN-FR cannot silently become the benchmark name. Native bundles now
+retain dataset_identity_requires_review when a leaf label is not explicitly
+named in the caption; multi-span verification refuses that unresolved case.
+Synthetic positive fixtures explicitly name SetA/SetB in the caption. This
+is a conservative scientific correction, not a scoring-rule change or a
+positive-result tuning step.20 post-fix targeted tests pass in5.21s, including
+source semantics, failed-output evidence preservation, replay and lifecycle.
+The earlier110-test full-suite result is retained separately; no second full
+suite or real-model retry. Table2 dataset/condition mapping is the exact
+remaining numerical-verification blocker, alongside independent human review.
+
 ### Actual API execution and bounded failure correction
 
 One actual PDF/BGE/Chroma/Qwen ASGI HTTP run on77e1d01 reached the180s model

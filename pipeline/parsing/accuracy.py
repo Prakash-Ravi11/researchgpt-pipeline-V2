@@ -140,7 +140,9 @@ class NativeHeaderParser:
                         output.append(EvidenceBundle(bundle_id="bundle:"+hashlib.sha256(key.encode()).hexdigest()[:24],
                             paper_id=document.paper.paper_id,document_sha256=digest,table_id=table["table_id"],
                             parser=self.identity,parser_revision=pymupdf.VersionBind,linkage=self.identity,
-                            structural_status="SOURCE_ALIGNED",row=ri,column=ci,spans=[caption,model,ds,met,value]))
+                            structural_status="SOURCE_ALIGNED",row=ri,column=ci,spans=[caption,model,ds,met,value],
+                            unresolved=[] if re.search(r"(?<!\w)"+re.escape(dataset)+r"(?!\w)",caption.text)
+                            else ["dataset_identity_requires_review"]))
         return output
 
 
