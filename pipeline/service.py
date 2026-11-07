@@ -39,6 +39,7 @@ class EvidencePipeline:
                  "generation_profile": getattr(self.llm, "generation_profile", "custom_or_default")}
         started = time.perf_counter()
         stage = "acquisition"
+        bundles = []
         encoder_released = False
         def release_encoder():
             nonlocal encoder_released
@@ -131,7 +132,7 @@ class EvidencePipeline:
             return ExtractedPaper(paper_id=paper.paper_id, acquisition_status=paper.acquisition_status,
                 status=statuses.get(stage, "EXTRACTION_FAILED"), trace=trace,
                 fields={f: [FieldValue(field=f, status="FAILED", abstain_reason="stage_failed")] for f in FIELDS},
-                errors=[{"stage": stage, "code": type(exc).__name__}])
+                errors=[{"stage": stage, "code": type(exc).__name__}],evidence_bundles=bundles)
         finally:
             try:
                 release_encoder()

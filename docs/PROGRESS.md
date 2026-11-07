@@ -1,5 +1,27 @@
 # Progress
 
+### Actual API execution and bounded failure correction
+
+One actual PDF/BGE/Chroma/Qwen ASGI HTTP run on77e1d01 reached the180s model
+deadline: HTTP200, EXTRACTION_FAILED/ReadTimeout, no completed response/tokens
+or predictions. Total242.672s.15 source-aligned bundles and the balanced
+catalog (15 prose anchors/5 bundles) were constructed; prose124/125 delivered.
+Fresh collection rgpt_v2_b0336189a9c4f3731774c2bb holds432 normalized1024-D
+vectors with ID/metadata/control isolation verified. BGE released before Qwen.
+Only3057MiB free before Qwen versus its measured4,270,619,360-byte GPU ownership;
+peak global5804MiB, host RAM248,721,408 bytes after timeout. This is observed
+resource pressure and a timeout, not a demonstrated CUDA OOM/OpenMP conflict.
+No timeout increase, model retry or output-driven tuning.
+
+Confirmed API failure-path defect: completed bundles were only in trace and
+omitted from top-level evidence_bundles. Preserved the original failed response;
+fixed independently so completed structure survives extraction failures. New
+controlled timeout regression plus2 lifecycle tests pass (3 total,4.67s),
+separately from the earlier110-test consolidation. No second full suite/model
+run. A matched packet export reuses actual query IDs and table links; exact
+messages equality with the retained real Qwen request passes. Remote models
+can now compare the same input; no public upload or Kaggle execution occurred.
+
 ### Remote/replay checkpoint
 
 Local immutable packet exporter, isolated Docling/Qwen3 job entry points and

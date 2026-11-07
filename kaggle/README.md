@@ -7,10 +7,14 @@ was uploaded. Windows `.venv-gpu`, the old `.venv` and global Python are intact.
 Generate inputs locally with the exact repository interpreter:
 
 ```powershell
-& '.\.venv-gpu\Scripts\python.exe' -X utf8 -B -m scripts.prepare_accuracy_job --output outputs/accuracy/final-package
+& '.\.venv-gpu\Scripts\python.exe' -X utf8 -B -m scripts.prepare_accuracy_job --retrieval-run outputs/accuracy/gpu-api-selection-v1/execution.json --output outputs/accuracy/matched-api-package
 ```
 
 The exporter makes code.zip, packet.json, input-manifest.json and SHA256s.
+The matched export reuses the actual API run's query IDs/table links without
+another embedding or model call. Its messages are checked against the retained
+API request before comparison. An export without --retrieval-run is explicitly
+labeled an all-source development packet and is not a matched local baseline.
 No PDF, weight, database, credential or virtual environment enters code.zip.
 **packet.json contains source text**, so keep it private just like the source.
 Review redistribution rights before any transfer; this script neither uploads

@@ -126,3 +126,20 @@ def test_accuracy_backend_exposes_bundle_and_verified_source_refs(tmp_path):
         assert len(out['fields']['results'][0]['source_refs'])==5
         assert client.post('/api/papers/process',json={"project_id":"bad","paper":{"paper_id":"SYN"},
                            "extraction_mode":"selection_v1"}).status_code==422
+
+
+@pytest.mark.integration
+def test_completed_structure_survives_model_timeout(tmp_path):
+    import requests
+    a=document()
+    class FixtureSource:
+        def acquire(self,paper):return a
+    class TimeoutLLM:
+        def complete(self,system,user):raise requests.exceptions.ReadTimeout('controlled fixture timeout')
+    pipeline=EvidencePipeline(FixtureSource(),ChromaIndex('timeout',tmp_path/'db',TinyEncoder()),TimeoutLLM(),
+        retrieval='table_aware_v1',context_mode='relationship_v1',representation_profile='accuracy_v1',extraction_mode='selection_v1')
+    out=pipeline.run(a.paper)
+    assert out.status=='EXTRACTION_FAILED'
+    assert len(out.evidence_bundles)==4
+    assert all(v.verification_state=='FAILED' for vs in out.fields.values() for v in vs)
+    assert out.errors==[{'stage':'extraction','code':'ReadTimeout'}]

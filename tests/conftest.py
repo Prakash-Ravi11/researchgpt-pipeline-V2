@@ -24,6 +24,7 @@ def pytest_collection_modifyitems(items):
             "test_optional_profiles_complete_fixture_api_flow",
             "test_linked_table_keeps_native_text_offsets_and_grid_status",
             "test_accuracy_backend_exposes_bundle_and_verified_source_refs",
+            "test_completed_structure_survives_model_timeout",
         }
         mocked = module == "test_api" or (module == "test_clients_and_dispatch" and "dispatch" not in item.name)
         mocked = mocked or item.originalname in names_with_doubles
