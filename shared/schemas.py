@@ -108,10 +108,29 @@ class Chunk(SourceReference):
 
 class EvidenceSpan(Contract):
     span_id: str
-    role: Literal["caption", "subject", "dataset", "metric", "value", "prose"]
+    role: Literal["caption", "subject", "dataset", "metric", "value", "prose", "benchmark", "condition", "condition_label", "unit", "ownership"]
     text: str
     reference: SourceReference
     bbox: list[float] | None = None
+
+
+class EvidenceRelation(Contract):
+    kind: Literal["caption_benchmark", "caption_condition", "header_condition", "header_metric", "row_value", "table_mention"]
+    from_span_id: str
+    to_span_id: str
+    table_id: str
+
+
+class SemanticBinding(Contract):
+    builder: str = "caption_header_relations_v1"
+    status: Literal["RESOLVED", "AMBIGUOUS", "UNRESOLVED"]
+    benchmark: str | None = None
+    condition: str | None = None
+    condition_label: str | None = None
+    metric: str
+    unit: str | None = None
+    relations: list[EvidenceRelation] = Field(default_factory=list)
+    reason: str | None = None
 
 
 class EvidenceBundle(Contract):
@@ -128,6 +147,7 @@ class EvidenceBundle(Contract):
     column: int
     spans: list[EvidenceSpan]
     unresolved: list[str] = Field(default_factory=list)
+    semantic: SemanticBinding | None = None
 
     @model_validator(mode="after")
     def coherent_sources(self):

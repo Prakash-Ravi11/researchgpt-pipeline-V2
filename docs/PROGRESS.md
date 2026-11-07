@@ -1,5 +1,29 @@
 # Progress
 
+## Semantic binding / offload sprint
+
+Started clean at6e5841f on the required branch. Preserved prior parser,
+source-ID extraction, historical evaluations and unreviewed annotations.
+Implemented semantic_v1 caption/header relation builder with separate literal
+benchmark and language condition, explicit relation edges and source ownership
+mention. Static language vocabulary is linked to an actual caption phrase;
+no expected scientific values or model names in parsing rules. Ambiguous
+benchmarks/conditions abstain; geometry/source/range/ownership checks remain.
+
+Minimal real-v7 fixture proposes Transformer(big)/newstest2014/English-to-French/
+BLEU41.8 and passes the local gate with all original references. Human-review
+artifact and actual page rendering prepared; status needs_human_review, not
+independent gold. Source SHA unchanged.35 targeted semantic/source/compatibility
+tests pass in3.48s. Initial checks caught missing caption bbox and an invalid
+test mutation; both corrected before the passing checkpoint. The legacy
+unstructured_table_text and accuracy_v1 paths remain supported.
+
+Ollama saved logs now establish24/29 GPU layers,969.10MiB CPU model buffer,
+80MiB CPU KV, model readiness about44s after startup,1811 prompt tokens submitted
+and3m request cancellation. No completed prompt/generation timings or OOM
+evidence; expensive local inference was not repeated. Next: versioned minimal
+offload packages, manifest/schema-checked import and API integration tests.
+
 ### Accuracy-first closeout
 
 Current evidence and remaining milestones are in ACCURACY_REPORT.md. Updated

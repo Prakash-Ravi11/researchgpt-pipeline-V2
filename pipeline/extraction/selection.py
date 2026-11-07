@@ -63,7 +63,11 @@ def relationship_context(chunks,bundles,*,input_budget=4600,token_counter=None):
     def render(identifier,item):
         if isinstance(item,EvidenceSpan): return f"[{identifier}]\n{item.text}"
         roles={s.role:s.text for s in item.spans}
-        return f"[{identifier}]\n"+json.dumps({"table_id":item.table_id,"source_anchors":roles},ensure_ascii=False)
+        payload={"table_id":item.table_id,"source_anchors":roles}
+        if item.semantic:
+            roles["column_label"]=roles.pop("dataset")
+            payload["semantic_binding"]={k:getattr(item.semantic,k) for k in ("status","benchmark","condition","metric","unit")}
+        return f"[{identifier}]\n"+json.dumps(payload,ensure_ascii=False)
     prose=[c for c in chunks if not getattr(c,"table_id",None) and c.block_type!="heading"]
     table_pages={s.reference.page_or_node for b in bundles for s in b.spans}
     metrics={s.text.casefold() for b in bundles for s in b.spans if s.role=="metric"}

@@ -27,7 +27,7 @@ class ProcessRequest(BaseModel):
     paper: Paper
     retrieval: Literal["five_query", "hybrid", "table_aware_v1"] = "five_query"
     context_mode: Literal["current", "revised", "table_aware_v1", "relationship_v1"] = "current"
-    representation_profile: Literal["baseline", "table_context_v1", "accuracy_v1"] = "baseline"
+    representation_profile: Literal["baseline", "table_context_v1", "accuracy_v1", "semantic_v1"] = "baseline"
     generation_profile: Literal["default", "bounded"] = "default"
     extraction_mode: Literal["quotation", "selection_v1"] = "quotation"
     representation: Literal["pdf", "jats_xml"] | None = None
