@@ -24,4 +24,5 @@ def pytest_collection_modifyitems(items):
         }
         mocked = module == "test_api" or (module == "test_clients_and_dispatch" and "dispatch" not in item.name)
         mocked = mocked or item.originalname in names_with_doubles
+        mocked = mocked or "monkeypatch" in item.fixturenames
         item.user_properties.extend([("classification", category), ("mocks_or_doubles", str(bool(mocked)))])

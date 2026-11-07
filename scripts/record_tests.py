@@ -3,6 +3,7 @@ import argparse
 import importlib.metadata
 import json
 import platform
+import sys
 import xml.etree.ElementTree as ET
 from pathlib import Path
 
@@ -22,8 +23,8 @@ def main():
             "status": "FAILED" if test.find("failure") is not None or test.find("error") is not None else
                       "SKIPPED" if test.find("skipped") is not None else "PASSED",
             "seconds": float(test.get("time", 0)), **props})
-    result = {"command": ".venv/Scripts/python.exe -B -m pytest -p no:cacheprovider tests -q --junitxml=outputs/pytest.xml",
-              "environment": {"python": platform.python_version(), "platform": platform.platform(),
+    result = {"command": f'"{sys.executable}" -B -m pytest -p no:cacheprovider tests -q --junitxml={args.junit.as_posix()}',
+              "environment": {"interpreter": sys.executable, "python": platform.python_version(), "platform": platform.platform(),
                               "packages": {p: importlib.metadata.version(p) for p in packages}},
               "scope": "contract/unit/connected synthetic fixtures; no real-model end-to-end pytest",
               "counts": {s: sum(t["status"] == s for t in cases) for s in ("PASSED", "FAILED", "SKIPPED")},
