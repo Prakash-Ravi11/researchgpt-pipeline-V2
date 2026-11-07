@@ -1,5 +1,10 @@
 # Private, reproducible accuracy jobs
 
+Current semantic inference workflow: [INFERENCE.md](INFERENCE.md). It adds
+versioned input/output manifests, exact schema/config export, minimal selected
+sources, registered-input backend import and raw-output preservation. The
+experimental parser/model commands below are retained for comparison history.
+
 **Prepared, not executed on Kaggle.** This session has no Kaggle connector,
 CLI module, credential file or credential environment configuration. No data
 was uploaded. Windows `.venv-gpu`, the old `.venv` and global Python are intact.
