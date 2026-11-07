@@ -5,10 +5,35 @@ files in outputs/semantic/offload-package-v2. It is private input, not a Kaggle
 execution result. The report records its trusted manifest SHA. The commands
 below reproduce it; choose a fresh output name if the directory already exists.
 
-Status in this sprint: **NOT EXECUTED on Kaggle**. The export/import/HTTP path
-passes controlled round-trip tests; no connected notebook or credentials were
-supplied. No expensive local inference was repeated. The older experimental
-runner remains available; use this versioned workflow for semantic bundles.
+Status: **NOT EXECUTED on Kaggle**. The user confirmed that no private notebook,
+notebook URL/identifier or mounted input path exists yet. The export/import/HTTP
+path passes controlled round-trip tests. No expensive local inference was
+repeated. The older experimental runner remains available.
+
+## Upload checklist for the prepared package
+
+Upload these five existing files from `outputs/semantic/offload-package-v2`
+as one **private Kaggle dataset**, preserving the file names:
+
+| File | Bytes | Purpose |
+|---|---:|---|
+| packet.json | 141972 | Selected evidence, source IDs, locations and relations |
+| request.json | 19538 | Exact messages and output schema |
+| runtime.json | 842 | Pinned model, generation, quantization and baseline |
+| code.zip | 160325 | Required source code and dependency pins |
+| input-manifest.json | 789 | Input version, identity, hashes and sizes |
+
+Separately, import [semantic_inference.ipynb](semantic_inference.ipynb) as the
+notebook. It is not a dataset input and has no executed cells or saved outputs.
+The convenience archive `outputs/semantic/inference-input-v2.zip` contains the
+five dataset files; extract it locally if using that download. No PDF, weights,
+database, credentials, full repository or other output directories are needed.
+
+Prepared package ID: `rgpt_d03e8fa2bfe3dc4baa48c121`.
+Retained local input-manifest SHA256:
+`ff00931afc4c49ccb7f684dd0674027fb0bfac9178f3cf08797537b6d4f5f3ff`.
+The notebook embeds that retained value. A fresh export requires updating it
+from the trusted local exporter; do not replace it with a remotely computed hash.
 
 ## 1. Export locally
 
@@ -33,43 +58,34 @@ full corpus, PDF, model files, credentials and vector database are excluded.
 The packet still contains source text: use only legitimately shareable material
 and keep the Kaggle dataset/notebook private. There is no automatic upload.
 
-## 2. Bootstrap a private Kaggle GPU notebook
+## 2. Create and run the private T4 notebook
 
-Mount those five files privately under `/kaggle/input/rgpt-inference`. Enable
-a supported GPU and internet for public package/model downloads, or mount
-permitted immutable dependencies/models. Copy the **trusted local manifest
-SHA** into the bootstrap cell, rather than obtaining a replacement SHA remotely:
+1. Create a private dataset containing the five files above. Confirm its privacy.
+2. Create a Python notebook and import `kaggle/semantic_inference.ipynb`. Confirm
+   the notebook is private independently of the dataset. Attach the private dataset.
+3. Under **Settings > Accelerator**, select **GPU T4 x2** if available. Enable
+   Internet for the pinned public package/model downloads. If the account cannot
+   start a T4 session, keep execution marked NOT EXECUTED and retain that blocker.
+4. Run cells in order. The bootstrap searches the actual `/kaggle/input` tree for
+   exactly one manifest matching the retained local SHA and prints its real path.
+   No dataset slug, individual mount path, notebook URL or notebook ID is assumed.
+   It rejects missing/duplicate matching inputs or modified files before extracting
+   code. Work directories are created by the notebook under `/kaggle/working`.
+5. The setup cell creates an isolated environment, installs torch 2.8.0+cu126
+   and the existing pinned requirements-extraction.txt, and runs pip check.
+   Those pins are prepared but have not been remotely installation-tested.
+6. Inspect the displayed physical GPUs, actual memory and requested configuration.
+   The inference cell invokes the packaged runner once with physical device 0,
+   the discovered input path and retained SHA. Preserve errors and outputs; the
+   notebook refuses to overwrite an existing result directory.
+7. Download the resulting `result.zip` from the notebook Output browser, retain
+   the actual execution status, and stop the GPU session. Setup failures before
+   the runner starts may produce only a notebook error, not an archive.
 
-```python
-from pathlib import Path
-import hashlib, json, zipfile
-
-rgpt_input = Path('/kaggle/input/rgpt-inference')
-rgpt_expected_sha = 'PASTE_THE_TRUSTED_LOCAL_INPUT_MANIFEST_SHA256'
-assert hashlib.sha256((rgpt_input/'input-manifest.json').read_bytes()).hexdigest() == rgpt_expected_sha
-rgpt_manifest = json.loads((rgpt_input/'input-manifest.json').read_text())
-assert set(rgpt_manifest['files']) == {'packet.json','request.json','runtime.json','code.zip'}
-for name, entry in rgpt_manifest['files'].items():
-    content = (rgpt_input/name).read_bytes()
-    assert len(content) == entry['bytes']
-    assert hashlib.sha256(content).hexdigest() == entry['sha256']
-rgpt_code = Path('/kaggle/working/rgpt')
-with zipfile.ZipFile(rgpt_input/'code.zip') as archive:
-    assert all(not Path(n).is_absolute() and '..' not in Path(n).parts for n in archive.namelist())
-    archive.extractall(rgpt_code)
-```
-
-In notebook shell cells, create a separate environment (do not alter the base
-Kaggle Python). The candidate pins are prepared, not remotely installation-tested:
-
-```bash
-python3 -m venv /kaggle/working/rgpt-inference-env
-/kaggle/working/rgpt-inference-env/bin/python -m pip install torch==2.8.0+cu126 --index-url https://download.pytorch.org/whl/cu126
-/kaggle/working/rgpt-inference-env/bin/python -m pip install -r /kaggle/working/rgpt/kaggle/requirements-extraction.txt
-/kaggle/working/rgpt-inference-env/bin/python -m pip check
-cd /kaggle/working/rgpt
-/kaggle/working/rgpt-inference-env/bin/python -m kaggle.run_inference --input /kaggle/input/rgpt-inference --expected-input-sha256 TRUSTED_LOCAL_MANIFEST_SHA --device 0 --output /kaggle/working/rgpt-result-01
-```
+Current UI references: [Kaggle notebook documentation](https://www.kaggle.com/docs/notebooks),
+[dataset privacy documentation](https://www.kaggle.com/docs/datasets), and
+[NVIDIA's Kaggle GPU setup](https://docs.nvidia.com/datascience/deployment/latest/platforms/kaggle/).
+Availability and quota depend on the account; no remote resource has been created.
 
 T4x2 means two separate 16 GB devices. The runner masks **one** physical GPU and
 checks its actual free memory (9/12 GB planning guards for the prepared 8B/14B

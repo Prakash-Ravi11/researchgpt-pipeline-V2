@@ -121,11 +121,21 @@ integrity, not proof of the remote author's identity or claimed compute usage.
 Round-trip tests cover accepted, withheld, ambiguous and failed outcomes,
 tampering, wrong model/condition/document, fabricated fields and unsafe archives.
 
-No Kaggle connector/API credential configuration or connected notebook was
-available/supplied. Execution status is **NOT EXECUTED**, not a successful
-remote result. Setup, exact local commands, private notebook cells, dependency
-pins and backend registration are in kaggle/INFERENCE.md. The older runner is
-preserved. Remote dependency installation itself remains unvalidated until run.
+The user confirmed that no private Kaggle notebook, URL/identifier or mounted
+input path exists yet. Execution status is **NOT EXECUTED**, not a successful
+remote result. kaggle/semantic_inference.ipynb is an unexecuted uploadable T4
+notebook that discovers the actual input mount by the retained local manifest
+SHA. The exact five-file upload checklist, setup steps, local commands, pins
+and backend registration are in kaggle/INFERENCE.md. The older runner and
+original export are preserved. Remote dependency installation remains unvalidated.
+
+The later notebook handoff was checked locally with the exact .venv-gpu Python:
+all six code cells parse and have no saved executions/outputs. Configuration and
+bootstrap ran against a temporary copy of the actual package; actual-directory
+discovery and code extraction passed, while missing/duplicate matching manifests
+were rejected. No install, GPU preflight, generation or download cell was run.
+See docs/evidence/kaggle_notebook_validation.json. This does not add model accuracy
+results or repeat the full suite/frozen evaluation.
 
 ## Consolidated validation and milestones
 

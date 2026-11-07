@@ -1,5 +1,24 @@
 # Progress
 
+### Confirmed private-notebook handoff
+
+The user confirmed that no private Kaggle notebook, URL/identifier or mounted
+input path exists yet. Remote execution remains NOT EXECUTED. Added an unexecuted
+uploadable notebook at kaggle/semantic_inference.ipynb and an exact five-file
+upload checklist in kaggle/INFERENCE.md. The notebook discovers the real mounted
+input by the retained local manifest SHA; it never invents a dataset slug or
+individual mount path. Separate environment setup and one-device T4 execution
+reuse the existing pinned runner/package. The original five-file export remains
+unchanged at code commit 87e44b4. No semantic/gate/API changes or model runs.
+Previous completed documentation checkpoint: 2a437c8. Exact .venv-gpu Python
+3.13.6 parsed all 6 code cells and executed configuration/bootstrap against a
+temporary copy of the actual prepared package. The discovered fixture mount and
+code extraction passed; missing/duplicate matching manifests were rejected.
+Recorded docs/evidence/kaggle_notebook_validation.json. Installation, GPU
+preflight/generation and download cells were not run. No repeated full suite,
+frozen evaluation or inference. Handoff commit follows; next action remains one
+private T4 execution followed by trusted local import of its actual result.
+
 ### Final artifact and handoff
 
 Delivered current-guard package rgpt_d03e8fa2bfe3dc4baa48c121 from 87e44b4:

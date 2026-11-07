@@ -1,5 +1,14 @@
 # Executed validation and limits
 
+Private-notebook handoff validation: .venv-gpu Python 3.13.6 parsed all 6 code
+cells in kaggle/semantic_inference.ipynb, confirmed empty execution counts/outputs,
+and executed configuration/bootstrap against a temporary copy of the actual
+five-file package. Input discovery, retained SHA validation and code extraction
+passed; missing/duplicate matching manifests were rejected. Evidence:
+docs/evidence/kaggle_notebook_validation.json. Remote installation, GPU preflight,
+model loading/generation and download remain NOT EXECUTED. No full-suite or
+evaluation repeat was needed for this notebook/documentation handoff.
+
 Current semantic sprint: one full144-test suite passes in7.11s; one later33-test
 targeted batch passes in3.09s after a reproduced model-size/benchmark ambiguity.
 0 failures/skips in those final batches, one dependency warning each. Executed

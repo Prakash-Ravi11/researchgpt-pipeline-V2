@@ -9,10 +9,12 @@ proposals remain unreviewed. No independent extraction accuracy is established.
 Other unsupported caption grammars, unknown language aliases, ambiguous header/
 benchmark relationships and merged cost cells abstain or retain raw fallback.
 
-Kaggle is NOT EXECUTED: no configured API credentials or connected notebook was
-supplied. The ready package and private setup are in kaggle/INFERENCE.md. A
-legitimate private GPU notebook/input mount is the required action for a live
-test; do not send credentials or publish source text publicly. Candidate remote
+Kaggle is NOT EXECUTED: the user confirmed no private notebook has been created
+or confirmed; no URL, identifier or individual input mount exists yet. The exact
+five-file upload checklist and unexecuted T4 notebook are in kaggle/INFERENCE.md
+and kaggle/semantic_inference.ipynb. Bootstrap discovers the actual mounted input
+by its retained local manifest SHA. A legitimate private GPU session is needed
+for a live test; do not send credentials or publish source text publicly. Candidate remote
 installation/model execution remains unvalidated. No local expensive retry.
 
 Saved logs prove the3m deadline/cancellation and CPU offload, not GPU OOM.

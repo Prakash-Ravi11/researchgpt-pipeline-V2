@@ -1,6 +1,9 @@
 # Private, reproducible accuracy jobs
 
-Current semantic inference workflow: [INFERENCE.md](INFERENCE.md). It adds
+Current semantic inference workflow: [INFERENCE.md](INFERENCE.md), with the exact
+five-file upload checklist and an unexecuted [private T4 notebook](semantic_inference.ipynb).
+No private remote notebook or individual input mount has been created or confirmed.
+It adds
 versioned input/output manifests, exact schema/config export, minimal selected
 sources, registered-input backend import and raw-output preservation. The
 experimental parser/model commands below are retained for comparison history.
