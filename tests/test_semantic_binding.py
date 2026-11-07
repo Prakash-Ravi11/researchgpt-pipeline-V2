@@ -59,12 +59,12 @@ def test_reference_and_relationship_mutations_fail(mutation):
     assert out.final=='ABSTAINED'
 
 
-def synthetic(caption,metric='BLEU'):
+def synthetic(caption,metric='BLEU',columns=('EN-FR','EN-DE')):
     doc=pymupdf.open();p=doc.new_page()
     p.insert_text((72,80),caption,fontsize=9)
     for y in (95,135,165):p.draw_line((72,y),(520,y))
-    for x,y,t in [(80,120,'Model'),(300,108,metric),(425,108,'Cost'),(275,125,'EN-FR'),
-                  (335,125,'EN-DE'),(395,125,'EN-FR'),(455,125,'EN-DE'),
+    for x,y,t in [(80,120,'Model'),(300,108,metric),(425,108,'Cost'),(275,125,columns[0]),
+                  (335,125,columns[1]),(395,125,columns[0]),(455,125,columns[1]),
                   (80,153,'Ours'),(280,153,'37.2'),(340,153,'36.1')]:p.insert_text((x,y),t,fontsize=9)
     data=doc.tobytes();doc.close()
     paper=Paper(paper_id='SEM-SYN',title='Synthetic semantic fixture',acquisition_status='FULL_TEXT',
@@ -98,6 +98,12 @@ def test_printed_metric_unit_remains_source_backed():
         assert unit.text=='%' and unit.reference.char_end-unit.reference.char_start==1
         out=verify_bundle('results',{'evidence_id':b.bundle_id},a.paper,cs,cs,bs)
         assert out.final=='RETURNED' and out.scientific_tuple['unit']=='%'
+
+
+def test_model_size_headers_do_not_become_benchmarks_from_caption_mentions():
+    a=synthetic('Table 7: Performance of base and big models on Corpus42 tests.',columns=('base','big'))
+    d,cs=process(a,'semantic_v1');bs=[EvidenceBundle(**b) for b in d['evidence_bundles']]
+    assert bs and all(b.semantic.status=='UNRESOLVED' for b in bs)
 
 
 def test_validated_semantics_connects_source_id_selection_path():

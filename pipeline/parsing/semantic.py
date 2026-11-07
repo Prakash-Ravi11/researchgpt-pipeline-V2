@@ -29,6 +29,7 @@ def _benchmark_mentions(text):
         r"\b(?:benchmark|dataset|corpus|test set)\s*[:=]\s*([A-Za-z][A-Za-z0-9_.-]*(?:[ ](?:19|20)\d{2})?)",
         r"\b([A-Za-z][A-Za-z0-9_.-]*\d[A-Za-z0-9_.-]*)\s+(?:tests?|benchmark|dataset|corpus)\b",
         r"\b([A-Z][A-Za-z_-]{1,20}\s+(?:19|20)\d{2})\s+(?:benchmark|dataset|tests?|test set)\b",
+        r"\b([A-Z][A-Za-z0-9_.-]+)\s+(?:benchmark|dataset|corpus|test set)\b",
     ]
     found={}
     for pattern in patterns:
@@ -66,6 +67,8 @@ def bind_bundle(bundle, chunks=()):
     else:
         matches=list(re.finditer(r"(?<!\w)"+re.escape(leaf.text)+r"(?!\w)",caption.text))
         if len(matches)!=1:return unresolved("ambiguous_or_missing_caption_benchmark",len(matches)>1)
+        named=[m for m in _benchmark_mentions(caption.text) if m[2]==leaf.text]
+        if len(named)!=1:return unresolved("column_label_is_not_a_named_benchmark",len(named)>1)
         # Direct dataset column; no synthetic task/condition is added.
         benchmark=_within(caption,matches[0][0],"benchmark",matches[0].start())
         additions=[benchmark]

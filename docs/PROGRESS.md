@@ -1,5 +1,15 @@
 # Progress
 
+### Final ambiguity guard
+
+Reproduced a concrete false resolution when base/big model-size headers merely
+appeared in a caption. Restricted direct dataset-column binding to an explicit
+named benchmark cue, rather than any matching caption word. Language-condition
+binding remains unchanged.33 semantic/package targeted tests pass in3.09s
+after the correction; the earlier144-test consolidation is preserved separately.
+No full-suite or expensive inference repeat. Final portable artifact will include
+this guard. Human review and real Kaggle execution remain pending.
+
 ### Consolidated validation and connected fixture
 
 One complete suite:144 passed in7.11s,0 failures/skips, one dependency warning.

@@ -1,0 +1,296 @@
+{
+  "command": "\"C:\\Users\\Praka\\Downloads\\research IQ  V2\\researchgpt-pipeline-V2\\.venv-gpu\\Scripts\\python.exe\" -B -m pytest -p no:cacheprovider tests -q --junitxml=outputs/semantic/scope-targeted-pytest.xml",
+  "environment": {
+    "interpreter": "C:\\Users\\Praka\\Downloads\\research IQ  V2\\researchgpt-pipeline-V2\\.venv-gpu\\Scripts\\python.exe",
+    "python": "3.13.6",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "packages": {
+      "pydantic": "2.12.5",
+      "fastapi": "0.116.1",
+      "uvicorn": "0.35.0",
+      "requests": "2.32.5",
+      "PyMuPDF": "1.28.2",
+      "PyYAML": "6.0.2",
+      "tqdm": "4.67.1",
+      "chromadb": "1.1.1",
+      "sentence-transformers": "5.1.1",
+      "torch": "2.8.0+cu126",
+      "numpy": "2.2.6",
+      "rank-bm25": "0.2.2",
+      "pytest": "8.4.2",
+      "httpx": "0.28.1"
+    }
+  },
+  "scope": "contract/unit/connected synthetic fixtures; no real-model end-to-end pytest",
+  "counts": {
+    "PASSED": 33,
+    "FAILED": 0,
+    "SKIPPED": 0
+  },
+  "tests": [
+    {
+      "module": "tests.test_semantic_binding",
+      "name": "test_real_source_fixture_complete_tuple_is_machine_verified_not_human_gold",
+      "status": "PASSED",
+      "seconds": 0.008,
+      "classification": "UNIT",
+      "mocks_or_doubles": "False"
+    },
+    {
+      "module": "tests.test_semantic_binding",
+      "name": "test_complete_tuple_mutations_fail[value-41.0]",
+      "status": "PASSED",
+      "seconds": 0.002,
+      "classification": "UNIT",
+      "mocks_or_doubles": "False"
+    },
+    {
+      "module": "tests.test_semantic_binding",
+      "name": "test_complete_tuple_mutations_fail[subject-Transformer (base model)]",
+      "status": "PASSED",
+      "seconds": 0.001,
+      "classification": "UNIT",
+      "mocks_or_doubles": "False"
+    },
+    {
+      "module": "tests.test_semantic_binding",
+      "name": "test_complete_tuple_mutations_fail[benchmark-WrongBenchmark]",
+      "status": "PASSED",
+      "seconds": 0.001,
+      "classification": "UNIT",
+      "mocks_or_doubles": "False"
+    },
+    {
+      "module": "tests.test_semantic_binding",
+      "name": "test_complete_tuple_mutations_fail[dataset-EN-FR]",
+      "status": "PASSED",
+      "seconds": 0.002,
+      "classification": "UNIT",
+      "mocks_or_doubles": "False"
+    },
+    {
+      "module": "tests.test_semantic_binding",
+      "name": "test_complete_tuple_mutations_fail[condition-English-to-German]",
+      "status": "PASSED",
+      "seconds": 0.001,
+      "classification": "UNIT",
+      "mocks_or_doubles": "False"
+    },
+    {
+      "module": "tests.test_semantic_binding",
+      "name": "test_complete_tuple_mutations_fail[metric-Accuracy]",
+      "status": "PASSED",
+      "seconds": 0.002,
+      "classification": "UNIT",
+      "mocks_or_doubles": "False"
+    },
+    {
+      "module": "tests.test_semantic_binding",
+      "name": "test_complete_tuple_mutations_fail[unit-%]",
+      "status": "PASSED",
+      "seconds": 0.002,
+      "classification": "UNIT",
+      "mocks_or_doubles": "False"
+    },
+    {
+      "module": "tests.test_semantic_binding",
+      "name": "test_reference_and_relationship_mutations_fail[header_ref]",
+      "status": "PASSED",
+      "seconds": 0.001,
+      "classification": "UNIT",
+      "mocks_or_doubles": "False"
+    },
+    {
+      "module": "tests.test_semantic_binding",
+      "name": "test_reference_and_relationship_mutations_fail[row_ref]",
+      "status": "PASSED",
+      "seconds": 0.002,
+      "classification": "UNIT",
+      "mocks_or_doubles": "False"
+    },
+    {
+      "module": "tests.test_semantic_binding",
+      "name": "test_reference_and_relationship_mutations_fail[version]",
+      "status": "PASSED",
+      "seconds": 0.001,
+      "classification": "UNIT",
+      "mocks_or_doubles": "False"
+    },
+    {
+      "module": "tests.test_semantic_binding",
+      "name": "test_reference_and_relationship_mutations_fail[table_relation]",
+      "status": "PASSED",
+      "seconds": 0.002,
+      "classification": "UNIT",
+      "mocks_or_doubles": "False"
+    },
+    {
+      "module": "tests.test_semantic_binding",
+      "name": "test_reference_and_relationship_mutations_fail[condition_relation]",
+      "status": "PASSED",
+      "seconds": 0.001,
+      "classification": "UNIT",
+      "mocks_or_doubles": "False"
+    },
+    {
+      "module": "tests.test_semantic_binding",
+      "name": "test_reference_and_relationship_mutations_fail[unavailable_span]",
+      "status": "PASSED",
+      "seconds": 0.001,
+      "classification": "UNIT",
+      "mocks_or_doubles": "False"
+    },
+    {
+      "module": "tests.test_semantic_binding",
+      "name": "test_generic_caption_benchmark_hierarchical_header_and_language_binding",
+      "status": "PASSED",
+      "seconds": 0.037,
+      "classification": "UNIT",
+      "mocks_or_doubles": "False"
+    },
+    {
+      "module": "tests.test_semantic_binding",
+      "name": "test_multiple_benchmarks_abstain_without_nearby_number_guess",
+      "status": "PASSED",
+      "seconds": 0.022,
+      "classification": "UNIT",
+      "mocks_or_doubles": "False"
+    },
+    {
+      "module": "tests.test_semantic_binding",
+      "name": "test_printed_metric_unit_remains_source_backed",
+      "status": "PASSED",
+      "seconds": 0.022,
+      "classification": "UNIT",
+      "mocks_or_doubles": "False"
+    },
+    {
+      "module": "tests.test_semantic_binding",
+      "name": "test_model_size_headers_do_not_become_benchmarks_from_caption_mentions",
+      "status": "PASSED",
+      "seconds": 0.02,
+      "classification": "UNIT",
+      "mocks_or_doubles": "False"
+    },
+    {
+      "module": "tests.test_semantic_binding",
+      "name": "test_validated_semantics_connects_source_id_selection_path",
+      "status": "PASSED",
+      "seconds": 0.003,
+      "classification": "UNIT",
+      "mocks_or_doubles": "False"
+    },
+    {
+      "module": "tests.test_inference_packages",
+      "name": "test_source_backed_export_import_roundtrip_retains_raw_and_full_tuple",
+      "status": "PASSED",
+      "seconds": 0.193,
+      "classification": "UNIT",
+      "mocks_or_doubles": "False"
+    },
+    {
+      "module": "tests.test_inference_packages",
+      "name": "test_remote_output_tampering_and_unapproved_proposals_fail[unknown_id-remote_output_schema_invalid]",
+      "status": "PASSED",
+      "seconds": 0.096,
+      "classification": "UNIT",
+      "mocks_or_doubles": "False"
+    },
+    {
+      "module": "tests.test_inference_packages",
+      "name": "test_remote_output_tampering_and_unapproved_proposals_fail[fabricated_value-remote_output_schema_invalid]",
+      "status": "PASSED",
+      "seconds": 0.093,
+      "classification": "UNIT",
+      "mocks_or_doubles": "False"
+    },
+    {
+      "module": "tests.test_inference_packages",
+      "name": "test_remote_output_tampering_and_unapproved_proposals_fail[model-remote_model_mismatch]",
+      "status": "PASSED",
+      "seconds": 0.081,
+      "classification": "UNIT",
+      "mocks_or_doubles": "False"
+    },
+    {
+      "module": "tests.test_inference_packages",
+      "name": "test_remote_output_tampering_and_unapproved_proposals_fail[thinking-remote_configuration_mismatch]",
+      "status": "PASSED",
+      "seconds": 0.085,
+      "classification": "UNIT",
+      "mocks_or_doubles": "False"
+    },
+    {
+      "module": "tests.test_inference_packages",
+      "name": "test_remote_output_tampering_and_unapproved_proposals_fail[failed-remote_inference_not_completed]",
+      "status": "PASSED",
+      "seconds": 0.077,
+      "classification": "UNIT",
+      "mocks_or_doubles": "False"
+    },
+    {
+      "module": "tests.test_inference_packages",
+      "name": "test_remote_output_tampering_and_unapproved_proposals_fail[normalized-normalized_output_differs_from_raw]",
+      "status": "PASSED",
+      "seconds": 0.092,
+      "classification": "UNIT",
+      "mocks_or_doubles": "False"
+    },
+    {
+      "module": "tests.test_inference_packages",
+      "name": "test_remote_output_tampering_and_unapproved_proposals_fail[raw_tamper-package_file_integrity_mismatch]",
+      "status": "PASSED",
+      "seconds": 0.073,
+      "classification": "UNIT",
+      "mocks_or_doubles": "False"
+    },
+    {
+      "module": "tests.test_inference_packages",
+      "name": "test_remote_output_tampering_and_unapproved_proposals_fail[document-remote_document_mismatch]",
+      "status": "PASSED",
+      "seconds": 0.087,
+      "classification": "UNIT",
+      "mocks_or_doubles": "False"
+    },
+    {
+      "module": "tests.test_inference_packages",
+      "name": "test_remote_output_tampering_and_unapproved_proposals_fail[manifest-remote_input_identity_mismatch]",
+      "status": "PASSED",
+      "seconds": 0.085,
+      "classification": "UNIT",
+      "mocks_or_doubles": "False"
+    },
+    {
+      "module": "tests.test_inference_packages",
+      "name": "test_trusted_input_manifest_source_hash_and_zip_members_are_checked",
+      "status": "PASSED",
+      "seconds": 0.077,
+      "classification": "UNIT",
+      "mocks_or_doubles": "False"
+    },
+    {
+      "module": "tests.test_inference_packages",
+      "name": "test_valid_source_ids_can_still_be_withheld_or_ambiguous",
+      "status": "PASSED",
+      "seconds": 0.232,
+      "classification": "UNIT",
+      "mocks_or_doubles": "False"
+    },
+    {
+      "module": "tests.test_inference_packages",
+      "name": "test_ambiguous_semantics_survives_remote_roundtrip",
+      "status": "PASSED",
+      "seconds": 0.219,
+      "classification": "UNIT",
+      "mocks_or_doubles": "False"
+    },
+    {
+      "module": "tests.test_inference_packages",
+      "name": "test_backend_import_uses_registered_input_and_exposes_semantic_tuple",
+      "status": "PASSED",
+      "seconds": 0.157,
+      "classification": "INTEGRATION",
+      "mocks_or_doubles": "False"
+    }
+  ]
+}
