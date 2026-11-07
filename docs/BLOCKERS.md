@@ -1,5 +1,26 @@
 # Blockers and limitations
 
+## Semantic/offload current limits
+
+The selected Table2 relationship now passes source-backed deterministic
+verification with benchmark newstest2014 and condition English-to-French
+separated. Its ground-truth status remains needs_human_review; the existing12
+proposals remain unreviewed. No independent extraction accuracy is established.
+Other unsupported caption grammars, unknown language aliases, ambiguous header/
+benchmark relationships and merged cost cells abstain or retain raw fallback.
+
+Kaggle is NOT EXECUTED: no configured API credentials or connected notebook was
+supplied. The ready package and private setup are in kaggle/INFERENCE.md. A
+legitimate private GPU notebook/input mount is the required action for a live
+test; do not send credentials or publish source text publicly. Candidate remote
+installation/model execution remains unvalidated. No local expensive retry.
+
+Saved logs prove the3m deadline/cancellation and CPU offload, not GPU OOM.
+Startup took43.835s; post-load prefill/generation phase timings remain unknown.
+Frontend/deployment and independent review remain pending; backend compatibility
+and controlled package/source/API paths are tested. Older blocker sections below
+describe preserved historical profiles, including accuracy_v1's unresolved scope.
+
 ## Accuracy-v1 current blockers
 
 - Real new API selection run ended at the180s Qwen client deadline:

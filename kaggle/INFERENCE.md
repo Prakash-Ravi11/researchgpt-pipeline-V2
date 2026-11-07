@@ -1,4 +1,9 @@
-# Semantic inference export → Kaggle → trusted local import
+# Semantic inference export, Kaggle execution and trusted local import
+
+Ready local artifact: outputs/semantic/inference-input-v2.zip, unpacking to the
+files in outputs/semantic/offload-package-v2. It is private input, not a Kaggle
+execution result. The report records its trusted manifest SHA. The commands
+below reproduce it; choose a fresh output name if the directory already exists.
 
 Status in this sprint: **NOT EXECUTED on Kaggle**. The export/import/HTTP path
 passes controlled round-trip tests; no connected notebook or credentials were
@@ -10,7 +15,7 @@ runner remains available; use this versioned workflow for semantic bundles.
 From the V2 repository root with the exact isolated interpreter:
 
 ```powershell
-& '.\.venv-gpu\Scripts\python.exe' -X utf8 -B -m scripts.inference_package export --retrieval-run outputs/accuracy/gpu-api-selection-v1/execution.json --model qwen3-8b --output outputs/semantic/offload-package
+& '.\.venv-gpu\Scripts\python.exe' -X utf8 -B -m scripts.inference_package export --retrieval-run outputs/accuracy/gpu-api-selection-v1/execution.json --model qwen3-8b --output outputs/semantic/offload-package-v2
 ```
 
 Choose a new output directory on every export. The optional retrieval-run
@@ -66,11 +71,11 @@ cd /kaggle/working/rgpt
 /kaggle/working/rgpt-inference-env/bin/python -m kaggle.run_inference --input /kaggle/input/rgpt-inference --expected-input-sha256 TRUSTED_LOCAL_MANIFEST_SHA --device 0 --output /kaggle/working/rgpt-result-01
 ```
 
-T4x2 means two separate16GB devices. The runner masks **one** physical GPU and
-checks its actual free memory (9/12GB planning guards for the prepared8B/14B
+T4x2 means two separate 16 GB devices. The runner masks **one** physical GPU and
+checks its actual free memory (9/12 GB planning guards for the prepared 8B/14B
 configurations). No automatic pooling, CPU fallback, input truncation or model
 change. Qwen model ID/revision, NF4 double quantization/FP16 compute,
-enable_thinking=false, seed42,8192 window and2048 output cap are recorded.
+enable_thinking=false, seed 42, 8192 window and 2048 output cap are recorded.
 The supplied message content is unchanged; the model's chat template wraps it.
 
 The original Ollama baseline is retained in runtime.json. Remote Transformers
@@ -93,7 +98,7 @@ Unpack result.zip into a new local directory, preserving the raw bytes. Import
 using the original trusted input and the retained local input-manifest SHA:
 
 ```powershell
-& '.\.venv-gpu\Scripts\python.exe' -X utf8 -B -m scripts.inference_package import outputs/semantic/offload-package outputs/semantic/downloaded-result --expected-input-sha256 TRUSTED_LOCAL_MANIFEST_SHA --output outputs/semantic/imported-result
+& '.\.venv-gpu\Scripts\python.exe' -X utf8 -B -m scripts.inference_package import outputs/semantic/offload-package-v2 outputs/semantic/downloaded-result --expected-input-sha256 TRUSTED_LOCAL_MANIFEST_SHA --output outputs/semantic/imported-result
 ```
 
 The importer checks input/output manifests, model/config/document identity,
@@ -105,7 +110,7 @@ Hashes detect changes; they do not authenticate the remote author's identity.
 For the FastAPI endpoint, register the trusted local input first:
 
 ```powershell
-& '.\.venv-gpu\Scripts\python.exe' -X utf8 -B -m scripts.inference_package register outputs/semantic/offload-package --store data/inference-inputs
+& '.\.venv-gpu\Scripts\python.exe' -X utf8 -B -m scripts.inference_package register outputs/semantic/offload-package-v2 --store data/inference-inputs
 ```
 
 POST `/api/inference/import` with project_id, returned package_id and

@@ -1,5 +1,14 @@
 # Executed validation and limits
 
+Current semantic sprint: one full144-test suite passes in7.11s; one later33-test
+targeted batch passes in3.09s after a reproduced model-size/benchmark ambiguity.
+0 failures/skips in those final batches, one dependency warning each. Executed
+JUnit is under outputs/semantic; compact per-test evidence is semantic_tests.json
+and semantic_scope_tests.json. Frozen A/B/C/D metrics/hashes are unchanged.
+Controlled actual-source API and registered-import fixtures pass without real
+model generation. No new expensive local inference or live Kaggle run. Human
+review remains pending. See SEMANTIC_OFFLOAD_REPORT.md for exact distinctions.
+
 Accuracy-v1: one110-test consolidation passed (8.85s), then20 overlapping
 targeted post-fix checks passed (5.21s), with a separate3-test timeout/lifecycle
 check (4.67s). All use the exact .venv-gpu interpreter; no second full suite.

@@ -1,5 +1,43 @@
 # Progress
 
+### Final artifact and handoff
+
+Delivered current-guard package rgpt_d03e8fa2bfe3dc4baa48c121 from 87e44b4:
+outputs/semantic/offload-package-v2 and inference-input-v2.zip. Trusted manifest
+SHA ff00931afc4c49ccb7f684dd0674027fb0bfac9178f3cf08797537b6d4f5f3ff.
+Earlier development exports/fixture failures are retained, not overwritten.
+The current report and guide point to v2; controlled frontend example remains
+clearly marked as fixture output. Frozen evaluation equality, source/annotation
+preservation and final artifact integrity were checked without another suite or
+model run. 144 consolidated and 33 targeted checks are separate. Independent
+review and actual Kaggle inference remain pending; all local components are
+reviewable, tested and committed. Final documentation commit follows.
+
+### Semantic/offload closeout
+
+All three local engineering deliverables are implemented: tested semantic
+benchmark/condition binding, source-backed complete numerical fixture and
+versioned private inference export/import with compatible API. Selected 41.8
+tuple is machine-verified with 9 spans/7 relations, still needs_human_review.
+144-test consolidation and 33 subsequent targeted checks pass separately;
+frozen A/B/C/D metrics/rules/hashes equal history. Controlled source/API and
+import fixtures pass; no real-model prediction or accuracy result is claimed.
+
+Final artifact outputs/semantic/inference-input-v2.zip contains the versioned
+input files and 79-file code archive, 12 selected source blocks/2 bundles; code
+commit 87e44b4. Manifest SHA is recorded in SEMANTIC_OFFLOAD_REPORT.md and
+semantic_summary.json. All original PDF/weights/indexes/credentials are excluded.
+Kaggle is NOT EXECUTED pending a legitimate private GPU session; no connected
+notebook was supplied and no expensive local retry occurred. Exact notebook
+and CLI commands are in kaggle/INFERENCE.md; frontend example is in docs/examples.
+
+Updated required tracking/contracts/setup docs and concise final report. 94
+Python files parse; pip check and frozen equality checks pass. Sources remain
+clean, old/global environments and historical experiments/annotations intact.
+No push/merge/PR/full 60-paper/paid/public-upload action. Latest code checkpoint
+87e44b4; final documentation/evidence commit follows. One next action: execute
+the exported job once on a private Kaggle GPU and import its retained result.
+
 ### Final ambiguity guard
 
 Reproduced a concrete false resolution when base/big model-size headers merely

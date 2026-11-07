@@ -1,5 +1,20 @@
 # Diagnostic trace
 
+Semantic/offload update: the prior timeout's saved Ollama log now provides
+additional phase evidence without rewriting history or rerunning inference.
+Startup-to-ready43.835s;24/29 GPU layers,969.10MiB CPU model buffer,80MiB CPU KV;
+1811 scheduled prompt tokens, HTTP500 after3m and cancellation. This scheduled
+count is not a completed prompt-evaluation usage packet. Post-load prefill versus
+generation/stall remains unmeasured. Deadline/offload are established, GPU OOM
+or OpenMP conflict is not. See semantic_timeout_diagnosis.json for hashed-log
+provenance and selected line numbers.
+
+New controlled path: actual v7 source -> semantic caption/header binding ->
+recorded retrieval IDs -> source selection -> gate -> HTTP200/PARTIAL41.8 tuple.
+Import fixture verifies hashes/schema/config/source IDs and the same gate, with
+accepted and withheld examples. All new generation is fixture injection; real
+local/remote inference was not repeated. Live Kaggle remains NOT EXECUTED.
+
 Accuracy-v1 update: see ACCURACY_REPORT.md and docs/evidence/accuracy_real_summary.json.
 One real PDF ->432 genuine GPU BGE vectors ->fresh isolated Chroma ->15 parsed
 source-aligned bundles ->15 prose anchors plus5 compact bundles ->real Qwen

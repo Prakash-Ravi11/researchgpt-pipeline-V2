@@ -1,5 +1,14 @@
 # Phase 2 recovery environment
 
+Semantic/offload uses the exact same local .venv-gpu interpreter and validated
+requirements-gpu.lock. No global/old-environment changes or framework installs.
+Already installed jsonschema4.26.0 is now a direct project dependency.144-test
+consolidation,33 targeted scope checks and pip check pass separately.
+Versioned export/import commands and isolated remote installation are in
+kaggle/INFERENCE.md. The final private portable archive is
+outputs/semantic/inference-input-v2.zip; no PDF/model/index/credential is included.
+Remote model/environment execution remains NOT EXECUTED, not locally validated.
+
 Accuracy-v1 uses the same local `.venv-gpu` and unchanged validated lock.
 No new Windows framework/global installation. Local consolidated tests110 pass;
 post-fix targeted20 pass separately. Actual new API run fails at the bounded

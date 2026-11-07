@@ -1,5 +1,25 @@
 # Decisions
 
+## Semantic/offload decisions
+
+- Keep printed benchmark/test-set identity distinct from language condition.
+  Use newstest2014 from the actual caption; do not silently rename it WMT2014
+  using neighboring prose. Language aliases require an actual matching caption
+  phrase and both source spans. Multiple scopes and unlabeled model-size columns
+  abstain. No paper-specific result values in production rules.
+- Support validated multi-span relations, retaining native geometry, exact
+  offsets, source/version checks, metric range and ownership. Machine acceptance
+  and independent human truth remain separate. Fallback/defaults are preserved.
+- Export only selected source blocks/necessary context and exact schema/config;
+  trust the locally retained manifest. One physical GPU per job, actual-memory
+  guard, pinned revision and explicit quantization/thinking. No silent fallback.
+- Never accept remote verdicts. Check raw/normalized equality and package
+  integrity, then run the local gate. Preserve raw bytes and expose all states
+  through the compatible backend. Hash consistency is not author authentication.
+- Diagnose from saved logs instead of another slow local generation. Record
+  deadline cancellation, partial CPU offload and unknown phase durations without
+  asserting CUDA OOM. Keep all historical experiments and frozen scoring intact.
+
 ## Accuracy-first decisions
 
 - Preserve the existing parser, BGE-M3, quotation verifier and API defaults.

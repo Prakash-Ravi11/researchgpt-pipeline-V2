@@ -1,5 +1,22 @@
 # Evaluation
 
+## Semantic/offload consolidation
+
+One full suite:144 passed,0 failed/skipped,7.11s, one dependency warning.
+Subsequent concrete model-size ambiguity correction:33 overlapping targeted
+checks passed in3.09s. These are separate batches, not177 unique tests. Exact
+environment/doubles/results: semantic_tests.json and semantic_scope_tests.json.
+One frozen A/B/C/D replay has identical annotation/document/chunk hashes, rules
+and metric dictionaries to historical results. No full60-paper evaluation.
+
+The complete41.8/newstest2014/English-to-French tuple passes a source-backed
+deterministic fixture and controlled source/API/import paths. An injected
+selector, TEST-ONLY encoder and recorded retrieval IDs are explicitly fixtures;
+none is an actual new model prediction. Wrong tuple values/relations/versions,
+unauthorized IDs and malformed/tampered packages fail. Human ground truth remains
+needs_human_review; independent extraction precision/recall is not computed.
+Kaggle status is NOT EXECUTED. See SEMANTIC_OFFLOAD_REPORT.md and semantic_summary.json.
+
 ## Accuracy-v1 controlled development checks
 
 Protocol frozen in configs/accuracy_eval_v1.json before the final run, core

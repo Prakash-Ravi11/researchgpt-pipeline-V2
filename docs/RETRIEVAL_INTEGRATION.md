@@ -1,5 +1,28 @@
 # Teammate retrieval and backend contract
 
+## Semantic-v1 and returned inference packages
+
+Use representation_profile=semantic_v1 with context_mode=relationship_v1,
+extraction_mode=selection_v1 and the existing bounded/retrieval settings. The
+bundle's semantic object distinguishes benchmark, condition, condition_label,
+metric and nullable unit; relations and spans support citation navigation.
+Returned scientific_tuple.dataset is a compatibility alias of benchmark, not
+the language code. review_status remains needs_human_review until human review.
+
+For remote generation, register the original package using scripts.inference_package
+register. POST /api/inference/import with project_id, package_id and base64
+result.zip. Unknown registered input returns404; malformed archives return422;
+integrity/schema/config failures return explicit EXTRACTION_FAILED with FAILED
+fields; valid proposals reach the local gate and may be VERIFIED, WITHHELD,
+AMBIGUOUS or UNAVAILABLE. The raw upload is retained separately. Existing
+/api/jobs polling remains available for local jobs; remote reported completion
+is in trace.remote_execution_metadata and is not a trusted verification verdict.
+
+The realistic controlled response example is docs/examples/semantic_import_response.json:
+one accepted41.8 tuple plus a withheld numerical prose selection. It is explicitly
+fixture output with unmeasured counters, not a successful Kaggle run. Render only
+returned findings as machine-verified and show human-review state separately.
+
 ## Accuracy-v1 request and evidence navigation
 
 Existing discover/process/jobs endpoints and port8000 remain unchanged. For

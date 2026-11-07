@@ -1,5 +1,22 @@
 # Contracts
 
+## Semantic binding and offload-v1
+
+The opt-in semantic_v1 profile adds SemanticBinding and EvidenceRelation:
+benchmark and condition are separate; condition_label retains the printed header.
+Caption/header/row/column/value/unit/ownership edges retain original span IDs,
+table identity, PDF boxes, document SHA and parser identity. Unsupported or
+ambiguous scope remains explicit. Machine verification does not set human review.
+FieldValue.scientific_tuple exposes benchmark, condition and the compatibility
+dataset alias (benchmark), with nullable unit/setting and all supporting refs.
+
+Versioned input/result manifests cover file hashes, exact schema/messages,
+model/config/source identities and completion metadata. Only locally registered
+inputs authorize source verification. POST /api/inference/import takes project_id,
+package_id and result_archive_base64; replacement trusted packets are forbidden.
+Response remains ExtractedPaper, with accepted/withheld/ambiguous/failed states.
+See kaggle/INFERENCE.md and docs/examples/semantic_import_response.json.
+
 ## Accuracy-v1 additive contract
 
 `EvidenceSpan` identifies exact text plus an original SourceReference and optional

@@ -1,5 +1,14 @@
 # Architecture
 
+Semantic/offload path: validated source -> native geometry -> semantic_v1
+caption/header relations -> selected evidence catalog -> portable inference
+package -> optional Kaggle generation -> locally registered input + returned
+artifact -> integrity/schema checks -> existing local evidence gate -> API.
+Remote metadata/verdicts do not authorize facts. Registry/result storage is local;
+the single backend on8000 and existing process/discover/job routes are retained.
+No frontend/auth/container/deployment rebuild. The original parsing/retrieval/
+quotation routes remain defaults; semantic inference is opt-in.
+
 Accuracy-v1 is an optional overlay: validated acquisition -> baseline IR/native
 text -> replaceable StructuralParser -> typed source-aligned bundles -> unchanged
 BGE retrieval plus optional table links -> balanced authorized span/bundle
