@@ -1,5 +1,32 @@
 # Phase 2 recovery environment
 
+## Sprint profiles (2026-11-07)
+
+No additional dependencies, global changes or model downloads are required.
+Use the same exact isolated interpreter and validated `requirements-gpu.lock`.
+`bounded` is opt-in: Qwen2.5:7b, num_ctx=8192, num_predict=2048,
+maxItems=1 per field, temperature=0, seed=42, local timeout=180s.
+Default client remains 768 output tokens, uncapped arrays and timeout=120s.
+
+From the repository root in PowerShell, the consolidated reproduction commands
+are:
+
+```powershell
+& '.\.venv-gpu\Scripts\python.exe' -X utf8 -B -m pytest -p no:cacheprovider tests -q --tb=short --junitxml=outputs/sprint/final-pytest.xml
+& '.\.venv-gpu\Scripts\python.exe' -X utf8 -B -m scripts.record_tests outputs/sprint/final-pytest.xml --output docs/evidence/sprint_tests.json
+& '.\.venv-gpu\Scripts\python.exe' -X utf8 -B -m scripts.evaluate --output outputs/sprint/fixture_evaluation.json
+& '.\.venv-gpu\Scripts\python.exe' -X utf8 -B -m scripts.sprint_checkpoint --output outputs/sprint/checkpoint
+& '.\.venv-gpu\Scripts\python.exe' -X utf8 -B -m scripts.validate_real_paper --output outputs/sprint/gpu-bounded-table-v1 --device cuda --generation-profile bounded --representation-profile table_context_v1 --retrieval table_aware_v1 --context table_aware_v1 --full-rank-trace
+```
+
+The real runner refuses an existing output directory. For a separately
+authorized rerun, choose a new output name rather than deleting an old index.
+It measures free VRAM before each model stage, unloads only the task's Qwen,
+releases BGE references/cache and verifies weakref disappearance, then samples
+Ollama separately. Full-rank diagnostics score all 432 chunks with the same
+five query embeddings but return only the baseline top50 to the retriever.
+This is not an additional query policy or a second inference experiment.
+
 Recovery started from clean integration branch at `12d11040a4b30841440610f0eb388c1d3c6da5bb` on 2026-11-06. Existing `.venv` and global Python are preserved. Replacement path is exactly:
 
 `C:\Users\Praka\Downloads\research IQ  V2\researchgpt-pipeline-V2\.venv-gpu`

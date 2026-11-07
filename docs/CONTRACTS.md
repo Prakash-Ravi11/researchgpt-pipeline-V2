@@ -1,5 +1,14 @@
 # Contracts
 
+## Sprint additive contracts
+
+`RetrievalHit` carries the complete shared Chunk, rank, nullable score,
+score_kind, strategy and optional query. `FieldValue.status` additionally
+supports AMBIGUOUS (final remains ABSTAINED). SourceReference preserves optional
+PDF block/word boxes and linked-table provenance. Existing fields and defaults
+remain compatible. See [RETRIEVAL_INTEGRATION.md](RETRIEVAL_INTEGRATION.md) for
+the executable adapter and API request/response mapping.
+
 Implemented in `shared/schemas.py` and `shared/interfaces.py` using Pydantic 2 and runtime-checkable Protocols.
 
 - Paper accepts `paperId` on input; serialized canonical key is `paper_id`. `legacy_record()` supplies both for migrated discovery/acquisition. Conflicts are errors. Preserve S2 IDs unchanged; DOI/arXiv fallback IDs use namespaces, never titles. FULL_TEXT requires passed identity/content checks and a full-text representation.

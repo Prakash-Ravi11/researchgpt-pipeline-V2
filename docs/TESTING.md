@@ -1,5 +1,13 @@
 # Executed validation and limits
 
+Current sprint: `.venv-gpu/Scripts/python.exe -X utf8 -B -m pytest -p
+no:cacheprovider tests -q --tb=short --junitxml=outputs/sprint/final-pytest.xml`
+executed once after engineering consolidation: **94 passed**,0 failed/skipped,
+one dependency deprecation warning,7.11s. Per-test evidence is
+`docs/evidence/sprint_tests.json`. Historical reports below are preserved.
+The single actual GPU run is separate from pytest; it completes with10
+withheld candidates and zero verified numerical tuples. See SPRINT_REPORT.md.
+
 Full executed command and every test's PASS/FAIL, category, duration and mock/double usage are in `docs/evidence/test_results.json`, generated from actual JUnit XML. Environment versions are embedded in that artifact and direct pins in `requirements-tested.txt`. Source SHA attribution is in SOURCE_MANIFEST.json.
 
 | Test file | Classification | Inputs/dependencies | Mocks / limits |

@@ -1,5 +1,37 @@
 # Evaluation
 
+## Engineering sprint consolidation — 2026-11-07
+
+Executed the full suite once after the connected engineering checkpoint:
+**94 passed, 0 failed, 0 skipped**, one Starlette/AnyIO dependency deprecation
+warning, 7.11s. Interpreter was the exact repository `.venv-gpu/Scripts/python.exe`
+(CPython3.13.6). Executed test classifications, doubles, durations and package
+versions are in `docs/evidence/sprint_tests.json`; JUnit is retained at
+`outputs/sprint/final-pytest.xml`. These are unit/contract/connected synthetic
+tests, not 94 independently validated scientific extraction cases.
+
+Unchanged frozen A/B/C/D fixture/replay ran in a separate temporary Chroma
+database. All four metric dictionaries equal the recovery baseline: A/B
+complete tuples0/1 and delivery0/1; C/D1/1, unsupported control withheld,
+provenance1.0. Annotation, document, chunk-corpus hashes and scoring rules equal
+the preserved baseline. Dense encoder is the explicit TinyEncoder test double;
+candidate response is deterministic replay; Chroma and BM25 are real modules.
+No general hybrid or extraction accuracy gain is claimed.
+
+Replay of nine saved **actual** Qwen predictions under the new formatting-only
+resolver returns4 instead of1. Three recovered candidates are problem_statement,
+research_gap and datasets. Two wrong-ID candidates remain rejected, metrics and
+key_findings lack complete tuples, and the result paragraph contains additional
+measurements beyond its single tuple. Zero numerical tuples pass. This is a
+host-verifier replay, not a new model run. Exact verdicts and mapped original
+offsets are in `docs/evidence/sprint_quote_replay.json`.
+
+The separately executed final real-model run and per-query ranks/scores are
+recorded in SPRINT_REPORT.md and `docs/evidence/sprint_real_summary.json`.
+Twelve agent-proposed source facts in docs/annotations remain unreviewed and
+are excluded from every accuracy calculation. No independent real-paper
+accuracy, gold labels or 60-paper result is established.
+
 ## Frozen configuration and scope
 
 Implemented arms: A five-query/current, B optional hybrid/current, C five-query/revised, D optional hybrid/revised. `scripts/evaluate.py` marks B/D UNAVAILABLE if rank_bm25 is missing; it never substitutes five-query. Actual cross-encoder inference is optional and was not used.

@@ -1,5 +1,35 @@
 # Blockers and limitations
 
+## Current sprint limits — 2026-11-07
+
+- Quote formatting and linked Table2 delivery are operational; actual saved
+  candidates recover3 qualitative/dataset excerpts. Wrong IDs, ambiguous
+  locations and scientific mutations remain rejected.
+- The final bounded/table-aware real run completes transport/schema/runtime but
+  returns **zero findings**: all10 generated candidates are withheld (7 source
+  quote mismatches, 3 nonliteral values). This is a source-grounding/model-output
+  limitation, not GPU OOM or OpenMP failure. No further Qwen run in this sprint.
+- Table2 remains explicitly unstructured: caption, headers, row119 and word/
+  block geometry survive together, but merged/multi-level column bindings are
+  not independently established. The numerical gate is not weakened to return
+  these values. EN-FR41.8 table and41.0 prose stay distinct.
+- The 6000-byte opt-in context delivers all12 Table2 blocks but only32 chunks
+  overall, dropping result prose124/125 previously delivered by the larger
+  baseline context. Do not promote it as a general extraction-quality gain.
+- Full-rank diagnostics request432 neighbors then apply the top50 cutoff;
+  historical n=50 ANN unions need not be identical. Report actual ranks and
+  within-run delivery, not historical rank improvement or controlled accuracy.
+- The12 source-backed annotation proposals are still `needs_human_review`.
+  Independent scientific accuracy and evaluation readiness remain blocked on
+  independent review, not on a missing test framework.
+- Teammate frontend/client mapping, citation/status rendering and deployment
+  remain outside the validated backend fixture path. Optional hybrid is
+  available/tested; actual cross-encoder and hosted calls remain unvalidated.
+
+Sequential CUDA execution succeeds on6GB; BGE release/weakref and separate
+Ollama memory are measured. Host RAM pressure makes CPU co-residency unsuitable
+for this run; no CPU model was loaded and no unrelated process was closed.
+
 ## Initial checkpoint blockers (historical)
 
 **Recovery update:** the OpenMP blocker is RESOLVED in isolated .venv-gpu. Real GPU BGE/Chroma and bounded actual-paper Qwen/evidence execution complete. See ENVIRONMENT.md and RECOVERY_REPORT.md. The old .venv remains unchanged.

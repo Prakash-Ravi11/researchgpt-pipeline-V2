@@ -1,5 +1,11 @@
 # Architecture
 
+The opt-in sprint path adds `table_context_v1` to PDF dispatch, scored retriever
+records, `table_aware_v1` link expansion/atomic context and the named local
+`bounded` client profile. It uses the same pipeline, gate and API. Defaults and
+legacy source text streams are preserved. See RETRIEVAL_INTEGRATION.md for
+metadata, score semantics, request fields and teammate dependencies.
+
 `api.main` -> `pipeline.service.EvidencePipeline` -> source -> representation -> provenance chunks -> project Chroma -> retriever -> context -> LLMClient -> legacy gate plus scoped verifier -> ExtractedPaper.
 
 - `shared`: serialized contracts and Protocols, no framework/model imports.

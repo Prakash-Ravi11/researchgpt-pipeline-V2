@@ -31,6 +31,43 @@ unsupported control withheld. Next: one fresh sequential BGE/Qwen run with
 named bounded + table profiles. Last completed
 commit before this checkpoint: `18d42f7`.
 
+### Sprint closeout
+
+Implementation committed at `2a03ead`,12 unreviewed source proposals at
+`d86fc95`. One final real run completed with real BGE-M3/Qwen, fresh Chroma
+`rgpt_v2_2f825358797f56bc0ebb2ff8`,432 unchanged chunks and validated stored
+IDs/metadata. All12 Table2 source blocks delivered through parser links from
+ordinary source115; union134 ->153, current delivered67 -> table-aware32.
+Caption/target-row dense ranks are not improved. Full-rank diagnostics request
+432 neighbors then cut at50; historical ANN union has one different member.
+Prose124/125 is dropped by the smaller6000-byte context and is recorded as a
+remaining delivery loss.
+
+Bounded Qwen stop,3332 prompt/1137 generated tokens,10 candidates all withheld
+(7 quote/source mismatches,3 nonliteral values), zero verified numerical
+tuples, ABSTAINED, no runtime errors. Wrapper204.433s, BGE encode including
+load88.078s, Ollama83.107s. Free VRAM5184MiB before BGE,5159MiB after verified
+release,882MiB after Qwen; separate Ollama4,270,619,360 bytes. No OOM/OpenMP
+conflict or second model run. This is a negative extraction-quality result,
+not an accuracy improvement despite successful table delivery.
+
+Updated required progress/blocker/decision/trace/evaluation docs, environment
+commands, architecture/contracts, teammate contract, table inspection and
+SPRINT_REPORT.md. Frozen A/B/C/D annotation/corpus hashes, rules and metrics
+match recovery; old reports remain intact. Both source repositories remain
+clean at original branches/SHAs. No global/old-environment changes, dependency
+changes, push/merge/PR/full60-paper run or automatic annotation approval.
+
+Next action: implement and fixture-test opt-in extractive span selection using
+validated original offsets, preserving the numerical gate. Independent review
+and teammate frontend remain pending milestones, not claimed successes.
+
+Closeout checks:72 Python files parse, ASGI app imports, git diff --check
+passes. Scientific gate file, dependency lock, .gitignore, frozen fixtures and
+historical evidence have no sprint diff. Exact fixture metric/hash equality
+and94-test evidence counts rechecked without rerunning model/tests. Last
+completed commit before final documentation/evidence: `d86fc95`.
+
 Started 2026-11-06 (Asia/Calcutta). Sole implementation agent. No push or merge authorized.
 
 ## Verified starting state

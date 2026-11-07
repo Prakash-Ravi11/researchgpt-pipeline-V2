@@ -1,5 +1,33 @@
 # Decisions
 
+## Sprint decisions — 2026-11-07
+
+17. Match formatting deterministically inside the declared original chunk and
+    retain a source-character map. Collapse whitespace/drop soft hyphens;
+    remove a line-break word hyphen only with an unbroken attestation in that
+    same source. Never fuzzy-match, change scientific text, search another ID
+    to repair attribution, or accept ambiguous spans. Return original slices.
+18. Preserve the legacy scientific gate and complete tuple requirements. A
+    sentence-final full stop is punctuation, not a decimal continuation;
+    longer numeric tokens and extra measurements remain rejected.
+19. Add optional table_context_v1 with native text/word geometry and shared
+    caption/rule links. Keep uncertain grids unstructured; do not infer cells
+    from newline order. No OCR/model/framework/dependency replacement.
+20. Add optional table_aware_v1 expansion and atomic source-group delivery.
+    The five query strings and baseline retriever stay unchanged; no expected
+    values enter queries. Dense query ranks remain distinct from source-order
+    union ranks and unscored linked additions.
+21. Name the existing successful local generation settings bounded:2048
+    output, one candidate/field,8192 context. Preserve defaults. Use180s timeout
+    for this opt-in profile based on measured prior129s server runtime.
+22. Export RetrievalHit with intact canonical Chunk and explicit score type,
+    strategy and order. Keep hybrid/RRF optional and record the actual source
+    reference in backend traces; frontend adaptation remains teammate work.
+23. Stop after one consolidated94-test suite, frozen A/B/C/D replay and one
+    completed real bounded run. Final all-withheld output is retained as a
+    negative scientific result. No policy relaxation, extra model retry,
+    accuracy claim, auto-approved annotation or full-corpus run follows.
+
 ## Accepted project constraints
 
 One FastAPI backend on port 8000. Shared BGE-M3 embeddings and ChromaDB, isolated per project. Canonical paper IDs and stable chunk IDs. Reuse provenance-aware chunking and evidence gate. Preserve five-query retrieval as baseline; hybrid is optional pending controlled measurement. Local and hosted LLMs use one interface. Extraction includes objective and future_scope. Do not replace parsers with a new general framework or copy the whole teammate app.

@@ -1,5 +1,33 @@
 # Diagnostic trace
 
+## Sprint connected trace — 2026-11-07
+
+Detailed evidence: SPRINT_REPORT.md and docs/evidence/sprint_real_summary.json;
+raw trace directory outputs/sprint/gpu-bounded-table-v1. Fulltext acquisition
+hash/version verified;432 unchanged chunk IDs/texts,432x1024 real normalized
+BGE-M3 embeddings, fresh Chroma metadata/ID/control isolation checked. No
+mock encoder/LLM in this run.
+
+Earliest Table2 structural loss was parser relationship omission, then chunk
+fragmentation. Opt-in geometry links retain12 caption/header/row blocks with
+original provenance but deliberately do not invent cells. Dense caption ranks
+69/217/61/82/197 and target-row ranks368/375/400/118/420 miss all top50 lists.
+Ordinary table source115 ranks45 for the unchanged dataset query and seeds
+link expansion. Union134 ->153; delivered67 baseline ->32 table-aware, including
+all12 Table2 parts. Row119 and caption108 move from undelivered to delivered;
+dense ranks are unchanged. Prose124/125 is retrieved but dropped by the6000-byte
+table-focused context. This remaining context loss is explicit.
+
+Diagnostic full-rank searches request432 neighbors then cut at50; historical
+ANN n=50 membership differs and is not an exact historical counterfactual.
+Queries, BGE model/revision, source strings and production retriever are
+preserved. Do not claim a dense-ranking improvement.
+
+Qwen finishes stop,3332 prompt/1137 generated tokens;10 candidates. Seven
+quotes fail declared-source support and three values are not in their matched
+source quote. All withheld, no runtime errors, no verified numerical tuples.
+Do not conflate a completed structured response with a verified extraction.
+
 Recovery update: native GPU runtime and a bounded real-paper run now work. Earlier blocked statements below describe the initial checkpoint; current complete evidence is in RECOVERY_REPORT.md and docs/evidence/recovery_summary.json.
 
 ## Scope
