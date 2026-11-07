@@ -1,5 +1,36 @@
 # Progress
 
+## Accuracy-first milestone — 2026-11-07
+
+Started clean at8755bb1 on the required branch; preserved94-test historical
+baseline and previous reports. No Kaggle CLI, credential file/environment or
+connected GPU runtime is available. No large parser framework installed into
+Windows or .venv-gpu. Sole implementation agent.
+
+Implemented typed exact EvidenceSpan/EvidenceBundle, replaceable structural
+parser protocol, conservative native multi-header geometry, linked verification
+with original-source attestations, document hash/row/column/range/attribution
+checks, selection-only model schema and balanced prose/bundle context. Added
+compatible API options/statuses and lazy Docling proposal adapter. Defaults
+and the legacy single-span route remain supported.
+
+Targeted connected check33 passed in6.96s; next contract/client/lifecycle
+checkpoint26 passed in5.33s (both include a dependency deprecation warning).
+Physical PDF fixture verifies complete linked tuples and rejects9 mutated
+row/header/value/dataset/version/region/delivery/attestation/unit cases.
+Actual previously inspected PDF produces15 source-aligned BLEU bundles;
+ambiguous scientific-cost products remain unresolved. Result prose124/125 now
+survives in the4600-byte source-selection catalog. No independent accuracy
+claim:12 annotation proposals remain unreviewed.
+
+Prepared isolated remote parser/model requirements, pinned Qwen3 candidates,
+private-input manifest/packet exporter and remote runner. Remote configurations
+are UNEXECUTED, not accuracy winners. Literature identifies close overlap with
+AxCell/SciREX/TELIN and table-verification benchmarks. Frozen development
+comparison protocol: configs/accuracy_eval_v1.json. Next: finish reproducible
+remote/replay tests, then one consolidated local suite/fixture replay and real
+bounded API run. Last completed commit before this milestone8755bb1.
+
 ## Engineering sprint checkpoint — 2026-11-07
 
 Started clean at `18d42f7` on the required branch; local and remote histories

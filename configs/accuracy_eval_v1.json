@@ -1,0 +1,15 @@
+{
+  "protocol_id": "accuracy_v1_development",
+  "frozen_before_final_run": true,
+  "real_document_split": "development_previously_inspected",
+  "independent_gold_required": true,
+  "source_probes_are_gold": false,
+  "comparisons": ["preserved_A_B_C_D_fixture", "native_baseline_vs_accuracy_geometry", "table_context_v1_vs_relationship_v1_delivery", "bounded_Qwen_selection_v1"],
+  "remote_candidates": ["docling_tableformer_accurate", "Qwen3-8B_NF4_non_thinking", "Qwen3-14B_NF4_non_thinking"],
+  "tuple_match_fields": ["subject", "dataset", "metric", "value", "unit", "setting"],
+  "no_implicit_dataset_aliases": true,
+  "accuracy_without_review": null,
+  "reported_without_gold": ["proposal_count", "source_aligned_bundle_count", "verifier_returned_count", "withheld_reasons", "evidence_delivery_ids", "runtime", "tokens", "memory"],
+  "stopping_rule": "one consolidated local suite, one fixture replay, one real bounded API run; no tuning to the observed output",
+  "historical_results": "read_only"
+}

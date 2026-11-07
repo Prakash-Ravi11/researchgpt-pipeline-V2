@@ -26,9 +26,10 @@ class ProcessRequest(BaseModel):
     project_id: str = Field(min_length=1, max_length=200)
     paper: Paper
     retrieval: Literal["five_query", "hybrid", "table_aware_v1"] = "five_query"
-    context_mode: Literal["current", "revised", "table_aware_v1"] = "current"
-    representation_profile: Literal["baseline", "table_context_v1"] = "baseline"
+    context_mode: Literal["current", "revised", "table_aware_v1", "relationship_v1"] = "current"
+    representation_profile: Literal["baseline", "table_context_v1", "accuracy_v1"] = "baseline"
     generation_profile: Literal["default", "bounded"] = "default"
+    extraction_mode: Literal["quotation", "selection_v1"] = "quotation"
     representation: Literal["pdf", "jats_xml"] | None = None
     document_base64: str | None = Field(default=None, max_length=53_333_336)
 
@@ -51,7 +52,12 @@ def default_pipeline(req: ProcessRequest):
     if provider == "ollama":
         llm = local_client(req.generation_profile, model=os.getenv("RGPT_LLM_MODEL", "qwen2.5:7b"),
                           base_url=os.getenv("RGPT_OLLAMA_URL", "http://localhost:11434"))
+        if req.extraction_mode=="selection_v1":
+            from pipeline.extraction.selection import schema
+            llm.schema_factory=schema
     elif provider == "hosted":
+        if req.extraction_mode!="quotation":
+            raise ValueError("selection schema requires a supported structured-output client")
         if req.generation_profile != "default":
             raise ValueError("bounded profile requires local Ollama")
         llm = HostedClient(model=os.environ["RGPT_LLM_MODEL"], base_url=os.environ["RGPT_LLM_BASE_URL"])
@@ -60,6 +66,7 @@ def default_pipeline(req: ProcessRequest):
     return EvidencePipeline(LiteratureSource(), ChromaIndex(req.project_id, encoder=shared_encoder()), llm,
                             retrieval=req.retrieval, context_mode=req.context_mode,
                             representation_profile=req.representation_profile,
+                            extraction_mode=req.extraction_mode,
                             context_builder={"revised": revised_context, "table_aware_v1": table_aware_context}.get(req.context_mode))
 
 

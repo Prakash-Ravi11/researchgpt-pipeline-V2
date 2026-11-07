@@ -106,6 +106,38 @@ class Chunk(SourceReference):
         return SourceReference.model_validate(record)
 
 
+class EvidenceSpan(Contract):
+    span_id: str
+    role: Literal["caption", "subject", "dataset", "metric", "value", "prose"]
+    text: str
+    reference: SourceReference
+    bbox: list[float] | None = None
+
+
+class EvidenceBundle(Contract):
+    bundle_id: str
+    paper_id: str
+    document_sha256: str
+    table_id: str
+    parser: str
+    parser_revision: str
+    linkage: Literal["native_header_geometry_v1", "external_proposal"]
+    structural_status: Literal["SOURCE_ALIGNED", "UNRESOLVED"]
+    review_status: Literal["needs_human_review", "human_reviewed"] = "needs_human_review"
+    row: int
+    column: int
+    spans: list[EvidenceSpan]
+    unresolved: list[str] = Field(default_factory=list)
+
+    @model_validator(mode="after")
+    def coherent_sources(self):
+        if any(s.reference.paper_id != self.paper_id for s in self.spans):
+            raise ValueError("cross-paper evidence bundle")
+        if len({s.span_id for s in self.spans}) != len(self.spans):
+            raise ValueError("duplicate span identity")
+        return self
+
+
 class RetrievalHit(Contract):
     """Teammate adapter boundary: intact canonical source plus explicit score type."""
     chunk: Chunk
@@ -127,6 +159,7 @@ class FieldValue(Contract):
     source_refs: list[SourceReference] = Field(default_factory=list)
     confidence: float = Field(default=0, ge=0, le=1)
     provenance_valid: bool = False
+    verification_state: Literal["VERIFIED", "WITHHELD", "FAILED", "AMBIGUOUS", "UNAVAILABLE"] | None = None
 
     @model_validator(mode="after")
     def verified_has_evidence(self):
@@ -134,6 +167,10 @@ class FieldValue(Contract):
             if not (self.final == "RETURNED" and self.status == "VERIFIED" and self.value
                     and self.evidence_status == "EXPLICIT" and self.provenance_valid and self.source_refs):
                 raise ValueError("returned values require explicit evidence and source references")
+        state=("VERIFIED" if self.final=="RETURNED" else "FAILED" if self.status=="FAILED" else
+               "AMBIGUOUS" if self.status=="AMBIGUOUS" else "UNAVAILABLE" if self.status=="MISSING"
+               or self.abstain_reason=="no_validated_full_text" else "WITHHELD")
+        object.__setattr__(self,"verification_state",state)
         return self
 
 
@@ -144,6 +181,7 @@ class ExtractedPaper(Contract):
     fields: dict[str, list[FieldValue]] = Field(default_factory=dict)
     trace: dict[str, Any] = Field(default_factory=dict)
     errors: list[dict[str, str]] = Field(default_factory=list)
+    evidence_bundles: list[EvidenceBundle] = Field(default_factory=list)
 
     @model_validator(mode="after")
     def references_belong_to_paper(self):

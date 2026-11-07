@@ -52,18 +52,19 @@ def parse_object(text: str) -> dict:
 class OllamaClient:
     def __init__(self, model: str = "qwen2.5:7b", base_url: str = "http://localhost:11434",
                  num_ctx: int = 8192, output_tokens: int = 768, timeout: float = 120, observer=None,
-                 max_candidates_per_field: int | None = None):
+                 max_candidates_per_field: int | None = None, schema_factory=None):
         self.model, self.base_url, self.num_ctx = model, base_url.rstrip("/"), num_ctx
         self.output_tokens, self.timeout = output_tokens, timeout
         self.observer = observer
         self.max_candidates_per_field = max_candidates_per_field
+        self.schema_factory = schema_factory or extraction_schema
 
     def complete(self, system: str, user: str) -> LLMResponse:
         started = time.perf_counter()
-        if self.max_candidates_per_field is not None:
+        if self.max_candidates_per_field is not None and self.schema_factory is extraction_schema:
             system += f"\nReturn at most {self.max_candidates_per_field} concise source quotation(s) per field. Prefer the shortest complete supporting sentence."
         payload = {"model": self.model, "stream": False,
-            "format": extraction_schema(user, self.max_candidates_per_field), "messages": [{"role": "system", "content": system}, {"role": "user", "content": user}],
+            "format": self.schema_factory(user, self.max_candidates_per_field), "messages": [{"role": "system", "content": system}, {"role": "user", "content": user}],
             "options": {"temperature": 0, "seed": 42, "num_ctx": self.num_ctx, "num_predict": self.output_tokens}}
         if self.observer:
             self.observer("request", payload)
