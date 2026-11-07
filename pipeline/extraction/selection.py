@@ -85,7 +85,15 @@ def relationship_context(chunks,bundles,*,input_budget=4600,token_counter=None):
     available={c.chunk_id:c for c in chunks}
     eligible=[b for b in bundles if all(s.reference.chunk_id in available for s in b.spans)]
     # Citation-marked competitor rows are deferred, without recognizing model names.
-    eligible.sort(key=lambda b:(bool(re.search(r"\[\d",next(s.text for s in b.spans if s.role=="subject"))),b.table_id,b.row,b.column))
+    selected_prose=" ".join(v.text for v in selected.values() if isinstance(v,EvidenceSpan))
+    selected_prose=" ".join(selected_prose.split()).casefold()
+    def bundle_priority(b):
+        subject=next(s.text for s in b.spans if s.role=="subject")
+        # Versioned semantic route favors exact row mentions in the selected
+        # experimental prose, rather than recognizing particular model names.
+        mentioned=bool(b.semantic) and " ".join(subject.split()).casefold() in selected_prose
+        return (bool(re.search(r"\[\d",subject)),0 if mentioned else 1,b.table_id,b.row,b.column)
+    eligible.sort(key=bundle_priority)
     for b in eligible:
         part=render(b.bundle_id,b)
         if counter("\n\n".join(parts+[part]))<=input_budget:

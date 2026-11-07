@@ -6,6 +6,8 @@ import binascii
 import os
 import threading
 import uuid
+import zipfile
+from pathlib import Path
 from functools import lru_cache
 from typing import Literal
 
@@ -19,6 +21,7 @@ from pipeline.extraction.profiles import local_client
 from pipeline.retrieval.index import BGEEncoder, ChromaIndex
 from pipeline.service import EvidencePipeline
 from shared.schemas import ExtractedPaper, Job, Paper
+from pipeline.inference.packages import TrustedInputStore,PackageError,unpack_result,import_result
 
 
 class ProcessRequest(BaseModel):
@@ -45,6 +48,13 @@ class DiscoverRequest(BaseModel):
     limit: int = Field(default=5, ge=1, le=20)
     start_year: int = Field(default=1900, ge=1600)
     end_year: int = Field(default=2026, le=2100)
+
+
+class InferenceImportRequest(BaseModel):
+    model_config=ConfigDict(extra="forbid")
+    project_id: str=Field(min_length=1,max_length=200)
+    package_id: str=Field(pattern=r"^rgpt_[a-f0-9]{24}$")
+    result_archive_base64: str=Field(max_length=10_666_672)
 
 
 @lru_cache(maxsize=1)
@@ -76,10 +86,27 @@ def default_pipeline(req: ProcessRequest):
                             context_builder={"revised": revised_context, "table_aware_v1": table_aware_context}.get(req.context_mode))
 
 
-def create_app(pipeline_factory=default_pipeline) -> FastAPI:
+def create_app(pipeline_factory=default_pipeline,*,inference_input_root="data/inference-inputs",inference_result_root="data/inference-results") -> FastAPI:
     app = FastAPI(title="ResearchGPT V2", version="0.1.0")
     jobs: dict[str, Job] = {}
     job_lock, execution_lock = threading.Lock(), threading.Lock()
+    inference_store=TrustedInputStore(inference_input_root)
+
+    @app.post("/api/inference/import",response_model=ExtractedPaper)
+    def import_inference(req: InferenceImportRequest):
+        try:trusted=inference_store.get(req.package_id)
+        except FileNotFoundError:raise HTTPException(404,"registered inference input not found") from None
+        except (PackageError,ValueError):raise HTTPException(422,"invalid registered inference input") from None
+        import_id=uuid.uuid4().hex
+        destination=Path(inference_result_root)/import_id
+        try:
+            raw=base64.b64decode(req.result_archive_base64,validate=True)
+            unpack_result(raw,destination)
+        except (ValueError,PackageError,binascii.Error,zipfile.BadZipFile):
+            raise HTTPException(422,"invalid inference result archive") from None
+        result=import_result(trusted,destination,output_root=destination/'local-verification')
+        result.trace.update(import_id=import_id,project_id=req.project_id)
+        return result
 
     @app.get("/health")
     @app.get("/api/health")

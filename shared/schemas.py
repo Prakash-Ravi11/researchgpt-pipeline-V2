@@ -115,7 +115,7 @@ class EvidenceSpan(Contract):
 
 
 class EvidenceRelation(Contract):
-    kind: Literal["caption_benchmark", "caption_condition", "header_condition", "header_metric", "row_value", "table_mention"]
+    kind: Literal["caption_benchmark", "caption_condition", "header_condition", "header_metric", "row_value", "column_value", "metric_unit", "table_mention"]
     from_span_id: str
     to_span_id: str
     table_id: str

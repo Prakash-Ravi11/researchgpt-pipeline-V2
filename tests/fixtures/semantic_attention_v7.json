@@ -430,6 +430,12 @@
           "table_id": "arxiv:1706.03762:108:table"
         },
         {
+          "kind": "column_value",
+          "from_span_id": "arxiv:1706.03762:111#0@6:11:dataset",
+          "to_span_id": "arxiv:1706.03762:119#0@23:27:value",
+          "table_id": "arxiv:1706.03762:108:table"
+        },
+        {
           "kind": "caption_condition",
           "from_span_id": "arxiv:1706.03762:108#0@0:192:caption",
           "to_span_id": "arxiv:1706.03762:108#0@21436:21453:condition",

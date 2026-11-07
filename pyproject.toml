@@ -7,7 +7,7 @@ name = "researchgpt-pipeline-v2"
 version = "0.1.0"
 description = "Provenance-preserving scientific evidence pipeline"
 requires-python = ">=3.10"
-dependencies = ["pydantic>=2.7,<3", "fastapi>=0.110,<1", "uvicorn>=0.29,<1", "requests>=2.31,<3", "PyMuPDF>=1.24,<2", "PyYAML>=6,<7", "tqdm>=4.66,<5"]
+dependencies = ["pydantic>=2.7,<3", "fastapi>=0.110,<1", "uvicorn>=0.29,<1", "requests>=2.31,<3", "PyMuPDF>=1.24,<2", "PyYAML>=6,<7", "tqdm>=4.66,<5", "jsonschema>=4.25,<5"]
 
 [project.optional-dependencies]
 retrieval = ["chromadb>=1.1,<2", "sentence-transformers>=5.1,<6", "numpy>=1.26,<3"]

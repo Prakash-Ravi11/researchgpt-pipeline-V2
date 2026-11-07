@@ -1,5 +1,52 @@
 # Progress
 
+### Consolidated validation and connected fixture
+
+One complete suite:144 passed in7.11s,0 failures/skips, one dependency warning.
+Frozen A/B/C/D replay executed once with existing scoring/annotations unchanged;
+new results saved separately under outputs/semantic. Exact test evidence is
+docs/evidence/semantic_tests.json; pip check passes with the existing4.26.0
+jsonschema distribution now declared as a direct lightweight dependency.
+
+The controlled real-PDF API smoke initially used TinyEncoder retrieval, which
+missed the table seed and correctly produced no bundle candidate. The fixture
+was corrected to replay the preserved actual BGE top50 IDs (no new neural
+inference), while retaining a TEST-ONLY encoder and injected selector. It now
+returns HTTP200/PARTIAL with the complete41.8/newstest2014/English-to-French
+tuple and9 source refs. This is connected verifier behavior, not real-model
+extraction or independent accuracy. Both fixture attempts are retained.
+
+Input projection exercised on actual saved retrieval:12 selected source blocks,
+2 big-model bundles,~140KB packet rather than the full corpus. All source IDs,
+benchmark/condition relations and source coordinates are retained. The final
+Kaggle package remains private and NOT EXECUTED pending available GPU access.
+Next: commit tested offload/backend milestone, export final package, document
+commands/result examples and remaining human review. Previous commitca59d22.
+
+### Portable inference checkpoint
+
+Versioned inputs now include selected source/bundle projections, exact prompt,
+output schema, pinned model/quantization/thinking/generation configuration,
+original baseline profile, code/document hashes and input-file hashes including
+code.zip. Only selected sources are exported, not the432-chunk corpus. Semantic
+rows explicitly mentioned in selected result prose receive priority; no expected
+values enter queries or ranking rules.
+
+The Kaggle runner validates the retained input SHA, checks one GPU's real free
+memory, records completion/tokens/runtime/raw output and emits result.zip.
+Local import verifies manifests/model/config/schema/raw-normalized equality,
+source authorization and the existing gate; remote verdicts are ignored.
+Registered-input API import is implemented. Positive/withheld/ambiguous/failed,
+tampering, wrong model/version/IDs and unsafe archive regressions pass.
+
+Connected checkpoint51 tests pass in5.03s; printed-unit case passes separately.
+Single consolidated regression:144 passed,0 failed/skipped, one dependency
+warning,7.11s. Saved-log diagnosis establishes43.835s startup,24/29 GPU layers,
+CPU buffers and1811 scheduled prompt tokens, then3m cancellation. Post-load
+phase timings remain unknown; no OOM inference and no new expensive model run.
+Next: frozen non-regression replay, controlled source-to-API smoke, final
+portable artifact and documentation. Last completed code checkpointca59d22.
+
 ## Semantic binding / offload sprint
 
 Started clean at6e5841f on the required branch. Preserved prior parser,

@@ -76,7 +76,11 @@ def bind_bundle(bundle, chunks=()):
         additions.append(_within(metric,unit,"unit",unit_match.start(1)))
     relations=[EvidenceRelation(kind="caption_benchmark",from_span_id=caption.span_id,to_span_id=benchmark.span_id,table_id=bundle.table_id),
                 EvidenceRelation(kind="header_metric",from_span_id=metric.span_id,to_span_id=leaf.span_id,table_id=bundle.table_id),
-                EvidenceRelation(kind="row_value",from_span_id=roles["subject"].span_id,to_span_id=roles["value"].span_id,table_id=bundle.table_id)]
+                EvidenceRelation(kind="row_value",from_span_id=roles["subject"].span_id,to_span_id=roles["value"].span_id,table_id=bundle.table_id),
+                EvidenceRelation(kind="column_value",from_span_id=leaf.span_id,to_span_id=roles["value"].span_id,table_id=bundle.table_id)]
+    if unit:
+        relations.append(EvidenceRelation(kind="metric_unit",from_span_id=metric.span_id,
+            to_span_id=next(s.span_id for s in additions if s.role=="unit"),table_id=bundle.table_id))
     if condition:
         relations.extend([
             EvidenceRelation(kind="caption_condition",from_span_id=caption.span_id,to_span_id=condition.span_id,table_id=bundle.table_id),
