@@ -85,11 +85,14 @@ within the unchanged 8192-token window. Its token-prefix callback accepts empty
 and source-backed ID fixtures and rejects the reported label response. Evidence:
 docs/evidence/qwen_contract_tokenizer.json. No weights were loaded or GPU used.
 
-After this validated fix is committed, export a separate private package to
+After validated fix commit c34420e669eff47f631e62932dd53f4a17c591ce, exported
+separate private package rgpt_be863f4321b004cdccc7f102 to
 outputs/qwen-contract/offload-package-v3, with convenience archive
 outputs/qwen-contract/inference-input-v3.zip. The handoff notebook is
 kaggle/semantic_inference_contract_v3.ipynb. Exact package/code/manifest identities
 and original-input preservation checks are in docs/evidence/qwen_contract_package.json.
+The retained input-manifest SHA256 is
+f4364f63743f927be904025b3c404045a3fa56a2e89e14e6fa408bbd7e72980f.
 Upload only its packet.json, request.json, runtime.json, code.zip and
 input-manifest.json as private inputs, and import the new notebook separately.
 See kaggle/INFERENCE.md. The original v2 manifest SHA remains
@@ -98,6 +101,30 @@ ff00931afc4c49ccb7f684dd0674027fb0bfac9178f3cf08797537b6d4f5f3ff.
 No fixed model inference, remote retry, upload, publication, push or full-corpus
 evaluation is performed. The next controlled Kaggle run must report its actual
 outcome; an output passing the schema still requires the local evidence gate.
+
+## Exact changed files relative to 7c5f531
+
+- README.md
+- docs/BLOCKERS.md
+- docs/PROGRESS.md
+- docs/QWEN_CONTRACT_FIX.md
+- docs/TESTING.md
+- docs/evidence/qwen_contract_package.json
+- docs/evidence/qwen_contract_tests.json
+- docs/evidence/qwen_contract_tokenizer.json
+- kaggle/INFERENCE.md
+- kaggle/requirements-extraction.txt
+- kaggle/run_inference.py
+- kaggle/semantic_inference_contract_v3.ipynb
+- pipeline/extraction/selection.py
+- pipeline/inference/packages.py
+- pipeline/inference/structured.py
+- pyproject.toml
+- tests/fixtures/qwen3_metrics_contract_failure.json
+- tests/test_inference_packages.py
+- tests/test_qwen_structured_contract.py
+
+The private generated files under outputs/qwen-contract are ignored, not committed.
 
 Primary implementation references: [Transformers prefix constraints](https://huggingface.co/docs/transformers/v4.55.2/en/main_classes/text_generation),
 [LM Format Enforcer](https://github.com/noamgat/lm-format-enforcer), and

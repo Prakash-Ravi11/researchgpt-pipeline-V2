@@ -1,5 +1,24 @@
 # Progress
 
+### Validated v3 private export
+
+Validated fix committed as c34420e669eff47f631e62932dd53f4a17c591ce, then
+exported rgpt_be863f4321b004cdccc7f102 to outputs/qwen-contract/offload-package-v3.
+Manifest SHA f4364f63743f927be904025b3c404045a3fa56a2e89e14e6fa408bbd7e72980f.
+Convenience archive: outputs/qwen-contract/inference-input-v3.zip. New unexecuted
+notebook: kaggle/semantic_inference_contract_v3.ipynb, with actual retained SHA
+and discovered input path. Its configuration/bootstrap passed locally against
+a temporary copy of this v3 input; install/GPU/generation cells were not run.
+
+Compared new/old packages: selected packet identical except code commit, original
+user evidence message/output schema/runtime identical. All7 captured original v2
+input/archive files and the old notebook remain byte-identical. Controlled v3
+fixture import returns VERIFIED for the source-backed proposal and FAILED for
+the reported metric labels. These are test fixtures, not model predictions.
+Exact package/preservation evidence: docs/evidence/qwen_contract_package.json.
+No full-suite repeat, inference, remote upload, push or publication. Next action:
+run the v3 private notebook once and import its actual result through the local gate.
+
 ### Qwen3 structured contract correction — 2026-11-09
 
 User reports a real Kaggle Qwen3-8B generation: 349 tokens/EOS, then schema
