@@ -1,0 +1,645 @@
+{
+  "interpreter": "C:\\Users\\Praka\\Downloads\\research IQ  V2\\researchgpt-pipeline-V2\\.venv-gpu\\Scripts\\python.exe",
+  "python": "3.13.6",
+  "command": ".venv-gpu/Scripts/python.exe -X utf8 -B -m pytest -p no:cacheprovider tests -q --tb=short --junitxml=outputs/qwen-contract/full-pytest.xml",
+  "PYTHONPATH": "outputs/qwen-contract/validation-deps",
+  "passed": 156,
+  "failed": 0,
+  "skipped": 0,
+  "seconds": 47.31,
+  "warnings": 1,
+  "scope": "deterministic tests; real pinned decoder, character tokenizer double, source-backed gate fixture, injected CPU runner model; no live Qwen generation",
+  "dependency_isolation": "Two decoder dependencies installed only under ignored outputs/qwen-contract/validation-deps; neither venv nor global Python modified",
+  "packages": {
+    "torch": "2.8.0+cu126",
+    "transformers": "4.55.2",
+    "tokenizers": "0.21.4",
+    "jsonschema": "4.26.0"
+  },
+  "tests": [
+    {
+      "name": "tests.test_accuracy_evidence.test_native_hierarchy_preserves_multispans_and_does_not_split_cost",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_accuracy_evidence.test_invalid_bundle_links_are_withheld[dataset]",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_accuracy_evidence.test_invalid_bundle_links_are_withheld[subject]",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_accuracy_evidence.test_invalid_bundle_links_are_withheld[metric]",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_accuracy_evidence.test_invalid_bundle_links_are_withheld[value]",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_accuracy_evidence.test_invalid_bundle_links_are_withheld[version]",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_accuracy_evidence.test_invalid_bundle_links_are_withheld[region]",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_accuracy_evidence.test_invalid_bundle_links_are_withheld[undelivered]",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_accuracy_evidence.test_invalid_bundle_links_are_withheld[attestation]",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_accuracy_evidence.test_invalid_bundle_links_are_withheld[unit]",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_accuracy_evidence.test_balanced_catalog_preserves_prose_and_structure_with_budget",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_accuracy_evidence.test_missing_pdf_text_requests_ocr_without_inventing_source",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_accuracy_evidence.test_public_verification_states_remain_distinct",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_accuracy_evidence.test_column_alignment_is_not_automatic_dataset_identity",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_accuracy_evidence.test_accuracy_backend_exposes_bundle_and_verified_source_refs",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_accuracy_evidence.test_completed_structure_survives_model_timeout",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_accuracy_packet.test_same_packet_schema_and_host_verifier_support_remote_replay",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_accuracy_packet.test_private_input_manifest_path_and_hash_guards",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_anchors.test_matches_decimal_and_2plus_digit_int",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_anchors.test_rejects_lone_single_digit",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_anchors.test_anchor_values_no_exclusions",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_anchors.test_year_excluded",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_anchors.test_bracketed_reference_id_excluded",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_anchors.test_section_table_equation_prefix_excluded",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_anchors.test_arxiv_fragment_excluded",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_anchors.test_find_anchors_offsets_and_filtering",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_anchors.test_neutrality_against_pre_centralization_implementation",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_api.test_health_schema_and_fixture_job",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_api.test_bad_configuration_and_failed_jobs_are_explicit",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_clients_and_dispatch.test_local_client_sends_full_id_enum_and_retains_actual_usage",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_clients_and_dispatch.test_bad_json_and_incomplete_output_fail_explicitly",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_clients_and_dispatch.test_hosted_transport_contract_without_network_or_credentials",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_clients_and_dispatch.test_latex_and_abstract_dispatch_preserve_identity_and_structure",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_context_and_retrieval.test_revised_context_delivers_tail_evidence_and_structured_relationships",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_context_and_retrieval.test_revised_exact_counter_and_whole_chunk_limit",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_context_and_retrieval.test_five_query_baseline_preserves_executable_parameters",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_context_and_retrieval.test_real_bm25_fusion_preserves_identity_and_duplicate_prefixes",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_contracts.test_nested_round_trip_keeps_identity_and_provenance",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_contracts.test_identity_alias_and_fallbacks",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_contracts.test_unvalidated_full_text_and_unsupported_returns_rejected",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_contracts.test_cross_paper_reference_rejected",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_contracts.test_latex_cannot_establish_its_own_identity",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_diagnostics.test_chunk_offsets_point_into_exact_source_whitespace",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_diagnostics.test_jats_colspan_header_preserves_metric_column",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_diagnostics.test_jats_content_length_does_not_count_nested_text_repeatedly",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_diagnostics.test_jats_colspan_row_label_does_not_shift_values_into_wrong_metric",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_diagnostics.test_context_trace_exposes_retrieved_but_undelivered_result",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_diagnostics.test_ambiguous_merged_measurement_is_preserved_but_not_bound",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_diagnostics.test_overlapping_long_chunks_keep_exact_source_offsets",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_diagnostics.test_jats_nested_section_hierarchy_survives_chunking",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_evaluation.test_earliest_loss_does_not_treat_missing_observations_as_success",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_evaluation.test_complete_tuple_scoring_requires_dataset_and_condition",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_inference_packages.test_source_backed_export_import_roundtrip_retains_raw_and_full_tuple",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_inference_packages.test_remote_output_tampering_and_unapproved_proposals_fail[unknown_id-remote_output_schema_invalid]",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_inference_packages.test_remote_output_tampering_and_unapproved_proposals_fail[fabricated_value-remote_output_schema_invalid]",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_inference_packages.test_remote_output_tampering_and_unapproved_proposals_fail[model-remote_model_mismatch]",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_inference_packages.test_remote_output_tampering_and_unapproved_proposals_fail[thinking-remote_configuration_mismatch]",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_inference_packages.test_remote_output_tampering_and_unapproved_proposals_fail[failed-remote_inference_not_completed]",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_inference_packages.test_remote_output_tampering_and_unapproved_proposals_fail[normalized-normalized_output_differs_from_raw]",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_inference_packages.test_remote_output_tampering_and_unapproved_proposals_fail[raw_tamper-package_file_integrity_mismatch]",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_inference_packages.test_remote_output_tampering_and_unapproved_proposals_fail[document-remote_document_mismatch]",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_inference_packages.test_remote_output_tampering_and_unapproved_proposals_fail[manifest-remote_input_identity_mismatch]",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_inference_packages.test_trusted_input_manifest_source_hash_and_zip_members_are_checked",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_inference_packages.test_valid_source_ids_can_still_be_withheld_or_ambiguous",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_inference_packages.test_ambiguous_semantics_survives_remote_roundtrip",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_inference_packages.test_backend_import_uses_registered_input_and_exposes_semantic_tuple",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_local_trace.test_raw_incomplete_model_response_is_observable",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_local_trace.test_optional_candidate_budget_rejects_excess_without_changing_default",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_model_lifecycle.test_embedding_owner_releases_before_llm_extraction",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_model_lifecycle.test_failed_indexing_releases_owned_model",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_pdf_table_cells.test_ruled_table_is_detected_and_every_cell_reconstructed",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_pdf_table_cells.test_first_column_that_is_a_genuine_label_is_kept",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_pdf_table_cells.test_caption_and_section_are_preserved_on_block_and_cells",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_pdf_table_cells.test_page_is_preserved",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_pdf_table_cells.test_cells_propagate_to_chunks",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_pdf_table_cells.test_index_column_detection[S.no-values0-True]",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_pdf_table_cells.test_index_column_detection[#-values1-True]",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_pdf_table_cells.test_index_column_detection[-values2-True]",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_pdf_table_cells.test_index_column_detection[No.-values3-True]",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_pdf_table_cells.test_index_column_detection[Fold-values4-False]",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_pdf_table_cells.test_index_column_detection[No.-values5-False]",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_pdf_table_cells.test_index_column_detection[No.-values6-False]",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_pdf_table_cells.test_index_column_detection[ID-values7-False]",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_pdf_table_cells.test_index_column_detection[Epochs-values8-False]",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_pdf_table_cells.test_index_column_detection[No.-values9-False]",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_pdf_table_cells.test_entity_row_label_is_used_when_the_first_column_is_an_index",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_pdf_table_cells.test_row_label_column_rule[header0-body0-2]",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_pdf_table_cells.test_row_label_column_rule[header1-body1-0]",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_pdf_table_cells.test_row_label_column_rule[header2-body2-0]",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_pdf_table_cells.test_row_label_column_rule[header3-body3-0]",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_pdf_table_cells.test_prose_never_becomes_a_table",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_pdf_table_cells.test_stacked_records_grid_is_rejected",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_pdf_table_cells.test_grid_validation[header0-body0-too_few_body_rows:1]",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_pdf_table_cells.test_grid_validation[header1-body1-too_few_columns:1]",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_pdf_table_cells.test_grid_validation[header2-body2-header_has_no_words]",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_pdf_table_cells.test_grid_validation[header3-body3-prose_like_cell]",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_pdf_table_cells.test_grid_validation[header4-body4-wrapped_text_rows]",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_pdf_table_cells.test_grid_validation[header5-body5-None]",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_pdf_table_cells.test_block_text_stream_is_unchanged",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_pdf_table_cells.test_end_to_end_claim_binds_and_gate_returns_it",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_pipeline_integration.test_jats_and_chroma_round_trip_and_connected_verification",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_pipeline_integration.test_unsupported_value_and_wrong_dataset_rejected",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_pipeline_integration.test_missing_full_text_is_distinct_from_failed_extraction",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_pipeline_integration.test_identity_and_content_validation_reject_wrong_or_thin_document",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_pipeline_integration.test_project_collection_and_paper_replacement_are_isolated",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_pipeline_integration.test_source_identity_change_is_a_failure_on_the_requested_paper",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_quote_resolution.test_formatting_maps_original_offsets[two   words-two words]",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_quote_resolution.test_formatting_maps_original_offsets[two words-two   words]",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_quote_resolution.test_formatting_maps_original_offsets[two\\nwords-two words]",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_quote_resolution.test_formatting_maps_original_offsets[two\\twords-two words]",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_quote_resolution.test_formatting_maps_original_offsets[trans\\xadformer-transformer]",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_quote_resolution.test_formatting_maps_original_offsets[A trans-\\nformer, another transformer.-A transformer]",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_quote_resolution.test_formatting_maps_original_offsets[English-\\nto-German-English-to-German]",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_quote_resolution.test_scientific_mutations_fail[28.5 BLEU]",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_quote_resolution.test_scientific_mutations_fail[28.4 ms]",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_quote_resolution.test_scientific_mutations_fail[28.4 accuracy]",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_quote_resolution.test_ambiguous_and_unsafe_hyphenation",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_quote_resolution.test_measurement_at_sentence_end_is_not_a_different_decimal",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_quote_resolution.test_verifier_preserves_id_and_original_offset",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_qwen_structured_contract.test_reported_eos_response_is_not_a_valid_selection_or_repaired",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_qwen_structured_contract.test_decoder_and_validator_reject_invalid_selections_without_truncation[single_label]",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_qwen_structured_contract.test_decoder_and_validator_reject_invalid_selections_without_truncation[two_valid_ids]",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_qwen_structured_contract.test_decoder_and_validator_reject_invalid_selections_without_truncation[unknown_id]",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_qwen_structured_contract.test_decoder_and_validator_reject_invalid_selections_without_truncation[extra_value]",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_qwen_structured_contract.test_decoder_and_validator_reject_invalid_selections_without_truncation[wrong_field]",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_qwen_structured_contract.test_decoder_accepts_real_source_id_then_local_gate_verifies_complete_tuple",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_qwen_structured_contract.test_fields_with_no_authorized_ids_only_allow_empty_arrays",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_qwen_structured_contract.test_unsupported_schema_shape_never_falls_back_to_unconstrained_json",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_qwen_structured_contract.test_runner_passes_constraint_and_still_preserves_invalid_eos_output",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_qwen_structured_contract.test_new_prompt_schema_and_decoder_contract_share_the_exact_schema",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_recovery_analysis.test_analysis_preserves_utf8_scientific_source_quotes",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_semantic_binding.test_real_source_fixture_complete_tuple_is_machine_verified_not_human_gold",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_semantic_binding.test_complete_tuple_mutations_fail[value-41.0]",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_semantic_binding.test_complete_tuple_mutations_fail[subject-Transformer (base model)]",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_semantic_binding.test_complete_tuple_mutations_fail[benchmark-WrongBenchmark]",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_semantic_binding.test_complete_tuple_mutations_fail[dataset-EN-FR]",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_semantic_binding.test_complete_tuple_mutations_fail[condition-English-to-German]",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_semantic_binding.test_complete_tuple_mutations_fail[metric-Accuracy]",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_semantic_binding.test_complete_tuple_mutations_fail[unit-%]",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_semantic_binding.test_reference_and_relationship_mutations_fail[header_ref]",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_semantic_binding.test_reference_and_relationship_mutations_fail[row_ref]",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_semantic_binding.test_reference_and_relationship_mutations_fail[version]",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_semantic_binding.test_reference_and_relationship_mutations_fail[table_relation]",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_semantic_binding.test_reference_and_relationship_mutations_fail[condition_relation]",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_semantic_binding.test_reference_and_relationship_mutations_fail[unavailable_span]",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_semantic_binding.test_generic_caption_benchmark_hierarchical_header_and_language_binding",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_semantic_binding.test_multiple_benchmarks_abstain_without_nearby_number_guess",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_semantic_binding.test_printed_metric_unit_remains_source_backed",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_semantic_binding.test_model_size_headers_do_not_become_benchmarks_from_caption_mentions",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_semantic_binding.test_validated_semantics_connects_source_id_selection_path",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_sprint_profiles.test_named_bounded_profile_preserves_default",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_sprint_profiles.test_scored_adapter_keeps_source_and_separates_expansion_score",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_sprint_profiles.test_optional_profiles_complete_fixture_api_flow",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_table_context_profile.test_linked_table_keeps_native_text_offsets_and_grid_status[_results_page-structured_table]",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_table_context_profile.test_linked_table_keeps_native_text_offsets_and_grid_status[_unstructured-unstructured_table_text]",
+      "status": "passed"
+    },
+    {
+      "name": "tests.test_table_context_profile.test_profile_rejects_unknown_and_baseline_stays_unchanged",
+      "status": "passed"
+    }
+  ]
+}

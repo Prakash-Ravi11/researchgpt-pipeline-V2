@@ -1,0 +1,6 @@
+{
+  "origin": "Exact metrics excerpt reported by the user on 2026-11-09; full failed artifact not supplied locally",
+  "reported_execution": {"model": "Qwen/Qwen3-8B", "generated_tokens": 349, "finish_reason": "eos", "independently_measured_here": false},
+  "metrics": ["BLEU score", "training cost"],
+  "test_scope": "Other required fields are filled with empty arrays only to isolate contract validation; no evidence ID is assigned to either label"
+}

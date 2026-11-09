@@ -12,6 +12,7 @@ dependencies = ["pydantic>=2.7,<3", "fastapi>=0.110,<1", "uvicorn>=0.29,<1", "re
 [project.optional-dependencies]
 retrieval = ["chromadb>=1.1,<2", "sentence-transformers>=5.1,<6", "numpy>=1.26,<3"]
 hybrid = ["rank-bm25>=0.2.2,<0.3"]
+inference = ["lm-format-enforcer==0.11.3", "interegular==0.3.3"]
 test = ["pytest>=8,<9", "httpx>=0.27,<1"]
 
 [tool.setuptools.packages.find]

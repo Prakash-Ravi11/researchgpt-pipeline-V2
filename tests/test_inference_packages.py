@@ -35,6 +35,7 @@ def package(tmp_path,*,custom=None):
 def result(tmp_path,input_path,runtime,eid,*,mutation=None):
     data={f:[] for f in FIELDS};data['results']=[{'evidence_id':eid}]
     execution={'status':'COMPLETED','execution_kind':'controlled_round_trip_fixture',
+        'response_contract':json.loads((input_path/'request.json').read_text(encoding='utf-8')).get('response_contract'),
         'requested_model':runtime['requested_model'],'generation':runtime['generation'],'quantization':runtime['quantization'],
         'finish_reason':'eos','prompt_tokens':111,'generated_tokens':22,'runtime_seconds':1.0,
         'claimed_verdict':'VERIFIED'}

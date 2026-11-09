@@ -1,5 +1,29 @@
 # Progress
 
+### Qwen3 structured contract correction — 2026-11-09
+
+User reports a real Kaggle Qwen3-8B generation: 349 tokens/EOS, then schema
+failure for metrics=['BLEU score','training cost']. This updates the earlier
+remote-not-executed state for the original job, without establishing a verified
+result. Full failed artifacts have not been located locally; the exact reported
+excerpt is explicitly labeled in a new regression fixture. Original v2 input
+files/archive hashes are retained and no old artifact is modified.
+
+Reproduced maxItems and object-type failures. Prompt/schema agree and parser
+preserves strings; the HF adapter omitted schema constraints during generation.
+Implemented schema-derived prompt/finite grammar, strict token-prefix decoding,
+post-validation and contract metadata checks. Existing provenance/numerical gate
+is unchanged. 44 targeted checks pass before a lossless prompt-enum compression;
+an actual pinned-tokenizer check caught an oversized uncompressed prompt (7365
+plus 2048 output >8192) before export. $defs references now deduplicate the
+schema, preserving every evidence block/ID. Pinned Qwen tokenizer validation
+passes: 3676 prompt tokens plus 2048 output within8192; valid source-ID/empty
+fixtures accepted and reported labels rejected at token level. One full suite:
+156 passed,0 failed/skipped,47.31s, one dependency warning. Evidence is in
+qwen_contract_tests.json and qwen_contract_tokenizer.json. Only tokenizer assets
+were downloaded; no weights or GPU/model inference. Fix checkpoint precedes a
+separate private package export; no push/publication. Previous commit: 7c5f531.
+
 ### Confirmed private-notebook handoff
 
 The user confirmed that no private Kaggle notebook, URL/identifier or mounted

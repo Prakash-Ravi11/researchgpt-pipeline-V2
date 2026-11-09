@@ -1,0 +1,39 @@
+{
+  "interpreter": "C:\\Users\\Praka\\Downloads\\research IQ  V2\\researchgpt-pipeline-V2\\.venv-gpu\\Scripts\\python.exe",
+  "model": {
+    "model": "Qwen/Qwen3-8B",
+    "revision": "b968826d9c46dd6066d109eabc6255188de91218",
+    "license": "Apache-2.0",
+    "minimum_free_bytes": 9000000000
+  },
+  "tokenizer_class": "Qwen2TokenizerFast",
+  "tokenizer_vocab": 151669,
+  "prompt_tokens": 3676,
+  "output_cap": 2048,
+  "context_window": 8192,
+  "prompt_sha256": "d66c4439e99e0f6a9fafae62346bc16261d1d8123eab83afbdaa3e4f48ab8b60",
+  "response_contract": {
+    "version": "selection-json-schema-v1",
+    "decoder": "lm-format-enforcer",
+    "decoder_version": "0.11.3",
+    "grammar": "selection-schema-regex-v1",
+    "schema_sha256": "f947c2ccc162cf535fb55148e5c278cd75a4ef4130826ee0035f94e5bfb1454d"
+  },
+  "cases": {
+    "all_empty": {
+      "decoder_accepts": true,
+      "source": "deterministic fixture; not model output"
+    },
+    "source_backed_proposal_fixture": {
+      "decoder_accepts": true,
+      "source": "deterministic fixture; not model output"
+    },
+    "reported_metrics_excerpt": {
+      "decoder_accepts": false,
+      "source": "deterministic fixture; not model output"
+    }
+  },
+  "weights_loaded": false,
+  "gpu_inference_executed": false,
+  "new_kaggle_execution": "NOT EXECUTED"
+}

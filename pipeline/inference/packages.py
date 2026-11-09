@@ -18,6 +18,7 @@ from pipeline.evidence.bundles import attest
 from pipeline.extraction.clients import parse_object
 from pipeline.extraction.prompt import FIELDS
 from pipeline.extraction.selection import schema
+from pipeline.inference.structured import contract_messages,response_contract,validate_contract
 from shared.schemas import Paper,Chunk,EvidenceSpan,EvidenceBundle,FieldValue,ExtractedPaper,SourceReference
 
 INPUT_FILES={'packet.json','request.json','runtime.json'}
@@ -87,8 +88,9 @@ def minimal_packet(paper,chunks,bundles,context,*,code_commit,scope='development
 
 def create_input(root,packet,messages,runtime):
     root=Path(root);root.mkdir(parents=True,exist_ok=False)
-    request={'messages':messages,'output_schema':schema(messages[-1]['content']),
-             'generation_profile':runtime['generation']}
+    output_schema=schema(messages[-1]['content'])
+    request={'messages':contract_messages(messages,output_schema),'output_schema':output_schema,
+             'generation_profile':runtime['generation'],'response_contract':response_contract(output_schema)}
     for name,data in [('packet.json',packet),('request.json',request),('runtime.json',runtime)]:write_json(root/name,data)
     identity=digest(canonical([packet,request,runtime]))
     manifest={'format':INPUT_VERSION,'package_id':'rgpt_'+identity[:24],
@@ -116,6 +118,8 @@ def validate_input(root,expected_manifest_sha256=None):
     if packet['code_commit']!=manifest['code_commit'] or not re.fullmatch(r'[a-f0-9]{40}',manifest['code_commit']):
         raise PackageError('input_code_commit_mismatch')
     if request['output_schema']!=schema(request['messages'][-1]['content']):raise PackageError('output_schema_changed')
+    try:validate_contract(request)
+    except ValueError:raise PackageError('selection_contract_mismatch') from None
     if request['generation_profile']!=runtime['generation']:raise PackageError('generation_profile_mismatch')
     if not re.fullmatch(r'[a-f0-9]{40}',runtime['requested_model']['revision']):raise PackageError('model_revision_not_pinned')
     chunks={c['chunk_id']:Chunk(**c) for c in packet['chunks']}
@@ -195,6 +199,8 @@ def import_result(input_root,result_root,*,output_root=None):
         if execution.get('status')!='COMPLETED':raise PackageError('remote_inference_not_completed')
         if execution.get('generation')!=runtime['generation'] or execution.get('quantization')!=runtime['quantization']:
             raise PackageError('remote_configuration_mismatch')
+        if 'response_contract' in request and execution.get('response_contract')!=request['response_contract']:
+            raise PackageError('remote_response_contract_mismatch')
         if execution.get('finish_reason') not in ('eos','stop') or any(type(execution.get(k)) is not int or execution[k]<0
             for k in ('prompt_tokens','generated_tokens')) or not isinstance(execution.get('runtime_seconds'),(int,float)):
             raise PackageError('remote_completion_metadata_missing')

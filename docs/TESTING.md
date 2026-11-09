@@ -1,5 +1,28 @@
 # Executed validation and limits
 
+Qwen3 contract correction (2026-11-09): one complete suite **156 passed**,0
+failed/skipped,47.31s, one dependency warning. Exact interpreter/command and
+per-test results: docs/evidence/qwen_contract_tests.json. New tests use the real
+pinned decoder, a character-tokenizer double, an injected CPU runner model,
+the exact user-reported metrics excerpt and the existing source-backed gate
+fixture. No Qwen model weights/inference or independent gold claim.
+
+Separate CPU checks with Qwen3-8B's actual pinned tokenizer accept valid ID/empty
+proposals, reject the reported labels and measure3676 prompt tokens +2048 output
+within8192. Full uncompressed schema text was first rejected at7365 prompt
+tokens; $defs/$ref compression preserves all constraints/IDs and evidence.
+See qwen_contract_tokenizer.json. Decoder pins were installed only in ignored
+outputs/qwen-contract/validation-deps; neither Python environment/global install
+nor requirements-gpu.lock was changed. For the executed suite:
+
+```powershell
+$env:PYTHONPATH = (Resolve-Path outputs/qwen-contract/validation-deps).Path
+& '.\.venv-gpu\Scripts\python.exe' -X utf8 -B -m pytest -p no:cacheprovider tests -q --tb=short --junitxml=outputs/qwen-contract/full-pytest.xml
+```
+
+New environments can install the inference extra (or the two decoder pins from
+kaggle/requirements-extraction.txt) in isolation before these tests.
+
 Private-notebook handoff validation: .venv-gpu Python 3.13.6 parsed all 6 code
 cells in kaggle/semantic_inference.ipynb, confirmed empty execution counts/outputs,
 and executed configuration/bootstrap against a temporary copy of the actual

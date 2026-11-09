@@ -7,6 +7,7 @@ from pathlib import Path
 import time
 
 from pipeline.inference.packages import validate_input,create_result,result_archive
+from pipeline.inference.structured import schema_prefix
 
 
 def main():
@@ -19,6 +20,7 @@ def main():
     started=time.perf_counter();raw='';candidates=None
     execution={'status':'FAILED','execution_kind':'remote_model_inference','requested_model':runtime['requested_model'],
         'generation':runtime['generation'],'quantization':runtime['quantization'],'physical_device':args.device,
+        'response_contract':request.get('response_contract'),
         'code_commit':manifest['code_commit'],'prompt_tokens':None,'generated_tokens':None,'finish_reason':None}
     error=None
     try:
@@ -34,17 +36,21 @@ def main():
         if q!={'method':'bitsandbytes_nf4','compute_dtype':'float16','double_quant':True}:raise ValueError('unsupported quantization')
         load=time.perf_counter()
         tokenizer=AutoTokenizer.from_pretrained(config['model'],revision=config['revision'])
+        # The same schema controls generation and post-validation. No output
+        # conversion, label-to-ID matching, truncation, or retry repairs exist.
+        prefix=schema_prefix(tokenizer,request['output_schema'])
         model=AutoModelForCausalLM.from_pretrained(config['model'],revision=config['revision'],device_map={'':0},
             torch_dtype=torch.float16,quantization_config=BitsAndBytesConfig(load_in_4bit=True,bnb_4bit_quant_type='nf4',
                 bnb_4bit_use_double_quant=True,bnb_4bit_compute_dtype=torch.float16))
         torch.cuda.synchronize();execution['load_seconds']=time.perf_counter()-load
         text=tokenizer.apply_chat_template(request['messages'],tokenize=False,add_generation_prompt=True,
                                            enable_thinking=g['enable_thinking'])
-        inputs=tokenizer(text,return_tensors='pt').to('cuda:0')
+        inputs=tokenizer(text,return_tensors='pt',add_special_tokens=False).to('cuda:0')
         execution['prompt_tokens']=int(inputs.input_ids.shape[1])
         if execution['prompt_tokens']+g['max_new_tokens']>g['context_window']:raise ValueError('complete evidence does not fit; no truncation')
         torch.manual_seed(g['seed']);torch.cuda.reset_peak_memory_stats();generation=time.perf_counter()
-        with torch.inference_mode():tokens=model.generate(**inputs,max_new_tokens=g['max_new_tokens'],do_sample=g['do_sample'])
+        with torch.inference_mode():tokens=model.generate(**inputs,max_new_tokens=g['max_new_tokens'],
+            do_sample=g['do_sample'],prefix_allowed_tokens_fn=prefix)
         torch.cuda.synchronize();ids=tokens[0,inputs.input_ids.shape[1]:]
         raw=tokenizer.decode(ids,skip_special_tokens=True)
         execution.update(generated_tokens=len(ids),generation_seconds=time.perf_counter()-generation,

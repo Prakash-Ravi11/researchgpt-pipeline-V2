@@ -1,5 +1,19 @@
 # Blockers and limitations
 
+## Qwen3 contract correction — current
+
+The user reports Qwen3-8B loaded and generated 349 tokens/EOS on Kaggle, followed
+by schema failure for metrics labels. The reported response is invalid, not
+verified. The full raw/result artifact has not been supplied locally. A
+deterministic regression retains its exact reported metrics excerpt without
+assigning IDs to labels. Earlier NOT EXECUTED sections describe prior snapshots.
+
+The HF generation adapter now enforces the source-ID schema at token selection,
+with unchanged independent schema/provenance/numerical verification. 156 local
+tests and actual pinned-tokenizer checks pass. The corrected remote job remains
+NOT EXECUTED; no claim of a successful new model response. Independent human
+review is still pending. New private export/setup: kaggle/INFERENCE.md.
+
 ## Semantic/offload current limits
 
 The selected Table2 relationship now passes source-backed deterministic

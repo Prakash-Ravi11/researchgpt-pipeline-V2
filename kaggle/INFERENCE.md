@@ -1,38 +1,39 @@
 # Semantic inference export, Kaggle execution and trusted local import
 
-Ready local artifact: outputs/semantic/inference-input-v2.zip, unpacking to the
-files in outputs/semantic/offload-package-v2. It is private input, not a Kaggle
-execution result. The report records its trusted manifest SHA. The commands
+Current contract-fix artifact: outputs/qwen-contract/inference-input-v3.zip,
+unpacking to outputs/qwen-contract/offload-package-v3. It is private input, not
+a Kaggle execution result. docs/evidence/qwen_contract_package.json records its
+trusted manifest SHA and code commit. The commands
 below reproduce it; choose a fresh output name if the directory already exists.
 
-Status: **NOT EXECUTED on Kaggle**. The user confirmed that no private notebook,
-notebook URL/identifier or mounted input path exists yet. The export/import/HTTP
-path passes controlled round-trip tests. No expensive local inference was
-repeated. The older experimental runner remains available.
+Status: the user reports the original Qwen3-8B job generated 349 tokens/EOS but
+failed schema validation. **The corrected job is NOT EXECUTED on Kaggle.** The
+full failed output has not been supplied locally. No remote notebook URL/ID is
+invented. See [the diagnosis and tests](../docs/QWEN_CONTRACT_FIX.md). Original
+v2 input files/manifest/archive and the older notebook are preserved.
 
 ## Upload checklist for the prepared package
 
-Upload these five existing files from `outputs/semantic/offload-package-v2`
+Upload these five files from `outputs/qwen-contract/offload-package-v3`
 as one **private Kaggle dataset**, preserving the file names:
 
-| File | Bytes | Purpose |
-|---|---:|---|
-| packet.json | 141972 | Selected evidence, source IDs, locations and relations |
-| request.json | 19538 | Exact messages and output schema |
-| runtime.json | 842 | Pinned model, generation, quantization and baseline |
-| code.zip | 160325 | Required source code and dependency pins |
-| input-manifest.json | 789 | Input version, identity, hashes and sizes |
+| File | Purpose |
+|---|---|
+| packet.json | Selected evidence, source IDs, locations and relations |
+| request.json | Exact messages, schema and schema-decoding contract |
+| runtime.json | Pinned model, generation, quantization and baseline |
+| code.zip | Required source code and dependency pins |
+| input-manifest.json | Input version, identity, hashes and exact sizes |
 
-Separately, import [semantic_inference.ipynb](semantic_inference.ipynb) as the
+Separately, import [semantic_inference_contract_v3.ipynb](semantic_inference_contract_v3.ipynb) as the
 notebook. It is not a dataset input and has no executed cells or saved outputs.
-The convenience archive `outputs/semantic/inference-input-v2.zip` contains the
+The convenience archive `outputs/qwen-contract/inference-input-v3.zip` contains the
 five dataset files; extract it locally if using that download. No PDF, weights,
 database, credentials, full repository or other output directories are needed.
 
-Prepared package ID: `rgpt_d03e8fa2bfe3dc4baa48c121`.
-Retained local input-manifest SHA256:
-`ff00931afc4c49ccb7f684dd0674027fb0bfac9178f3cf08797537b6d4f5f3ff`.
-The notebook embeds that retained value. A fresh export requires updating it
+The package ID and retained local input-manifest SHA256 are in
+docs/evidence/qwen_contract_package.json. The new notebook embeds that retained
+value. A fresh export requires updating it
 from the trusted local exporter; do not replace it with a remotely computed hash.
 
 ## 1. Export locally
@@ -40,7 +41,7 @@ from the trusted local exporter; do not replace it with a remotely computed hash
 From the V2 repository root with the exact isolated interpreter:
 
 ```powershell
-& '.\.venv-gpu\Scripts\python.exe' -X utf8 -B -m scripts.inference_package export --retrieval-run outputs/accuracy/gpu-api-selection-v1/execution.json --model qwen3-8b --output outputs/semantic/offload-package-v2
+& '.\.venv-gpu\Scripts\python.exe' -X utf8 -B -m scripts.inference_package export --retrieval-run outputs/accuracy/gpu-api-selection-v1/execution.json --model qwen3-8b --output outputs/qwen-contract/offload-package-v3
 ```
 
 Choose a new output directory on every export. The optional retrieval-run
@@ -61,7 +62,7 @@ and keep the Kaggle dataset/notebook private. There is no automatic upload.
 ## 2. Create and run the private T4 notebook
 
 1. Create a private dataset containing the five files above. Confirm its privacy.
-2. Create a Python notebook and import `kaggle/semantic_inference.ipynb`. Confirm
+2. Create a Python notebook and import `kaggle/semantic_inference_contract_v3.ipynb`. Confirm
    the notebook is private independently of the dataset. Attach the private dataset.
 3. Under **Settings > Accelerator**, select **GPU T4 x2** if available. Enable
    Internet for the pinned public package/model downloads. If the account cannot
@@ -94,10 +95,12 @@ change. Qwen model ID/revision, NF4 double quantization/FP16 compute,
 enable_thinking=false, seed 42, 8192 window and 2048 output cap are recorded.
 The supplied message content is unchanged; the model's chat template wraps it.
 
-The original Ollama baseline is retained in runtime.json. Remote Transformers
-greedy generation with schema post-validation differs from Ollama's constrained
-decoder; record that configuration difference rather than claiming a pure
-model-only comparison. Complete evidence must fit the actual tokenizer budget.
+The original Ollama baseline is retained in runtime.json. The corrected runner
+uses schema-derived token-prefix constraints with pinned lm-format-enforcer and
+independent JSON Schema post-validation. It never converts labels to IDs or
+truncates invalid candidates. Record this decoder change; no pure model-only
+comparison is claimed. Full evidence fits the pinned tokenizer budget: 3676
+prompt tokens plus the unchanged 2048 output cap within the 8192-token window.
 
 ## 3. Return results, including failures
 
@@ -114,7 +117,7 @@ Unpack result.zip into a new local directory, preserving the raw bytes. Import
 using the original trusted input and the retained local input-manifest SHA:
 
 ```powershell
-& '.\.venv-gpu\Scripts\python.exe' -X utf8 -B -m scripts.inference_package import outputs/semantic/offload-package-v2 outputs/semantic/downloaded-result --expected-input-sha256 TRUSTED_LOCAL_MANIFEST_SHA --output outputs/semantic/imported-result
+& '.\.venv-gpu\Scripts\python.exe' -X utf8 -B -m scripts.inference_package import outputs/qwen-contract/offload-package-v3 outputs/qwen-contract/downloaded-result-v3 --expected-input-sha256 TRUSTED_LOCAL_MANIFEST_SHA --output outputs/qwen-contract/imported-result-v3
 ```
 
 The importer checks input/output manifests, model/config/document identity,
@@ -126,7 +129,7 @@ Hashes detect changes; they do not authenticate the remote author's identity.
 For the FastAPI endpoint, register the trusted local input first:
 
 ```powershell
-& '.\.venv-gpu\Scripts\python.exe' -X utf8 -B -m scripts.inference_package register outputs/semantic/offload-package-v2 --store data/inference-inputs
+& '.\.venv-gpu\Scripts\python.exe' -X utf8 -B -m scripts.inference_package register outputs/qwen-contract/offload-package-v3 --store data/inference-inputs
 ```
 
 POST `/api/inference/import` with project_id, returned package_id and
