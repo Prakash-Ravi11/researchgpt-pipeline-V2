@@ -166,11 +166,25 @@ new canonical code.zip is copied byte-for-byte to code.zip.bin. Its manifest
 continues describing code.zip; staging restores that name and verifies the same
 bytes. The transport name alone never changes the archive or its hash.
 
-After the tested code checkpoint, export to outputs/kaggle-recovery/offload-package-v4
-and build kaggle/semantic_inference_recovery_v4.ipynb with its **actual generated
-manifest SHA**, plus docs/KAGGLE_RECOVERY_CELLS.md. Final identities, preservation
+After tested commit d0ddf1d9dff7820712fadab7b7ad920499b00f95, exported package
+rgpt_9f6d641ee3a6b2d7128c9fae to outputs/kaggle-recovery/offload-package-v4.
+Its actual input-manifest SHA256 is
+`7fe245a4080fe9b80da79f95741ffcc7a390fe8c38f298a24d59a62812879d3d`.
+Built kaggle/semantic_inference_recovery_v4.ipynb and
+docs/KAGGLE_RECOVERY_CELLS.md from that package with the same retained SHA.
+Final identities, preservation
 hashes and a local bootstrap smoke are in docs/evidence/kaggle_recovery_package.json.
 No package is patched in place. New remote execution remains NOT EXECUTED.
+
+All six notebook code cells and seven documented Python blocks compile and the
+replacement code matches the notebook exactly. A local actual-v4 bootstrap
+smoke uses a .bin-only simulated mount plus stale expanded code/; it validates
+staged bytes and preserves old01/02/partial-env directories. The diagnostics cell
+correctly produces bootstrap-only output without fabricating a result.zip.
+Controlled v4 fixture imports accept a source-backed proposal and reject the
+complete actual run02 response. These are deterministic source-verifier checks,
+not new model predictions. Packet/source/message identities remain unchanged
+except the code commit; runtime adds only the prepared environment profile.
 
 ## G. Exact notebook update procedure
 
@@ -208,3 +222,37 @@ returned nested result.zip into a fresh local directory, validate against the
 retained local input and run scripts.inference_package import. A COMPLETED remote
 proposal may still become WITHHELD/AMBIGUOUS/UNAVAILABLE locally. Accepted source
 tuples remain needs_human_review. No independent accuracy claim is made.
+
+## Exact recovery file inventory (relative to d581bcf)
+
+- README.md
+- docs/BLOCKERS.md
+- docs/ENVIRONMENT.md
+- docs/KAGGLE_RECOVERY_CELLS.md
+- docs/KAGGLE_RECOVERY_REPORT.md
+- docs/PROGRESS.md
+- docs/TESTING.md
+- docs/evidence/kaggle_recovery_artifacts.json
+- docs/evidence/kaggle_recovery_audit.json
+- docs/evidence/kaggle_recovery_overlay.json
+- docs/evidence/kaggle_recovery_package.json
+- docs/evidence/kaggle_recovery_tests.json
+- docs/evidence/kaggle_recovery_wheel.json
+- kaggle/INFERENCE.md
+- kaggle/README.md
+- kaggle/bootstrap.py
+- kaggle/environment.py
+- kaggle/requirements-extraction.txt
+- kaggle/requirements-kaggle-cu130.txt
+- kaggle/run_inference.py
+- kaggle/runtime-cu130.json
+- kaggle/semantic_inference_recovery_v4.ipynb
+- pipeline/inference/packages.py
+- scripts/build_recovery_notebook.py
+- scripts/inference_package.py
+- tests/fixtures/qwen3_failed_run_02_raw.txt
+- tests/fixtures/qwen3_failed_run_02_schema.json
+- tests/test_kaggle_recovery.py
+- tests/test_qwen_structured_contract.py
+
+Generated private input/transport files under outputs/kaggle-recovery are ignored, not committed.

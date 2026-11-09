@@ -1,5 +1,28 @@
 # Progress
 
+### V4 package and exact-cell handoff delivered
+
+After tested code commit d0ddf1d9dff7820712fadab7b7ad920499b00f95, exported
+rgpt_9f6d641ee3a6b2d7128c9fae to outputs/kaggle-recovery/offload-package-v4.
+Actual manifest SHA:
+7fe245a4080fe9b80da79f95741ffcc7a390fe8c38f298a24d59a62812879d3d.
+Transport ZIP inference-input-v4.zip contains four JSON files plus exact
+code.zip.bin bytes; the canonical manifest still verifies code.zip. New notebook
+semantic_inference_recovery_v4.ipynb and KAGGLE_RECOVERY_CELLS.md embed that SHA
+and identical replacement code.6 code cells/7 documented Python blocks compile.
+
+Actual v4 local bootstrap smoke with only .bin plus a stale code/ tree passes;
+staged bytes/manifest validate and old01/02/partial-env directories survive.
+Bootstrap-only debug download correctly lacks result.zip/success. Controlled
+v4 import accepts a source-backed proposal and rejects the complete actual
+run02 raw response; neither is a new model output. Selected packet is unchanged
+except code commit, request matchesv3, runtime adds only explicit environment
+profile. Oldv2/v3 inputs/notebooks and original debug02 ZIP are byte-identical.
+Full evidence in kaggle_recovery_package.json.173-test suite remains the single
+checkpoint; no repeat, no GPU/model run, upload/push/publication. Next action:
+preserve remaining historical outputs, then follow exact cells for one private
+attempt03 only after READY; import its actual returned result locally.
+
 ### Recovery validation complete
 
 One full regression:173 passed,0 failed/skipped,24.61s, one dependency warning.
