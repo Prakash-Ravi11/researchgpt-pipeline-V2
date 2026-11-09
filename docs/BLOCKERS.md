@@ -1,5 +1,20 @@
 # Blockers and limitations
 
+## Saved Kaggle run02 and prepared recovery — current
+
+Actual debug02 archive is now located and hash-verified. Full raw replay has12
+schema violations across all10 fields; the original FAILED archive is rejected
+by local import. Torch2.11.0+cu130/bnb0.50.2 are recorded, but Python version was
+not recorded. Earlier unavailable-artifact/NOT EXECUTED notes below are historical.
+Attempt01's binary failure remains user-reported without its local artifact.
+
+173 local tests pass. New v4 staging and cu130 dependency overlay avoid old ZIP
+auto-extraction/venv failures and bind the prepared profile to the manifest.
+Clean Kaggle overlay/GPU NF4 preflight and corrected inference are NOT EXECUTED.
+Do not claim universal environment compatibility or independently verified
+scientific accuracy. Preserve/download01/02 before ending an ephemeral session.
+Exact next cells and stop conditions: docs/KAGGLE_RECOVERY_CELLS.md.
+
 ## Qwen3 contract correction — current
 
 The user reports Qwen3-8B loaded and generated 349 tokens/EOS on Kaggle, followed

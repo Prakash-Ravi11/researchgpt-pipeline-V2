@@ -1,5 +1,45 @@
 # Progress
 
+### Recovery validation complete
+
+One full regression:173 passed,0 failed/skipped,24.61s, one dependency warning.
+Complete actual run02 raw/schema and original failed import are reproduced;
+new staging, environment guards, pre-weight prompt check, profile/import and
+backend regressions pass. Prior targeted41 checks overlap. Download-only checks
+confirm all8 Linux/Python3.13 overlay wheels and compatible declared requirements
+against the saved base inventory. Linux bnb0.50.2 contains CUDA130 binary; no local
+installation, new GPU/model run or clean Kaggle runtime success is claimed.
+
+Full original/v3 archive-to-commit audit:15 byte differences each are CRLF/LF
+only, no normalized content drift; runners match byte-for-byte. Source repo
+and frozen gate/retrieval/lock/annotation changes remain absent. See
+KAGGLE_RECOVERY_REPORT.md and kaggle_recovery_*.json. Tested code checkpoint
+precedes a new coherent v4 package and actual-SHA notebook/cell procedure.
+
+### Saved Kaggle artifacts and hosted-fix reconciliation — 2026-11-09
+
+Started clean at d581bcf on feature/evidence-pipeline-integration; no staged or
+unstaged changes. Local-only prior schema fix c34420e/d581bcf follows original
+packaged87e44b4. No remote assumption/fetch/push or source-repository changes.
+Located C:\Users\Praka\Downloads\rgpt-codex-debug-02.zip (23680 bytes, SHA
+48819f0182ed641129f5b5714a44dd408aba760704a1ca329b9ee5d39da45065).
+Outer/inner CRC, byte-identical duplicate members, manifest sizes/hashes and
+original v2 input identity verified. Full1583-byte raw replay yields12 schema
+errors across all10 fields; parsed raw equals saved candidates. Original import
+returns EXTRACTION_FAILED/remote_inference_not_completed. Actual run02 reports
+1776 prompt/349 generated/EOS,88.694906s, Torch2.11.0+cu130/bnb0.50.2. Python
+version is not recorded;3.13 is user-reported. Attempt01 artifact is not supplied.
+
+Original/v3 notebooks still used unstaged ZIP and venv/ensurepip; the hosted
+workarounds were absent locally. Added integrated verified .bin staging/safe
+extraction, a working-directory-only cu130 overlay/profile and recorded dependency/
+GPU/NF4 preflight, plus an exact-cell notebook/procedure generator. Runner records
+interpreter/active versions and validates prompt budget before weights. Existing
+schema/provenance/numerical gate preserved. Official Linux bnb0.50.2 wheel inspected
+without installation: libbitsandbytes_cuda130.so present.41 targeted checks passed
+before final diagnostic/profile assertions. Final suite/export follows; no live
+model, local environment replacement or clean Kaggle runtime validation claimed.
+
 ### Validated v3 private export
 
 Validated fix committed as c34420e669eff47f631e62932dd53f4a17c591ce, then

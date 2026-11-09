@@ -1,140 +1,114 @@
-# Semantic inference export, Kaggle execution and trusted local import
+# Private Kaggle recovery v4
 
-Current contract-fix artifact: outputs/qwen-contract/inference-input-v3.zip,
-unpacking to outputs/qwen-contract/offload-package-v3. It is private input, not
-a Kaggle execution result. docs/evidence/qwen_contract_package.json records its
-trusted manifest SHA and code commit. The commands
-below reproduce it; choose a fresh output name if the directory already exists.
+The actual second Qwen3-8B run generated349 tokens/EOS but failed the source-ID
+schema in all ten fields. See [the artifact/audit report](../docs/KAGGLE_RECOVERY_REPORT.md).
+The v4 corrected inference is **NOT EXECUTED**. Original v2/v3 inputs, manifests,
+notebooks and both historical attempts must be preserved.
 
-Status: the user reports the original Qwen3-8B job generated 349 tokens/EOS but
-failed schema validation. **The corrected job is NOT EXECUTED on Kaggle.** The
-full failed output has not been supplied locally. No remote notebook URL/ID is
-invented. See [the diagnosis and tests](../docs/QWEN_CONTRACT_FIX.md). Original
-v2 input files/manifest/archive and the older notebook are preserved.
+## Prepared files and exact cell code
 
-## Upload checklist for the prepared package
+Canonical input: `outputs/kaggle-recovery/offload-package-v4`.
+Transport download: `outputs/kaggle-recovery/inference-input-v4.zip`.
+Notebook: [semantic_inference_recovery_v4.ipynb](semantic_inference_recovery_v4.ipynb).
+Complete replacement cells: [KAGGLE_RECOVERY_CELLS.md](../docs/KAGGLE_RECOVERY_CELLS.md).
+Actual package ID, code commit and retained manifest SHA:
+`docs/evidence/kaggle_recovery_package.json`; the notebook embeds the same SHA.
 
-Upload these five files from `outputs/qwen-contract/offload-package-v3`
-as one **private Kaggle dataset**, preserving the file names:
+Upload exactly these five files as a **new private dataset version**:
 
 | File | Purpose |
 |---|---|
-| packet.json | Selected evidence, source IDs, locations and relations |
-| request.json | Exact messages, schema and schema-decoding contract |
-| runtime.json | Pinned model, generation, quantization and baseline |
-| code.zip | Required source code and dependency pins |
-| input-manifest.json | Input version, identity, hashes and exact sizes |
+| packet.json | Unchanged selected source blocks, IDs, relations and provenance |
+| request.json | Exact schema-bound messages and output/decoder contract |
+| runtime.json | Pinned model, generation, quantization and cu130 environment profile |
+| input-manifest.json | Exact input identities, byte sizes and hashes |
+| code.zip.bin | Byte-identical transport copy of the newly generated code.zip |
 
-Separately, import [semantic_inference_contract_v3.ipynb](semantic_inference_contract_v3.ipynb) as the
-notebook. It is not a dataset input and has no executed cells or saved outputs.
-The convenience archive `outputs/qwen-contract/inference-input-v3.zip` contains the
-five dataset files; extract it locally if using that download. No PDF, weights,
-database, credentials, full repository or other output directories are needed.
+The canonical directory also retains code.zip for local verification. The
+transport archive contains the five upload files above. The manifest deliberately
+still describes code.zip, not code.zip.bin. Integrated staging restores its
+original name and verifies the exact bytes before any packaged code runs. An
+expanded mounted code/ directory is ignored; its files are never re-zipped.
 
-The package ID and retained local input-manifest SHA256 are in
-docs/evidence/qwen_contract_package.json. The new notebook embeds that retained
-value. A fresh export requires updating it
-from the trusted local exporter; do not replace it with a remotely computed hash.
+Use the user-provided private dataset `idealwizard007/researchgpt-v2-inference-input`.
+The previous mount was `/kaggle/input/datasets/idealwizard007/researchgpt-v2-inference-input/`.
+The bootstrap discovers the actual matching manifest under `/kaggle/input` and
+prints the real mounted/staged paths. Attach the new version, not an old one.
+No upload, publication or remote notebook mutation was performed locally.
 
-## 1. Export locally
+## Execution order and stop rules
 
-From the V2 repository root with the exact isolated interpreter:
+Before ending an existing session, use the archival-only cell in the exact-cell
+guide to save/download attempts01/02. `/kaggle/working` is ephemeral; only the
+local downloaded02 archive has been verified. Preserve the old notebook/version.
+Then import the new notebook as a fresh private copy/session. T4x2 is two separate
+GPUs; choose physical0 and enable Internet. Follow six code cells in order:
 
-```powershell
-& '.\.venv-gpu\Scripts\python.exe' -X utf8 -B -m scripts.inference_package export --retrieval-run outputs/accuracy/gpu-api-selection-v1/execution.json --model qwen3-8b --output outputs/qwen-contract/offload-package-v3
-```
+1. Configuration with actual retained SHA and attempt03.
+2. Integrated manifest discovery, verified bin staging and safe source extraction.
+3. Existing interpreter plus private working-directory overlay and GPU preflight.
+4. Display actual GPUs and pinned configuration.
+5. One inference to `/kaggle/working/rgpt-result-03`.
+6. Preserve/debug ZIP and download through the Output browser.
 
-Choose a new output directory on every export. The optional retrieval-run
-reuses the saved actual five-query IDs/table links without embedding/inference.
-The exporter prints package_id and **input_manifest_sha256**; retain both locally.
-Qwen3-14B is another explicit export choice, with its pinned revision and higher
-free-memory requirement. Do not silently substitute models after export.
+Remove no historical files. Disable old exploratory staging/base-install cells
+in an edited copy as the guide specifies. No later cell may reset rgpt_input to
+the mounted directory. Existing staging/setup/result03 paths cause a stop, never
+a delete or overwrite. After bootstrap/setup failure, run only the diagnostics
+cell manually; do not advance to inference or loop through environment fixes.
 
-Files: packet.json (selected evidence, source IDs/locations/relationships),
-request.json (exact messages/output schema), runtime.json (model revision,
-NF4/FP16, non-thinking/generation and original Qwen2.5 baseline configuration),
-code.zip, input-manifest.json (file sizes/SHA256, document SHA and V2 commit).
-Only selected source blocks and necessary verification context are included;
-full corpus, PDF, model files, credentials and vector database are excluded.
-The packet still contains source text: use only legitimately shareable material
-and keep the Kaggle dataset/notebook private. There is no automatic upload.
+The environment requires the saved base Torch2.11.0+cu130/CUDA13.0. It does not
+install or replace Torch or NumPy and does not invoke venv/ensurepip. Eight exact
+binary-wheel pins are installed only into `rgpt-runtime-deps-03`, with --no-deps.
+The new requirements-kaggle-cu130.txt/profile includes bnb0.50.2 and schema decoder
+pins. Active overlay paths/versions, transitive requirements, interpreter, GPU
+matrix operation, actual NF4 CUDA roundtrip and free VRAM after release must pass.
+This profile is prepared from the saved environment, not universally compatible
+or clean-runtime tested. A different base stops for review without PyTorch changes.
 
-## 2. Create and run the private T4 notebook
+Qwen3-8B/revision b968826d9c46dd6066d109eabc6255188de91218, NF4/FP16/double-quant,
+non-thinking, seed42,8192 context and2048 output cap remain. The full prompt is
+validated before weights; no evidence or output is truncated/repaired. Existing
+schema-derived token constraints and independent schema/local evidence checks
+remain. Generation/EOS/schema success is not independent scientific accuracy.
 
-1. Create a private dataset containing the five files above. Confirm its privacy.
-2. Create a Python notebook and import `kaggle/semantic_inference_contract_v3.ipynb`. Confirm
-   the notebook is private independently of the dataset. Attach the private dataset.
-3. Under **Settings > Accelerator**, select **GPU T4 x2** if available. Enable
-   Internet for the pinned public package/model downloads. If the account cannot
-   start a T4 session, keep execution marked NOT EXECUTED and retain that blocker.
-4. Run cells in order. The bootstrap searches the actual `/kaggle/input` tree for
-   exactly one manifest matching the retained local SHA and prints its real path.
-   No dataset slug, individual mount path, notebook URL or notebook ID is assumed.
-   It rejects missing/duplicate matching inputs or modified files before extracting
-   code. Work directories are created by the notebook under `/kaggle/working`.
-5. The setup cell creates an isolated environment, installs torch 2.8.0+cu126
-   and the existing pinned requirements-extraction.txt, and runs pip check.
-   Those pins are prepared but have not been remotely installation-tested.
-6. Inspect the displayed physical GPUs, actual memory and requested configuration.
-   The inference cell invokes the packaged runner once with physical device 0,
-   the discovered input path and retained SHA. Preserve errors and outputs; the
-   notebook refuses to overwrite an existing result directory.
-7. Download the resulting `result.zip` from the notebook Output browser, retain
-   the actual execution status, and stop the GPU session. Setup failures before
-   the runner starts may produce only a notebook error, not an archive.
+Download the printed `rgpt-codex-debug-03.zip` from Output, including failures,
+then stop the GPU session. FileLink is not required. It includes available raw
+result files unchanged, the original nested result.zip and setup/input-identity
+diagnostics. Missing result.zip after setup failure is explicitly not success.
 
-Current UI references: [Kaggle notebook documentation](https://www.kaggle.com/docs/notebooks),
-[dataset privacy documentation](https://www.kaggle.com/docs/datasets), and
-[NVIDIA's Kaggle GPU setup](https://docs.nvidia.com/datascience/deployment/latest/platforms/kaggle/).
-Availability and quota depend on the account; no remote resource has been created.
+## Reproduce export/build locally, only when needed
 
-T4x2 means two separate 16 GB devices. The runner masks **one** physical GPU and
-checks its actual free memory (9/12 GB planning guards for the prepared 8B/14B
-configurations). No automatic pooling, CPU fallback, input truncation or model
-change. Qwen model ID/revision, NF4 double quantization/FP16 compute,
-enable_thinking=false, seed 42, 8192 window and 2048 output cap are recorded.
-The supplied message content is unchanged; the model's chat template wraps it.
-
-The original Ollama baseline is retained in runtime.json. The corrected runner
-uses schema-derived token-prefix constraints with pinned lm-format-enforcer and
-independent JSON Schema post-validation. It never converts labels to IDs or
-truncates invalid candidates. Record this decoder change; no pure model-only
-comparison is claimed. Full evidence fits the pinned tokenizer budget: 3676
-prompt tokens plus the unchanged 2048 output cap within the 8192-token window.
-
-## 3. Return results, including failures
-
-Download `result.zip`. It contains raw_response.txt, candidates.json,
-execution.json and output-manifest.json. Actual token counts, finish state,
-load/generation/runtime, device/memory and package versions are recorded when
-available. Failure artifacts are retained; incomplete/schema-invalid generation
-does not become a successful candidate set. The notebook performs inference,
-**never scientific verification**. No automatic public publication.
-
-## 4. Verify locally
-
-Unpack result.zip into a new local directory, preserving the raw bytes. Import
-using the original trusted input and the retained local input-manifest SHA:
+Choose fresh destinations if these paths already exist; never overwrite history.
+The supplied ready artifacts do not require another export.
 
 ```powershell
-& '.\.venv-gpu\Scripts\python.exe' -X utf8 -B -m scripts.inference_package import outputs/qwen-contract/offload-package-v3 outputs/qwen-contract/downloaded-result-v3 --expected-input-sha256 TRUSTED_LOCAL_MANIFEST_SHA --output outputs/qwen-contract/imported-result-v3
+& '.\.venv-gpu\Scripts\python.exe' -X utf8 -B -m scripts.inference_package export --retrieval-run outputs/accuracy/gpu-api-selection-v1/execution.json --model qwen3-8b --environment-profile kaggle-t4-cu130-v1 --output outputs/kaggle-recovery/offload-package-v4
+& '.\.venv-gpu\Scripts\python.exe' -X utf8 -B -m scripts.build_recovery_notebook --input outputs/kaggle-recovery/offload-package-v4 --notebook kaggle/semantic_inference_recovery_v4.ipynb --instructions docs/KAGGLE_RECOVERY_CELLS.md --attempt 03
 ```
 
-The importer checks input/output manifests, model/config/document identity,
-schema/source-ID authorization and raw/normalized equality, then applies the
-trusted local source/semantic/range/ownership gate. Raw output is copied unchanged
-into the new import directory. A remote claimed verdict has no authority.
-Hashes detect changes; they do not authenticate the remote author's identity.
+Code changes require a newly committed/tested source snapshot, new archive,
+coherent JSON/manifest set, bin copy and actual-SHA notebook. Neither ff00931a...
+(v2) nor f4364f63... (v3) authorizes v4. Hashes establish byte integrity, not remote
+authorship. Keep all inputs/results private and share only permitted source text.
 
-For the FastAPI endpoint, register the trusted local input first:
+## Import the actual returned result locally
+
+Use the original retained local v4 input. The future download path is not known;
+Read-Host asks for its actual path instead of inventing one. Fresh output paths
+below are created by the tools and must not already exist.
 
 ```powershell
-& '.\.venv-gpu\Scripts\python.exe' -X utf8 -B -m scripts.inference_package register outputs/qwen-contract/offload-package-v3 --store data/inference-inputs
+$rgptRecovery = Get-Content docs/evidence/kaggle_recovery_package.json -Raw | ConvertFrom-Json
+$rgptDownloadedDebug = Read-Host 'Full local path to downloaded rgpt-codex-debug-03.zip'
+& '.\.venv-gpu\Scripts\python.exe' -X utf8 -B -c "import sys,zipfile; from pathlib import Path; from pipeline.inference.packages import unpack_result,MAX_RESULT_BYTES; z=zipfile.ZipFile(sys.argv[1]); assert z.getinfo('result.zip').file_size<=MAX_RESULT_BYTES; unpack_result(z.read('result.zip'),Path(sys.argv[2])); z.close()" $rgptDownloadedDebug outputs/kaggle-recovery/downloaded-result-03
+& '.\.venv-gpu\Scripts\python.exe' -X utf8 -B -m scripts.inference_package import outputs/kaggle-recovery/offload-package-v4 outputs/kaggle-recovery/downloaded-result-03 --expected-input-sha256 $rgptRecovery.input_manifest_sha256 --output outputs/kaggle-recovery/verified-result-03
 ```
 
-POST `/api/inference/import` with project_id, returned package_id and
-result_archive_base64 containing result.zip. The server reads only its registered
-input, retains the uploaded result under data/inference-results, and returns the
-normal ExtractedPaper contract. It never accepts a replacement trusted packet
-from the remote response. Accepted/withheld/ambiguous/unavailable/failed states
-and source refs are exposed; human_review remains independent.
+If result.zip is absent, retain setup diagnostics and stop. Import checks both
+manifests, exact requested model/config/decoder/environment identity, completion,
+raw-normalized equality and authorized IDs, then the existing trusted local
+source/semantic/range/ownership gate. Read its structured status and withheld/
+ambiguous reasons. A remote claim of VERIFIED is ignored; failed/mismatched
+archives remain EXTRACTION_FAILED. Accepted source tuples still need human review.
+The registered-input FastAPI import endpoint remains compatible on port8000.

@@ -1,12 +1,11 @@
 # Private, reproducible accuracy jobs
 
-Current semantic inference workflow: [INFERENCE.md](INFERENCE.md), with the exact
-five-file upload checklist and an unexecuted [private T4 notebook](semantic_inference.ipynb).
-No private remote notebook or individual input mount has been created or confirmed.
-It adds
-versioned input/output manifests, exact schema/config export, minimal selected
-sources, registered-input backend import and raw-output preservation. The
-experimental parser/model commands below are retained for comparison history.
+Current recovery: [INFERENCE.md](INFERENCE.md), [actual artifact report](../docs/KAGGLE_RECOVERY_REPORT.md)
+and [complete next cell code](../docs/KAGGLE_RECOVERY_CELLS.md). Use the prepared
+semantic_inference_recovery_v4.ipynb and its new private manifest/bin transport.
+The actual run02 failed schema validation after generation; v4 has not run on
+Kaggle. Original/v3 notebooks and the commands/status below are retained as
+historical pre-run configurations, not current execution status.
 
 **Prepared, not executed on Kaggle.** This session has no Kaggle connector,
 CLI module, credential file or credential environment configuration. No data

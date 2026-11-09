@@ -1,0 +1,171 @@
+{
+  "archive_path": "C:\\Users\\Praka\\Downloads\\rgpt-codex-debug-02.zip",
+  "archive_bytes": 23680,
+  "archive_sha256": "48819f0182ed641129f5b5714a44dd408aba760704a1ca329b9ee5d39da45065",
+  "outer_members": {
+    "result.zip": {
+      "bytes": 11880,
+      "sha256": "2761fd987cbf56bcd3b7f6926d0307ef1235b8ffef2d4900be3924d8404e2e90"
+    },
+    "execution.json": {
+      "bytes": 29520,
+      "sha256": "c2274e96063455be7f452b5e341f852670c2d7c8360cd131a37bdb3bcd3973e3"
+    },
+    "raw_response.txt": {
+      "bytes": 1583,
+      "sha256": "842dcf34f28772df33624991c0f76084160e1772576a2cd6436ed822459f4b39"
+    },
+    "candidates.json": {
+      "bytes": 1668,
+      "sha256": "a4755e172de4006c1e1236bb9b6da7f9c24f3cab26576faa37f8ce9866fc4a8c"
+    },
+    "output-manifest.json": {
+      "bytes": 708,
+      "sha256": "6f783b6043227d57231454e8f25fb8aacb73eea06d89e30e9eb310c18742d2e6"
+    }
+  },
+  "outer_and_inner_crc_valid": true,
+  "outer_inner_duplicate_files_byte_identical": true,
+  "output_manifest_file_hashes_valid": true,
+  "input_package_id": "rgpt_d03e8fa2bfe3dc4baa48c121",
+  "input_manifest_sha256": "ff00931afc4c49ccb7f684dd0674027fb0bfac9178f3cf08797537b6d4f5f3ff",
+  "document_sha256": "bdfaa68d8984f0dc02beaca527b76f207d99b666d31d1da728ee0728182df697",
+  "code_commit": "87e44b4e3302314db73f569a20982ab20758e254",
+  "raw_parsed_equals_candidates": true,
+  "schema_violations": [
+    {
+      "path": [
+        "problem_statement",
+        0
+      ],
+      "validator": "type"
+    },
+    {
+      "path": [
+        "objective",
+        0
+      ],
+      "validator": "type"
+    },
+    {
+      "path": [
+        "research_gap",
+        0
+      ],
+      "validator": "type"
+    },
+    {
+      "path": [
+        "method",
+        0
+      ],
+      "validator": "type"
+    },
+    {
+      "path": [
+        "datasets",
+        0
+      ],
+      "validator": "type"
+    },
+    {
+      "path": [
+        "metrics"
+      ],
+      "validator": "maxItems"
+    },
+    {
+      "path": [
+        "metrics",
+        0
+      ],
+      "validator": "type"
+    },
+    {
+      "path": [
+        "metrics",
+        1
+      ],
+      "validator": "type"
+    },
+    {
+      "path": [
+        "results",
+        0
+      ],
+      "validator": "type"
+    },
+    {
+      "path": [
+        "limitations",
+        0
+      ],
+      "validator": "type"
+    },
+    {
+      "path": [
+        "future_scope",
+        0
+      ],
+      "validator": "type"
+    },
+    {
+      "path": [
+        "key_findings",
+        0
+      ],
+      "validator": "type"
+    }
+  ],
+  "affected_fields": [
+    "problem_statement",
+    "objective",
+    "research_gap",
+    "method",
+    "datasets",
+    "metrics",
+    "results",
+    "limitations",
+    "future_scope",
+    "key_findings"
+  ],
+  "local_import_status": "EXTRACTION_FAILED",
+  "local_import_error": "remote_inference_not_completed",
+  "saved_execution": {
+    "status": "FAILED",
+    "error_type": "ValidationError",
+    "requested_model": {
+      "model": "Qwen/Qwen3-8B",
+      "revision": "b968826d9c46dd6066d109eabc6255188de91218",
+      "license": "Apache-2.0",
+      "minimum_free_bytes": 9000000000
+    },
+    "prompt_tokens": 1776,
+    "generated_tokens": 349,
+    "finish_reason": "eos",
+    "runtime_seconds": 88.69490617500014,
+    "load_seconds": 47.65663981999978,
+    "generation_seconds": 34.98845843700019,
+    "device_name": "Tesla T4",
+    "free_vram_before_load": 15526068224,
+    "total_vram": 15636037632,
+    "peak_allocated_bytes": 7486437888,
+    "peak_reserved_bytes": 8485076992
+  },
+  "saved_packages": {
+    "accelerate": "1.10.1",
+    "numpy": "1.26.4",
+    "huggingface_hub": "0.36.2",
+    "jsonschema": "4.25.1",
+    "pydantic": "2.12.5",
+    "safetensors": "0.6.2",
+    "bitsandbytes": "0.50.2",
+    "tokenizers": "0.21.4",
+    "transformers": "4.55.2",
+    "torch": "2.11.0+cu130"
+  },
+  "python_version": "Not recorded in original execution; Python 3.13 is user-reported, not independently confirmed from this artifact",
+  "attempt_01": "User-reported CUDA130 binary failure ~120.84s; first-run artifact not supplied locally",
+  "fixture_raw_sha256": "842dcf34f28772df33624991c0f76084160e1772576a2cd6436ed822459f4b39",
+  "original_download_unchanged": true
+}

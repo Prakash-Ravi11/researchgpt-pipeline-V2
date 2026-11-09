@@ -1,0 +1,250 @@
+{
+  "repository": "github.com/Prakash-Ravi11/researchgpt-pipeline-V2.git",
+  "working_directory": "C:\\Users\\Praka\\Downloads\\research IQ  V2\\researchgpt-pipeline-V2",
+  "branch": "feature/evidence-pipeline-integration",
+  "starting_commit": "d581bcf",
+  "starting_working_tree": "clean; no staged or unstaged changes at first executed inspection",
+  "prior_relevant_commits": [
+    "87e44b4",
+    "2a437c8",
+    "7c5f531",
+    "c34420e",
+    "d581bcf"
+  ],
+  "package_source_checks": {
+    "outputs/semantic/offload-package-v2": {
+      "code_commit": "87e44b4e3302314db73f569a20982ab20758e254",
+      "files": 79,
+      "files_differing_from_recorded_commit": [
+        "docs/SOURCE_MANIFEST.json",
+        "src/collection/semantic_scholar.py",
+        "src/config.py",
+        "src/evidence/acquire.py",
+        "src/evidence/anchors.py",
+        "src/evidence/attribute.py",
+        "src/evidence/borderless.py",
+        "src/evidence/chunker.py",
+        "src/evidence/gate.py",
+        "src/evidence/latex_parity.py",
+        "src/evidence/latex_source.py",
+        "src/evidence/latex_tables.py",
+        "src/evidence/represent.py",
+        "src/evidence/schema.py",
+        "src/processing/pdf_parser.py"
+      ],
+      "input_manifest_sha256": "ff00931afc4c49ccb7f684dd0674027fb0bfac9178f3cf08797537b6d4f5f3ff",
+      "byte_difference_details": [
+        {
+          "file": "docs/SOURCE_MANIFEST.json",
+          "difference": "CRLF/LF only",
+          "archived_crlf": 164,
+          "git_crlf": 0
+        },
+        {
+          "file": "src/collection/semantic_scholar.py",
+          "difference": "CRLF/LF only",
+          "archived_crlf": 510,
+          "git_crlf": 0
+        },
+        {
+          "file": "src/config.py",
+          "difference": "CRLF/LF only",
+          "archived_crlf": 63,
+          "git_crlf": 0
+        },
+        {
+          "file": "src/evidence/acquire.py",
+          "difference": "CRLF/LF only",
+          "archived_crlf": 259,
+          "git_crlf": 0
+        },
+        {
+          "file": "src/evidence/anchors.py",
+          "difference": "CRLF/LF only",
+          "archived_crlf": 78,
+          "git_crlf": 0
+        },
+        {
+          "file": "src/evidence/attribute.py",
+          "difference": "CRLF/LF only",
+          "archived_crlf": 206,
+          "git_crlf": 0
+        },
+        {
+          "file": "src/evidence/borderless.py",
+          "difference": "CRLF/LF only",
+          "archived_crlf": 445,
+          "git_crlf": 0
+        },
+        {
+          "file": "src/evidence/chunker.py",
+          "difference": "CRLF/LF only",
+          "archived_crlf": 63,
+          "git_crlf": 0
+        },
+        {
+          "file": "src/evidence/gate.py",
+          "difference": "CRLF/LF only",
+          "archived_crlf": 784,
+          "git_crlf": 0
+        },
+        {
+          "file": "src/evidence/latex_parity.py",
+          "difference": "CRLF/LF only",
+          "archived_crlf": 131,
+          "git_crlf": 0
+        },
+        {
+          "file": "src/evidence/latex_source.py",
+          "difference": "CRLF/LF only",
+          "archived_crlf": 176,
+          "git_crlf": 0
+        },
+        {
+          "file": "src/evidence/latex_tables.py",
+          "difference": "CRLF/LF only",
+          "archived_crlf": 360,
+          "git_crlf": 0
+        },
+        {
+          "file": "src/evidence/represent.py",
+          "difference": "CRLF/LF only",
+          "archived_crlf": 739,
+          "git_crlf": 0
+        },
+        {
+          "file": "src/evidence/schema.py",
+          "difference": "CRLF/LF only",
+          "archived_crlf": 188,
+          "git_crlf": 0
+        },
+        {
+          "file": "src/processing/pdf_parser.py",
+          "difference": "CRLF/LF only",
+          "archived_crlf": 86,
+          "git_crlf": 0
+        }
+      ],
+      "content_differences_after_line_ending_normalization": []
+    },
+    "outputs/qwen-contract/offload-package-v3": {
+      "code_commit": "c34420e669eff47f631e62932dd53f4a17c591ce",
+      "files": 80,
+      "files_differing_from_recorded_commit": [
+        "docs/SOURCE_MANIFEST.json",
+        "src/collection/semantic_scholar.py",
+        "src/config.py",
+        "src/evidence/acquire.py",
+        "src/evidence/anchors.py",
+        "src/evidence/attribute.py",
+        "src/evidence/borderless.py",
+        "src/evidence/chunker.py",
+        "src/evidence/gate.py",
+        "src/evidence/latex_parity.py",
+        "src/evidence/latex_source.py",
+        "src/evidence/latex_tables.py",
+        "src/evidence/represent.py",
+        "src/evidence/schema.py",
+        "src/processing/pdf_parser.py"
+      ],
+      "input_manifest_sha256": "f4364f63743f927be904025b3c404045a3fa56a2e89e14e6fa408bbd7e72980f",
+      "byte_difference_details": [
+        {
+          "file": "docs/SOURCE_MANIFEST.json",
+          "difference": "CRLF/LF only",
+          "archived_crlf": 164,
+          "git_crlf": 0
+        },
+        {
+          "file": "src/collection/semantic_scholar.py",
+          "difference": "CRLF/LF only",
+          "archived_crlf": 510,
+          "git_crlf": 0
+        },
+        {
+          "file": "src/config.py",
+          "difference": "CRLF/LF only",
+          "archived_crlf": 63,
+          "git_crlf": 0
+        },
+        {
+          "file": "src/evidence/acquire.py",
+          "difference": "CRLF/LF only",
+          "archived_crlf": 259,
+          "git_crlf": 0
+        },
+        {
+          "file": "src/evidence/anchors.py",
+          "difference": "CRLF/LF only",
+          "archived_crlf": 78,
+          "git_crlf": 0
+        },
+        {
+          "file": "src/evidence/attribute.py",
+          "difference": "CRLF/LF only",
+          "archived_crlf": 206,
+          "git_crlf": 0
+        },
+        {
+          "file": "src/evidence/borderless.py",
+          "difference": "CRLF/LF only",
+          "archived_crlf": 445,
+          "git_crlf": 0
+        },
+        {
+          "file": "src/evidence/chunker.py",
+          "difference": "CRLF/LF only",
+          "archived_crlf": 63,
+          "git_crlf": 0
+        },
+        {
+          "file": "src/evidence/gate.py",
+          "difference": "CRLF/LF only",
+          "archived_crlf": 784,
+          "git_crlf": 0
+        },
+        {
+          "file": "src/evidence/latex_parity.py",
+          "difference": "CRLF/LF only",
+          "archived_crlf": 131,
+          "git_crlf": 0
+        },
+        {
+          "file": "src/evidence/latex_source.py",
+          "difference": "CRLF/LF only",
+          "archived_crlf": 176,
+          "git_crlf": 0
+        },
+        {
+          "file": "src/evidence/latex_tables.py",
+          "difference": "CRLF/LF only",
+          "archived_crlf": 360,
+          "git_crlf": 0
+        },
+        {
+          "file": "src/evidence/represent.py",
+          "difference": "CRLF/LF only",
+          "archived_crlf": 739,
+          "git_crlf": 0
+        },
+        {
+          "file": "src/evidence/schema.py",
+          "difference": "CRLF/LF only",
+          "archived_crlf": 188,
+          "git_crlf": 0
+        },
+        {
+          "file": "src/processing/pdf_parser.py",
+          "difference": "CRLF/LF only",
+          "archived_crlf": 86,
+          "git_crlf": 0
+        }
+      ],
+      "content_differences_after_line_ending_normalization": []
+    }
+  },
+  "hosted_modifications": "User-described integrated .bin staging, base interpreter instead of venv, bitsandbytes0.50.2, result02; exact hosted notebook source not downloaded",
+  "saved_execution_corroboration": "run02 records torch2.11.0+cu130/bnb0.50.2, old input/commit and FAILED/EOS; does not record Python version",
+  "source_notebooks_at_start": "original/v3 both lacked .bin staging and still used venv/ensurepip; local c344 schema fix not in old87 input",
+  "remote_fetch_or_push": false
+}

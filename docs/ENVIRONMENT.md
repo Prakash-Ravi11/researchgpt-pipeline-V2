@@ -1,5 +1,17 @@
 # Phase 2 recovery environment
 
+Kaggle recovery v4 uses a separate remote profile, not a Windows environment
+change. Local tests remain .venv-gpu CPython3.13.6/torch2.8.0+cu126. Saved run02
+records torch2.11.0+cu130/bitsandbytes0.50.2; Python3.13 is user-reported because
+old execution metadata omitted it. New kaggle/runtime-cu130.json requires the
+observed Torch/CUDA pair and uses only an eight-wheel working-directory overlay,
+without replacing base Torch or NumPy or invoking ensurepip. Actual dependency,
+interpreter and GPU/NF4 checks run in fresh child processes and must pass before
+weights. Linux wheels/declared requirements are inspected, not clean-runtime
+validated. Local .venv/.venv-gpu/global packages/requirements-gpu.lock unchanged.
+See KAGGLE_RECOVERY_REPORT.md, kaggle/requirements-kaggle-cu130.txt and
+KAGGLE_RECOVERY_CELLS.md. The older profiles below remain historical evidence.
+
 Semantic/offload uses the exact same local .venv-gpu interpreter and validated
 requirements-gpu.lock. No global/old-environment changes or framework installs.
 Already installed jsonschema4.26.0 is now a direct project dependency.144-test

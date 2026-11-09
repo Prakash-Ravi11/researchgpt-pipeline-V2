@@ -38,6 +38,14 @@ def export(args):
         'baseline_configuration':{'model':'qwen2.5:7b','digest':'845dbda0ea48ed749caafd9e6037047aa19acfcfd82e704d7ca97d631a0b697e',
                                   'quantization':'Q4_K_M','decoder':'ollama_json_schema','num_ctx':8192,'num_predict':2048,
                                   'temperature':0,'seed':42,'max_candidates_per_field':1,'client_timeout_seconds':180}}
+    if getattr(args,'environment_profile',None):
+        profile=json.loads(Path('kaggle/runtime-cu130.json').read_text(encoding='utf-8'))
+        requirements=Path(profile['requirements_file'])
+        pins=dict(line.strip().split('==') for line in requirements.read_text().splitlines()
+                  if line.strip() and not line.startswith('#'))
+        if pins!=profile['overlay_pins']:raise ValueError('overlay requirements differ from runtime profile')
+        profile['requirements_sha256']=digest(requirements.read_bytes())
+        runtime['environment_profile']=profile
     messages=[{'role':'system','content':SYSTEM},{'role':'user','content':f'Paper: {paper.title}\nAcquisition: FULL_TEXT\n\n{context.text}'}]
     manifest=create_input(args.output,packet,messages,runtime)
     # Portable code uses the same allowlist as the previous exporter; no input
@@ -63,6 +71,7 @@ def main():
     p=sub.add_parser('export');p.add_argument('--pdf',type=Path,default=Path('data/live/document.pdf'))
     p.add_argument('--paper',type=Path,default=Path('data/live/paper.json'));p.add_argument('--retrieval-run',type=Path)
     p.add_argument('--model',choices=['qwen3-8b','qwen3-14b'],default='qwen3-8b');p.add_argument('--output',type=Path,required=True)
+    p.add_argument('--environment-profile',choices=['kaggle-t4-cu130-v1'])
     p=sub.add_parser('register');p.add_argument('input',type=Path);p.add_argument('--store',type=Path,default=Path('data/inference-inputs'))
     p=sub.add_parser('import');p.add_argument('input',type=Path);p.add_argument('result',type=Path)
     p.add_argument('--expected-input-sha256',required=True);p.add_argument('--output',type=Path,required=True)

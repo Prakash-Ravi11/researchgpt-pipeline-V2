@@ -134,12 +134,20 @@ def test_unsupported_schema_shape_never_falls_back_to_unconstrained_json():
         selection_pattern(output_schema)
 
 
-def test_runner_passes_constraint_and_still_preserves_invalid_eos_output(tmp_path, monkeypatch):
+@pytest.mark.parametrize('over_budget', [False, True])
+def test_runner_passes_constraint_and_still_preserves_invalid_eos_output(tmp_path, monkeypatch, over_budget):
     """Injected CPU model deliberately ignores the mask; post-validation must fail."""
     import transformers
     from kaggle.run_inference import main
-    from pipeline.inference.packages import digest
-    inp, _, _, _, _ = package(tmp_path)
+    from pipeline.inference.packages import digest, create_input
+    from pipeline.extraction.selection import SYSTEM
+    inp, _, packet, runtime, _ = package(tmp_path)
+    if over_budget:
+        request=json.loads((inp/'request.json').read_text())
+        runtime=copy.deepcopy(runtime)
+        runtime['generation']['context_window']=1
+        inp=tmp_path/'limited-input'
+        create_input(inp,packet,[{'role':'system','content':SYSTEM},request['messages'][-1]],runtime)
     raw = json.dumps(reported_response())
     tokenizer = CharacterTokenizer()
 
@@ -172,7 +180,11 @@ def test_runner_passes_constraint_and_still_preserves_invalid_eos_output(tmp_pat
 
     model = SimpleNamespace(generate=generate, generation_config=SimpleNamespace(eos_token_id=tokenizer.eos_token_id))
     monkeypatch.setattr(transformers.AutoTokenizer, 'from_pretrained', lambda *a, **k: RunnerTokenizer())
-    monkeypatch.setattr(transformers.AutoModelForCausalLM, 'from_pretrained', lambda *a, **k: model)
+    model_loads=[]
+    def load_model(*args, **kwargs):
+        model_loads.append(True)
+        return model
+    monkeypatch.setattr(transformers.AutoModelForCausalLM, 'from_pretrained', load_model)
     monkeypatch.setattr(transformers, 'BitsAndBytesConfig', lambda **kwargs: kwargs)
     monkeypatch.setattr(torch.cuda, 'is_available', lambda: True)
     monkeypatch.setattr(torch.cuda, 'mem_get_info', lambda index: (16_000_000_000, 16_000_000_000))
@@ -188,10 +200,16 @@ def test_runner_passes_constraint_and_still_preserves_invalid_eos_output(tmp_pat
         main()
     assert exc.value.code == 2
     execution = json.loads((out / 'execution.json').read_text())
-    assert execution['status'] == 'FAILED' and execution['error_type'] == 'ValidationError'
-    assert execution['finish_reason'] == 'eos'
-    assert (out / 'raw_response.txt').read_text(encoding='utf-8') == raw
-    assert json.loads((out / 'candidates.json').read_text())['metrics'] == reported_response()['metrics']
+    assert execution['status'] == 'FAILED'
+    if over_budget:
+        assert not model_loads and execution['error_type']=='ValueError'
+        assert execution['finish_reason'] is None and (out/'raw_response.txt').read_bytes()==b''
+        assert json.loads((out/'candidates.json').read_text()) is None
+    else:
+        assert len(model_loads)==1 and execution['error_type']=='ValidationError'
+        assert execution['finish_reason'] == 'eos'
+        assert (out / 'raw_response.txt').read_text(encoding='utf-8') == raw
+        assert json.loads((out / 'candidates.json').read_text())['metrics'] == reported_response()['metrics']
     assert (out / 'result.zip').is_file()
     assert import_result(inp, out).status == 'EXTRACTION_FAILED'
 

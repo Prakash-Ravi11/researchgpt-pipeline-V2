@@ -1,0 +1,12 @@
+{
+  "problem_statement": ["The dominant sequence transduction models are based on complex recurrent or convolutional neural networks that include an encoder and a decoder."],
+  "objective": ["We propose a new simple network architecture, the Transformer, based solely on attention mechanisms, dispensing with recurrence and convolutions entirely."],
+  "research_gap": ["The best performing models also connect the encoder and decoder through an attention mechanism."],
+  "method": ["Experiments on two machine translation tasks show these models to be superior in quality while being more parallelizable and requiring significantly less time to train."],
+  "datasets": ["On the WMT 2014 English-to-German translation task, the big transformer model (Transformer (big) in Table 2) outperforms the best previously reported models (including ensembles) by more than 2.0 BLEU."],
+  "metrics": ["BLEU score", "training cost"],
+  "results": ["Our model achieves 28.4 BLEU on the WMT 2014 English-to-German translation task, improving over the existing best results, including ensembles, by over 2 BLEU."],
+  "limitations": ["Even our base model surpasses all previously published models and ensembles, at a fraction of the training cost of any of the competitive models."],
+  "future_scope": ["We show that the Transformer generalizes well to other tasks by applying it successfully to English constituency parsing both with large and limited training data."],
+  "key_findings": ["The Transformer (big) model trained for English-to-French used dropout rate Pdrop = 0.1, instead of 0.3."]
+}

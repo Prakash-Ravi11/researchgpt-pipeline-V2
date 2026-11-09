@@ -1,5 +1,21 @@
 # Executed validation and limits
 
+Saved Kaggle recovery: **173 passed**,0 failed/skipped,24.61s, one existing
+dependency deprecation warning. Exact executed interpreter/command/per-test
+scope is docs/evidence/kaggle_recovery_tests.json. Actual1583-byte raw response
+and exact schema replay yield12 expected validation errors across10 fields;
+actual failed archive import is rejected. CPU regressions include .bin transport
+integrity/staging/path safety, retained manifests, runtime/dependency guards,
+failure diagnostics, pre-weight prompt-budget rejection and strict API/tuple
+verification.41 earlier targeted checks overlap; do not add counts as unique.
+Eight Linux/Python3.13 wheels and their direct requirements were inspected only.
+Clean Kaggle preflight, GPU NF4 and new Qwen inference remain NOT EXECUTED.
+
+```powershell
+$env:PYTHONPATH = (Resolve-Path outputs/qwen-contract/validation-deps).Path
+& '.\.venv-gpu\Scripts\python.exe' -X utf8 -B -m pytest -p no:cacheprovider tests -q --tb=short --junitxml=outputs/kaggle-recovery/full-pytest.xml
+```
+
 Qwen3 contract correction (2026-11-09): one complete suite **156 passed**,0
 failed/skipped,47.31s, one dependency warning. Exact interpreter/command and
 per-test results: docs/evidence/qwen_contract_tests.json. New tests use the real

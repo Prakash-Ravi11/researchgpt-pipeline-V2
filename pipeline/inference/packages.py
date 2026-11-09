@@ -201,6 +201,8 @@ def import_result(input_root,result_root,*,output_root=None):
             raise PackageError('remote_configuration_mismatch')
         if 'response_contract' in request and execution.get('response_contract')!=request['response_contract']:
             raise PackageError('remote_response_contract_mismatch')
+        if 'environment_profile' in runtime and execution.get('environment_profile')!=runtime['environment_profile']:
+            raise PackageError('remote_environment_profile_mismatch')
         if execution.get('finish_reason') not in ('eos','stop') or any(type(execution.get(k)) is not int or execution[k]<0
             for k in ('prompt_tokens','generated_tokens')) or not isinstance(execution.get('runtime_seconds'),(int,float)):
             raise PackageError('remote_completion_metadata_missing')
