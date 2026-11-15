@@ -1,0 +1,188 @@
+{
+  "scope": "saved-log diagnosis; no new inference",
+  "client_errors": [
+    {
+      "stage": "extraction",
+      "code": "ReadTimeout"
+    }
+  ],
+  "actual_limit": "client/server request deadline with cancellation",
+  "model_load_seconds": 43.835,
+  "prompt_evaluation_seconds": null,
+  "generation_seconds": null,
+  "generated_tokens": null,
+  "phase_limitation": "logs do not separate prefill, generation or a stall after prompt submission",
+  "gpu_oom_demonstrated": false,
+  "openmp_conflict_demonstrated": false,
+  "snapshots": [
+    {
+      "label": "before_any_model",
+      "utc": "2026-11-07T05:38:53.676042+00:00",
+      "gpu": {
+        "name": "NVIDIA GeForce RTX 3050 6GB Laptop GPU",
+        "driver": "581.86",
+        "total_mib": 6144,
+        "used_mib": 2899,
+        "free_mib": 3104
+      },
+      "process_rss_bytes": 477868032,
+      "process_peak_wset_bytes": 477868032,
+      "host_available_bytes": 1133608960,
+      "host_total_bytes": 16873545728,
+      "ollama_models": [],
+      "torch_allocated_bytes": 0,
+      "torch_reserved_bytes": 0
+    },
+    {
+      "label": "before_bge",
+      "utc": "2026-11-07T05:38:55.963321+00:00",
+      "gpu": {
+        "name": "NVIDIA GeForce RTX 3050 6GB Laptop GPU",
+        "driver": "581.86",
+        "total_mib": 6144,
+        "used_mib": 2899,
+        "free_mib": 3104
+      },
+      "process_rss_bytes": 490377216,
+      "process_peak_wset_bytes": 490377216,
+      "host_available_bytes": 1115713536,
+      "host_total_bytes": 16873545728,
+      "ollama_models": [],
+      "torch_allocated_bytes": 0,
+      "torch_reserved_bytes": 0
+    },
+    {
+      "label": "after_bge_release",
+      "utc": "2026-11-07T05:39:42.841661+00:00",
+      "gpu": {
+        "name": "NVIDIA GeForce RTX 3050 6GB Laptop GPU",
+        "driver": "581.86",
+        "total_mib": 6144,
+        "used_mib": 2946,
+        "free_mib": 3057
+      },
+      "process_rss_bytes": 1100111872,
+      "process_peak_wset_bytes": 2772570112,
+      "host_available_bytes": 2706042880,
+      "host_total_bytes": 16873545728,
+      "ollama_models": [],
+      "torch_allocated_bytes": 8519680,
+      "torch_reserved_bytes": 16777216
+    },
+    {
+      "label": "immediately_before_qwen",
+      "utc": "2026-11-07T05:39:45.002939+00:00",
+      "gpu": {
+        "name": "NVIDIA GeForce RTX 3050 6GB Laptop GPU",
+        "driver": "581.86",
+        "total_mib": 6144,
+        "used_mib": 2946,
+        "free_mib": 3057
+      },
+      "process_rss_bytes": 1100296192,
+      "process_peak_wset_bytes": 2772570112,
+      "host_available_bytes": 2624348160,
+      "host_total_bytes": 16873545728,
+      "ollama_models": [],
+      "torch_allocated_bytes": 8519680,
+      "torch_reserved_bytes": 16777216
+    },
+    {
+      "label": "after_qwen",
+      "utc": "2026-11-07T05:42:49.653178+00:00",
+      "gpu": {
+        "name": "NVIDIA GeForce RTX 3050 6GB Laptop GPU",
+        "driver": "581.86",
+        "total_mib": 6144,
+        "used_mib": 5800,
+        "free_mib": 203
+      },
+      "process_rss_bytes": 1021902848,
+      "process_peak_wset_bytes": 2772570112,
+      "host_available_bytes": 248721408,
+      "host_total_bytes": 16873545728,
+      "ollama_models": [
+        {
+          "name": "qwen2.5:7b",
+          "model": "qwen2.5:7b",
+          "size": 5409058322,
+          "digest": "845dbda0ea48ed749caafd9e6037047aa19acfcfd82e704d7ca97d631a0b697e",
+          "details": {
+            "parent_model": "",
+            "format": "gguf",
+            "family": "qwen2",
+            "families": [
+              "qwen2"
+            ],
+            "parameter_size": "7.6B",
+            "quantization_level": "Q4_K_M"
+          },
+          "expires_at": "2026-11-07T11:17:47.1178404+05:30",
+          "size_vram": 4270619360,
+          "context_length": 8192,
+          "runner": "llamacpp"
+        }
+      ],
+      "torch_allocated_bytes": 8519680,
+      "torch_reserved_bytes": 16777216
+    },
+    {
+      "label": "after_qwen_unload",
+      "utc": "2026-11-07T05:42:53.842746+00:00",
+      "gpu": {
+        "name": "NVIDIA GeForce RTX 3050 6GB Laptop GPU",
+        "driver": "581.86",
+        "total_mib": 6144,
+        "used_mib": 2255,
+        "free_mib": 3748
+      },
+      "process_rss_bytes": 1021915136,
+      "process_peak_wset_bytes": 2772570112,
+      "host_available_bytes": 2652934144,
+      "host_total_bytes": 16873545728,
+      "ollama_models": [],
+      "torch_allocated_bytes": 8519680,
+      "torch_reserved_bytes": 16777216
+    }
+  ],
+  "log_status": "MATCHED_SAVED_RUN",
+  "source_log": "server.log",
+  "source_log_sha256": "15b977373085024f0fd474b3296825fe9e3372f115b5f670bf6ad40465204f99",
+  "model_started": "2026-11-07T11:09:48.811000+05:30",
+  "model_ready": "2026-11-07T11:10:32.646000+05:30",
+  "gpu_layers": [
+    24,
+    29
+  ],
+  "cpu_model_mib": 969.1,
+  "cpu_kv_mib": 80.0,
+  "scheduled_prompt_tokens": 1811.0,
+  "supporting_lines": [
+    {
+      "line": 2171,
+      "text": "load_tensors: offloaded 24/29 layers to GPU"
+    },
+    {
+      "line": 2173,
+      "text": "load_tensors:          CPU model buffer size =   969.10 MiB"
+    },
+    {
+      "line": 2198,
+      "text": "llama_kv_cache:        CPU KV buffer size =    80.00 MiB"
+    },
+    {
+      "line": 2268,
+      "text": "slot   operator(): id  0 | task 0 | new prompt, n_ctx_slot = 8192, n_keep = 4, task.n_tokens = 1811"
+    },
+    {
+      "line": 2313,
+      "text": "[GIN] 2026/11/07 - 11:12:47 | 500 |     3m0s |       127.0.0.1 | POST     \"/api/chat\""
+    },
+    {
+      "line": 2314,
+      "text": "srv          stop: cancel task, id_task = 0"
+    }
+  ],
+  "cpu_offloading_observed": true,
+  "interpretation": "Loading completed in about44s; a 1811-token prompt was submitted, then the request was cancelled at3m. CPU offload and low host RAM are observed, but the slow post-load phase is not timed. No evidence establishes GPU OOM as the cause."
+}

@@ -1,0 +1,308 @@
+{
+  "annotation_sha256": "f436549bdf5d2b65965655fde8597af153bfbea0e36d3851288336da78e660e1",
+  "document_sha256": "4643ffaa461005aae430068f1fcb0766aa6cc31e5b589565433230ee94901be2",
+  "chunk_corpus_sha256": "4e1f594d6496655b57715517ee2fa5ae915a395e4dac01467c273767f3f68789",
+  "scope": "synthetic fixture / deterministic candidate replay",
+  "dense_encoder": "TEST-ONLY-tiny-encoder",
+  "model": "none; controlled candidates injected only when source quote delivered",
+  "real_llm_accuracy": "NOT MEASURED",
+  "independent_real_annotations": false,
+  "rules": {
+    "evidence_delivery": "exact annotated quote is in the actual assembled context",
+    "tuple_delivery": "context contains every explicit row/column/value rendering and the annotated dataset/condition caption",
+    "tuple_match": "casefolded exact subject/dataset/metric/value/setting; absent values are not guessed",
+    "unsupported": "returned tuple not in frozen synthetic gold",
+    "no_predictions": "precision and unsupported rate are null, recall is zero when gold is nonempty",
+    "resources": "perf_counter latency and tracemalloc Python allocation peak; excludes native/GPU/server memory"
+  },
+  "configurations": {
+    "A": {
+      "status": "EXECUTED",
+      "retrieval": "five_query",
+      "context": "current",
+      "metrics": {
+        "correct_complete_tuples": 0,
+        "false_positive_tuples": 0,
+        "missed_tuples": 1,
+        "tuple_precision": null,
+        "tuple_recall": 0.0,
+        "unsupported_claim_rate": null,
+        "evidence_delivery_recall": 0.0,
+        "complete_tuple_delivery_recall": 0.0,
+        "abstained_candidates": 1,
+        "attempted_candidates": 1,
+        "provenance_preservation": null
+      },
+      "latency_ms": 59.80479996651411,
+      "python_peak_allocated_bytes": 69162,
+      "actual_model_tokens": null,
+      "delivery_trace": {
+        "mode": "current",
+        "max_words": 250,
+        "retrieved_chunk_ids": [
+          "SYN:0#0",
+          "SYN:1#0",
+          "SYN:1#1",
+          "SYN:2#0",
+          "SYN:3#0",
+          "SYN:4#0",
+          "SYN:5#0"
+        ],
+        "delivered_chunk_ids": [
+          "SYN:0#0",
+          "SYN:1#0",
+          "SYN:1#1"
+        ],
+        "partial_chunk_ids": [
+          "SYN:1#1"
+        ],
+        "dropped_chunk_ids": [
+          "SYN:2#0",
+          "SYN:3#0",
+          "SYN:4#0",
+          "SYN:5#0"
+        ],
+        "content_words": 250,
+        "token_count": null,
+        "token_count_method": "unmeasured"
+      },
+      "fact_traces": [
+        {
+          "earliest_confirmed_loss": "context",
+          "unknown_prior_stages": [],
+          "causal_earliest_established": true,
+          "observations": {
+            "acquisition": true,
+            "representation": true,
+            "parsing": true,
+            "chunking": true,
+            "retrieval": true,
+            "context": false,
+            "extraction": false,
+            "verification": false
+          }
+        }
+      ]
+    },
+    "B": {
+      "status": "EXECUTED",
+      "retrieval": "hybrid",
+      "context": "current",
+      "metrics": {
+        "correct_complete_tuples": 0,
+        "false_positive_tuples": 0,
+        "missed_tuples": 1,
+        "tuple_precision": null,
+        "tuple_recall": 0.0,
+        "unsupported_claim_rate": null,
+        "evidence_delivery_recall": 0.0,
+        "complete_tuple_delivery_recall": 0.0,
+        "abstained_candidates": 1,
+        "attempted_candidates": 1,
+        "provenance_preservation": null
+      },
+      "latency_ms": 35.06369999377057,
+      "python_peak_allocated_bytes": 94938,
+      "actual_model_tokens": null,
+      "delivery_trace": {
+        "mode": "current",
+        "max_words": 250,
+        "retrieved_chunk_ids": [
+          "SYN:5#0",
+          "SYN:2#0",
+          "SYN:0#0",
+          "SYN:1#0",
+          "SYN:1#1",
+          "SYN:3#0",
+          "SYN:4#0"
+        ],
+        "delivered_chunk_ids": [
+          "SYN:5#0",
+          "SYN:2#0",
+          "SYN:0#0",
+          "SYN:1#0"
+        ],
+        "partial_chunk_ids": [
+          "SYN:1#0"
+        ],
+        "dropped_chunk_ids": [
+          "SYN:1#1",
+          "SYN:3#0",
+          "SYN:4#0"
+        ],
+        "content_words": 250,
+        "token_count": null,
+        "token_count_method": "unmeasured"
+      },
+      "fact_traces": [
+        {
+          "earliest_confirmed_loss": "context",
+          "unknown_prior_stages": [],
+          "causal_earliest_established": true,
+          "observations": {
+            "acquisition": true,
+            "representation": true,
+            "parsing": true,
+            "chunking": true,
+            "retrieval": true,
+            "context": false,
+            "extraction": false,
+            "verification": false
+          }
+        }
+      ]
+    },
+    "C": {
+      "status": "EXECUTED",
+      "retrieval": "five_query",
+      "context": "revised",
+      "metrics": {
+        "correct_complete_tuples": 1,
+        "false_positive_tuples": 0,
+        "missed_tuples": 0,
+        "tuple_precision": 1.0,
+        "tuple_recall": 1.0,
+        "unsupported_claim_rate": 0.0,
+        "evidence_delivery_recall": 1.0,
+        "complete_tuple_delivery_recall": 1.0,
+        "abstained_candidates": 1,
+        "attempted_candidates": 2,
+        "provenance_preservation": 1.0
+      },
+      "latency_ms": 30.145400029141456,
+      "python_peak_allocated_bytes": 61232,
+      "actual_model_tokens": null,
+      "delivery_trace": {
+        "mode": "revised",
+        "max_words": 250,
+        "budget": 6000,
+        "budget_units_used": 2098,
+        "budget_method": "utf8_bytes_proxy",
+        "token_count": null,
+        "token_count_method": "unmeasured",
+        "retrieved_chunk_ids": [
+          "SYN:0#0",
+          "SYN:1#0",
+          "SYN:1#1",
+          "SYN:2#0",
+          "SYN:3#0",
+          "SYN:4#0",
+          "SYN:5#0"
+        ],
+        "delivered_chunk_ids": [
+          "SYN:4#0",
+          "SYN:3#0",
+          "SYN:2#0",
+          "SYN:5#0",
+          "SYN:0#0",
+          "SYN:1#1"
+        ],
+        "partial_chunk_ids": [],
+        "dropped_chunk_ids": [
+          "SYN:1#0"
+        ],
+        "drop_reasons": [
+          {
+            "chunk_id": "SYN:1#0",
+            "reason": "whole_chunk_exceeds_remaining_budget"
+          }
+        ],
+        "structured_tables_delivered": 1,
+        "content_words": 237
+      },
+      "fact_traces": [
+        {
+          "earliest_confirmed_loss": null,
+          "unknown_prior_stages": [],
+          "causal_earliest_established": true,
+          "observations": {
+            "acquisition": true,
+            "representation": true,
+            "parsing": true,
+            "chunking": true,
+            "retrieval": true,
+            "context": true,
+            "extraction": true,
+            "verification": true
+          }
+        }
+      ]
+    },
+    "D": {
+      "status": "EXECUTED",
+      "retrieval": "hybrid",
+      "context": "revised",
+      "metrics": {
+        "correct_complete_tuples": 1,
+        "false_positive_tuples": 0,
+        "missed_tuples": 0,
+        "tuple_precision": 1.0,
+        "tuple_recall": 1.0,
+        "unsupported_claim_rate": 0.0,
+        "evidence_delivery_recall": 1.0,
+        "complete_tuple_delivery_recall": 1.0,
+        "abstained_candidates": 1,
+        "attempted_candidates": 2,
+        "provenance_preservation": 1.0
+      },
+      "latency_ms": 26.72059996984899,
+      "python_peak_allocated_bytes": 58772,
+      "actual_model_tokens": null,
+      "delivery_trace": {
+        "mode": "revised",
+        "max_words": 250,
+        "budget": 6000,
+        "budget_units_used": 2098,
+        "budget_method": "utf8_bytes_proxy",
+        "token_count": null,
+        "token_count_method": "unmeasured",
+        "retrieved_chunk_ids": [
+          "SYN:5#0",
+          "SYN:2#0",
+          "SYN:0#0",
+          "SYN:1#0",
+          "SYN:1#1",
+          "SYN:3#0",
+          "SYN:4#0"
+        ],
+        "delivered_chunk_ids": [
+          "SYN:4#0",
+          "SYN:3#0",
+          "SYN:2#0",
+          "SYN:5#0",
+          "SYN:0#0",
+          "SYN:1#1"
+        ],
+        "partial_chunk_ids": [],
+        "dropped_chunk_ids": [
+          "SYN:1#0"
+        ],
+        "drop_reasons": [
+          {
+            "chunk_id": "SYN:1#0",
+            "reason": "whole_chunk_exceeds_remaining_budget"
+          }
+        ],
+        "structured_tables_delivered": 1,
+        "content_words": 237
+      },
+      "fact_traces": [
+        {
+          "earliest_confirmed_loss": null,
+          "unknown_prior_stages": [],
+          "causal_earliest_established": true,
+          "observations": {
+            "acquisition": true,
+            "representation": true,
+            "parsing": true,
+            "chunking": true,
+            "retrieval": true,
+            "context": true,
+            "extraction": true,
+            "verification": true
+          }
+        }
+      ]
+    }
+  }
+}

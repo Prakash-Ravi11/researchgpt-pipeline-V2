@@ -1,0 +1,127 @@
+{
+  "class": "INTEGRATION",
+  "document": "synthetic JATS fixture",
+  "mock_model": false,
+  "retrieval": "not exercised",
+  "independent_accuracy_annotations": false,
+  "status": "RESPONSE_RECEIVED",
+  "model": {
+    "content": {
+      "problem_statement": [],
+      "objective": [],
+      "research_gap": [],
+      "method": [
+        {
+          "value": "We propose a segmentation method and evaluate it on the ExampleSet dataset using the held-out test split.",
+          "evidence_span": "[SYN:1#0]",
+          "chunk_id": "1"
+        }
+      ],
+      "datasets": [
+        {
+          "value": "ExampleSet",
+          "evidence_span": "[SYN:0#0], [SYN:1#0], [SYN:2#0], [SYN:3#0]",
+          "chunk_id": "0, 1, 2, 3"
+        }
+      ],
+      "metrics": [
+        {
+          "value": "Dice score",
+          "evidence_span": "[SYN:2#0], [SYN:3#0]",
+          "chunk_id": "2, 3"
+        },
+        {
+          "value": "HD95 (mm)",
+          "evidence_span": "[SYN:3#0]",
+          "chunk_id": "3"
+        }
+      ],
+      "results": [
+        {
+          "value": "91.4%",
+          "evidence_span": "[SYN:2#0]",
+          "chunk_id": "2",
+          "scientific_tuple": {
+            "subject": "Ours",
+            "dataset": "ExampleSet test set",
+            "metric": "Dice (%)",
+            "value": "91.4",
+            "setting": null
+          }
+        },
+        {
+          "value": "4.3",
+          "evidence_span": "[SYN:3#0]",
+          "chunk_id": "3",
+          "scientific_tuple": {
+            "subject": "Ours",
+            "dataset": "ExampleSet test set",
+            "metric": "HD95 (mm)",
+            "value": "4.3",
+            "setting": null
+          }
+        },
+        {
+          "value": "85.1",
+          "evidence_span": "[SYN:3#0]",
+          "chunk_id": "3",
+          "scientific_tuple": {
+            "subject": "Baseline",
+            "dataset": "ExampleSet test set",
+            "metric": "Dice (%)",
+            "value": "85.1",
+            "setting": null
+          }
+        },
+        {
+          "value": "7.2",
+          "evidence_span": "[SYN:3#0]",
+          "chunk_id": "3",
+          "scientific_tuple": {
+            "subject": "Baseline",
+            "dataset": "ExampleSet test set",
+            "metric": "HD95 (mm)",
+            "value": "7.2",
+            "setting": null
+          }
+        }
+      ],
+      "limitations": [
+        {
+          "value": "Our evaluation is limited to the ExampleSet test set. Future work will evaluate external datasets.",
+          "evidence_span": "[SYN:4#0]",
+          "chunk_id": "4"
+        }
+      ],
+      "future_scope": [
+        {
+          "value": "Future work will evaluate external datasets.",
+          "evidence_span": "[SYN:4#0]",
+          "chunk_id": "4"
+        }
+      ],
+      "key_findings": [
+        {
+          "value": "Our method achieves a Dice score of 91.4% on the ExampleSet test set.",
+          "evidence_span": "[SYN:2#0]",
+          "chunk_id": "2"
+        }
+      ]
+    },
+    "provider": "ollama",
+    "model": "qwen2.5:7b",
+    "prompt_tokens": 392,
+    "completion_tokens": 754,
+    "latency_ms": 114056.58129998483,
+    "finish_reason": "stop"
+  },
+  "host_verification": {
+    "candidate_count": 11,
+    "returned": 0,
+    "abstention_reasons": {
+      "source_chunk_not_delivered": 11
+    },
+    "verified_fields": [],
+    "verified_numeric_results": 0
+  }
+}

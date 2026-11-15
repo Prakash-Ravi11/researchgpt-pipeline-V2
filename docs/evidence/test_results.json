@@ -1,0 +1,591 @@
+{
+  "command": ".venv/Scripts/python.exe -B -m pytest -p no:cacheprovider tests -q --junitxml=outputs/pytest.xml",
+  "environment": {
+    "python": "3.10.18",
+    "platform": "Windows-10-10.0.26300-SP0",
+    "packages": {
+      "pydantic": "2.12.5",
+      "fastapi": "0.116.1",
+      "uvicorn": "0.35.0",
+      "requests": "2.32.5",
+      "PyMuPDF": "1.28.2",
+      "PyYAML": "6.0.2",
+      "tqdm": "4.67.1",
+      "chromadb": "1.1.1",
+      "sentence-transformers": "5.1.1",
+      "torch": "2.5.1",
+      "numpy": "2.2.6",
+      "rank-bm25": "0.2.2",
+      "pytest": "8.4.2",
+      "httpx": "0.28.1"
+    }
+  },
+  "scope": "contract/unit/connected synthetic fixtures; no real-model end-to-end pytest",
+  "counts": {
+    "PASSED": 70,
+    "FAILED": 0,
+    "SKIPPED": 0
+  },
+  "tests": [
+    {
+      "module": "tests.test_anchors",
+      "name": "test_matches_decimal_and_2plus_digit_int",
+      "status": "PASSED",
+      "seconds": 0.003,
+      "classification": "UNIT",
+      "mocks_or_doubles": "False"
+    },
+    {
+      "module": "tests.test_anchors",
+      "name": "test_rejects_lone_single_digit",
+      "status": "PASSED",
+      "seconds": 0.002,
+      "classification": "UNIT",
+      "mocks_or_doubles": "False"
+    },
+    {
+      "module": "tests.test_anchors",
+      "name": "test_anchor_values_no_exclusions",
+      "status": "PASSED",
+      "seconds": 0.002,
+      "classification": "UNIT",
+      "mocks_or_doubles": "False"
+    },
+    {
+      "module": "tests.test_anchors",
+      "name": "test_year_excluded",
+      "status": "PASSED",
+      "seconds": 0.002,
+      "classification": "UNIT",
+      "mocks_or_doubles": "False"
+    },
+    {
+      "module": "tests.test_anchors",
+      "name": "test_bracketed_reference_id_excluded",
+      "status": "PASSED",
+      "seconds": 0.002,
+      "classification": "UNIT",
+      "mocks_or_doubles": "False"
+    },
+    {
+      "module": "tests.test_anchors",
+      "name": "test_section_table_equation_prefix_excluded",
+      "status": "PASSED",
+      "seconds": 0.001,
+      "classification": "UNIT",
+      "mocks_or_doubles": "False"
+    },
+    {
+      "module": "tests.test_anchors",
+      "name": "test_arxiv_fragment_excluded",
+      "status": "PASSED",
+      "seconds": 0.001,
+      "classification": "UNIT",
+      "mocks_or_doubles": "False"
+    },
+    {
+      "module": "tests.test_anchors",
+      "name": "test_find_anchors_offsets_and_filtering",
+      "status": "PASSED",
+      "seconds": 0.001,
+      "classification": "UNIT",
+      "mocks_or_doubles": "False"
+    },
+    {
+      "module": "tests.test_anchors",
+      "name": "test_neutrality_against_pre_centralization_implementation",
+      "status": "PASSED",
+      "seconds": 0.003,
+      "classification": "UNIT",
+      "mocks_or_doubles": "False"
+    },
+    {
+      "module": "tests.test_api",
+      "name": "test_health_schema_and_fixture_job",
+      "status": "PASSED",
+      "seconds": 3.335,
+      "classification": "INTEGRATION",
+      "mocks_or_doubles": "True"
+    },
+    {
+      "module": "tests.test_api",
+      "name": "test_bad_configuration_and_failed_jobs_are_explicit",
+      "status": "PASSED",
+      "seconds": 0.049,
+      "classification": "INTEGRATION",
+      "mocks_or_doubles": "True"
+    },
+    {
+      "module": "tests.test_clients_and_dispatch",
+      "name": "test_local_client_sends_full_id_enum_and_retains_actual_usage",
+      "status": "PASSED",
+      "seconds": 0.003,
+      "classification": "UNIT",
+      "mocks_or_doubles": "True"
+    },
+    {
+      "module": "tests.test_clients_and_dispatch",
+      "name": "test_bad_json_and_incomplete_output_fail_explicitly",
+      "status": "PASSED",
+      "seconds": 0.004,
+      "classification": "UNIT",
+      "mocks_or_doubles": "True"
+    },
+    {
+      "module": "tests.test_clients_and_dispatch",
+      "name": "test_hosted_transport_contract_without_network_or_credentials",
+      "status": "PASSED",
+      "seconds": 0.002,
+      "classification": "UNIT",
+      "mocks_or_doubles": "True"
+    },
+    {
+      "module": "tests.test_clients_and_dispatch",
+      "name": "test_latex_and_abstract_dispatch_preserve_identity_and_structure",
+      "status": "PASSED",
+      "seconds": 0.022,
+      "classification": "UNIT",
+      "mocks_or_doubles": "False"
+    },
+    {
+      "module": "tests.test_context_and_retrieval",
+      "name": "test_revised_context_delivers_tail_evidence_and_structured_relationships",
+      "status": "PASSED",
+      "seconds": 0.003,
+      "classification": "UNIT",
+      "mocks_or_doubles": "False"
+    },
+    {
+      "module": "tests.test_context_and_retrieval",
+      "name": "test_revised_exact_counter_and_whole_chunk_limit",
+      "status": "PASSED",
+      "seconds": 0.003,
+      "classification": "UNIT",
+      "mocks_or_doubles": "False"
+    },
+    {
+      "module": "tests.test_context_and_retrieval",
+      "name": "test_five_query_baseline_preserves_executable_parameters",
+      "status": "PASSED",
+      "seconds": 0.003,
+      "classification": "UNIT",
+      "mocks_or_doubles": "True"
+    },
+    {
+      "module": "tests.test_context_and_retrieval",
+      "name": "test_real_bm25_fusion_preserves_identity_and_duplicate_prefixes",
+      "status": "PASSED",
+      "seconds": 0.01,
+      "classification": "UNIT",
+      "mocks_or_doubles": "True"
+    },
+    {
+      "module": "tests.test_contracts",
+      "name": "test_nested_round_trip_keeps_identity_and_provenance",
+      "status": "PASSED",
+      "seconds": 0.002,
+      "classification": "CONTRACT",
+      "mocks_or_doubles": "False"
+    },
+    {
+      "module": "tests.test_contracts",
+      "name": "test_identity_alias_and_fallbacks",
+      "status": "PASSED",
+      "seconds": 0.003,
+      "classification": "CONTRACT",
+      "mocks_or_doubles": "False"
+    },
+    {
+      "module": "tests.test_contracts",
+      "name": "test_unvalidated_full_text_and_unsupported_returns_rejected",
+      "status": "PASSED",
+      "seconds": 0.002,
+      "classification": "CONTRACT",
+      "mocks_or_doubles": "False"
+    },
+    {
+      "module": "tests.test_contracts",
+      "name": "test_cross_paper_reference_rejected",
+      "status": "PASSED",
+      "seconds": 0.002,
+      "classification": "CONTRACT",
+      "mocks_or_doubles": "False"
+    },
+    {
+      "module": "tests.test_contracts",
+      "name": "test_latex_cannot_establish_its_own_identity",
+      "status": "PASSED",
+      "seconds": 0.002,
+      "classification": "CONTRACT",
+      "mocks_or_doubles": "False"
+    },
+    {
+      "module": "tests.test_diagnostics",
+      "name": "test_chunk_offsets_point_into_exact_source_whitespace",
+      "status": "PASSED",
+      "seconds": 0.001,
+      "classification": "UNIT",
+      "mocks_or_doubles": "False"
+    },
+    {
+      "module": "tests.test_diagnostics",
+      "name": "test_jats_colspan_header_preserves_metric_column",
+      "status": "PASSED",
+      "seconds": 0.002,
+      "classification": "UNIT",
+      "mocks_or_doubles": "False"
+    },
+    {
+      "module": "tests.test_diagnostics",
+      "name": "test_jats_content_length_does_not_count_nested_text_repeatedly",
+      "status": "PASSED",
+      "seconds": 0.002,
+      "classification": "UNIT",
+      "mocks_or_doubles": "False"
+    },
+    {
+      "module": "tests.test_diagnostics",
+      "name": "test_jats_colspan_row_label_does_not_shift_values_into_wrong_metric",
+      "status": "PASSED",
+      "seconds": 0.002,
+      "classification": "UNIT",
+      "mocks_or_doubles": "False"
+    },
+    {
+      "module": "tests.test_diagnostics",
+      "name": "test_context_trace_exposes_retrieved_but_undelivered_result",
+      "status": "PASSED",
+      "seconds": 0.003,
+      "classification": "UNIT",
+      "mocks_or_doubles": "False"
+    },
+    {
+      "module": "tests.test_diagnostics",
+      "name": "test_ambiguous_merged_measurement_is_preserved_but_not_bound",
+      "status": "PASSED",
+      "seconds": 0.001,
+      "classification": "UNIT",
+      "mocks_or_doubles": "False"
+    },
+    {
+      "module": "tests.test_diagnostics",
+      "name": "test_overlapping_long_chunks_keep_exact_source_offsets",
+      "status": "PASSED",
+      "seconds": 0.003,
+      "classification": "UNIT",
+      "mocks_or_doubles": "False"
+    },
+    {
+      "module": "tests.test_diagnostics",
+      "name": "test_jats_nested_section_hierarchy_survives_chunking",
+      "status": "PASSED",
+      "seconds": 0.002,
+      "classification": "UNIT",
+      "mocks_or_doubles": "False"
+    },
+    {
+      "module": "tests.test_evaluation",
+      "name": "test_earliest_loss_does_not_treat_missing_observations_as_success",
+      "status": "PASSED",
+      "seconds": 0.002,
+      "classification": "UNIT",
+      "mocks_or_doubles": "False"
+    },
+    {
+      "module": "tests.test_evaluation",
+      "name": "test_complete_tuple_scoring_requires_dataset_and_condition",
+      "status": "PASSED",
+      "seconds": 0.002,
+      "classification": "UNIT",
+      "mocks_or_doubles": "False"
+    },
+    {
+      "module": "tests.test_pdf_table_cells",
+      "name": "test_ruled_table_is_detected_and_every_cell_reconstructed",
+      "status": "PASSED",
+      "seconds": 0.177,
+      "classification": "INTEGRATION",
+      "mocks_or_doubles": "False"
+    },
+    {
+      "module": "tests.test_pdf_table_cells",
+      "name": "test_first_column_that_is_a_genuine_label_is_kept",
+      "status": "PASSED",
+      "seconds": 0.063,
+      "classification": "INTEGRATION",
+      "mocks_or_doubles": "False"
+    },
+    {
+      "module": "tests.test_pdf_table_cells",
+      "name": "test_caption_and_section_are_preserved_on_block_and_cells",
+      "status": "PASSED",
+      "seconds": 0.08,
+      "classification": "INTEGRATION",
+      "mocks_or_doubles": "False"
+    },
+    {
+      "module": "tests.test_pdf_table_cells",
+      "name": "test_page_is_preserved",
+      "status": "PASSED",
+      "seconds": 0.08,
+      "classification": "INTEGRATION",
+      "mocks_or_doubles": "False"
+    },
+    {
+      "module": "tests.test_pdf_table_cells",
+      "name": "test_cells_propagate_to_chunks",
+      "status": "PASSED",
+      "seconds": 0.223,
+      "classification": "INTEGRATION",
+      "mocks_or_doubles": "False"
+    },
+    {
+      "module": "tests.test_pdf_table_cells",
+      "name": "test_index_column_detection[S.no-values0-True]",
+      "status": "PASSED",
+      "seconds": 0.002,
+      "classification": "INTEGRATION",
+      "mocks_or_doubles": "False"
+    },
+    {
+      "module": "tests.test_pdf_table_cells",
+      "name": "test_index_column_detection[#-values1-True]",
+      "status": "PASSED",
+      "seconds": 0.003,
+      "classification": "INTEGRATION",
+      "mocks_or_doubles": "False"
+    },
+    {
+      "module": "tests.test_pdf_table_cells",
+      "name": "test_index_column_detection[-values2-True]",
+      "status": "PASSED",
+      "seconds": 0.002,
+      "classification": "INTEGRATION",
+      "mocks_or_doubles": "False"
+    },
+    {
+      "module": "tests.test_pdf_table_cells",
+      "name": "test_index_column_detection[No.-values3-True]",
+      "status": "PASSED",
+      "seconds": 0.002,
+      "classification": "INTEGRATION",
+      "mocks_or_doubles": "False"
+    },
+    {
+      "module": "tests.test_pdf_table_cells",
+      "name": "test_index_column_detection[Fold-values4-False]",
+      "status": "PASSED",
+      "seconds": 0.002,
+      "classification": "INTEGRATION",
+      "mocks_or_doubles": "False"
+    },
+    {
+      "module": "tests.test_pdf_table_cells",
+      "name": "test_index_column_detection[No.-values5-False]",
+      "status": "PASSED",
+      "seconds": 0.003,
+      "classification": "INTEGRATION",
+      "mocks_or_doubles": "False"
+    },
+    {
+      "module": "tests.test_pdf_table_cells",
+      "name": "test_index_column_detection[No.-values6-False]",
+      "status": "PASSED",
+      "seconds": 0.003,
+      "classification": "INTEGRATION",
+      "mocks_or_doubles": "False"
+    },
+    {
+      "module": "tests.test_pdf_table_cells",
+      "name": "test_index_column_detection[ID-values7-False]",
+      "status": "PASSED",
+      "seconds": 0.002,
+      "classification": "INTEGRATION",
+      "mocks_or_doubles": "False"
+    },
+    {
+      "module": "tests.test_pdf_table_cells",
+      "name": "test_index_column_detection[Epochs-values8-False]",
+      "status": "PASSED",
+      "seconds": 0.002,
+      "classification": "INTEGRATION",
+      "mocks_or_doubles": "False"
+    },
+    {
+      "module": "tests.test_pdf_table_cells",
+      "name": "test_index_column_detection[No.-values9-False]",
+      "status": "PASSED",
+      "seconds": 0.002,
+      "classification": "INTEGRATION",
+      "mocks_or_doubles": "False"
+    },
+    {
+      "module": "tests.test_pdf_table_cells",
+      "name": "test_entity_row_label_is_used_when_the_first_column_is_an_index",
+      "status": "PASSED",
+      "seconds": 0.07,
+      "classification": "INTEGRATION",
+      "mocks_or_doubles": "False"
+    },
+    {
+      "module": "tests.test_pdf_table_cells",
+      "name": "test_row_label_column_rule[header0-body0-2]",
+      "status": "PASSED",
+      "seconds": 0.002,
+      "classification": "INTEGRATION",
+      "mocks_or_doubles": "False"
+    },
+    {
+      "module": "tests.test_pdf_table_cells",
+      "name": "test_row_label_column_rule[header1-body1-0]",
+      "status": "PASSED",
+      "seconds": 0.003,
+      "classification": "INTEGRATION",
+      "mocks_or_doubles": "False"
+    },
+    {
+      "module": "tests.test_pdf_table_cells",
+      "name": "test_row_label_column_rule[header2-body2-0]",
+      "status": "PASSED",
+      "seconds": 0.002,
+      "classification": "INTEGRATION",
+      "mocks_or_doubles": "False"
+    },
+    {
+      "module": "tests.test_pdf_table_cells",
+      "name": "test_row_label_column_rule[header3-body3-0]",
+      "status": "PASSED",
+      "seconds": 0.003,
+      "classification": "INTEGRATION",
+      "mocks_or_doubles": "False"
+    },
+    {
+      "module": "tests.test_pdf_table_cells",
+      "name": "test_prose_never_becomes_a_table",
+      "status": "PASSED",
+      "seconds": 0.055,
+      "classification": "INTEGRATION",
+      "mocks_or_doubles": "False"
+    },
+    {
+      "module": "tests.test_pdf_table_cells",
+      "name": "test_stacked_records_grid_is_rejected",
+      "status": "PASSED",
+      "seconds": 0.057,
+      "classification": "INTEGRATION",
+      "mocks_or_doubles": "False"
+    },
+    {
+      "module": "tests.test_pdf_table_cells",
+      "name": "test_grid_validation[header0-body0-too_few_body_rows:1]",
+      "status": "PASSED",
+      "seconds": 0.003,
+      "classification": "INTEGRATION",
+      "mocks_or_doubles": "False"
+    },
+    {
+      "module": "tests.test_pdf_table_cells",
+      "name": "test_grid_validation[header1-body1-too_few_columns:1]",
+      "status": "PASSED",
+      "seconds": 0.005,
+      "classification": "INTEGRATION",
+      "mocks_or_doubles": "False"
+    },
+    {
+      "module": "tests.test_pdf_table_cells",
+      "name": "test_grid_validation[header2-body2-header_has_no_words]",
+      "status": "PASSED",
+      "seconds": 0.003,
+      "classification": "INTEGRATION",
+      "mocks_or_doubles": "False"
+    },
+    {
+      "module": "tests.test_pdf_table_cells",
+      "name": "test_grid_validation[header3-body3-prose_like_cell]",
+      "status": "PASSED",
+      "seconds": 0.002,
+      "classification": "INTEGRATION",
+      "mocks_or_doubles": "False"
+    },
+    {
+      "module": "tests.test_pdf_table_cells",
+      "name": "test_grid_validation[header4-body4-wrapped_text_rows]",
+      "status": "PASSED",
+      "seconds": 0.003,
+      "classification": "INTEGRATION",
+      "mocks_or_doubles": "False"
+    },
+    {
+      "module": "tests.test_pdf_table_cells",
+      "name": "test_grid_validation[header5-body5-None]",
+      "status": "PASSED",
+      "seconds": 0.004,
+      "classification": "INTEGRATION",
+      "mocks_or_doubles": "False"
+    },
+    {
+      "module": "tests.test_pdf_table_cells",
+      "name": "test_block_text_stream_is_unchanged",
+      "status": "PASSED",
+      "seconds": 0.151,
+      "classification": "INTEGRATION",
+      "mocks_or_doubles": "True"
+    },
+    {
+      "module": "tests.test_pdf_table_cells",
+      "name": "test_end_to_end_claim_binds_and_gate_returns_it",
+      "status": "PASSED",
+      "seconds": 0.099,
+      "classification": "INTEGRATION",
+      "mocks_or_doubles": "True"
+    },
+    {
+      "module": "tests.test_pipeline_integration",
+      "name": "test_jats_and_chroma_round_trip_and_connected_verification",
+      "status": "PASSED",
+      "seconds": 0.333,
+      "classification": "INTEGRATION",
+      "mocks_or_doubles": "True"
+    },
+    {
+      "module": "tests.test_pipeline_integration",
+      "name": "test_unsupported_value_and_wrong_dataset_rejected",
+      "status": "PASSED",
+      "seconds": 0.004,
+      "classification": "INTEGRATION",
+      "mocks_or_doubles": "False"
+    },
+    {
+      "module": "tests.test_pipeline_integration",
+      "name": "test_missing_full_text_is_distinct_from_failed_extraction",
+      "status": "PASSED",
+      "seconds": 0.388,
+      "classification": "INTEGRATION",
+      "mocks_or_doubles": "True"
+    },
+    {
+      "module": "tests.test_pipeline_integration",
+      "name": "test_identity_and_content_validation_reject_wrong_or_thin_document",
+      "status": "PASSED",
+      "seconds": 0.003,
+      "classification": "INTEGRATION",
+      "mocks_or_doubles": "False"
+    },
+    {
+      "module": "tests.test_pipeline_integration",
+      "name": "test_project_collection_and_paper_replacement_are_isolated",
+      "status": "PASSED",
+      "seconds": 0.531,
+      "classification": "INTEGRATION",
+      "mocks_or_doubles": "True"
+    },
+    {
+      "module": "tests.test_pipeline_integration",
+      "name": "test_source_identity_change_is_a_failure_on_the_requested_paper",
+      "status": "PASSED",
+      "seconds": 0.003,
+      "classification": "INTEGRATION",
+      "mocks_or_doubles": "True"
+    }
+  ]
+}

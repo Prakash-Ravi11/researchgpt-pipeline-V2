@@ -1,0 +1,4 @@
+# Audited defaults, not a machine-specific secrets file.
+fallthrough_policy: table_value_guard
+borderless_policy: off
+latex_ingestion_enabled: false

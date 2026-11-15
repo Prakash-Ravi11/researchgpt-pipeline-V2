@@ -1,0 +1,21 @@
+{
+  "name": "kaggle-t4-cu130-v1",
+  "python_requires": ">=3.10,<3.15",
+  "torch_version": "2.11.0+cu130",
+  "torch_cuda": "13.0",
+  "device_name_contains": "T4",
+  "minimum_free_bytes": 9000000000,
+  "requirements_file": "kaggle/requirements-kaggle-cu130.txt",
+  "overlay_pins": {
+    "transformers": "4.55.2",
+    "tokenizers": "0.21.4",
+    "accelerate": "1.10.1",
+    "bitsandbytes": "0.50.2",
+    "safetensors": "0.6.2",
+    "huggingface-hub": "0.36.2",
+    "lm-format-enforcer": "0.11.3",
+    "interegular": "0.3.3"
+  },
+  "base_requirements": ["numpy>=1.26,<3", "pydantic>=2.7,<3", "requests>=2.31,<3", "jsonschema>=4.25,<5"],
+  "validation_scope": "Base torch/CUDA/bitsandbytes observed in saved run02; new overlay requires clean Kaggle preflight. No universal compatibility claim."
+}

@@ -1,0 +1,375 @@
+{
+  "type": "object",
+  "properties": {
+    "problem_statement": {
+      "type": "array",
+      "maxItems": 1,
+      "items": {
+        "type": "object",
+        "properties": {
+          "evidence_id": {
+            "type": "string",
+            "enum": [
+              "span:arxiv:1706.03762:121#0@0:85",
+              "span:arxiv:1706.03762:121#0@86:185",
+              "span:arxiv:1706.03762:124#0@0:257",
+              "span:arxiv:1706.03762:124#0@258:330",
+              "span:arxiv:1706.03762:124#0@331:369",
+              "span:arxiv:1706.03762:124#0@370:515",
+              "span:arxiv:1706.03762:125#0@0:232",
+              "span:arxiv:1706.03762:125#0@233:337",
+              "span:arxiv:1706.03762:16#0@0:144",
+              "span:arxiv:1706.03762:16#0@145:240",
+              "span:arxiv:1706.03762:16#0@241:395",
+              "span:arxiv:1706.03762:16#0@396:564",
+              "span:arxiv:1706.03762:16#0@565:725",
+              "span:arxiv:1706.03762:11#0@0:8",
+              "span:arxiv:1706.03762:16#0@726:976",
+              "span:arxiv:1706.03762:16#0@977:1140",
+              "span:arxiv:1706.03762:1#0@0:16",
+              "span:arxiv:1706.03762:6#0@0:45",
+              "span:arxiv:1706.03762:11#0@9:59"
+            ]
+          }
+        },
+        "required": [
+          "evidence_id"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "objective": {
+      "type": "array",
+      "maxItems": 1,
+      "items": {
+        "type": "object",
+        "properties": {
+          "evidence_id": {
+            "type": "string",
+            "enum": [
+              "span:arxiv:1706.03762:121#0@0:85",
+              "span:arxiv:1706.03762:121#0@86:185",
+              "span:arxiv:1706.03762:124#0@0:257",
+              "span:arxiv:1706.03762:124#0@258:330",
+              "span:arxiv:1706.03762:124#0@331:369",
+              "span:arxiv:1706.03762:124#0@370:515",
+              "span:arxiv:1706.03762:125#0@0:232",
+              "span:arxiv:1706.03762:125#0@233:337",
+              "span:arxiv:1706.03762:16#0@0:144",
+              "span:arxiv:1706.03762:16#0@145:240",
+              "span:arxiv:1706.03762:16#0@241:395",
+              "span:arxiv:1706.03762:16#0@396:564",
+              "span:arxiv:1706.03762:16#0@565:725",
+              "span:arxiv:1706.03762:11#0@0:8",
+              "span:arxiv:1706.03762:16#0@726:976",
+              "span:arxiv:1706.03762:16#0@977:1140",
+              "span:arxiv:1706.03762:1#0@0:16",
+              "span:arxiv:1706.03762:6#0@0:45",
+              "span:arxiv:1706.03762:11#0@9:59"
+            ]
+          }
+        },
+        "required": [
+          "evidence_id"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "research_gap": {
+      "type": "array",
+      "maxItems": 1,
+      "items": {
+        "type": "object",
+        "properties": {
+          "evidence_id": {
+            "type": "string",
+            "enum": [
+              "span:arxiv:1706.03762:121#0@0:85",
+              "span:arxiv:1706.03762:121#0@86:185",
+              "span:arxiv:1706.03762:124#0@0:257",
+              "span:arxiv:1706.03762:124#0@258:330",
+              "span:arxiv:1706.03762:124#0@331:369",
+              "span:arxiv:1706.03762:124#0@370:515",
+              "span:arxiv:1706.03762:125#0@0:232",
+              "span:arxiv:1706.03762:125#0@233:337",
+              "span:arxiv:1706.03762:16#0@0:144",
+              "span:arxiv:1706.03762:16#0@145:240",
+              "span:arxiv:1706.03762:16#0@241:395",
+              "span:arxiv:1706.03762:16#0@396:564",
+              "span:arxiv:1706.03762:16#0@565:725",
+              "span:arxiv:1706.03762:11#0@0:8",
+              "span:arxiv:1706.03762:16#0@726:976",
+              "span:arxiv:1706.03762:16#0@977:1140",
+              "span:arxiv:1706.03762:1#0@0:16",
+              "span:arxiv:1706.03762:6#0@0:45",
+              "span:arxiv:1706.03762:11#0@9:59"
+            ]
+          }
+        },
+        "required": [
+          "evidence_id"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "method": {
+      "type": "array",
+      "maxItems": 1,
+      "items": {
+        "type": "object",
+        "properties": {
+          "evidence_id": {
+            "type": "string",
+            "enum": [
+              "span:arxiv:1706.03762:121#0@0:85",
+              "span:arxiv:1706.03762:121#0@86:185",
+              "span:arxiv:1706.03762:124#0@0:257",
+              "span:arxiv:1706.03762:124#0@258:330",
+              "span:arxiv:1706.03762:124#0@331:369",
+              "span:arxiv:1706.03762:124#0@370:515",
+              "span:arxiv:1706.03762:125#0@0:232",
+              "span:arxiv:1706.03762:125#0@233:337",
+              "span:arxiv:1706.03762:16#0@0:144",
+              "span:arxiv:1706.03762:16#0@145:240",
+              "span:arxiv:1706.03762:16#0@241:395",
+              "span:arxiv:1706.03762:16#0@396:564",
+              "span:arxiv:1706.03762:16#0@565:725",
+              "span:arxiv:1706.03762:11#0@0:8",
+              "span:arxiv:1706.03762:16#0@726:976",
+              "span:arxiv:1706.03762:16#0@977:1140",
+              "span:arxiv:1706.03762:1#0@0:16",
+              "span:arxiv:1706.03762:6#0@0:45",
+              "span:arxiv:1706.03762:11#0@9:59"
+            ]
+          }
+        },
+        "required": [
+          "evidence_id"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "datasets": {
+      "type": "array",
+      "maxItems": 1,
+      "items": {
+        "type": "object",
+        "properties": {
+          "evidence_id": {
+            "type": "string",
+            "enum": [
+              "span:arxiv:1706.03762:121#0@0:85",
+              "span:arxiv:1706.03762:121#0@86:185",
+              "span:arxiv:1706.03762:124#0@0:257",
+              "span:arxiv:1706.03762:124#0@258:330",
+              "span:arxiv:1706.03762:124#0@331:369",
+              "span:arxiv:1706.03762:124#0@370:515",
+              "span:arxiv:1706.03762:125#0@0:232",
+              "span:arxiv:1706.03762:125#0@233:337",
+              "span:arxiv:1706.03762:16#0@0:144",
+              "span:arxiv:1706.03762:16#0@145:240",
+              "span:arxiv:1706.03762:16#0@241:395",
+              "span:arxiv:1706.03762:16#0@396:564",
+              "span:arxiv:1706.03762:16#0@565:725",
+              "span:arxiv:1706.03762:11#0@0:8",
+              "span:arxiv:1706.03762:16#0@726:976",
+              "span:arxiv:1706.03762:16#0@977:1140",
+              "span:arxiv:1706.03762:1#0@0:16",
+              "span:arxiv:1706.03762:6#0@0:45",
+              "span:arxiv:1706.03762:11#0@9:59"
+            ]
+          }
+        },
+        "required": [
+          "evidence_id"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "metrics": {
+      "type": "array",
+      "maxItems": 1,
+      "items": {
+        "type": "object",
+        "properties": {
+          "evidence_id": {
+            "type": "string",
+            "enum": [
+              "span:arxiv:1706.03762:121#0@0:85",
+              "span:arxiv:1706.03762:121#0@86:185",
+              "span:arxiv:1706.03762:124#0@0:257",
+              "span:arxiv:1706.03762:124#0@258:330",
+              "span:arxiv:1706.03762:124#0@331:369",
+              "span:arxiv:1706.03762:124#0@370:515",
+              "span:arxiv:1706.03762:125#0@0:232",
+              "span:arxiv:1706.03762:125#0@233:337",
+              "span:arxiv:1706.03762:16#0@0:144",
+              "span:arxiv:1706.03762:16#0@145:240",
+              "span:arxiv:1706.03762:16#0@241:395",
+              "span:arxiv:1706.03762:16#0@396:564",
+              "span:arxiv:1706.03762:16#0@565:725",
+              "span:arxiv:1706.03762:11#0@0:8",
+              "span:arxiv:1706.03762:16#0@726:976",
+              "span:arxiv:1706.03762:16#0@977:1140",
+              "span:arxiv:1706.03762:1#0@0:16",
+              "span:arxiv:1706.03762:6#0@0:45",
+              "span:arxiv:1706.03762:11#0@9:59",
+              "bundle:21d5690406bd141f0cddee94",
+              "bundle:e9a2425e3ed4961a0c4a3edf"
+            ]
+          }
+        },
+        "required": [
+          "evidence_id"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "results": {
+      "type": "array",
+      "maxItems": 1,
+      "items": {
+        "type": "object",
+        "properties": {
+          "evidence_id": {
+            "type": "string",
+            "enum": [
+              "bundle:21d5690406bd141f0cddee94",
+              "bundle:e9a2425e3ed4961a0c4a3edf"
+            ]
+          }
+        },
+        "required": [
+          "evidence_id"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "limitations": {
+      "type": "array",
+      "maxItems": 1,
+      "items": {
+        "type": "object",
+        "properties": {
+          "evidence_id": {
+            "type": "string",
+            "enum": [
+              "span:arxiv:1706.03762:121#0@0:85",
+              "span:arxiv:1706.03762:121#0@86:185",
+              "span:arxiv:1706.03762:124#0@0:257",
+              "span:arxiv:1706.03762:124#0@258:330",
+              "span:arxiv:1706.03762:124#0@331:369",
+              "span:arxiv:1706.03762:124#0@370:515",
+              "span:arxiv:1706.03762:125#0@0:232",
+              "span:arxiv:1706.03762:125#0@233:337",
+              "span:arxiv:1706.03762:16#0@0:144",
+              "span:arxiv:1706.03762:16#0@145:240",
+              "span:arxiv:1706.03762:16#0@241:395",
+              "span:arxiv:1706.03762:16#0@396:564",
+              "span:arxiv:1706.03762:16#0@565:725",
+              "span:arxiv:1706.03762:11#0@0:8",
+              "span:arxiv:1706.03762:16#0@726:976",
+              "span:arxiv:1706.03762:16#0@977:1140",
+              "span:arxiv:1706.03762:1#0@0:16",
+              "span:arxiv:1706.03762:6#0@0:45",
+              "span:arxiv:1706.03762:11#0@9:59"
+            ]
+          }
+        },
+        "required": [
+          "evidence_id"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "future_scope": {
+      "type": "array",
+      "maxItems": 1,
+      "items": {
+        "type": "object",
+        "properties": {
+          "evidence_id": {
+            "type": "string",
+            "enum": [
+              "span:arxiv:1706.03762:121#0@0:85",
+              "span:arxiv:1706.03762:121#0@86:185",
+              "span:arxiv:1706.03762:124#0@0:257",
+              "span:arxiv:1706.03762:124#0@258:330",
+              "span:arxiv:1706.03762:124#0@331:369",
+              "span:arxiv:1706.03762:124#0@370:515",
+              "span:arxiv:1706.03762:125#0@0:232",
+              "span:arxiv:1706.03762:125#0@233:337",
+              "span:arxiv:1706.03762:16#0@0:144",
+              "span:arxiv:1706.03762:16#0@145:240",
+              "span:arxiv:1706.03762:16#0@241:395",
+              "span:arxiv:1706.03762:16#0@396:564",
+              "span:arxiv:1706.03762:16#0@565:725",
+              "span:arxiv:1706.03762:11#0@0:8",
+              "span:arxiv:1706.03762:16#0@726:976",
+              "span:arxiv:1706.03762:16#0@977:1140",
+              "span:arxiv:1706.03762:1#0@0:16",
+              "span:arxiv:1706.03762:6#0@0:45",
+              "span:arxiv:1706.03762:11#0@9:59"
+            ]
+          }
+        },
+        "required": [
+          "evidence_id"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "key_findings": {
+      "type": "array",
+      "maxItems": 1,
+      "items": {
+        "type": "object",
+        "properties": {
+          "evidence_id": {
+            "type": "string",
+            "enum": [
+              "span:arxiv:1706.03762:121#0@0:85",
+              "span:arxiv:1706.03762:121#0@86:185",
+              "span:arxiv:1706.03762:124#0@0:257",
+              "span:arxiv:1706.03762:124#0@258:330",
+              "span:arxiv:1706.03762:124#0@331:369",
+              "span:arxiv:1706.03762:124#0@370:515",
+              "span:arxiv:1706.03762:125#0@0:232",
+              "span:arxiv:1706.03762:125#0@233:337",
+              "span:arxiv:1706.03762:16#0@0:144",
+              "span:arxiv:1706.03762:16#0@145:240",
+              "span:arxiv:1706.03762:16#0@241:395",
+              "span:arxiv:1706.03762:16#0@396:564",
+              "span:arxiv:1706.03762:16#0@565:725",
+              "span:arxiv:1706.03762:11#0@0:8",
+              "span:arxiv:1706.03762:16#0@726:976",
+              "span:arxiv:1706.03762:16#0@977:1140",
+              "span:arxiv:1706.03762:1#0@0:16",
+              "span:arxiv:1706.03762:6#0@0:45",
+              "span:arxiv:1706.03762:11#0@9:59",
+              "bundle:21d5690406bd141f0cddee94",
+              "bundle:e9a2425e3ed4961a0c4a3edf"
+            ]
+          }
+        },
+        "required": [
+          "evidence_id"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "problem_statement",
+    "objective",
+    "research_gap",
+    "method",
+    "datasets",
+    "metrics",
+    "results",
+    "limitations",
+    "future_scope",
+    "key_findings"
+  ],
+  "additionalProperties": false
+}

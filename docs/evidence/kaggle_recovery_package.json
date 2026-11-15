@@ -1,0 +1,129 @@
+{
+  "status": "PRIVATE V4 INPUT PREPARED; attempt03 NOT EXECUTED",
+  "package_id": "rgpt_9f6d641ee3a6b2d7128c9fae",
+  "code_commit": "d0ddf1d9dff7820712fadab7b7ad920499b00f95",
+  "input_manifest_sha256": "7fe245a4080fe9b80da79f95741ffcc7a390fe8c38f298a24d59a62812879d3d",
+  "directory": "outputs\\kaggle-recovery\\offload-package-v4",
+  "transport_archive": "outputs\\kaggle-recovery\\inference-input-v4.zip",
+  "transport_archive_bytes": 186622,
+  "transport_archive_sha256": "cf5b06b40fe2fa94d08893a974c16f640c76933d8e524edb3f12b8a6060bcdb7",
+  "canonical_files": {
+    "request.json": {
+      "sha256": "dce020c221b08988365b953a53fa0421e987823a7aa37c0ec7648076b21efa95",
+      "bytes": 24881
+    },
+    "runtime.json": {
+      "sha256": "2456895a615712cd245ed26c12afac1cff82d46025f48336c4173e166fe2f155",
+      "bytes": 1825
+    },
+    "packet.json": {
+      "sha256": "602fbfa1769187a5372db45854cb05cfba4658f75518ff446b799a837a4ce212",
+      "bytes": 141972
+    },
+    "code.zip": {
+      "sha256": "821fd1c450386c948199d18f30d8d31852fca0d7cafa1a7f1a427cfc2fce75c9",
+      "bytes": 175303
+    }
+  },
+  "transport_bin_sha256": "821fd1c450386c948199d18f30d8d31852fca0d7cafa1a7f1a427cfc2fce75c9",
+  "upload_files": [
+    "packet.json",
+    "request.json",
+    "runtime.json",
+    "input-manifest.json",
+    "code.zip.bin"
+  ],
+  "notebook": "kaggle\\semantic_inference_recovery_v4.ipynb",
+  "notebook_sha256": "44132fe36e1bd5782c50652001c488faf80eb0d8fff3983eaaef364ce982141f",
+  "cell_instructions": "docs\\KAGGLE_RECOVERY_CELLS.md",
+  "cell_instructions_sha256": "ef6516e75e95680bb47504e3443848f06c8322e1b6442590c5fec6868423258a",
+  "notebook_code_cells_compiled": 6,
+  "documented_python_blocks_compiled": 7,
+  "notebook_bootstrap_smoke": "passed against actual v4 copied into simulated .bin-only Kaggle mount; expanded code ignored and old directories unchanged",
+  "bootstrap_only_debug_smoke": "passed; no result.zip/success fabricated",
+  "install_gpu_inference_cells": "NOT EXECUTED",
+  "fixture_import_smoke": {
+    "positive": {
+      "scope": "controlled replay, not new model inference",
+      "status": "PARTIAL",
+      "result_state": "VERIFIED",
+      "error": null
+    },
+    "actual_failed_response": {
+      "scope": "controlled replay, not new model inference",
+      "status": "EXTRACTION_FAILED",
+      "result_state": "FAILED",
+      "error": "remote_output_schema_invalid"
+    }
+  },
+  "packet_unchanged_except_git_commit": true,
+  "request_unchanged_from_v3": true,
+  "runtime_unchanged_except_explicit_environment_profile": true,
+  "original_v2_v3_inputs_and_notebooks_unchanged": true,
+  "original_v2_hashes": {
+    "outputs\\semantic\\offload-package-v2\\code.zip": "c729e31b44684fa194ba3217de7aee562fee780f6134d327749545638d8139d2",
+    "outputs\\semantic\\offload-package-v2\\code.zip.bin": "c729e31b44684fa194ba3217de7aee562fee780f6134d327749545638d8139d2",
+    "outputs\\semantic\\offload-package-v2\\input-manifest.json": "ff00931afc4c49ccb7f684dd0674027fb0bfac9178f3cf08797537b6d4f5f3ff",
+    "outputs\\semantic\\offload-package-v2\\packet.json": "e0e5e34cf3d67c077c42325a28ec04a4289c04bb3c798d6cca7e389f9b6c2fd2",
+    "outputs\\semantic\\offload-package-v2\\request.json": "7119051887615b9c571d4ba94b6875f22a227cae0dd2cd7f772966adaa7b0f5e",
+    "outputs\\semantic\\offload-package-v2\\runtime.json": "b35e0e87d5a688bc676a7a65e4b40555379b2d89adcd6f59e2462b2132850422",
+    "outputs\\semantic\\inference-input-v2.zip": "5f81eb88ea9f3b0e2155729e5885555c130a258f57d5991859b34c7263085bdc"
+  },
+  "original_debug_archive_sha256": "48819f0182ed641129f5b5714a44dd408aba760704a1ca329b9ee5d39da45065",
+  "uploaded_or_published": false,
+  "independent_accuracy": null,
+  "exact_changed_files_relative_to_d581bcf": [
+    "README.md",
+    "docs/BLOCKERS.md",
+    "docs/ENVIRONMENT.md",
+    "docs/KAGGLE_RECOVERY_CELLS.md",
+    "docs/KAGGLE_RECOVERY_REPORT.md",
+    "docs/PROGRESS.md",
+    "docs/TESTING.md",
+    "docs/evidence/kaggle_recovery_artifacts.json",
+    "docs/evidence/kaggle_recovery_audit.json",
+    "docs/evidence/kaggle_recovery_overlay.json",
+    "docs/evidence/kaggle_recovery_package.json",
+    "docs/evidence/kaggle_recovery_tests.json",
+    "docs/evidence/kaggle_recovery_wheel.json",
+    "kaggle/INFERENCE.md",
+    "kaggle/README.md",
+    "kaggle/bootstrap.py",
+    "kaggle/environment.py",
+    "kaggle/requirements-extraction.txt",
+    "kaggle/requirements-kaggle-cu130.txt",
+    "kaggle/run_inference.py",
+    "kaggle/runtime-cu130.json",
+    "kaggle/semantic_inference_recovery_v4.ipynb",
+    "pipeline/inference/packages.py",
+    "scripts/build_recovery_notebook.py",
+    "scripts/inference_package.py",
+    "tests/fixtures/qwen3_failed_run_02_raw.txt",
+    "tests/fixtures/qwen3_failed_run_02_schema.json",
+    "tests/test_kaggle_recovery.py",
+    "tests/test_qwen_structured_contract.py"
+  ],
+  "source_snapshot_audit": {
+    "files": 85,
+    "normalized_content_drift": [],
+    "line_ending_only_byte_differences": [
+      "docs/SOURCE_MANIFEST.json",
+      "kaggle/INFERENCE.md",
+      "src/collection/semantic_scholar.py",
+      "src/config.py",
+      "src/evidence/acquire.py",
+      "src/evidence/anchors.py",
+      "src/evidence/attribute.py",
+      "src/evidence/borderless.py",
+      "src/evidence/chunker.py",
+      "src/evidence/gate.py",
+      "src/evidence/latex_parity.py",
+      "src/evidence/latex_source.py",
+      "src/evidence/latex_tables.py",
+      "src/evidence/represent.py",
+      "src/evidence/schema.py",
+      "src/processing/pdf_parser.py"
+    ]
+  },
+  "python_syntax_files_checked": 100
+}

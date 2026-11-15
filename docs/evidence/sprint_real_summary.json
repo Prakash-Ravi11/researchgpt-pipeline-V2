@@ -1,0 +1,791 @@
+{
+  "interpreter": "C:\\Users\\Praka\\Downloads\\research IQ  V2\\researchgpt-pipeline-V2\\.venv-gpu\\Scripts\\python.exe",
+  "python": "3.13.6 (tags/v3.13.6:4e66535, Aug  6 2025, 14:36:00) [MSC v.1944 64 bit (AMD64)]",
+  "device": "cuda",
+  "torch": "2.8.0+cu126",
+  "torch_cuda_build": "12.6",
+  "model": "BAAI/bge-m3",
+  "model_revision": "5617a9f61b028005a4858fdac845db406aefb181",
+  "embedding_max_seq_length": 1024,
+  "mock_embeddings": false,
+  "mock_llm": false,
+  "independent_human_annotations": false,
+  "paper_id": "arxiv:1706.03762",
+  "document_sha256": "bdfaa68d8984f0dc02beaca527b76f207d99b666d31d1da728ee0728182df697",
+  "chunk_count": 432,
+  "stable_chunk_ids": true,
+  "acquisition_status": "FULL_TEXT",
+  "representation_profile": "table_context_v1",
+  "generation_profile": "bounded",
+  "retrieval": "table_aware_v1",
+  "context_mode": "table_aware_v1",
+  "index": {
+    "collection": "rgpt_v2_2f825358797f56bc0ebb2ff8",
+    "database": "C:\\Users\\Praka\\Downloads\\research IQ  V2\\researchgpt-pipeline-V2\\outputs\\sprint\\gpu-bounded-table-v1\\fresh-chroma",
+    "initial_count": 0,
+    "count": 432,
+    "ids_verified": true,
+    "metadata_roundtrip_verified": true,
+    "stored_vector_shape": [
+      432,
+      1024
+    ],
+    "configuration": {
+      "hnsw:space": "cosine",
+      "embedding_signature": "BAAI/bge-m3@5617a9f61b028005a4858fdac845db406aefb181:1024:normalized"
+    },
+    "separate_collection_empty": true,
+    "isolation_control_collection": "rgpt_v2_fb5d908da815726ea2689a37"
+  },
+  "release": {
+    "model_loaded": false,
+    "torch_allocated_bytes": 8519680,
+    "torch_reserved_bytes": 16777216,
+    "model_weakref_gone": true
+  },
+  "status": "ABSTAINED",
+  "errors": [],
+  "total_seconds": 204.4329059999436,
+  "torch_peak_allocated_bytes": 2783155200,
+  "torch_peak_reserved_bytes": 2814377984,
+  "sampled_global_gpu_peak_used_mib": 5123,
+  "sampled_ollama_peak_size_vram_bytes": 4270619360,
+  "snapshots": [
+    {
+      "label": "before_any_model_load",
+      "utc": "2026-11-07T04:24:00.693737+00:00",
+      "gpu": {
+        "name": "NVIDIA GeForce RTX 3050 6GB Laptop GPU",
+        "driver": "581.86",
+        "total_mib": 6144,
+        "used_mib": 831,
+        "free_mib": 5172
+      },
+      "process_rss_bytes": 476872704,
+      "process_peak_wset_bytes": 476872704,
+      "host_available_bytes": 443310080,
+      "host_total_bytes": 16873545728,
+      "ollama_models": [],
+      "torch_allocated_bytes": 0,
+      "torch_reserved_bytes": 0
+    },
+    {
+      "label": "before_bge_load_after_qwen_unload",
+      "utc": "2026-11-07T04:24:02.909975+00:00",
+      "gpu": {
+        "name": "NVIDIA GeForce RTX 3050 6GB Laptop GPU",
+        "driver": "581.86",
+        "total_mib": 6144,
+        "used_mib": 819,
+        "free_mib": 5184
+      },
+      "process_rss_bytes": 478199808,
+      "process_peak_wset_bytes": 478199808,
+      "host_available_bytes": 469078016,
+      "host_total_bytes": 16873545728,
+      "ollama_models": [],
+      "torch_allocated_bytes": 0,
+      "torch_reserved_bytes": 0
+    },
+    {
+      "label": "immediately_before_bge_loading",
+      "utc": "2026-11-07T04:24:13.320205+00:00",
+      "gpu": {
+        "name": "NVIDIA GeForce RTX 3050 6GB Laptop GPU",
+        "driver": "581.86",
+        "total_mib": 6144,
+        "used_mib": 819,
+        "free_mib": 5184
+      },
+      "process_rss_bytes": 577863680,
+      "process_peak_wset_bytes": 577904640,
+      "host_available_bytes": 431677440,
+      "host_total_bytes": 16873545728,
+      "ollama_models": [],
+      "torch_allocated_bytes": 0,
+      "torch_reserved_bytes": 0
+    },
+    {
+      "label": "after_bge_release",
+      "utc": "2026-11-07T04:25:45.907044+00:00",
+      "gpu": {
+        "name": "NVIDIA GeForce RTX 3050 6GB Laptop GPU",
+        "driver": "581.86",
+        "total_mib": 6144,
+        "used_mib": 844,
+        "free_mib": 5159
+      },
+      "process_rss_bytes": 2459885568,
+      "process_peak_wset_bytes": 4348059648,
+      "host_available_bytes": 2175373312,
+      "host_total_bytes": 16873545728,
+      "ollama_models": [],
+      "torch_allocated_bytes": 8519680,
+      "torch_reserved_bytes": 16777216
+    },
+    {
+      "label": "immediately_before_qwen_request",
+      "utc": "2026-11-07T04:25:48.060992+00:00",
+      "gpu": {
+        "name": "NVIDIA GeForce RTX 3050 6GB Laptop GPU",
+        "driver": "581.86",
+        "total_mib": 6144,
+        "used_mib": 844,
+        "free_mib": 5159
+      },
+      "process_rss_bytes": 2460192768,
+      "process_peak_wset_bytes": 4348059648,
+      "host_available_bytes": 2170310656,
+      "host_total_bytes": 16873545728,
+      "ollama_models": [],
+      "torch_allocated_bytes": 8519680,
+      "torch_reserved_bytes": 16777216
+    },
+    {
+      "label": "after_qwen_response",
+      "utc": "2026-11-07T04:27:15.362833+00:00",
+      "gpu": {
+        "name": "NVIDIA GeForce RTX 3050 6GB Laptop GPU",
+        "driver": "581.86",
+        "total_mib": 6144,
+        "used_mib": 5121,
+        "free_mib": 882
+      },
+      "process_rss_bytes": 2460164096,
+      "process_peak_wset_bytes": 4348059648,
+      "host_available_bytes": 354230272,
+      "host_total_bytes": 16873545728,
+      "ollama_models": [
+        {
+          "name": "qwen2.5:7b",
+          "model": "qwen2.5:7b",
+          "size": 5409058322,
+          "digest": "845dbda0ea48ed749caafd9e6037047aa19acfcfd82e704d7ca97d631a0b697e",
+          "details": {
+            "parent_model": "",
+            "format": "gguf",
+            "family": "qwen2",
+            "families": [
+              "qwen2"
+            ],
+            "parameter_size": "7.6B",
+            "quantization_level": "Q4_K_M"
+          },
+          "expires_at": "2026-11-07T10:02:13.2975689+05:30",
+          "size_vram": 4270619360,
+          "context_length": 8192,
+          "runner": "llamacpp"
+        }
+      ],
+      "torch_allocated_bytes": 8519680,
+      "torch_reserved_bytes": 16777216
+    },
+    {
+      "label": "after_qwen_unload",
+      "utc": "2026-11-07T04:27:20.768739+00:00",
+      "gpu": {
+        "name": "NVIDIA GeForce RTX 3050 6GB Laptop GPU",
+        "driver": "581.86",
+        "total_mib": 6144,
+        "used_mib": 938,
+        "free_mib": 5065
+      },
+      "process_rss_bytes": 2341572608,
+      "process_peak_wset_bytes": 4348059648,
+      "host_available_bytes": 1908387840,
+      "host_total_bytes": 16873545728,
+      "ollama_models": [],
+      "torch_allocated_bytes": 8519680,
+      "torch_reserved_bytes": 16777216
+    }
+  ],
+  "encode_calls": [
+    {
+      "count": 432,
+      "shape": [
+        432,
+        1024
+      ],
+      "finite": true,
+      "norm_min": 0.9997560977935791,
+      "norm_max": 1.0004632472991943,
+      "sha256_float32": "7b388785ffc11ca419c542c6ab3cc537822a242c6c693f87ae4fd163562cc409",
+      "milliseconds": 88078.16230005119
+    },
+    {
+      "count": 1,
+      "shape": [
+        1,
+        1024
+      ],
+      "finite": true,
+      "norm_min": 1.0001236200332642,
+      "norm_max": 1.0001236200332642,
+      "sha256_float32": "4402efcda635c0ee5d319d6311a00c1c1cb19adbf027d6f291d3732d5bf80504",
+      "milliseconds": 63.902199966832995
+    },
+    {
+      "count": 1,
+      "shape": [
+        1,
+        1024
+      ],
+      "finite": true,
+      "norm_min": 1.000163197517395,
+      "norm_max": 1.000163197517395,
+      "sha256_float32": "8573135da7f6c9613fae4014f6f106967a5c6ed7a8ece7a421831590fb931fc4",
+      "milliseconds": 59.716799994930625
+    },
+    {
+      "count": 1,
+      "shape": [
+        1,
+        1024
+      ],
+      "finite": true,
+      "norm_min": 1.0002787113189697,
+      "norm_max": 1.0002787113189697,
+      "sha256_float32": "6dc7e4559bbfb06606d5f6ab563d2efd0f23b3f6b2625c010d328ef0fae9cd6e",
+      "milliseconds": 72.434899979271
+    },
+    {
+      "count": 1,
+      "shape": [
+        1,
+        1024
+      ],
+      "finite": true,
+      "norm_min": 0.9999739527702332,
+      "norm_max": 0.9999739527702332,
+      "sha256_float32": "f0af94b6281b9a0a40297da6f1ed9cc4aa346f5d0bb4df2eda65d4fb2dbb51cb",
+      "milliseconds": 54.674800019711256
+    },
+    {
+      "count": 1,
+      "shape": [
+        1,
+        1024
+      ],
+      "finite": true,
+      "norm_min": 1.0002756118774414,
+      "norm_max": 1.0002756118774414,
+      "sha256_float32": "380e75065ed722fe9afd27558cd95aea4c6eff53b34b241830d7da652a2d26eb",
+      "milliseconds": 73.70449998416007
+    }
+  ],
+  "source_version": "arXiv:1706.03762v7 [cs.CL], 2 Aug 2023",
+  "prompt_model": {
+    "provider": "ollama",
+    "model": "qwen2.5:7b",
+    "prompt_tokens": 3332,
+    "completion_tokens": 1137,
+    "latency_ms": 89461.18920005392,
+    "finish_reason": "stop"
+  },
+  "server_seconds": 83.1067067,
+  "server_load_seconds": 12.1130757,
+  "process_peak_wset_bytes": 4348059648,
+  "stage_ms": {
+    "acquisition": 0.004700035788118839,
+    "parsing": 1640.8104998990893,
+    "indexing": 89346.61890007555,
+    "retrieval": 1005.8879000134766,
+    "context": 1357.5984999770299,
+    "extraction": 89463.0416999571,
+    "verification": 6.481399992480874
+  },
+  "input_text_and_ids_unchanged": true,
+  "old_baseline_top50_union_equal": false,
+  "baseline_union": 134,
+  "expanded_union": 153,
+  "baseline_context_delivered": 67,
+  "new_context_delivered": 32,
+  "new_context_dropped": 121,
+  "new_context_budget": {
+    "units": "utf8_bytes_proxy",
+    "used": 5996,
+    "maximum": 6000,
+    "words": 936
+  },
+  "candidates": [
+    {
+      "field": "problem_statement",
+      "candidate_index": 0,
+      "chunk_id": "arxiv:1706.03762:20#0",
+      "final": "ABSTAINED",
+      "status": "ABSTAINED",
+      "reason": "quote_not_in_delivered_chunk",
+      "scientific_tuple": null,
+      "value": "The existing sequence transduction models are complex and often require significant training resources, making them difficult to train and deploy.",
+      "proposed_evidence_span": "The existing sequence transduction models are complex and often require significant training resources, making them difficult to train and deploy."
+    },
+    {
+      "field": "objective",
+      "candidate_index": 0,
+      "chunk_id": "arxiv:1706.03762:20#0",
+      "final": "ABSTAINED",
+      "status": "ABSTAINED",
+      "reason": "quote_not_in_delivered_chunk",
+      "scientific_tuple": null,
+      "value": "To address the limitations of existing models, we propose a new simple and elegant approach based solely on attention mechanisms, which we call the Transformer.",
+      "proposed_evidence_span": "To address the limitations of existing models, we propose a new simple and elegant approach based solely on attention mechanisms, which we call the Transformer."
+    },
+    {
+      "field": "research_gap",
+      "candidate_index": 0,
+      "chunk_id": "arxiv:1706.03762:20#0",
+      "final": "ABSTAINED",
+      "status": "ABSTAINED",
+      "reason": "quote_not_in_delivered_chunk",
+      "scientific_tuple": null,
+      "value": "There is a need for a simpler and more efficient model that can achieve state-of-the-art performance without the complexity of recurrent neural networks.",
+      "proposed_evidence_span": "There is a need for a simpler and more efficient model that can achieve state-of-the-art performance without the complexity of recurrent neural networks."
+    },
+    {
+      "field": "method",
+      "candidate_index": 0,
+      "chunk_id": "arxiv:1706.03762:20#0",
+      "final": "ABSTAINED",
+      "status": "ABSTAINED",
+      "reason": "quote_not_in_delivered_chunk",
+      "scientific_tuple": null,
+      "value": "The Transformer uses self-attention mechanisms to replace recurrent neural networks and convolutional neural networks, and it employs a novel positional encoding scheme.",
+      "proposed_evidence_span": "The Transformer uses self-attention mechanisms to replace recurrent neural networks and convolutional neural networks, and it employs a novel positional encoding scheme."
+    },
+    {
+      "field": "datasets",
+      "candidate_index": 0,
+      "chunk_id": "arxiv:1706.03762:108#0",
+      "final": "ABSTAINED",
+      "status": "ABSTAINED",
+      "reason": "value_not_in_source_quote",
+      "scientific_tuple": null,
+      "value": "The Transformer was evaluated on the English-to-German and English-to-French newstest2014 tests.",
+      "proposed_evidence_span": "The Transformer achieves better BLEU scores than previous state-of-the-art models on the English-to-German and English-to-French newstest2014 tests at a fraction of the training cost."
+    },
+    {
+      "field": "metrics",
+      "candidate_index": 0,
+      "chunk_id": "arxiv:1706.03762:109#0",
+      "final": "ABSTAINED",
+      "status": "ABSTAINED",
+      "reason": "value_not_in_source_quote",
+      "scientific_tuple": null,
+      "value": "BLEU scores were used to evaluate the performance of the models.",
+      "proposed_evidence_span": "BLEU"
+    },
+    {
+      "field": "results",
+      "candidate_index": 0,
+      "chunk_id": "arxiv:1706.03762:118#0",
+      "final": "ABSTAINED",
+      "status": "ABSTAINED",
+      "reason": "quote_not_in_delivered_chunk",
+      "scientific_tuple": {
+        "subject": "Transformer (base model)",
+        "dataset": "English-to-German and English-to-French newstest2014 tests",
+        "metric": "BLEU",
+        "value": "27.3 and 38.1",
+        "setting": "training cost of 3.3 × 10^18 FLOPs"
+      },
+      "value": "The Transformer (base model) achieved 27.3 and 38.1 BLEU scores on the English-to-German and English-to-French newstest2014 tests, respectively, at a training cost of 3.3 × 10^18 FLOPs.",
+      "proposed_evidence_span": "Transformer (base model) 27.3 38.1 3.3 × 10^18"
+    },
+    {
+      "field": "limitations",
+      "candidate_index": 0,
+      "chunk_id": "arxiv:1706.03762:140#0",
+      "final": "ABSTAINED",
+      "status": "ABSTAINED",
+      "reason": "quote_not_in_delivered_chunk",
+      "scientific_tuple": null,
+      "value": "The paper does not explicitly mention any limitations, but it notes that the model's performance on parsing tasks is not as strong as some discriminative models.",
+      "proposed_evidence_span": "The Transformer generalizes well to English constituency parsing (Results are on Section 23 of WSJ)"
+    },
+    {
+      "field": "future_scope",
+      "candidate_index": 0,
+      "chunk_id": "arxiv:1706.03762:140#0",
+      "final": "ABSTAINED",
+      "status": "ABSTAINED",
+      "reason": "quote_not_in_delivered_chunk",
+      "scientific_tuple": null,
+      "value": "The authors suggest that the Transformer could be further improved and applied to a wider range of tasks.",
+      "proposed_evidence_span": "The Transformer generalizes well to English constituency parsing (Results are on Section 23 of WSJ)"
+    },
+    {
+      "field": "key_findings",
+      "candidate_index": 0,
+      "chunk_id": "arxiv:1706.03762:108#0",
+      "final": "ABSTAINED",
+      "status": "ABSTAINED",
+      "reason": "value_not_in_source_quote",
+      "scientific_tuple": null,
+      "value": "The Transformer outperforms previous state-of-the-art models on the English-to-German and English-to-French newstest2014 tests with better BLEU scores and at a lower training cost.",
+      "proposed_evidence_span": "The Transformer achieves better BLEU scores than previous state-of-the-art models on the English-to-German and English-to-French newstest2014 tests at a fraction of the training cost."
+    }
+  ],
+  "candidate_count": 10,
+  "returned": 0,
+  "withheld": 10,
+  "typed_tuple_count": 1,
+  "verified_numerical_tuples": 0,
+  "target_delivery": {
+    "table2_caption": {
+      "chunk_id": "arxiv:1706.03762:108#0",
+      "page": "p8",
+      "parsed": true,
+      "chunked": true,
+      "table_id": "arxiv:1706.03762:108:table",
+      "table_representation": "unstructured_table_text",
+      "metadata_survived": true,
+      "baseline_retrieved": false,
+      "expanded_retrieved": true,
+      "baseline_context_delivered": false,
+      "new_context_delivered": true,
+      "dense_query_hits": [
+        {
+          "query": "problem statement research gap motivation background",
+          "rank": 69,
+          "score": 0.3900754451751709,
+          "distance": 0.6099245548248291
+        },
+        {
+          "query": "method approach study design procedure participants sample",
+          "rank": 217,
+          "score": 0.3710370659828186,
+          "distance": 0.6289629340171814
+        },
+        {
+          "query": "results findings outcomes performance evaluation",
+          "rank": 61,
+          "score": 0.4764653444290161,
+          "distance": 0.5235346555709839
+        },
+        {
+          "query": "dataset survey data collection measures instruments",
+          "rank": 82,
+          "score": 0.40835464000701904,
+          "distance": 0.591645359992981
+        },
+        {
+          "query": "limitations discussion conclusion implications future work",
+          "rank": 197,
+          "score": 0.4102886915206909,
+          "distance": 0.5897113084793091
+        }
+      ]
+    },
+    "table2_seed": {
+      "chunk_id": "arxiv:1706.03762:115#0",
+      "page": "p8",
+      "parsed": true,
+      "chunked": true,
+      "table_id": "arxiv:1706.03762:108:table",
+      "table_representation": "unstructured_table_text",
+      "metadata_survived": true,
+      "baseline_retrieved": true,
+      "expanded_retrieved": true,
+      "baseline_context_delivered": true,
+      "new_context_delivered": true,
+      "dense_query_hits": [
+        {
+          "query": "problem statement research gap motivation background",
+          "rank": 168,
+          "score": 0.34886932373046875,
+          "distance": 0.6511306762695312
+        },
+        {
+          "query": "method approach study design procedure participants sample",
+          "rank": 227,
+          "score": 0.3674253225326538,
+          "distance": 0.6325746774673462
+        },
+        {
+          "query": "results findings outcomes performance evaluation",
+          "rank": 148,
+          "score": 0.4417625665664673,
+          "distance": 0.5582374334335327
+        },
+        {
+          "query": "dataset survey data collection measures instruments",
+          "rank": 45,
+          "score": 0.42729294300079346,
+          "distance": 0.5727070569992065
+        },
+        {
+          "query": "limitations discussion conclusion implications future work",
+          "rank": 239,
+          "score": 0.3946067690849304,
+          "distance": 0.6053932309150696
+        }
+      ]
+    },
+    "table2_big_row": {
+      "chunk_id": "arxiv:1706.03762:119#0",
+      "page": "p8",
+      "parsed": true,
+      "chunked": true,
+      "table_id": "arxiv:1706.03762:108:table",
+      "table_representation": "unstructured_table_text",
+      "metadata_survived": true,
+      "baseline_retrieved": false,
+      "expanded_retrieved": true,
+      "baseline_context_delivered": false,
+      "new_context_delivered": true,
+      "dense_query_hits": [
+        {
+          "query": "problem statement research gap motivation background",
+          "rank": 368,
+          "score": 0.3038346767425537,
+          "distance": 0.6961653232574463
+        },
+        {
+          "query": "method approach study design procedure participants sample",
+          "rank": 375,
+          "score": 0.3199840784072876,
+          "distance": 0.6800159215927124
+        },
+        {
+          "query": "results findings outcomes performance evaluation",
+          "rank": 400,
+          "score": 0.3463490605354309,
+          "distance": 0.6536509394645691
+        },
+        {
+          "query": "dataset survey data collection measures instruments",
+          "rank": 118,
+          "score": 0.39794111251831055,
+          "distance": 0.6020588874816895
+        },
+        {
+          "query": "limitations discussion conclusion implications future work",
+          "rank": 420,
+          "score": 0.2985799312591553,
+          "distance": 0.7014200687408447
+        }
+      ]
+    },
+    "en_de_prose": {
+      "chunk_id": "arxiv:1706.03762:124#0",
+      "page": "p8",
+      "parsed": true,
+      "chunked": true,
+      "table_id": null,
+      "table_representation": null,
+      "metadata_survived": true,
+      "baseline_retrieved": true,
+      "expanded_retrieved": true,
+      "baseline_context_delivered": true,
+      "new_context_delivered": false,
+      "dense_query_hits": [
+        {
+          "query": "problem statement research gap motivation background",
+          "rank": 50,
+          "score": 0.3953121304512024,
+          "distance": 0.6046878695487976
+        },
+        {
+          "query": "method approach study design procedure participants sample",
+          "rank": 193,
+          "score": 0.3805363178253174,
+          "distance": 0.6194636821746826
+        },
+        {
+          "query": "results findings outcomes performance evaluation",
+          "rank": 83,
+          "score": 0.46070438623428345,
+          "distance": 0.5392956137657166
+        },
+        {
+          "query": "dataset survey data collection measures instruments",
+          "rank": 103,
+          "score": 0.40211552381515503,
+          "distance": 0.597884476184845
+        },
+        {
+          "query": "limitations discussion conclusion implications future work",
+          "rank": 192,
+          "score": 0.4113888740539551,
+          "distance": 0.5886111259460449
+        }
+      ]
+    },
+    "en_fr_prose": {
+      "chunk_id": "arxiv:1706.03762:125#0",
+      "page": "p8",
+      "parsed": true,
+      "chunked": true,
+      "table_id": null,
+      "table_representation": null,
+      "metadata_survived": true,
+      "baseline_retrieved": true,
+      "expanded_retrieved": true,
+      "baseline_context_delivered": true,
+      "new_context_delivered": false,
+      "dense_query_hits": [
+        {
+          "query": "problem statement research gap motivation background",
+          "rank": 48,
+          "score": 0.39586830139160156,
+          "distance": 0.6041316986083984
+        },
+        {
+          "query": "method approach study design procedure participants sample",
+          "rank": 96,
+          "score": 0.4130426049232483,
+          "distance": 0.5869573950767517
+        },
+        {
+          "query": "results findings outcomes performance evaluation",
+          "rank": 153,
+          "score": 0.43973177671432495,
+          "distance": 0.560268223285675
+        },
+        {
+          "query": "dataset survey data collection measures instruments",
+          "rank": 105,
+          "score": 0.4017984867095947,
+          "distance": 0.5982015132904053
+        },
+        {
+          "query": "limitations discussion conclusion implications future work",
+          "rank": 262,
+          "score": 0.3874443769454956,
+          "distance": 0.6125556230545044
+        }
+      ]
+    }
+  },
+  "table2_parts": [
+    {
+      "block_id": "arxiv:1706.03762:108",
+      "text": "Table 2: The Transformer achieves better BLEU scores than previous state-of-the-art models on the\nEnglish-to-German and English-to-French newstest2014 tests at a fraction of the training cost.",
+      "bbox": [
+        107.69100189208984,
+        71.19947814941406,
+        504.00311279296875,
+        92.07107543945312
+      ]
+    },
+    {
+      "block_id": "arxiv:1706.03762:109",
+      "text": "BLEU\nTraining Cost (FLOPs)",
+      "bbox": [
+        311.02099609375,
+        97.91346740722656,
+        475.3241882324219,
+        107.87606811523438
+      ]
+    },
+    {
+      "block_id": "arxiv:1706.03762:110",
+      "text": "Model",
+      "bbox": [
+        136.67100524902344,
+        106.20246887207031,
+        162.683349609375,
+        116.16506958007812
+      ]
+    },
+    {
+      "block_id": "arxiv:1706.03762:111",
+      "text": "EN-DE\nEN-FR\nEN-DE\nEN-FR\nByteNet [18]\n23.75\nDeep-Att + PosUnk [39]\n39.2\n1.0 · 1020",
+      "bbox": [
+        136.67100524902344,
+        113.82844543457031,
+        473.10211181640625,
+        146.48104858398438
+      ]
+    },
+    {
+      "block_id": "arxiv:1706.03762:112",
+      "text": "GNMT + RL [38]\n24.6\n39.92\n2.3 · 1019\n1.4 · 1020",
+      "bbox": [
+        136.67098999023438,
+        146.3907012939453,
+        473.1021423339844,
+        157.86300659179688
+      ]
+    },
+    {
+      "block_id": "arxiv:1706.03762:113",
+      "text": "ConvS2S [9]\n25.16\n40.46\n9.6 · 1018\n1.5 · 1020",
+      "bbox": [
+        136.6710205078125,
+        157.7726593017578,
+        473.1021728515625,
+        169.24600219726562
+      ]
+    },
+    {
+      "block_id": "arxiv:1706.03762:114",
+      "text": "MoE [32]\n26.03\n40.56\n2.0 · 1019\n1.2 · 1020",
+      "bbox": [
+        136.67105102539062,
+        169.15565490722656,
+        473.1021728515625,
+        180.62796020507812
+      ]
+    },
+    {
+      "block_id": "arxiv:1706.03762:115",
+      "text": "Deep-Att + PosUnk Ensemble [39]\n40.4\n8.0 · 1020",
+      "bbox": [
+        136.67100524902344,
+        181.79273986816406,
+        473.10211181640625,
+        193.26608276367188
+      ]
+    },
+    {
+      "block_id": "arxiv:1706.03762:116",
+      "text": "GNMT + RL Ensemble [38]\n26.30\n41.16\n1.8 · 1020\n1.1 · 1021",
+      "bbox": [
+        136.67098999023438,
+        193.1757354736328,
+        473.1021423339844,
+        204.64804077148438
+      ]
+    },
+    {
+      "block_id": "arxiv:1706.03762:117",
+      "text": "ConvS2S Ensemble [9]\n26.36\n41.29\n7.7 · 1019\n1.2 · 1021",
+      "bbox": [
+        136.6710205078125,
+        204.55775451660156,
+        473.1021728515625,
+        216.03005981445312
+      ]
+    },
+    {
+      "block_id": "arxiv:1706.03762:118",
+      "text": "Transformer (base model)\n27.3\n38.1\n3.3 · 1018",
+      "bbox": [
+        136.67100524902344,
+        217.69374084472656,
+        450.7341003417969,
+        229.16604614257812
+      ]
+    },
+    {
+      "block_id": "arxiv:1706.03762:119",
+      "text": "Transformer (big)\n28.4\n41.8\n2.3 · 1019",
+      "bbox": [
+        136.67098999023438,
+        229.0757598876953,
+        447.96112060546875,
+        240.54806518554688
+      ]
+    }
+  ],
+  "earliest_losses": {
+    "baseline_parser": "no validated Table2 cells or linked region",
+    "baseline_chunker": "caption/header/row fragments without shared table ID",
+    "baseline_retrieval": "caption and big row outside all five top50 lists",
+    "corrected_delivery": "all 12 original Table2 blocks linked and delivered",
+    "remaining_structure": "fallback retains text/geometry but no verified cell binding",
+    "remaining_context": "6000-byte table-focused context drops non-table evidence",
+    "remaining_extraction": "7 quotes not supported in declared source; 3 values not in uniquely matched quote"
+  }
+}

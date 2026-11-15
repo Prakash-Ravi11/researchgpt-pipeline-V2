@@ -1,0 +1,35 @@
+{
+  "paper_id": "arxiv:1706.03762",
+  "document_sha256": "bdfaa68d8984f0dc02beaca527b76f207d99b666d31d1da728ee0728182df697",
+  "annotation_status": "agent source-checked before real model execution; not independently human validated",
+  "facts": [
+    {
+      "subject": "Transformer (big)",
+      "dataset": "WMT 2014 English-to-German",
+      "metric": "BLEU",
+      "value": "28.4",
+      "source_page": 8,
+      "source_table": "Table 2",
+      "source_bbox": [
+        294.94097900390625,
+        230.4945068359375,
+        312.3755187988281,
+        240.4571075439453
+      ]
+    },
+    {
+      "subject": "Transformer (big)",
+      "dataset": "WMT 2014 English-to-French",
+      "metric": "BLEU",
+      "value": "41.8",
+      "source_page": 8,
+      "source_table": "Table 2",
+      "source_bbox": [
+        336.2259826660156,
+        230.4945068359375,
+        353.6605224609375,
+        240.4571075439453
+      ]
+    }
+  ]
+}

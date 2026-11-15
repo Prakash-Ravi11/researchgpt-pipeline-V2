@@ -1,0 +1,78 @@
+{
+  "scope": "engineering validation; no new real-model inference or independent gold",
+  "selected_tuple": {
+    "subject": "Transformer (big)",
+    "dataset": "newstest2014",
+    "metric": "BLEU",
+    "value": "41.8",
+    "benchmark": "newstest2014",
+    "condition": "English-to-French",
+    "unit": null,
+    "setting": null
+  },
+  "review_status": "needs_human_review",
+  "source_document_sha256": "bdfaa68d8984f0dc02beaca527b76f207d99b666d31d1da728ee0728182df697",
+  "source_version": "arXiv:1706.03762v7, 2 Aug 2023",
+  "consolidated_tests": {
+    "passed": 144,
+    "failed": 0,
+    "skipped": 0,
+    "seconds": 7.11,
+    "post_scope_checks": {
+      "passed": 33,
+      "failed": 0,
+      "seconds": 3.09,
+      "overlaps_full_suite": true
+    }
+  },
+  "source_api_fixture": {
+    "http_status": 200,
+    "status": "PARTIAL",
+    "encoder": "TEST-ONLY TinyEncoder",
+    "retrieval": "preserved actual BGE query IDs replay",
+    "llm": "injected selection",
+    "real_model_inference": false
+  },
+  "import_api_fixture": {
+    "status": "PARTIAL",
+    "results": "VERIFIED",
+    "metrics": "WITHHELD",
+    "real_model_inference": false
+  },
+  "offload": {
+    "status": "NOT EXECUTED",
+    "package_id": "rgpt_d03e8fa2bfe3dc4baa48c121",
+    "code_commit": "87e44b4e3302314db73f569a20982ab20758e254",
+    "requested_model": {
+      "model": "Qwen/Qwen3-8B",
+      "revision": "b968826d9c46dd6066d109eabc6255188de91218",
+      "license": "Apache-2.0",
+      "minimum_free_bytes": 9000000000
+    },
+    "source_blocks": 12,
+    "bundles": 2,
+    "packet_bytes": 141972,
+    "input_manifest_sha256": "ff00931afc4c49ccb7f684dd0674027fb0bfac9178f3cf08797537b6d4f5f3ff",
+    "archive_sha256": "5f81eb88ea9f3b0e2155729e5885555c130a258f57d5991859b34c7263085bdc",
+    "file_hashes": {
+      "packet.json": {
+        "sha256": "e0e5e34cf3d67c077c42325a28ec04a4289c04bb3c798d6cca7e389f9b6c2fd2",
+        "bytes": 141972
+      },
+      "request.json": {
+        "sha256": "7119051887615b9c571d4ba94b6875f22a227cae0dd2cd7f772966adaa7b0f5e",
+        "bytes": 19538
+      },
+      "runtime.json": {
+        "sha256": "b35e0e87d5a688bc676a7a65e4b40555379b2d89adcd6f59e2462b2132850422",
+        "bytes": 842
+      },
+      "code.zip": {
+        "sha256": "c729e31b44684fa194ba3217de7aee562fee780f6134d327749545638d8139d2",
+        "bytes": 160325
+      }
+    },
+    "artifact": "outputs/semantic/inference-input-v2.zip"
+  },
+  "independent_accuracy": null
+}

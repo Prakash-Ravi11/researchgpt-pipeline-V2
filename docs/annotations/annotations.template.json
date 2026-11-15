@@ -1,0 +1,909 @@
+{
+  "schema_version": "review_queue_v1",
+  "evaluation_use": "PROHIBITED until independent human review and a separately frozen evaluation design",
+  "annotations": [
+    {
+      "annotation_id": "attention-v7-01",
+      "paper_id": "arxiv:1706.03762",
+      "document_sha256": "bdfaa68d8984f0dc02beaca527b76f207d99b666d31d1da728ee0728182df697",
+      "source_version": "arXiv:1706.03762v7 [cs.CL], 2 Aug 2023",
+      "source_pdf": "data/live/document.pdf",
+      "field": "results",
+      "experiment_or_model": "Transformer (big)",
+      "dataset": "English-to-German newstest2014",
+      "metric": "BLEU",
+      "value": "28.4",
+      "unit": "BLEU",
+      "setting": "Table 2; header alignment needs human review",
+      "exact_evidence_quote": "Transformer (big)\n28.4\n41.8\n2.3 · 1019",
+      "page": "p8",
+      "section": "abstract",
+      "chunk_id": "arxiv:1706.03762:119#0",
+      "block_id": "arxiv:1706.03762:119",
+      "table_id": "arxiv:1706.03762:108:table",
+      "original_char_start": 21957,
+      "original_char_end": 21995,
+      "offset_basis": "normalized_document",
+      "bbox": [
+        136.67098999023438,
+        229.0757598876953,
+        447.96112060546875,
+        240.54806518554688
+      ],
+      "bbox_scope": "native PDF text block",
+      "table_source_parts": [
+        {
+          "block_id": "arxiv:1706.03762:108",
+          "text": "Table 2: The Transformer achieves better BLEU scores than previous state-of-the-art models on the\nEnglish-to-German and English-to-French newstest2014 tests at a fraction of the training cost.",
+          "bbox": [
+            107.69100189208984,
+            71.19947814941406,
+            504.00311279296875,
+            92.07107543945312
+          ],
+          "char_start": 21316,
+          "char_end": 21508,
+          "role": "caption"
+        },
+        {
+          "block_id": "arxiv:1706.03762:109",
+          "text": "BLEU\nTraining Cost (FLOPs)",
+          "bbox": [
+            311.02099609375,
+            97.91346740722656,
+            475.3241882324219,
+            107.87606811523438
+          ],
+          "char_start": 21508,
+          "char_end": 21534,
+          "role": "header_or_row_text"
+        },
+        {
+          "block_id": "arxiv:1706.03762:110",
+          "text": "Model",
+          "bbox": [
+            136.67100524902344,
+            106.20246887207031,
+            162.683349609375,
+            116.16506958007812
+          ],
+          "char_start": 21534,
+          "char_end": 21539,
+          "role": "header_or_row_text"
+        },
+        {
+          "block_id": "arxiv:1706.03762:111",
+          "text": "EN-DE\nEN-FR\nEN-DE\nEN-FR\nByteNet [18]\n23.75\nDeep-Att + PosUnk [39]\n39.2\n1.0 · 1020",
+          "bbox": [
+            136.67100524902344,
+            113.82844543457031,
+            473.10211181640625,
+            146.48104858398438
+          ],
+          "char_start": 21539,
+          "char_end": 21620,
+          "role": "header_or_row_text"
+        },
+        {
+          "block_id": "arxiv:1706.03762:112",
+          "text": "GNMT + RL [38]\n24.6\n39.92\n2.3 · 1019\n1.4 · 1020",
+          "bbox": [
+            136.67098999023438,
+            146.3907012939453,
+            473.1021423339844,
+            157.86300659179688
+          ],
+          "char_start": 21620,
+          "char_end": 21667,
+          "role": "header_or_row_text"
+        },
+        {
+          "block_id": "arxiv:1706.03762:113",
+          "text": "ConvS2S [9]\n25.16\n40.46\n9.6 · 1018\n1.5 · 1020",
+          "bbox": [
+            136.6710205078125,
+            157.7726593017578,
+            473.1021728515625,
+            169.24600219726562
+          ],
+          "char_start": 21667,
+          "char_end": 21712,
+          "role": "header_or_row_text"
+        },
+        {
+          "block_id": "arxiv:1706.03762:114",
+          "text": "MoE [32]\n26.03\n40.56\n2.0 · 1019\n1.2 · 1020",
+          "bbox": [
+            136.67105102539062,
+            169.15565490722656,
+            473.1021728515625,
+            180.62796020507812
+          ],
+          "char_start": 21712,
+          "char_end": 21754,
+          "role": "header_or_row_text"
+        },
+        {
+          "block_id": "arxiv:1706.03762:115",
+          "text": "Deep-Att + PosUnk Ensemble [39]\n40.4\n8.0 · 1020",
+          "bbox": [
+            136.67100524902344,
+            181.79273986816406,
+            473.10211181640625,
+            193.26608276367188
+          ],
+          "char_start": 21754,
+          "char_end": 21801,
+          "role": "header_or_row_text"
+        },
+        {
+          "block_id": "arxiv:1706.03762:116",
+          "text": "GNMT + RL Ensemble [38]\n26.30\n41.16\n1.8 · 1020\n1.1 · 1021",
+          "bbox": [
+            136.67098999023438,
+            193.1757354736328,
+            473.1021423339844,
+            204.64804077148438
+          ],
+          "char_start": 21801,
+          "char_end": 21858,
+          "role": "header_or_row_text"
+        },
+        {
+          "block_id": "arxiv:1706.03762:117",
+          "text": "ConvS2S Ensemble [9]\n26.36\n41.29\n7.7 · 1019\n1.2 · 1021",
+          "bbox": [
+            136.6710205078125,
+            204.55775451660156,
+            473.1021728515625,
+            216.03005981445312
+          ],
+          "char_start": 21858,
+          "char_end": 21912,
+          "role": "header_or_row_text"
+        },
+        {
+          "block_id": "arxiv:1706.03762:118",
+          "text": "Transformer (base model)\n27.3\n38.1\n3.3 · 1018",
+          "bbox": [
+            136.67100524902344,
+            217.69374084472656,
+            450.7341003417969,
+            229.16604614257812
+          ],
+          "char_start": 21912,
+          "char_end": 21957,
+          "role": "header_or_row_text"
+        },
+        {
+          "block_id": "arxiv:1706.03762:119",
+          "text": "Transformer (big)\n28.4\n41.8\n2.3 · 1019",
+          "bbox": [
+            136.67098999023438,
+            229.0757598876953,
+            447.96112060546875,
+            240.54806518554688
+          ],
+          "char_start": 21957,
+          "char_end": 21995,
+          "role": "header_or_row_text"
+        }
+      ],
+      "confidence": "agent source inspection only; not independent validation",
+      "status": "needs_human_review",
+      "reviewer": "",
+      "reviewed_at": "",
+      "verdict": ""
+    },
+    {
+      "annotation_id": "attention-v7-02",
+      "paper_id": "arxiv:1706.03762",
+      "document_sha256": "bdfaa68d8984f0dc02beaca527b76f207d99b666d31d1da728ee0728182df697",
+      "source_version": "arXiv:1706.03762v7 [cs.CL], 2 Aug 2023",
+      "source_pdf": "data/live/document.pdf",
+      "field": "results",
+      "experiment_or_model": "Transformer (big)",
+      "dataset": "English-to-French newstest2014",
+      "metric": "BLEU",
+      "value": "41.8",
+      "unit": "BLEU",
+      "setting": "Table 2; distinct from prose 41.0",
+      "exact_evidence_quote": "Transformer (big)\n28.4\n41.8\n2.3 · 1019",
+      "page": "p8",
+      "section": "abstract",
+      "chunk_id": "arxiv:1706.03762:119#0",
+      "block_id": "arxiv:1706.03762:119",
+      "table_id": "arxiv:1706.03762:108:table",
+      "original_char_start": 21957,
+      "original_char_end": 21995,
+      "offset_basis": "normalized_document",
+      "bbox": [
+        136.67098999023438,
+        229.0757598876953,
+        447.96112060546875,
+        240.54806518554688
+      ],
+      "bbox_scope": "native PDF text block",
+      "table_source_parts": [
+        {
+          "block_id": "arxiv:1706.03762:108",
+          "text": "Table 2: The Transformer achieves better BLEU scores than previous state-of-the-art models on the\nEnglish-to-German and English-to-French newstest2014 tests at a fraction of the training cost.",
+          "bbox": [
+            107.69100189208984,
+            71.19947814941406,
+            504.00311279296875,
+            92.07107543945312
+          ],
+          "char_start": 21316,
+          "char_end": 21508,
+          "role": "caption"
+        },
+        {
+          "block_id": "arxiv:1706.03762:109",
+          "text": "BLEU\nTraining Cost (FLOPs)",
+          "bbox": [
+            311.02099609375,
+            97.91346740722656,
+            475.3241882324219,
+            107.87606811523438
+          ],
+          "char_start": 21508,
+          "char_end": 21534,
+          "role": "header_or_row_text"
+        },
+        {
+          "block_id": "arxiv:1706.03762:110",
+          "text": "Model",
+          "bbox": [
+            136.67100524902344,
+            106.20246887207031,
+            162.683349609375,
+            116.16506958007812
+          ],
+          "char_start": 21534,
+          "char_end": 21539,
+          "role": "header_or_row_text"
+        },
+        {
+          "block_id": "arxiv:1706.03762:111",
+          "text": "EN-DE\nEN-FR\nEN-DE\nEN-FR\nByteNet [18]\n23.75\nDeep-Att + PosUnk [39]\n39.2\n1.0 · 1020",
+          "bbox": [
+            136.67100524902344,
+            113.82844543457031,
+            473.10211181640625,
+            146.48104858398438
+          ],
+          "char_start": 21539,
+          "char_end": 21620,
+          "role": "header_or_row_text"
+        },
+        {
+          "block_id": "arxiv:1706.03762:112",
+          "text": "GNMT + RL [38]\n24.6\n39.92\n2.3 · 1019\n1.4 · 1020",
+          "bbox": [
+            136.67098999023438,
+            146.3907012939453,
+            473.1021423339844,
+            157.86300659179688
+          ],
+          "char_start": 21620,
+          "char_end": 21667,
+          "role": "header_or_row_text"
+        },
+        {
+          "block_id": "arxiv:1706.03762:113",
+          "text": "ConvS2S [9]\n25.16\n40.46\n9.6 · 1018\n1.5 · 1020",
+          "bbox": [
+            136.6710205078125,
+            157.7726593017578,
+            473.1021728515625,
+            169.24600219726562
+          ],
+          "char_start": 21667,
+          "char_end": 21712,
+          "role": "header_or_row_text"
+        },
+        {
+          "block_id": "arxiv:1706.03762:114",
+          "text": "MoE [32]\n26.03\n40.56\n2.0 · 1019\n1.2 · 1020",
+          "bbox": [
+            136.67105102539062,
+            169.15565490722656,
+            473.1021728515625,
+            180.62796020507812
+          ],
+          "char_start": 21712,
+          "char_end": 21754,
+          "role": "header_or_row_text"
+        },
+        {
+          "block_id": "arxiv:1706.03762:115",
+          "text": "Deep-Att + PosUnk Ensemble [39]\n40.4\n8.0 · 1020",
+          "bbox": [
+            136.67100524902344,
+            181.79273986816406,
+            473.10211181640625,
+            193.26608276367188
+          ],
+          "char_start": 21754,
+          "char_end": 21801,
+          "role": "header_or_row_text"
+        },
+        {
+          "block_id": "arxiv:1706.03762:116",
+          "text": "GNMT + RL Ensemble [38]\n26.30\n41.16\n1.8 · 1020\n1.1 · 1021",
+          "bbox": [
+            136.67098999023438,
+            193.1757354736328,
+            473.1021423339844,
+            204.64804077148438
+          ],
+          "char_start": 21801,
+          "char_end": 21858,
+          "role": "header_or_row_text"
+        },
+        {
+          "block_id": "arxiv:1706.03762:117",
+          "text": "ConvS2S Ensemble [9]\n26.36\n41.29\n7.7 · 1019\n1.2 · 1021",
+          "bbox": [
+            136.6710205078125,
+            204.55775451660156,
+            473.1021728515625,
+            216.03005981445312
+          ],
+          "char_start": 21858,
+          "char_end": 21912,
+          "role": "header_or_row_text"
+        },
+        {
+          "block_id": "arxiv:1706.03762:118",
+          "text": "Transformer (base model)\n27.3\n38.1\n3.3 · 1018",
+          "bbox": [
+            136.67100524902344,
+            217.69374084472656,
+            450.7341003417969,
+            229.16604614257812
+          ],
+          "char_start": 21912,
+          "char_end": 21957,
+          "role": "header_or_row_text"
+        },
+        {
+          "block_id": "arxiv:1706.03762:119",
+          "text": "Transformer (big)\n28.4\n41.8\n2.3 · 1019",
+          "bbox": [
+            136.67098999023438,
+            229.0757598876953,
+            447.96112060546875,
+            240.54806518554688
+          ],
+          "char_start": 21957,
+          "char_end": 21995,
+          "role": "header_or_row_text"
+        }
+      ],
+      "confidence": "agent source inspection only; not independent validation",
+      "status": "needs_human_review",
+      "reviewer": "",
+      "reviewed_at": "",
+      "verdict": ""
+    },
+    {
+      "annotation_id": "attention-v7-03",
+      "paper_id": "arxiv:1706.03762",
+      "document_sha256": "bdfaa68d8984f0dc02beaca527b76f207d99b666d31d1da728ee0728182df697",
+      "source_version": "arXiv:1706.03762v7 [cs.CL], 2 Aug 2023",
+      "source_pdf": "data/live/document.pdf",
+      "field": "results",
+      "experiment_or_model": "Transformer (big)",
+      "dataset": "WMT 2014 English-to-French",
+      "metric": "BLEU",
+      "value": "41.0",
+      "unit": "BLEU",
+      "setting": "Section 6.1 prose; distinct from Table 2",
+      "exact_evidence_quote": "On the WMT 2014 English-to-French translation task, our big model achieves a BLEU score of 41.0,\noutperforming all of the previously published single models, at less than 1/4 the training cost of the\nprevious state-of-the-art model. The Transformer (big) model trained for English-to-French used\ndropout rate Pdrop = 0.1, instead of 0.3.",
+      "page": "p8",
+      "section": "abstract",
+      "chunk_id": "arxiv:1706.03762:125#0",
+      "block_id": "arxiv:1706.03762:125",
+      "table_id": null,
+      "original_char_start": 23035,
+      "original_char_end": 23372,
+      "offset_basis": "normalized_document",
+      "bbox": [
+        108.0,
+        488.9289245605469,
+        505.2453308105469,
+        533.113525390625
+      ],
+      "bbox_scope": "native PDF text block",
+      "table_source_parts": [],
+      "confidence": "agent source inspection only; not independent validation",
+      "status": "needs_human_review",
+      "reviewer": "",
+      "reviewed_at": "",
+      "verdict": ""
+    },
+    {
+      "annotation_id": "attention-v7-04",
+      "paper_id": "arxiv:1706.03762",
+      "document_sha256": "bdfaa68d8984f0dc02beaca527b76f207d99b666d31d1da728ee0728182df697",
+      "source_version": "arXiv:1706.03762v7 [cs.CL], 2 Aug 2023",
+      "source_pdf": "data/live/document.pdf",
+      "field": "method",
+      "experiment_or_model": "Transformer encoder",
+      "dataset": null,
+      "metric": "layers",
+      "value": "6",
+      "unit": "layers",
+      "setting": "Encoder stack",
+      "exact_evidence_quote": "Encoder:\nThe encoder is composed of a stack of N = 6 identical layers. Each layer has two\nsub-layers. The first is a multi-head self-attention mechanism, and the second is a simple, position-\nwise fully connected feed-forward network. We employ a residual connection [11] around each of\nthe two sub-layers, followed by layer normalization [1]. That is, the output of each sub-layer is\nLayerNorm(x + Sublayer(x)), where Sublayer(x) is the function implemented by the sub-layer\nitself. To facilitate these residual connections, all sub-layers in the model, as well as the embedding\nlayers, produce outputs of dimension dmodel = 512.",
+      "page": "p3",
+      "section": "abstract",
+      "chunk_id": "arxiv:1706.03762:35#0",
+      "block_id": "arxiv:1706.03762:35",
+      "table_id": null,
+      "original_char_start": 7370,
+      "original_char_end": 8000,
+      "offset_basis": "normalized_document",
+      "bbox": [
+        107.64099884033203,
+        502.8299255371094,
+        505.6571960449219,
+        579.7415161132812
+      ],
+      "bbox_scope": "native PDF text block",
+      "table_source_parts": [],
+      "confidence": "agent source inspection only; not independent validation",
+      "status": "needs_human_review",
+      "reviewer": "",
+      "reviewed_at": "",
+      "verdict": ""
+    },
+    {
+      "annotation_id": "attention-v7-05",
+      "paper_id": "arxiv:1706.03762",
+      "document_sha256": "bdfaa68d8984f0dc02beaca527b76f207d99b666d31d1da728ee0728182df697",
+      "source_version": "arXiv:1706.03762v7 [cs.CL], 2 Aug 2023",
+      "source_pdf": "data/live/document.pdf",
+      "field": "method",
+      "experiment_or_model": "Transformer decoder",
+      "dataset": null,
+      "metric": "layers",
+      "value": "6",
+      "unit": "layers",
+      "setting": "Decoder stack",
+      "exact_evidence_quote": "Decoder:\nThe decoder is also composed of a stack of N = 6 identical layers. In addition to the two\nsub-layers in each encoder layer, the decoder inserts a third sub-layer, which performs multi-head\nattention over the output of the encoder stack. Similar to the encoder, we employ residual connections\naround each of the sub-layers, followed by layer normalization. We also modify the self-attention\nsub-layer in the decoder stack to prevent positions from attending to subsequent positions. This\nmasking, combined with fact that the output embeddings are offset by one position, ensures that the\npredictions for position i can depend only on the known outputs at positions less than i.",
+      "page": "p3",
+      "section": "abstract",
+      "chunk_id": "arxiv:1706.03762:36#0",
+      "block_id": "arxiv:1706.03762:36",
+      "table_id": null,
+      "original_char_start": 8000,
+      "original_char_end": 8685,
+      "offset_basis": "normalized_document",
+      "bbox": [
+        108.0,
+        591.4059448242188,
+        504.00146484375,
+        667.0530395507812
+      ],
+      "bbox_scope": "native PDF text block",
+      "table_source_parts": [],
+      "confidence": "agent source inspection only; not independent validation",
+      "status": "needs_human_review",
+      "reviewer": "",
+      "reviewed_at": "",
+      "verdict": ""
+    },
+    {
+      "annotation_id": "attention-v7-06",
+      "paper_id": "arxiv:1706.03762",
+      "document_sha256": "bdfaa68d8984f0dc02beaca527b76f207d99b666d31d1da728ee0728182df697",
+      "source_version": "arXiv:1706.03762v7 [cs.CL], 2 Aug 2023",
+      "source_pdf": "data/live/document.pdf",
+      "field": "method",
+      "experiment_or_model": "Transformer base",
+      "dataset": null,
+      "metric": "model dimension",
+      "value": "512",
+      "unit": "dimensions",
+      "setting": "dmodel; base architecture",
+      "exact_evidence_quote": "Encoder:\nThe encoder is composed of a stack of N = 6 identical layers. Each layer has two\nsub-layers. The first is a multi-head self-attention mechanism, and the second is a simple, position-\nwise fully connected feed-forward network. We employ a residual connection [11] around each of\nthe two sub-layers, followed by layer normalization [1]. That is, the output of each sub-layer is\nLayerNorm(x + Sublayer(x)), where Sublayer(x) is the function implemented by the sub-layer\nitself. To facilitate these residual connections, all sub-layers in the model, as well as the embedding\nlayers, produce outputs of dimension dmodel = 512.",
+      "page": "p3",
+      "section": "abstract",
+      "chunk_id": "arxiv:1706.03762:35#0",
+      "block_id": "arxiv:1706.03762:35",
+      "table_id": null,
+      "original_char_start": 7370,
+      "original_char_end": 8000,
+      "offset_basis": "normalized_document",
+      "bbox": [
+        107.64099884033203,
+        502.8299255371094,
+        505.6571960449219,
+        579.7415161132812
+      ],
+      "bbox_scope": "native PDF text block",
+      "table_source_parts": [],
+      "confidence": "agent source inspection only; not independent validation",
+      "status": "needs_human_review",
+      "reviewer": "",
+      "reviewed_at": "",
+      "verdict": ""
+    },
+    {
+      "annotation_id": "attention-v7-07",
+      "paper_id": "arxiv:1706.03762",
+      "document_sha256": "bdfaa68d8984f0dc02beaca527b76f207d99b666d31d1da728ee0728182df697",
+      "source_version": "arXiv:1706.03762v7 [cs.CL], 2 Aug 2023",
+      "source_pdf": "data/live/document.pdf",
+      "field": "method",
+      "experiment_or_model": "Transformer base",
+      "dataset": null,
+      "metric": "attention heads",
+      "value": "8",
+      "unit": "heads",
+      "setting": "h; not the big configuration",
+      "exact_evidence_quote": "In this work we employ h = 8 parallel attention layers, or heads. For each of these we use\ndk = dv = dmodel/h = 64. Due to the reduced dimension of each head, the total computational cost\nis similar to that of single-head attention with full dimensionality.",
+      "page": "p5",
+      "section": "abstract",
+      "chunk_id": "arxiv:1706.03762:65#0",
+      "block_id": "arxiv:1706.03762:65",
+      "table_id": null,
+      "original_char_start": 11914,
+      "original_char_end": 12171,
+      "offset_basis": "normalized_document",
+      "bbox": [
+        108.0,
+        234.1418914794922,
+        504.0021057128906,
+        266.1540832519531
+      ],
+      "bbox_scope": "native PDF text block",
+      "table_source_parts": [],
+      "confidence": "agent source inspection only; not independent validation",
+      "status": "needs_human_review",
+      "reviewer": "",
+      "reviewed_at": "",
+      "verdict": ""
+    },
+    {
+      "annotation_id": "attention-v7-08",
+      "paper_id": "arxiv:1706.03762",
+      "document_sha256": "bdfaa68d8984f0dc02beaca527b76f207d99b666d31d1da728ee0728182df697",
+      "source_version": "arXiv:1706.03762v7 [cs.CL], 2 Aug 2023",
+      "source_pdf": "data/live/document.pdf",
+      "field": "method",
+      "experiment_or_model": "Transformer base",
+      "dataset": null,
+      "metric": "feed-forward inner dimension",
+      "value": "2048",
+      "unit": "dimensions",
+      "setting": "dff",
+      "exact_evidence_quote": "While the linear transformations are the same across different positions, they use different parameters\nfrom layer to layer. Another way of describing this is as two convolutions with kernel size 1.\nThe dimensionality of input and output is dmodel = 512, and the inner-layer has dimensionality\ndff = 2048.",
+      "page": "p5",
+      "section": "abstract",
+      "chunk_id": "arxiv:1706.03762:74#0",
+      "block_id": "arxiv:1706.03762:74",
+      "table_id": null,
+      "original_char_start": 13728,
+      "original_char_end": 14033,
+      "offset_basis": "normalized_document",
+      "bbox": [
+        107.53199768066406,
+        590.2403564453125,
+        505.74517822265625,
+        634.1185302734375
+      ],
+      "bbox_scope": "native PDF text block",
+      "table_source_parts": [],
+      "confidence": "agent source inspection only; not independent validation",
+      "status": "needs_human_review",
+      "reviewer": "",
+      "reviewed_at": "",
+      "verdict": ""
+    },
+    {
+      "annotation_id": "attention-v7-09",
+      "paper_id": "arxiv:1706.03762",
+      "document_sha256": "bdfaa68d8984f0dc02beaca527b76f207d99b666d31d1da728ee0728182df697",
+      "source_version": "arXiv:1706.03762v7 [cs.CL], 2 Aug 2023",
+      "source_pdf": "data/live/document.pdf",
+      "field": "method",
+      "experiment_or_model": "Transformer base",
+      "dataset": null,
+      "metric": "residual dropout",
+      "value": "0.1",
+      "unit": "probability",
+      "setting": "Base model only; big EN-FR exception is separate",
+      "exact_evidence_quote": "Residual Dropout\nWe apply dropout [33] to the output of each sub-layer, before it is added to the\nsub-layer input and normalized. In addition, we apply dropout to the sums of the embeddings and the\npositional encodings in both the encoder and decoder stacks. For the base model, we use a rate of\nPdrop = 0.1.",
+      "page": "p8",
+      "section": "abstract",
+      "chunk_id": "arxiv:1706.03762:120#0",
+      "block_id": "arxiv:1706.03762:120",
+      "table_id": null,
+      "original_char_start": 21995,
+      "original_char_end": 22303,
+      "offset_basis": "normalized_document",
+      "bbox": [
+        108.0,
+        273.2334899902344,
+        504.0014953613281,
+        317.2545166015625
+      ],
+      "bbox_scope": "native PDF text block",
+      "table_source_parts": [],
+      "confidence": "agent source inspection only; not independent validation",
+      "status": "needs_human_review",
+      "reviewer": "",
+      "reviewed_at": "",
+      "verdict": ""
+    },
+    {
+      "annotation_id": "attention-v7-10",
+      "paper_id": "arxiv:1706.03762",
+      "document_sha256": "bdfaa68d8984f0dc02beaca527b76f207d99b666d31d1da728ee0728182df697",
+      "source_version": "arXiv:1706.03762v7 [cs.CL], 2 Aug 2023",
+      "source_pdf": "data/live/document.pdf",
+      "field": "method",
+      "experiment_or_model": "Transformer training",
+      "dataset": null,
+      "metric": "hardware",
+      "value": "8",
+      "unit": "NVIDIA P100 GPUs",
+      "setting": "One machine",
+      "exact_evidence_quote": "We trained our models on one machine with 8 NVIDIA P100 GPUs. For our base models using\nthe hyperparameters described throughout the paper, each training step took about 0.4 seconds. We\ntrained the base models for a total of 100,000 steps or 12 hours. For our big models,(described on the\nbottom line of table 3), step time was 1.0 seconds. The big models were trained for 300,000 steps\n(3.5 days).",
+      "page": "p7",
+      "section": "abstract",
+      "chunk_id": "arxiv:1706.03762:100#0",
+      "block_id": "arxiv:1706.03762:100",
+      "table_id": null,
+      "original_char_start": 20387,
+      "original_char_end": 20785,
+      "offset_basis": "normalized_document",
+      "bbox": [
+        107.53199768066406,
+        486.7832946777344,
+        504.0014953613281,
+        540.45703125
+      ],
+      "bbox_scope": "native PDF text block",
+      "table_source_parts": [],
+      "confidence": "agent source inspection only; not independent validation",
+      "status": "needs_human_review",
+      "reviewer": "",
+      "reviewed_at": "",
+      "verdict": ""
+    },
+    {
+      "annotation_id": "attention-v7-11",
+      "paper_id": "arxiv:1706.03762",
+      "document_sha256": "bdfaa68d8984f0dc02beaca527b76f207d99b666d31d1da728ee0728182df697",
+      "source_version": "arXiv:1706.03762v7 [cs.CL], 2 Aug 2023",
+      "source_pdf": "data/live/document.pdf",
+      "field": "method",
+      "experiment_or_model": "Transformer big",
+      "dataset": null,
+      "metric": "training duration",
+      "value": "3.5",
+      "unit": "days",
+      "setting": "300,000 steps; separate from base 12 hours",
+      "exact_evidence_quote": "We trained our models on one machine with 8 NVIDIA P100 GPUs. For our base models using\nthe hyperparameters described throughout the paper, each training step took about 0.4 seconds. We\ntrained the base models for a total of 100,000 steps or 12 hours. For our big models,(described on the\nbottom line of table 3), step time was 1.0 seconds. The big models were trained for 300,000 steps\n(3.5 days).",
+      "page": "p7",
+      "section": "abstract",
+      "chunk_id": "arxiv:1706.03762:100#0",
+      "block_id": "arxiv:1706.03762:100",
+      "table_id": null,
+      "original_char_start": 20387,
+      "original_char_end": 20785,
+      "offset_basis": "normalized_document",
+      "bbox": [
+        107.53199768066406,
+        486.7832946777344,
+        504.0014953613281,
+        540.45703125
+      ],
+      "bbox_scope": "native PDF text block",
+      "table_source_parts": [],
+      "confidence": "agent source inspection only; not independent validation",
+      "status": "needs_human_review",
+      "reviewer": "",
+      "reviewed_at": "",
+      "verdict": ""
+    },
+    {
+      "annotation_id": "attention-v7-12",
+      "paper_id": "arxiv:1706.03762",
+      "document_sha256": "bdfaa68d8984f0dc02beaca527b76f207d99b666d31d1da728ee0728182df697",
+      "source_version": "arXiv:1706.03762v7 [cs.CL], 2 Aug 2023",
+      "source_pdf": "data/live/document.pdf",
+      "field": "results",
+      "experiment_or_model": "Transformer (big)",
+      "dataset": "EN-DE / EN-FR table shared cost region",
+      "metric": "training cost",
+      "value": "2.3e19",
+      "unit": "FLOPs",
+      "setting": "Printed exponent 19; cost spans language columns; attribution unresolved",
+      "exact_evidence_quote": "Transformer (big)\n28.4\n41.8\n2.3 · 1019",
+      "page": "p8",
+      "section": "abstract",
+      "chunk_id": "arxiv:1706.03762:119#0",
+      "block_id": "arxiv:1706.03762:119",
+      "table_id": "arxiv:1706.03762:108:table",
+      "original_char_start": 21957,
+      "original_char_end": 21995,
+      "offset_basis": "normalized_document",
+      "bbox": [
+        136.67098999023438,
+        229.0757598876953,
+        447.96112060546875,
+        240.54806518554688
+      ],
+      "bbox_scope": "native PDF text block",
+      "table_source_parts": [
+        {
+          "block_id": "arxiv:1706.03762:108",
+          "text": "Table 2: The Transformer achieves better BLEU scores than previous state-of-the-art models on the\nEnglish-to-German and English-to-French newstest2014 tests at a fraction of the training cost.",
+          "bbox": [
+            107.69100189208984,
+            71.19947814941406,
+            504.00311279296875,
+            92.07107543945312
+          ],
+          "char_start": 21316,
+          "char_end": 21508,
+          "role": "caption"
+        },
+        {
+          "block_id": "arxiv:1706.03762:109",
+          "text": "BLEU\nTraining Cost (FLOPs)",
+          "bbox": [
+            311.02099609375,
+            97.91346740722656,
+            475.3241882324219,
+            107.87606811523438
+          ],
+          "char_start": 21508,
+          "char_end": 21534,
+          "role": "header_or_row_text"
+        },
+        {
+          "block_id": "arxiv:1706.03762:110",
+          "text": "Model",
+          "bbox": [
+            136.67100524902344,
+            106.20246887207031,
+            162.683349609375,
+            116.16506958007812
+          ],
+          "char_start": 21534,
+          "char_end": 21539,
+          "role": "header_or_row_text"
+        },
+        {
+          "block_id": "arxiv:1706.03762:111",
+          "text": "EN-DE\nEN-FR\nEN-DE\nEN-FR\nByteNet [18]\n23.75\nDeep-Att + PosUnk [39]\n39.2\n1.0 · 1020",
+          "bbox": [
+            136.67100524902344,
+            113.82844543457031,
+            473.10211181640625,
+            146.48104858398438
+          ],
+          "char_start": 21539,
+          "char_end": 21620,
+          "role": "header_or_row_text"
+        },
+        {
+          "block_id": "arxiv:1706.03762:112",
+          "text": "GNMT + RL [38]\n24.6\n39.92\n2.3 · 1019\n1.4 · 1020",
+          "bbox": [
+            136.67098999023438,
+            146.3907012939453,
+            473.1021423339844,
+            157.86300659179688
+          ],
+          "char_start": 21620,
+          "char_end": 21667,
+          "role": "header_or_row_text"
+        },
+        {
+          "block_id": "arxiv:1706.03762:113",
+          "text": "ConvS2S [9]\n25.16\n40.46\n9.6 · 1018\n1.5 · 1020",
+          "bbox": [
+            136.6710205078125,
+            157.7726593017578,
+            473.1021728515625,
+            169.24600219726562
+          ],
+          "char_start": 21667,
+          "char_end": 21712,
+          "role": "header_or_row_text"
+        },
+        {
+          "block_id": "arxiv:1706.03762:114",
+          "text": "MoE [32]\n26.03\n40.56\n2.0 · 1019\n1.2 · 1020",
+          "bbox": [
+            136.67105102539062,
+            169.15565490722656,
+            473.1021728515625,
+            180.62796020507812
+          ],
+          "char_start": 21712,
+          "char_end": 21754,
+          "role": "header_or_row_text"
+        },
+        {
+          "block_id": "arxiv:1706.03762:115",
+          "text": "Deep-Att + PosUnk Ensemble [39]\n40.4\n8.0 · 1020",
+          "bbox": [
+            136.67100524902344,
+            181.79273986816406,
+            473.10211181640625,
+            193.26608276367188
+          ],
+          "char_start": 21754,
+          "char_end": 21801,
+          "role": "header_or_row_text"
+        },
+        {
+          "block_id": "arxiv:1706.03762:116",
+          "text": "GNMT + RL Ensemble [38]\n26.30\n41.16\n1.8 · 1020\n1.1 · 1021",
+          "bbox": [
+            136.67098999023438,
+            193.1757354736328,
+            473.1021423339844,
+            204.64804077148438
+          ],
+          "char_start": 21801,
+          "char_end": 21858,
+          "role": "header_or_row_text"
+        },
+        {
+          "block_id": "arxiv:1706.03762:117",
+          "text": "ConvS2S Ensemble [9]\n26.36\n41.29\n7.7 · 1019\n1.2 · 1021",
+          "bbox": [
+            136.6710205078125,
+            204.55775451660156,
+            473.1021728515625,
+            216.03005981445312
+          ],
+          "char_start": 21858,
+          "char_end": 21912,
+          "role": "header_or_row_text"
+        },
+        {
+          "block_id": "arxiv:1706.03762:118",
+          "text": "Transformer (base model)\n27.3\n38.1\n3.3 · 1018",
+          "bbox": [
+            136.67100524902344,
+            217.69374084472656,
+            450.7341003417969,
+            229.16604614257812
+          ],
+          "char_start": 21912,
+          "char_end": 21957,
+          "role": "header_or_row_text"
+        },
+        {
+          "block_id": "arxiv:1706.03762:119",
+          "text": "Transformer (big)\n28.4\n41.8\n2.3 · 1019",
+          "bbox": [
+            136.67098999023438,
+            229.0757598876953,
+            447.96112060546875,
+            240.54806518554688
+          ],
+          "char_start": 21957,
+          "char_end": 21995,
+          "role": "header_or_row_text"
+        }
+      ],
+      "confidence": "agent source inspection only; not independent validation",
+      "status": "needs_human_review",
+      "reviewer": "",
+      "reviewed_at": "",
+      "verdict": ""
+    }
+  ]
+}

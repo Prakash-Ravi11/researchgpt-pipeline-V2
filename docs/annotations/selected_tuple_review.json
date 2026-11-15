@@ -1,0 +1,239 @@
+{
+  "ground_truth_status": "needs_human_review",
+  "reviewer": "",
+  "reviewed_at": "",
+  "verdict": "",
+  "source_version": "arXiv:1706.03762v7 [cs.CL], 2 Aug 2023",
+  "source_pdf": "data/live/document.pdf",
+  "expected_tuple": {
+    "subject": "Transformer (big)",
+    "benchmark": "newstest2014",
+    "dataset": "newstest2014",
+    "condition": "English-to-French",
+    "metric": "BLEU",
+    "value": "41.8",
+    "unit": null,
+    "setting": null
+  },
+  "paper_id": "arxiv:1706.03762",
+  "document_sha256": "bdfaa68d8984f0dc02beaca527b76f207d99b666d31d1da728ee0728182df697",
+  "bundle_id": "bundle:e9a2425e3ed4961a0c4a3edf",
+  "table_id": "arxiv:1706.03762:108:table",
+  "spans": [
+    {
+      "span_id": "arxiv:1706.03762:108#0@0:192:caption",
+      "role": "caption",
+      "text": "Table 2: The Transformer achieves better BLEU scores than previous state-of-the-art models on the\nEnglish-to-German and English-to-French newstest2014 tests at a fraction of the training cost.",
+      "reference": {
+        "chunk_id": "arxiv:1706.03762:108#0",
+        "block_id": "arxiv:1706.03762:108",
+        "page_or_node": "p8",
+        "char_start": 21316,
+        "char_end": 21508,
+        "offset_basis": "normalized_document"
+      },
+      "bbox": [
+        107.69100189208984,
+        71.19947814941406,
+        504.00311279296875,
+        92.07107543945312
+      ]
+    },
+    {
+      "span_id": "arxiv:1706.03762:119#0@0:17:subject",
+      "role": "subject",
+      "text": "Transformer (big)",
+      "reference": {
+        "chunk_id": "arxiv:1706.03762:119#0",
+        "block_id": "arxiv:1706.03762:119",
+        "page_or_node": "p8",
+        "char_start": 21957,
+        "char_end": 21974,
+        "offset_basis": "normalized_document"
+      },
+      "bbox": [
+        136.67098999023438,
+        229.0757598876953,
+        447.96112060546875,
+        240.54806518554688
+      ]
+    },
+    {
+      "span_id": "arxiv:1706.03762:111#0@6:11:dataset",
+      "role": "dataset",
+      "text": "EN-FR",
+      "reference": {
+        "chunk_id": "arxiv:1706.03762:111#0",
+        "block_id": "arxiv:1706.03762:111",
+        "page_or_node": "p8",
+        "char_start": 21545,
+        "char_end": 21550,
+        "offset_basis": "normalized_document"
+      },
+      "bbox": [
+        330.5529479980469,
+        113.82844543457031,
+        359.33489990234375,
+        123.79104614257812
+      ]
+    },
+    {
+      "span_id": "arxiv:1706.03762:109#0@0:4:metric",
+      "role": "metric",
+      "text": "BLEU",
+      "reference": {
+        "chunk_id": "arxiv:1706.03762:109#0",
+        "block_id": "arxiv:1706.03762:109",
+        "page_or_node": "p8",
+        "char_start": 21508,
+        "char_end": 21512,
+        "offset_basis": "normalized_document"
+      },
+      "bbox": [
+        311.02099609375,
+        97.91346740722656,
+        337.0333557128906,
+        107.87606811523438
+      ]
+    },
+    {
+      "span_id": "arxiv:1706.03762:119#0@23:27:value",
+      "role": "value",
+      "text": "41.8",
+      "reference": {
+        "chunk_id": "arxiv:1706.03762:119#0",
+        "block_id": "arxiv:1706.03762:119",
+        "page_or_node": "p8",
+        "char_start": 21980,
+        "char_end": 21984,
+        "offset_basis": "normalized_document"
+      },
+      "bbox": [
+        336.2259826660156,
+        230.4945068359375,
+        353.6605224609375,
+        240.4571075439453
+      ]
+    },
+    {
+      "span_id": "arxiv:1706.03762:108#0@21454:21466:benchmark",
+      "role": "benchmark",
+      "text": "newstest2014",
+      "reference": {
+        "chunk_id": "arxiv:1706.03762:108#0",
+        "block_id": "arxiv:1706.03762:108",
+        "page_or_node": "p8",
+        "char_start": 21454,
+        "char_end": 21466,
+        "offset_basis": "normalized_document"
+      },
+      "bbox": [
+        279.2770080566406,
+        82.10847473144531,
+        333.2643127441406,
+        92.07107543945312
+      ]
+    },
+    {
+      "span_id": "arxiv:1706.03762:108#0@21436:21453:condition",
+      "role": "condition",
+      "text": "English-to-French",
+      "reference": {
+        "chunk_id": "arxiv:1706.03762:108#0",
+        "block_id": "arxiv:1706.03762:108",
+        "page_or_node": "p8",
+        "char_start": 21436,
+        "char_end": 21453,
+        "offset_basis": "normalized_document"
+      },
+      "bbox": [
+        204.2885284423828,
+        82.10847473144531,
+        276.7863464355469,
+        92.07107543945312
+      ]
+    },
+    {
+      "span_id": "arxiv:1706.03762:111#0@6:11:dataset:condition_label",
+      "role": "condition_label",
+      "text": "EN-FR",
+      "reference": {
+        "chunk_id": "arxiv:1706.03762:111#0",
+        "block_id": "arxiv:1706.03762:111",
+        "page_or_node": "p8",
+        "char_start": 21545,
+        "char_end": 21550,
+        "offset_basis": "normalized_document"
+      },
+      "bbox": [
+        330.5529479980469,
+        113.82844543457031,
+        359.33489990234375,
+        123.79104614257812
+      ]
+    },
+    {
+      "span_id": "arxiv:1706.03762:127#0@23828:23964:ownership",
+      "role": "ownership",
+      "text": "Table 2 summarizes our results and compares our translation quality and training costs to other model\narchitectures from the literature.",
+      "reference": {
+        "chunk_id": "arxiv:1706.03762:127#0",
+        "block_id": "arxiv:1706.03762:127",
+        "page_or_node": "p8",
+        "char_start": 23828,
+        "char_end": 23964,
+        "offset_basis": "normalized_document"
+      },
+      "bbox": [
+        107.69100189208984,
+        598.3764038085938,
+        503.99761962890625,
+        640.9900512695312
+      ]
+    }
+  ],
+  "relations": [
+    {
+      "kind": "caption_benchmark",
+      "from_span_id": "arxiv:1706.03762:108#0@0:192:caption",
+      "to_span_id": "arxiv:1706.03762:108#0@21454:21466:benchmark",
+      "table_id": "arxiv:1706.03762:108:table"
+    },
+    {
+      "kind": "header_metric",
+      "from_span_id": "arxiv:1706.03762:109#0@0:4:metric",
+      "to_span_id": "arxiv:1706.03762:111#0@6:11:dataset",
+      "table_id": "arxiv:1706.03762:108:table"
+    },
+    {
+      "kind": "row_value",
+      "from_span_id": "arxiv:1706.03762:119#0@0:17:subject",
+      "to_span_id": "arxiv:1706.03762:119#0@23:27:value",
+      "table_id": "arxiv:1706.03762:108:table"
+    },
+    {
+      "kind": "column_value",
+      "from_span_id": "arxiv:1706.03762:111#0@6:11:dataset",
+      "to_span_id": "arxiv:1706.03762:119#0@23:27:value",
+      "table_id": "arxiv:1706.03762:108:table"
+    },
+    {
+      "kind": "caption_condition",
+      "from_span_id": "arxiv:1706.03762:108#0@0:192:caption",
+      "to_span_id": "arxiv:1706.03762:108#0@21436:21453:condition",
+      "table_id": "arxiv:1706.03762:108:table"
+    },
+    {
+      "kind": "header_condition",
+      "from_span_id": "arxiv:1706.03762:111#0@6:11:dataset",
+      "to_span_id": "arxiv:1706.03762:108#0@21436:21453:condition",
+      "table_id": "arxiv:1706.03762:108:table"
+    },
+    {
+      "kind": "table_mention",
+      "from_span_id": "arxiv:1706.03762:127#0@23828:23964:ownership",
+      "to_span_id": "arxiv:1706.03762:108#0@0:192:caption",
+      "table_id": "arxiv:1706.03762:108:table"
+    }
+  ]
+}

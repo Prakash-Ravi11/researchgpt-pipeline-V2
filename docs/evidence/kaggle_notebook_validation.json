@@ -1,0 +1,30 @@
+{
+  "interpreter": "C:\\Users\\Praka\\Downloads\\research IQ  V2\\researchgpt-pipeline-V2\\.venv-gpu\\Scripts\\python.exe",
+  "python": "3.13.6",
+  "notebook": "kaggle\\semantic_inference.ipynb",
+  "notebook_sha256": "72d9d20834a6d4d48cc161cee5f30501bf6beab5e27438bcb380261505556359",
+  "code_cells_syntax_validated": 6,
+  "saved_execution_counts_and_outputs": "empty",
+  "executed_locally": [
+    "configuration",
+    "bootstrap against actual prepared package copied into temporary fixture directories"
+  ],
+  "mount_discovery": "resolved fixture-assigned directory without a dataset slug assumption",
+  "input_manifest_valid": true,
+  "package_id": "rgpt_d03e8fa2bfe3dc4baa48c121",
+  "code_commit": "87e44b4e3302314db73f569a20982ab20758e254",
+  "input_manifest_sha256": "ff00931afc4c49ccb7f684dd0674027fb0bfac9178f3cf08797537b6d4f5f3ff",
+  "guards": {
+    "duplicate_matching_manifest": "rejected",
+    "no_matching_manifest": "rejected"
+  },
+  "not_executed": [
+    "remote dependency installation",
+    "GPU preflight",
+    "model loading",
+    "generation",
+    "remote result download"
+  ],
+  "remote_execution_status": "NOT EXECUTED",
+  "full_regression_repeated": false
+}

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article><front><article-meta><title-group><article-title>Synthetic segmentation evidence fixture</article-title></title-group><abstract><p>We investigate segmentation on the ExampleSet dataset.</p></abstract></article-meta></front><body>
+<sec id="methods"><title>Methods</title><p>We propose a segmentation method and evaluate it on the ExampleSet dataset using the held-out test split.</p></sec>
+<sec id="results"><title>Results</title><p>Our method achieves a Dice score of 91.4% on the ExampleSet test set.</p>
+<table-wrap id="T1"><caption><p>Table 1: Comparison of segmentation results on the ExampleSet test set.</p></caption><table><thead><tr><th>Model</th><th>Dice (%)</th><th>HD95 (mm)</th></tr></thead><tbody><tr><td>Baseline</td><td>85.1</td><td>7.2</td></tr><tr><td>Ours</td><td>91.4</td><td>4.3</td></tr></tbody></table></table-wrap></sec>
+<sec><title>Limitations</title><p>Our evaluation is limited to the ExampleSet test set. Future work will evaluate external datasets.</p></sec>
+</body></article>

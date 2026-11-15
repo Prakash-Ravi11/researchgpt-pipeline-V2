@@ -1,0 +1,56 @@
+{
+  "command": "\"C:\\Users\\Praka\\Downloads\\research IQ  V2\\researchgpt-pipeline-V2\\.venv-gpu\\Scripts\\python.exe\" -B -m pytest -p no:cacheprovider tests -q --junitxml=outputs/accuracy/timeout-preservation-pytest.xml",
+  "environment": {
+    "interpreter": "C:\\Users\\Praka\\Downloads\\research IQ  V2\\researchgpt-pipeline-V2\\.venv-gpu\\Scripts\\python.exe",
+    "python": "3.13.6",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "packages": {
+      "pydantic": "2.12.5",
+      "fastapi": "0.116.1",
+      "uvicorn": "0.35.0",
+      "requests": "2.32.5",
+      "PyMuPDF": "1.28.2",
+      "PyYAML": "6.0.2",
+      "tqdm": "4.67.1",
+      "chromadb": "1.1.1",
+      "sentence-transformers": "5.1.1",
+      "torch": "2.8.0+cu126",
+      "numpy": "2.2.6",
+      "rank-bm25": "0.2.2",
+      "pytest": "8.4.2",
+      "httpx": "0.28.1"
+    }
+  },
+  "scope": "contract/unit/connected synthetic fixtures; no real-model end-to-end pytest",
+  "counts": {
+    "PASSED": 3,
+    "FAILED": 0,
+    "SKIPPED": 0
+  },
+  "tests": [
+    {
+      "module": "tests.test_accuracy_evidence",
+      "name": "test_completed_structure_survives_model_timeout",
+      "status": "PASSED",
+      "seconds": 3.277,
+      "classification": "INTEGRATION",
+      "mocks_or_doubles": "True"
+    },
+    {
+      "module": "tests.test_model_lifecycle",
+      "name": "test_embedding_owner_releases_before_llm_extraction",
+      "status": "PASSED",
+      "seconds": 0.011,
+      "classification": "INTEGRATION",
+      "mocks_or_doubles": "True"
+    },
+    {
+      "module": "tests.test_model_lifecycle",
+      "name": "test_failed_indexing_releases_owned_model",
+      "status": "PASSED",
+      "seconds": 0.004,
+      "classification": "INTEGRATION",
+      "mocks_or_doubles": "True"
+    }
+  ]
+}

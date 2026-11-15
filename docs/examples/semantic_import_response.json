@@ -1,0 +1,1457 @@
+{
+  "scope": "controlled round-trip example, source-backed data and injected selection; no remote model execution",
+  "response": {
+    "paper_id": "arxiv:1706.03762",
+    "acquisition_status": "FULL_TEXT",
+    "status": "PARTIAL",
+    "fields": {
+      "problem_statement": [
+        {
+          "field": "problem_statement",
+          "value": null,
+          "final": "ABSTAINED",
+          "evidence_status": "MISSING",
+          "status": "MISSING",
+          "abstain_reason": "missing_evidence",
+          "evidence_span": null,
+          "source_refs": [],
+          "confidence": 0.0,
+          "provenance_valid": false,
+          "verification_state": "UNAVAILABLE"
+        }
+      ],
+      "objective": [
+        {
+          "field": "objective",
+          "value": null,
+          "final": "ABSTAINED",
+          "evidence_status": "MISSING",
+          "status": "MISSING",
+          "abstain_reason": "missing_evidence",
+          "evidence_span": null,
+          "source_refs": [],
+          "confidence": 0.0,
+          "provenance_valid": false,
+          "verification_state": "UNAVAILABLE"
+        }
+      ],
+      "research_gap": [
+        {
+          "field": "research_gap",
+          "value": null,
+          "final": "ABSTAINED",
+          "evidence_status": "MISSING",
+          "status": "MISSING",
+          "abstain_reason": "missing_evidence",
+          "evidence_span": null,
+          "source_refs": [],
+          "confidence": 0.0,
+          "provenance_valid": false,
+          "verification_state": "UNAVAILABLE"
+        }
+      ],
+      "method": [
+        {
+          "field": "method",
+          "value": null,
+          "final": "ABSTAINED",
+          "evidence_status": "MISSING",
+          "status": "MISSING",
+          "abstain_reason": "missing_evidence",
+          "evidence_span": null,
+          "source_refs": [],
+          "confidence": 0.0,
+          "provenance_valid": false,
+          "verification_state": "UNAVAILABLE"
+        }
+      ],
+      "datasets": [
+        {
+          "field": "datasets",
+          "value": null,
+          "final": "ABSTAINED",
+          "evidence_status": "MISSING",
+          "status": "MISSING",
+          "abstain_reason": "missing_evidence",
+          "evidence_span": null,
+          "source_refs": [],
+          "confidence": 0.0,
+          "provenance_valid": false,
+          "verification_state": "UNAVAILABLE"
+        }
+      ],
+      "metrics": [
+        {
+          "field": "metrics",
+          "value": "On the WMT 2014 English-to-German translation task, the big transformer model (Transformer (big)\nin Table 2) outperforms the best previously reported models (including ensembles) by more than 2.0\nBLEU, establishing a new state-of-the-art BLEU score of 28.4.",
+          "final": "ABSTAINED",
+          "evidence_status": "UNSUPPORTED",
+          "status": "ABSTAINED",
+          "abstain_reason": "unverifiable_binding",
+          "evidence_span": null,
+          "source_refs": [],
+          "confidence": 0.0,
+          "provenance_valid": false,
+          "verification_state": "WITHHELD",
+          "proposed_value": "On the WMT 2014 English-to-German translation task, the big transformer model (Transformer (big)\nin Table 2) outperforms the best previously reported models (including ensembles) by more than 2.0\nBLEU, establishing a new state-of-the-art BLEU score of 28.4.",
+          "proposed_evidence_span": "On the WMT 2014 English-to-German translation task, the big transformer model (Transformer (big)\nin Table 2) outperforms the best previously reported models (including ensembles) by more than 2.0\nBLEU, establishing a new state-of-the-art BLEU score of 28.4.",
+          "legacy_verdict": {
+            "field": "results",
+            "value": "On the WMT 2014 English-to-German translation task, the big transformer model (Transformer (big)\nin Table 2) outperforms the best previously reported models (including ensembles) by more than 2.0\nBLEU, establishing a new state-of-the-art BLEU score of 28.4.",
+            "evidence_span": null,
+            "source": null,
+            "representation": null,
+            "section": null,
+            "page_or_node": null,
+            "block_id": null,
+            "char_start": null,
+            "char_end": null,
+            "evidence_status": "UNSUPPORTED",
+            "attribution": "UNKNOWN",
+            "attribution_confidence": 0.0,
+            "confidence": 0.0,
+            "provenance_valid": false,
+            "final": "ABSTAINED",
+            "abstain_reason": "unverifiable_binding",
+            "range_check": null,
+            "structural_binding": {
+              "structured": false,
+              "status": "pdf_only"
+            }
+          }
+        }
+      ],
+      "results": [
+        {
+          "field": "results",
+          "value": "41.8",
+          "final": "RETURNED",
+          "evidence_status": "EXPLICIT",
+          "status": "VERIFIED",
+          "abstain_reason": null,
+          "evidence_span": "41.8",
+          "source_refs": [
+            {
+              "paper_id": "arxiv:1706.03762",
+              "chunk_id": "arxiv:1706.03762:108#0",
+              "block_id": "arxiv:1706.03762:108",
+              "source": "arxiv",
+              "representation": "pdf",
+              "section": "abstract",
+              "page_or_node": "p8",
+              "char_start": 21316,
+              "char_end": 21508,
+              "offset_basis": "normalized_document",
+              "source_bbox": [
+                107.69100189208984,
+                71.19947814941406,
+                504.00311279296875,
+                92.07107543945312
+              ],
+              "source_words": [
+                {
+                  "text": "English-to-German",
+                  "bbox": [
+                    108.0,
+                    82.10847473144531,
+                    184.92124938964844,
+                    92.07107543945312
+                  ],
+                  "native_block": 0,
+                  "line": 1,
+                  "word": 0
+                },
+                {
+                  "text": "English-to-French",
+                  "bbox": [
+                    204.2885284423828,
+                    82.10847473144531,
+                    276.7863464355469,
+                    92.07107543945312
+                  ],
+                  "native_block": 0,
+                  "line": 1,
+                  "word": 2
+                },
+                {
+                  "text": "newstest2014",
+                  "bbox": [
+                    279.2770080566406,
+                    82.10847473144531,
+                    333.2643127441406,
+                    92.07107543945312
+                  ],
+                  "native_block": 0,
+                  "line": 1,
+                  "word": 3
+                }
+              ],
+              "table_id": "arxiv:1706.03762:108:table"
+            },
+            {
+              "paper_id": "arxiv:1706.03762",
+              "chunk_id": "arxiv:1706.03762:119#0",
+              "block_id": "arxiv:1706.03762:119",
+              "source": "arxiv",
+              "representation": "pdf",
+              "section": "abstract",
+              "page_or_node": "p8",
+              "char_start": 21957,
+              "char_end": 21974,
+              "offset_basis": "normalized_document",
+              "source_bbox": [
+                136.67098999023438,
+                229.0757598876953,
+                447.96112060546875,
+                240.54806518554688
+              ],
+              "source_words": [],
+              "table_id": "arxiv:1706.03762:108:table"
+            },
+            {
+              "paper_id": "arxiv:1706.03762",
+              "chunk_id": "arxiv:1706.03762:111#0",
+              "block_id": "arxiv:1706.03762:111",
+              "source": "arxiv",
+              "representation": "pdf",
+              "section": "abstract",
+              "page_or_node": "p8",
+              "char_start": 21545,
+              "char_end": 21550,
+              "offset_basis": "normalized_document",
+              "source_bbox": [
+                136.67100524902344,
+                113.82844543457031,
+                473.10211181640625,
+                146.48104858398438
+              ],
+              "source_words": [],
+              "table_id": "arxiv:1706.03762:108:table"
+            },
+            {
+              "paper_id": "arxiv:1706.03762",
+              "chunk_id": "arxiv:1706.03762:109#0",
+              "block_id": "arxiv:1706.03762:109",
+              "source": "arxiv",
+              "representation": "pdf",
+              "section": "abstract",
+              "page_or_node": "p8",
+              "char_start": 21508,
+              "char_end": 21512,
+              "offset_basis": "normalized_document",
+              "source_bbox": [
+                311.02099609375,
+                97.91346740722656,
+                475.3241882324219,
+                107.87606811523438
+              ],
+              "source_words": [],
+              "table_id": "arxiv:1706.03762:108:table"
+            },
+            {
+              "paper_id": "arxiv:1706.03762",
+              "chunk_id": "arxiv:1706.03762:119#0",
+              "block_id": "arxiv:1706.03762:119",
+              "source": "arxiv",
+              "representation": "pdf",
+              "section": "abstract",
+              "page_or_node": "p8",
+              "char_start": 21980,
+              "char_end": 21984,
+              "offset_basis": "normalized_document",
+              "source_bbox": [
+                136.67098999023438,
+                229.0757598876953,
+                447.96112060546875,
+                240.54806518554688
+              ],
+              "source_words": [],
+              "table_id": "arxiv:1706.03762:108:table"
+            },
+            {
+              "paper_id": "arxiv:1706.03762",
+              "chunk_id": "arxiv:1706.03762:108#0",
+              "block_id": "arxiv:1706.03762:108",
+              "source": "arxiv",
+              "representation": "pdf",
+              "section": "abstract",
+              "page_or_node": "p8",
+              "char_start": 21454,
+              "char_end": 21466,
+              "offset_basis": "normalized_document",
+              "source_bbox": [
+                107.69100189208984,
+                71.19947814941406,
+                504.00311279296875,
+                92.07107543945312
+              ],
+              "source_words": [
+                {
+                  "text": "English-to-German",
+                  "bbox": [
+                    108.0,
+                    82.10847473144531,
+                    184.92124938964844,
+                    92.07107543945312
+                  ],
+                  "native_block": 0,
+                  "line": 1,
+                  "word": 0
+                },
+                {
+                  "text": "English-to-French",
+                  "bbox": [
+                    204.2885284423828,
+                    82.10847473144531,
+                    276.7863464355469,
+                    92.07107543945312
+                  ],
+                  "native_block": 0,
+                  "line": 1,
+                  "word": 2
+                },
+                {
+                  "text": "newstest2014",
+                  "bbox": [
+                    279.2770080566406,
+                    82.10847473144531,
+                    333.2643127441406,
+                    92.07107543945312
+                  ],
+                  "native_block": 0,
+                  "line": 1,
+                  "word": 3
+                }
+              ],
+              "table_id": "arxiv:1706.03762:108:table"
+            },
+            {
+              "paper_id": "arxiv:1706.03762",
+              "chunk_id": "arxiv:1706.03762:108#0",
+              "block_id": "arxiv:1706.03762:108",
+              "source": "arxiv",
+              "representation": "pdf",
+              "section": "abstract",
+              "page_or_node": "p8",
+              "char_start": 21436,
+              "char_end": 21453,
+              "offset_basis": "normalized_document",
+              "source_bbox": [
+                107.69100189208984,
+                71.19947814941406,
+                504.00311279296875,
+                92.07107543945312
+              ],
+              "source_words": [
+                {
+                  "text": "English-to-German",
+                  "bbox": [
+                    108.0,
+                    82.10847473144531,
+                    184.92124938964844,
+                    92.07107543945312
+                  ],
+                  "native_block": 0,
+                  "line": 1,
+                  "word": 0
+                },
+                {
+                  "text": "English-to-French",
+                  "bbox": [
+                    204.2885284423828,
+                    82.10847473144531,
+                    276.7863464355469,
+                    92.07107543945312
+                  ],
+                  "native_block": 0,
+                  "line": 1,
+                  "word": 2
+                },
+                {
+                  "text": "newstest2014",
+                  "bbox": [
+                    279.2770080566406,
+                    82.10847473144531,
+                    333.2643127441406,
+                    92.07107543945312
+                  ],
+                  "native_block": 0,
+                  "line": 1,
+                  "word": 3
+                }
+              ],
+              "table_id": "arxiv:1706.03762:108:table"
+            },
+            {
+              "paper_id": "arxiv:1706.03762",
+              "chunk_id": "arxiv:1706.03762:111#0",
+              "block_id": "arxiv:1706.03762:111",
+              "source": "arxiv",
+              "representation": "pdf",
+              "section": "abstract",
+              "page_or_node": "p8",
+              "char_start": 21545,
+              "char_end": 21550,
+              "offset_basis": "normalized_document",
+              "source_bbox": [
+                136.67100524902344,
+                113.82844543457031,
+                473.10211181640625,
+                146.48104858398438
+              ],
+              "source_words": [],
+              "table_id": "arxiv:1706.03762:108:table"
+            },
+            {
+              "paper_id": "arxiv:1706.03762",
+              "chunk_id": "arxiv:1706.03762:127#0",
+              "block_id": "arxiv:1706.03762:127",
+              "source": "arxiv",
+              "representation": "pdf",
+              "section": "abstract",
+              "page_or_node": "p8",
+              "char_start": 23828,
+              "char_end": 23964,
+              "offset_basis": "normalized_document",
+              "source_bbox": [
+                107.69100189208984,
+                598.3764038085938,
+                503.99761962890625,
+                640.9900512695312
+              ],
+              "source_words": []
+            }
+          ],
+          "confidence": 0.8,
+          "provenance_valid": true,
+          "verification_state": "VERIFIED",
+          "evidence_bundle_id": "bundle:e9a2425e3ed4961a0c4a3edf",
+          "attribution": {
+            "attribution": "OWN_PAPER",
+            "confidence": 0.55,
+            "own_hits": 0,
+            "cited_hits": 0,
+            "window": "Transformer (big)\n28.4\n41.8\n2.3 · 1019",
+            "level": "section_subject"
+          },
+          "scientific_tuple": {
+            "subject": "Transformer (big)",
+            "dataset": "newstest2014",
+            "metric": "BLEU",
+            "value": "41.8",
+            "benchmark": "newstest2014",
+            "condition": "English-to-French",
+            "unit": null,
+            "setting": null
+          },
+          "review_status": "needs_human_review",
+          "verification_route": "semantic_table_v1"
+        }
+      ],
+      "limitations": [
+        {
+          "field": "limitations",
+          "value": null,
+          "final": "ABSTAINED",
+          "evidence_status": "MISSING",
+          "status": "MISSING",
+          "abstain_reason": "missing_evidence",
+          "evidence_span": null,
+          "source_refs": [],
+          "confidence": 0.0,
+          "provenance_valid": false,
+          "verification_state": "UNAVAILABLE"
+        }
+      ],
+      "future_scope": [
+        {
+          "field": "future_scope",
+          "value": null,
+          "final": "ABSTAINED",
+          "evidence_status": "MISSING",
+          "status": "MISSING",
+          "abstain_reason": "missing_evidence",
+          "evidence_span": null,
+          "source_refs": [],
+          "confidence": 0.0,
+          "provenance_valid": false,
+          "verification_state": "UNAVAILABLE"
+        }
+      ],
+      "key_findings": [
+        {
+          "field": "key_findings",
+          "value": null,
+          "final": "ABSTAINED",
+          "evidence_status": "MISSING",
+          "status": "MISSING",
+          "abstain_reason": "missing_evidence",
+          "evidence_span": null,
+          "source_refs": [],
+          "confidence": 0.0,
+          "provenance_valid": false,
+          "verification_state": "UNAVAILABLE"
+        }
+      ]
+    },
+    "trace": {
+      "execution": "remote_proposals_local_host_verifier",
+      "independent_human_accuracy": null,
+      "reviewed_benchmark": "UNAVAILABLE",
+      "input_package_id": "rgpt_57244e7a2d975a228493c31e",
+      "raw_response_sha256": "4daf12dc1fa3c7f5252e14f1aebea266864e8549e1969d0e9530f31177f09330",
+      "remote_execution_metadata": {
+        "status": "COMPLETED",
+        "execution_kind": "controlled_fixture_NOT_Kaggle_inference",
+        "requested_model": {
+          "model": "Qwen/Qwen3-8B",
+          "revision": "b968826d9c46dd6066d109eabc6255188de91218",
+          "license": "Apache-2.0",
+          "minimum_free_bytes": 9000000000
+        },
+        "generation": {
+          "context_window": 8192,
+          "max_new_tokens": 2048,
+          "do_sample": false,
+          "seed": 42,
+          "enable_thinking": false
+        },
+        "quantization": {
+          "method": "bitsandbytes_nf4",
+          "compute_dtype": "float16",
+          "double_quant": true
+        },
+        "finish_reason": "stop",
+        "prompt_tokens": 1,
+        "generated_tokens": 1,
+        "runtime_seconds": 0,
+        "metrics_are_measured": false
+      },
+      "remote_metadata_is_untrusted": true,
+      "verification": "trusted_local_source_gate",
+      "import_id": "f29898c220b145bcaec682c2afbd7f33",
+      "project_id": "frontend-example"
+    },
+    "errors": [],
+    "evidence_bundles": [
+      {
+        "bundle_id": "bundle:21d5690406bd141f0cddee94",
+        "paper_id": "arxiv:1706.03762",
+        "document_sha256": "bdfaa68d8984f0dc02beaca527b76f207d99b666d31d1da728ee0728182df697",
+        "table_id": "arxiv:1706.03762:108:table",
+        "parser": "native_header_geometry_v1",
+        "parser_revision": "1.28.2",
+        "linkage": "native_header_geometry_v1",
+        "structural_status": "SOURCE_ALIGNED",
+        "review_status": "needs_human_review",
+        "row": 7,
+        "column": 0,
+        "spans": [
+          {
+            "span_id": "arxiv:1706.03762:108#0@0:192:caption",
+            "role": "caption",
+            "text": "Table 2: The Transformer achieves better BLEU scores than previous state-of-the-art models on the\nEnglish-to-German and English-to-French newstest2014 tests at a fraction of the training cost.",
+            "reference": {
+              "paper_id": "arxiv:1706.03762",
+              "chunk_id": "arxiv:1706.03762:108#0",
+              "block_id": "arxiv:1706.03762:108",
+              "source": "arxiv",
+              "representation": "pdf",
+              "section": "abstract",
+              "page_or_node": "p8",
+              "char_start": 21316,
+              "char_end": 21508,
+              "offset_basis": "normalized_document",
+              "source_bbox": [
+                107.69100189208984,
+                71.19947814941406,
+                504.00311279296875,
+                92.07107543945312
+              ],
+              "source_words": [
+                {
+                  "text": "English-to-German",
+                  "bbox": [
+                    108.0,
+                    82.10847473144531,
+                    184.92124938964844,
+                    92.07107543945312
+                  ],
+                  "native_block": 0,
+                  "line": 1,
+                  "word": 0
+                },
+                {
+                  "text": "English-to-French",
+                  "bbox": [
+                    204.2885284423828,
+                    82.10847473144531,
+                    276.7863464355469,
+                    92.07107543945312
+                  ],
+                  "native_block": 0,
+                  "line": 1,
+                  "word": 2
+                },
+                {
+                  "text": "newstest2014",
+                  "bbox": [
+                    279.2770080566406,
+                    82.10847473144531,
+                    333.2643127441406,
+                    92.07107543945312
+                  ],
+                  "native_block": 0,
+                  "line": 1,
+                  "word": 3
+                }
+              ],
+              "table_id": "arxiv:1706.03762:108:table"
+            },
+            "bbox": [
+              107.69100189208984,
+              71.19947814941406,
+              504.00311279296875,
+              92.07107543945312
+            ]
+          },
+          {
+            "span_id": "arxiv:1706.03762:119#0@0:17:subject",
+            "role": "subject",
+            "text": "Transformer (big)",
+            "reference": {
+              "paper_id": "arxiv:1706.03762",
+              "chunk_id": "arxiv:1706.03762:119#0",
+              "block_id": "arxiv:1706.03762:119",
+              "source": "arxiv",
+              "representation": "pdf",
+              "section": "abstract",
+              "page_or_node": "p8",
+              "char_start": 21957,
+              "char_end": 21974,
+              "offset_basis": "normalized_document",
+              "source_bbox": [
+                136.67098999023438,
+                229.0757598876953,
+                447.96112060546875,
+                240.54806518554688
+              ],
+              "source_words": [],
+              "table_id": "arxiv:1706.03762:108:table"
+            },
+            "bbox": [
+              136.67098999023438,
+              229.0757598876953,
+              447.96112060546875,
+              240.54806518554688
+            ]
+          },
+          {
+            "span_id": "arxiv:1706.03762:111#0@0:5:dataset",
+            "role": "dataset",
+            "text": "EN-DE",
+            "reference": {
+              "paper_id": "arxiv:1706.03762",
+              "chunk_id": "arxiv:1706.03762:111#0",
+              "block_id": "arxiv:1706.03762:111",
+              "source": "arxiv",
+              "representation": "pdf",
+              "section": "abstract",
+              "page_or_node": "p8",
+              "char_start": 21539,
+              "char_end": 21544,
+              "offset_basis": "normalized_document",
+              "source_bbox": [
+                136.67100524902344,
+                113.82844543457031,
+                473.10211181640625,
+                146.48104858398438
+              ],
+              "source_words": [],
+              "table_id": "arxiv:1706.03762:108:table"
+            },
+            "bbox": [
+              288.7200012207031,
+              113.82844543457031,
+              318.59783935546875,
+              123.79104614257812
+            ]
+          },
+          {
+            "span_id": "arxiv:1706.03762:109#0@0:4:metric",
+            "role": "metric",
+            "text": "BLEU",
+            "reference": {
+              "paper_id": "arxiv:1706.03762",
+              "chunk_id": "arxiv:1706.03762:109#0",
+              "block_id": "arxiv:1706.03762:109",
+              "source": "arxiv",
+              "representation": "pdf",
+              "section": "abstract",
+              "page_or_node": "p8",
+              "char_start": 21508,
+              "char_end": 21512,
+              "offset_basis": "normalized_document",
+              "source_bbox": [
+                311.02099609375,
+                97.91346740722656,
+                475.3241882324219,
+                107.87606811523438
+              ],
+              "source_words": [],
+              "table_id": "arxiv:1706.03762:108:table"
+            },
+            "bbox": [
+              311.02099609375,
+              97.91346740722656,
+              337.0333557128906,
+              107.87606811523438
+            ]
+          },
+          {
+            "span_id": "arxiv:1706.03762:119#0@18:22:value",
+            "role": "value",
+            "text": "28.4",
+            "reference": {
+              "paper_id": "arxiv:1706.03762",
+              "chunk_id": "arxiv:1706.03762:119#0",
+              "block_id": "arxiv:1706.03762:119",
+              "source": "arxiv",
+              "representation": "pdf",
+              "section": "abstract",
+              "page_or_node": "p8",
+              "char_start": 21975,
+              "char_end": 21979,
+              "offset_basis": "normalized_document",
+              "source_bbox": [
+                136.67098999023438,
+                229.0757598876953,
+                447.96112060546875,
+                240.54806518554688
+              ],
+              "source_words": [],
+              "table_id": "arxiv:1706.03762:108:table"
+            },
+            "bbox": [
+              294.94097900390625,
+              230.4945068359375,
+              312.3755187988281,
+              240.4571075439453
+            ]
+          },
+          {
+            "span_id": "arxiv:1706.03762:108#0@21454:21466:benchmark",
+            "role": "benchmark",
+            "text": "newstest2014",
+            "reference": {
+              "paper_id": "arxiv:1706.03762",
+              "chunk_id": "arxiv:1706.03762:108#0",
+              "block_id": "arxiv:1706.03762:108",
+              "source": "arxiv",
+              "representation": "pdf",
+              "section": "abstract",
+              "page_or_node": "p8",
+              "char_start": 21454,
+              "char_end": 21466,
+              "offset_basis": "normalized_document",
+              "source_bbox": [
+                107.69100189208984,
+                71.19947814941406,
+                504.00311279296875,
+                92.07107543945312
+              ],
+              "source_words": [
+                {
+                  "text": "English-to-German",
+                  "bbox": [
+                    108.0,
+                    82.10847473144531,
+                    184.92124938964844,
+                    92.07107543945312
+                  ],
+                  "native_block": 0,
+                  "line": 1,
+                  "word": 0
+                },
+                {
+                  "text": "English-to-French",
+                  "bbox": [
+                    204.2885284423828,
+                    82.10847473144531,
+                    276.7863464355469,
+                    92.07107543945312
+                  ],
+                  "native_block": 0,
+                  "line": 1,
+                  "word": 2
+                },
+                {
+                  "text": "newstest2014",
+                  "bbox": [
+                    279.2770080566406,
+                    82.10847473144531,
+                    333.2643127441406,
+                    92.07107543945312
+                  ],
+                  "native_block": 0,
+                  "line": 1,
+                  "word": 3
+                }
+              ],
+              "table_id": "arxiv:1706.03762:108:table"
+            },
+            "bbox": [
+              279.2770080566406,
+              82.10847473144531,
+              333.2643127441406,
+              92.07107543945312
+            ]
+          },
+          {
+            "span_id": "arxiv:1706.03762:108#0@21414:21431:condition",
+            "role": "condition",
+            "text": "English-to-German",
+            "reference": {
+              "paper_id": "arxiv:1706.03762",
+              "chunk_id": "arxiv:1706.03762:108#0",
+              "block_id": "arxiv:1706.03762:108",
+              "source": "arxiv",
+              "representation": "pdf",
+              "section": "abstract",
+              "page_or_node": "p8",
+              "char_start": 21414,
+              "char_end": 21431,
+              "offset_basis": "normalized_document",
+              "source_bbox": [
+                107.69100189208984,
+                71.19947814941406,
+                504.00311279296875,
+                92.07107543945312
+              ],
+              "source_words": [
+                {
+                  "text": "English-to-German",
+                  "bbox": [
+                    108.0,
+                    82.10847473144531,
+                    184.92124938964844,
+                    92.07107543945312
+                  ],
+                  "native_block": 0,
+                  "line": 1,
+                  "word": 0
+                },
+                {
+                  "text": "English-to-French",
+                  "bbox": [
+                    204.2885284423828,
+                    82.10847473144531,
+                    276.7863464355469,
+                    92.07107543945312
+                  ],
+                  "native_block": 0,
+                  "line": 1,
+                  "word": 2
+                },
+                {
+                  "text": "newstest2014",
+                  "bbox": [
+                    279.2770080566406,
+                    82.10847473144531,
+                    333.2643127441406,
+                    92.07107543945312
+                  ],
+                  "native_block": 0,
+                  "line": 1,
+                  "word": 3
+                }
+              ],
+              "table_id": "arxiv:1706.03762:108:table"
+            },
+            "bbox": [
+              108.0,
+              82.10847473144531,
+              184.92124938964844,
+              92.07107543945312
+            ]
+          },
+          {
+            "span_id": "arxiv:1706.03762:111#0@0:5:dataset:condition_label",
+            "role": "condition_label",
+            "text": "EN-DE",
+            "reference": {
+              "paper_id": "arxiv:1706.03762",
+              "chunk_id": "arxiv:1706.03762:111#0",
+              "block_id": "arxiv:1706.03762:111",
+              "source": "arxiv",
+              "representation": "pdf",
+              "section": "abstract",
+              "page_or_node": "p8",
+              "char_start": 21539,
+              "char_end": 21544,
+              "offset_basis": "normalized_document",
+              "source_bbox": [
+                136.67100524902344,
+                113.82844543457031,
+                473.10211181640625,
+                146.48104858398438
+              ],
+              "source_words": [],
+              "table_id": "arxiv:1706.03762:108:table"
+            },
+            "bbox": [
+              288.7200012207031,
+              113.82844543457031,
+              318.59783935546875,
+              123.79104614257812
+            ]
+          },
+          {
+            "span_id": "arxiv:1706.03762:127#0@23828:23964:ownership",
+            "role": "ownership",
+            "text": "Table 2 summarizes our results and compares our translation quality and training costs to other model\narchitectures from the literature.",
+            "reference": {
+              "paper_id": "arxiv:1706.03762",
+              "chunk_id": "arxiv:1706.03762:127#0",
+              "block_id": "arxiv:1706.03762:127",
+              "source": "arxiv",
+              "representation": "pdf",
+              "section": "abstract",
+              "page_or_node": "p8",
+              "char_start": 23828,
+              "char_end": 23964,
+              "offset_basis": "normalized_document",
+              "source_bbox": [
+                107.69100189208984,
+                598.3764038085938,
+                503.99761962890625,
+                640.9900512695312
+              ],
+              "source_words": []
+            },
+            "bbox": [
+              107.69100189208984,
+              598.3764038085938,
+              503.99761962890625,
+              640.9900512695312
+            ]
+          }
+        ],
+        "unresolved": [],
+        "semantic": {
+          "builder": "caption_header_relations_v1",
+          "status": "RESOLVED",
+          "benchmark": "newstest2014",
+          "condition": "English-to-German",
+          "condition_label": "EN-DE",
+          "metric": "BLEU",
+          "unit": null,
+          "relations": [
+            {
+              "kind": "caption_benchmark",
+              "from_span_id": "arxiv:1706.03762:108#0@0:192:caption",
+              "to_span_id": "arxiv:1706.03762:108#0@21454:21466:benchmark",
+              "table_id": "arxiv:1706.03762:108:table"
+            },
+            {
+              "kind": "header_metric",
+              "from_span_id": "arxiv:1706.03762:109#0@0:4:metric",
+              "to_span_id": "arxiv:1706.03762:111#0@0:5:dataset",
+              "table_id": "arxiv:1706.03762:108:table"
+            },
+            {
+              "kind": "row_value",
+              "from_span_id": "arxiv:1706.03762:119#0@0:17:subject",
+              "to_span_id": "arxiv:1706.03762:119#0@18:22:value",
+              "table_id": "arxiv:1706.03762:108:table"
+            },
+            {
+              "kind": "column_value",
+              "from_span_id": "arxiv:1706.03762:111#0@0:5:dataset",
+              "to_span_id": "arxiv:1706.03762:119#0@18:22:value",
+              "table_id": "arxiv:1706.03762:108:table"
+            },
+            {
+              "kind": "caption_condition",
+              "from_span_id": "arxiv:1706.03762:108#0@0:192:caption",
+              "to_span_id": "arxiv:1706.03762:108#0@21414:21431:condition",
+              "table_id": "arxiv:1706.03762:108:table"
+            },
+            {
+              "kind": "header_condition",
+              "from_span_id": "arxiv:1706.03762:111#0@0:5:dataset",
+              "to_span_id": "arxiv:1706.03762:108#0@21414:21431:condition",
+              "table_id": "arxiv:1706.03762:108:table"
+            },
+            {
+              "kind": "table_mention",
+              "from_span_id": "arxiv:1706.03762:127#0@23828:23964:ownership",
+              "to_span_id": "arxiv:1706.03762:108#0@0:192:caption",
+              "table_id": "arxiv:1706.03762:108:table"
+            }
+          ],
+          "reason": null
+        }
+      },
+      {
+        "bundle_id": "bundle:e9a2425e3ed4961a0c4a3edf",
+        "paper_id": "arxiv:1706.03762",
+        "document_sha256": "bdfaa68d8984f0dc02beaca527b76f207d99b666d31d1da728ee0728182df697",
+        "table_id": "arxiv:1706.03762:108:table",
+        "parser": "native_header_geometry_v1",
+        "parser_revision": "1.28.2",
+        "linkage": "native_header_geometry_v1",
+        "structural_status": "SOURCE_ALIGNED",
+        "review_status": "needs_human_review",
+        "row": 7,
+        "column": 1,
+        "spans": [
+          {
+            "span_id": "arxiv:1706.03762:108#0@0:192:caption",
+            "role": "caption",
+            "text": "Table 2: The Transformer achieves better BLEU scores than previous state-of-the-art models on the\nEnglish-to-German and English-to-French newstest2014 tests at a fraction of the training cost.",
+            "reference": {
+              "paper_id": "arxiv:1706.03762",
+              "chunk_id": "arxiv:1706.03762:108#0",
+              "block_id": "arxiv:1706.03762:108",
+              "source": "arxiv",
+              "representation": "pdf",
+              "section": "abstract",
+              "page_or_node": "p8",
+              "char_start": 21316,
+              "char_end": 21508,
+              "offset_basis": "normalized_document",
+              "source_bbox": [
+                107.69100189208984,
+                71.19947814941406,
+                504.00311279296875,
+                92.07107543945312
+              ],
+              "source_words": [
+                {
+                  "text": "English-to-German",
+                  "bbox": [
+                    108.0,
+                    82.10847473144531,
+                    184.92124938964844,
+                    92.07107543945312
+                  ],
+                  "native_block": 0,
+                  "line": 1,
+                  "word": 0
+                },
+                {
+                  "text": "English-to-French",
+                  "bbox": [
+                    204.2885284423828,
+                    82.10847473144531,
+                    276.7863464355469,
+                    92.07107543945312
+                  ],
+                  "native_block": 0,
+                  "line": 1,
+                  "word": 2
+                },
+                {
+                  "text": "newstest2014",
+                  "bbox": [
+                    279.2770080566406,
+                    82.10847473144531,
+                    333.2643127441406,
+                    92.07107543945312
+                  ],
+                  "native_block": 0,
+                  "line": 1,
+                  "word": 3
+                }
+              ],
+              "table_id": "arxiv:1706.03762:108:table"
+            },
+            "bbox": [
+              107.69100189208984,
+              71.19947814941406,
+              504.00311279296875,
+              92.07107543945312
+            ]
+          },
+          {
+            "span_id": "arxiv:1706.03762:119#0@0:17:subject",
+            "role": "subject",
+            "text": "Transformer (big)",
+            "reference": {
+              "paper_id": "arxiv:1706.03762",
+              "chunk_id": "arxiv:1706.03762:119#0",
+              "block_id": "arxiv:1706.03762:119",
+              "source": "arxiv",
+              "representation": "pdf",
+              "section": "abstract",
+              "page_or_node": "p8",
+              "char_start": 21957,
+              "char_end": 21974,
+              "offset_basis": "normalized_document",
+              "source_bbox": [
+                136.67098999023438,
+                229.0757598876953,
+                447.96112060546875,
+                240.54806518554688
+              ],
+              "source_words": [],
+              "table_id": "arxiv:1706.03762:108:table"
+            },
+            "bbox": [
+              136.67098999023438,
+              229.0757598876953,
+              447.96112060546875,
+              240.54806518554688
+            ]
+          },
+          {
+            "span_id": "arxiv:1706.03762:111#0@6:11:dataset",
+            "role": "dataset",
+            "text": "EN-FR",
+            "reference": {
+              "paper_id": "arxiv:1706.03762",
+              "chunk_id": "arxiv:1706.03762:111#0",
+              "block_id": "arxiv:1706.03762:111",
+              "source": "arxiv",
+              "representation": "pdf",
+              "section": "abstract",
+              "page_or_node": "p8",
+              "char_start": 21545,
+              "char_end": 21550,
+              "offset_basis": "normalized_document",
+              "source_bbox": [
+                136.67100524902344,
+                113.82844543457031,
+                473.10211181640625,
+                146.48104858398438
+              ],
+              "source_words": [],
+              "table_id": "arxiv:1706.03762:108:table"
+            },
+            "bbox": [
+              330.5529479980469,
+              113.82844543457031,
+              359.33489990234375,
+              123.79104614257812
+            ]
+          },
+          {
+            "span_id": "arxiv:1706.03762:109#0@0:4:metric",
+            "role": "metric",
+            "text": "BLEU",
+            "reference": {
+              "paper_id": "arxiv:1706.03762",
+              "chunk_id": "arxiv:1706.03762:109#0",
+              "block_id": "arxiv:1706.03762:109",
+              "source": "arxiv",
+              "representation": "pdf",
+              "section": "abstract",
+              "page_or_node": "p8",
+              "char_start": 21508,
+              "char_end": 21512,
+              "offset_basis": "normalized_document",
+              "source_bbox": [
+                311.02099609375,
+                97.91346740722656,
+                475.3241882324219,
+                107.87606811523438
+              ],
+              "source_words": [],
+              "table_id": "arxiv:1706.03762:108:table"
+            },
+            "bbox": [
+              311.02099609375,
+              97.91346740722656,
+              337.0333557128906,
+              107.87606811523438
+            ]
+          },
+          {
+            "span_id": "arxiv:1706.03762:119#0@23:27:value",
+            "role": "value",
+            "text": "41.8",
+            "reference": {
+              "paper_id": "arxiv:1706.03762",
+              "chunk_id": "arxiv:1706.03762:119#0",
+              "block_id": "arxiv:1706.03762:119",
+              "source": "arxiv",
+              "representation": "pdf",
+              "section": "abstract",
+              "page_or_node": "p8",
+              "char_start": 21980,
+              "char_end": 21984,
+              "offset_basis": "normalized_document",
+              "source_bbox": [
+                136.67098999023438,
+                229.0757598876953,
+                447.96112060546875,
+                240.54806518554688
+              ],
+              "source_words": [],
+              "table_id": "arxiv:1706.03762:108:table"
+            },
+            "bbox": [
+              336.2259826660156,
+              230.4945068359375,
+              353.6605224609375,
+              240.4571075439453
+            ]
+          },
+          {
+            "span_id": "arxiv:1706.03762:108#0@21454:21466:benchmark",
+            "role": "benchmark",
+            "text": "newstest2014",
+            "reference": {
+              "paper_id": "arxiv:1706.03762",
+              "chunk_id": "arxiv:1706.03762:108#0",
+              "block_id": "arxiv:1706.03762:108",
+              "source": "arxiv",
+              "representation": "pdf",
+              "section": "abstract",
+              "page_or_node": "p8",
+              "char_start": 21454,
+              "char_end": 21466,
+              "offset_basis": "normalized_document",
+              "source_bbox": [
+                107.69100189208984,
+                71.19947814941406,
+                504.00311279296875,
+                92.07107543945312
+              ],
+              "source_words": [
+                {
+                  "text": "English-to-German",
+                  "bbox": [
+                    108.0,
+                    82.10847473144531,
+                    184.92124938964844,
+                    92.07107543945312
+                  ],
+                  "native_block": 0,
+                  "line": 1,
+                  "word": 0
+                },
+                {
+                  "text": "English-to-French",
+                  "bbox": [
+                    204.2885284423828,
+                    82.10847473144531,
+                    276.7863464355469,
+                    92.07107543945312
+                  ],
+                  "native_block": 0,
+                  "line": 1,
+                  "word": 2
+                },
+                {
+                  "text": "newstest2014",
+                  "bbox": [
+                    279.2770080566406,
+                    82.10847473144531,
+                    333.2643127441406,
+                    92.07107543945312
+                  ],
+                  "native_block": 0,
+                  "line": 1,
+                  "word": 3
+                }
+              ],
+              "table_id": "arxiv:1706.03762:108:table"
+            },
+            "bbox": [
+              279.2770080566406,
+              82.10847473144531,
+              333.2643127441406,
+              92.07107543945312
+            ]
+          },
+          {
+            "span_id": "arxiv:1706.03762:108#0@21436:21453:condition",
+            "role": "condition",
+            "text": "English-to-French",
+            "reference": {
+              "paper_id": "arxiv:1706.03762",
+              "chunk_id": "arxiv:1706.03762:108#0",
+              "block_id": "arxiv:1706.03762:108",
+              "source": "arxiv",
+              "representation": "pdf",
+              "section": "abstract",
+              "page_or_node": "p8",
+              "char_start": 21436,
+              "char_end": 21453,
+              "offset_basis": "normalized_document",
+              "source_bbox": [
+                107.69100189208984,
+                71.19947814941406,
+                504.00311279296875,
+                92.07107543945312
+              ],
+              "source_words": [
+                {
+                  "text": "English-to-German",
+                  "bbox": [
+                    108.0,
+                    82.10847473144531,
+                    184.92124938964844,
+                    92.07107543945312
+                  ],
+                  "native_block": 0,
+                  "line": 1,
+                  "word": 0
+                },
+                {
+                  "text": "English-to-French",
+                  "bbox": [
+                    204.2885284423828,
+                    82.10847473144531,
+                    276.7863464355469,
+                    92.07107543945312
+                  ],
+                  "native_block": 0,
+                  "line": 1,
+                  "word": 2
+                },
+                {
+                  "text": "newstest2014",
+                  "bbox": [
+                    279.2770080566406,
+                    82.10847473144531,
+                    333.2643127441406,
+                    92.07107543945312
+                  ],
+                  "native_block": 0,
+                  "line": 1,
+                  "word": 3
+                }
+              ],
+              "table_id": "arxiv:1706.03762:108:table"
+            },
+            "bbox": [
+              204.2885284423828,
+              82.10847473144531,
+              276.7863464355469,
+              92.07107543945312
+            ]
+          },
+          {
+            "span_id": "arxiv:1706.03762:111#0@6:11:dataset:condition_label",
+            "role": "condition_label",
+            "text": "EN-FR",
+            "reference": {
+              "paper_id": "arxiv:1706.03762",
+              "chunk_id": "arxiv:1706.03762:111#0",
+              "block_id": "arxiv:1706.03762:111",
+              "source": "arxiv",
+              "representation": "pdf",
+              "section": "abstract",
+              "page_or_node": "p8",
+              "char_start": 21545,
+              "char_end": 21550,
+              "offset_basis": "normalized_document",
+              "source_bbox": [
+                136.67100524902344,
+                113.82844543457031,
+                473.10211181640625,
+                146.48104858398438
+              ],
+              "source_words": [],
+              "table_id": "arxiv:1706.03762:108:table"
+            },
+            "bbox": [
+              330.5529479980469,
+              113.82844543457031,
+              359.33489990234375,
+              123.79104614257812
+            ]
+          },
+          {
+            "span_id": "arxiv:1706.03762:127#0@23828:23964:ownership",
+            "role": "ownership",
+            "text": "Table 2 summarizes our results and compares our translation quality and training costs to other model\narchitectures from the literature.",
+            "reference": {
+              "paper_id": "arxiv:1706.03762",
+              "chunk_id": "arxiv:1706.03762:127#0",
+              "block_id": "arxiv:1706.03762:127",
+              "source": "arxiv",
+              "representation": "pdf",
+              "section": "abstract",
+              "page_or_node": "p8",
+              "char_start": 23828,
+              "char_end": 23964,
+              "offset_basis": "normalized_document",
+              "source_bbox": [
+                107.69100189208984,
+                598.3764038085938,
+                503.99761962890625,
+                640.9900512695312
+              ],
+              "source_words": []
+            },
+            "bbox": [
+              107.69100189208984,
+              598.3764038085938,
+              503.99761962890625,
+              640.9900512695312
+            ]
+          }
+        ],
+        "unresolved": [],
+        "semantic": {
+          "builder": "caption_header_relations_v1",
+          "status": "RESOLVED",
+          "benchmark": "newstest2014",
+          "condition": "English-to-French",
+          "condition_label": "EN-FR",
+          "metric": "BLEU",
+          "unit": null,
+          "relations": [
+            {
+              "kind": "caption_benchmark",
+              "from_span_id": "arxiv:1706.03762:108#0@0:192:caption",
+              "to_span_id": "arxiv:1706.03762:108#0@21454:21466:benchmark",
+              "table_id": "arxiv:1706.03762:108:table"
+            },
+            {
+              "kind": "header_metric",
+              "from_span_id": "arxiv:1706.03762:109#0@0:4:metric",
+              "to_span_id": "arxiv:1706.03762:111#0@6:11:dataset",
+              "table_id": "arxiv:1706.03762:108:table"
+            },
+            {
+              "kind": "row_value",
+              "from_span_id": "arxiv:1706.03762:119#0@0:17:subject",
+              "to_span_id": "arxiv:1706.03762:119#0@23:27:value",
+              "table_id": "arxiv:1706.03762:108:table"
+            },
+            {
+              "kind": "column_value",
+              "from_span_id": "arxiv:1706.03762:111#0@6:11:dataset",
+              "to_span_id": "arxiv:1706.03762:119#0@23:27:value",
+              "table_id": "arxiv:1706.03762:108:table"
+            },
+            {
+              "kind": "caption_condition",
+              "from_span_id": "arxiv:1706.03762:108#0@0:192:caption",
+              "to_span_id": "arxiv:1706.03762:108#0@21436:21453:condition",
+              "table_id": "arxiv:1706.03762:108:table"
+            },
+            {
+              "kind": "header_condition",
+              "from_span_id": "arxiv:1706.03762:111#0@6:11:dataset",
+              "to_span_id": "arxiv:1706.03762:108#0@21436:21453:condition",
+              "table_id": "arxiv:1706.03762:108:table"
+            },
+            {
+              "kind": "table_mention",
+              "from_span_id": "arxiv:1706.03762:127#0@23828:23964:ownership",
+              "to_span_id": "arxiv:1706.03762:108#0@0:192:caption",
+              "table_id": "arxiv:1706.03762:108:table"
+            }
+          ],
+          "reason": null
+        }
+      }
+    ]
+  }
+}
