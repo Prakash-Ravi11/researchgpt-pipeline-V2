@@ -1,5 +1,10 @@
 # Private, reproducible accuracy jobs
 
+**Experimental development setup.** Clean Kaggle end-to-end inference and
+scientific validation remain pending. Later experimental/audited notebook
+changes require repository review and tests before integration. See the
+[teammate review status](../docs/REVIEW_STATUS.md).
+
 Current recovery: [INFERENCE.md](INFERENCE.md), [actual artifact report](../docs/KAGGLE_RECOVERY_REPORT.md)
 and [complete next cell code](../docs/KAGGLE_RECOVERY_CELLS.md). Use the prepared
 semantic_inference_recovery_v4.ipynb and its new private manifest/bin transport.

@@ -1,5 +1,35 @@
 # Progress
 
+### Teammate publication review - 2026-11-15
+
+Explicit user authorization covers pushing the existing feature branch and
+opening a draft PR against main. Inspected clean branch/status/log/origin,
+then fetched origin. Feature and main remote heads are 6b3dc71. Local HEAD
+50c6764 is 28 commits ahead, including d0ddf1d. Reviewed the 190-file tree and
+all 357 outgoing blob versions for publication scope, artifact sizes/types and
+common credential patterns. Zero scan matches, binaries or blobs over 1 MB.
+Parsed 100 Python files, 45 JSON files and three notebooks without errors.
+
+Preserved the reported 173-test checkpoint with its exact saved evidence.
+Executed a separate offline 30-case packaging/recovery/import regression check.
+The initial invocation had 27 missing-parent scratch-directory setup errors and
+three passes. Created outputs/publication-review, then used the documented
+Windows test permissions with a fresh basetemp. Result 30 passed in 26.60s,
+one existing dependency warning. Command, scope and limitations are recorded in
+docs/REVIEW_STATUS.md. Its cases overlap the historical suite.
+
+Reviewed notebook execution metadata and a downloaded recovery copy with an
+extra cell/outputs. External experimental/audited changes require repository
+review and testing before integration. Added current review status and explicit
+experimental/pending-validation labels to README/Kaggle guides, plus ignore
+rules for private inputs, credentials, archives and downloaded assets. Research
+implementation and notebook source hashes match 50c6764. Clean Kaggle E2E,
+independent scientific validation and production readiness remain pending.
+
+Last completed commit before this documentation checkpoint is 50c6764. Next
+action is a focused publication commit, ordinary feature-branch push and draft
+PR against main. Historical phase entries below retain their original scope.
+
 ### V4 package and exact-cell handoff delivered
 
 After tested code commit d0ddf1d9dff7820712fadab7b7ad920499b00f95, exported

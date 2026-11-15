@@ -1,5 +1,12 @@
 # Private Kaggle recovery v4
 
+**Experimental recovery template.** Local bootstrap and CPU regressions cover
+the committed version. Clean Kaggle environment/GPU execution, end-to-end
+inference and scientific validation remain pending. Later experimental/audited
+notebook changes require repository review and tests before integration. The
+private packages referenced below stay local and require separate preparation
+for another teammate's checkout. See the [review status](../docs/REVIEW_STATUS.md).
+
 The actual second Qwen3-8B run generated349 tokens/EOS but failed the source-ID
 schema in all ten fields. See [the artifact/audit report](../docs/KAGGLE_RECOVERY_REPORT.md).
 The v4 corrected inference is **NOT EXECUTED**. Original v2/v3 inputs, manifests,
